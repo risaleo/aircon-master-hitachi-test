@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<rect width="1200" height="800" rx="36" fill="#f8fafc"/>
+<rect x="35" y="35" width="1130" height="110" rx="28" fill="#0f4c81"/>
+<text x="75" y="108" font-size="48" font-family="sans-serif" font-weight="700" fill="white">🔇  WN ウェーブファン</text>
+<g font-family="sans-serif">
+<rect x="70" y="230" width="280" height="220" rx="28" fill="#e0f2fe" stroke="#0284c7" stroke-width="5"/>
+<rect x="460" y="230" width="280" height="220" rx="28" fill="#dcfce7" stroke="#16a34a" stroke-width="5"/>
+<rect x="850" y="230" width="280" height="220" rx="28" fill="#fef3c7" stroke="#d97706" stroke-width="5"/>
+<text x="210" y="315" text-anchor="middle" font-size="58">1</text><text x="600" y="315" text-anchor="middle" font-size="58">2</text><text x="990" y="315" text-anchor="middle" font-size="58">3</text>
+<text x="210" y="380" text-anchor="middle" font-size="30" font-weight="700">Xシリーズと同じファン</text>
+<text x="600" y="380" text-anchor="middle" font-size="30" font-weight="700">気流の乱れを抑える</text>
+<text x="990" y="380" text-anchor="middle" font-size="30" font-weight="700">静音性を向上</text>
+<text x="405" y="365" text-anchor="middle" font-size="54" fill="#64748b">→</text><text x="795" y="365" text-anchor="middle" font-size="54" fill="#64748b">→</text>
+<rect x="70" y="535" width="1060" height="150" rx="25" fill="#fff7ed" stroke="#ea580c" stroke-width="4"/>
+<text x="105" y="595" font-size="30" font-weight="700" fill="#9a3412">接客時の注意</text>
+<text x="105" y="645" font-size="28" fill="#431407">「無音」ではなく「静音性を高めた」と案内します。</text>
+</g></svg>
