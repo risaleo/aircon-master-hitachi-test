@@ -1,0 +1,1686 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>エアコン販買マスター Pro Ver.4.0 開発版・日立攻略追加</title>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
+<style>
+:root{--navy:#0b315f;--blue:#116fe8;--text:#14324f;--muted:#718497;--line:#dbe6ef}
+*{box-sizing:border-box}
+body{margin:0;background:#eef4f8;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}
+button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+.app{max-width:1180px;margin:auto;padding:18px}
+.page{min-height:calc(100vh - 36px);background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 18px 50px rgba(30,70,104,.1)}
+.topbar,.subheader{height:78px;padding:0 26px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;border-bottom:1px solid #edf1f5}
+.brand{text-align:center;font-size:26px;font-weight:900;color:var(--navy)}.brand small{padding:4px 8px;border-radius:999px;background:#eaf4ff;color:#176fd0;font-size:12px}
+.icon-button,.subheader button{border:0;background:transparent;color:var(--navy);font-size:26px;font-weight:900}.subheader h1{text-align:center;margin:0;font-size:24px}
+.hero{margin:18px 26px;padding:28px;border:1px solid #b9ddfb;border-radius:22px;background:linear-gradient(115deg,#f8fcff,#e3f3ff);display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+.level-line{display:flex;align-items:end;gap:24px;margin:15px 0 8px}.level-line strong{font-size:46px;color:#1765d3}
+.progress{height:12px;background:#d8e3ec;border-radius:99px;overflow:hidden}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#248ef4,#0757bf)}
+.tip{margin-top:18px;padding:14px;border-radius:14px;background:rgba(255,255,255,.75);font-weight:800;line-height:1.6}
+.hero-image{display:grid;place-items:center}.hero-image img{width:100%;height:220px;object-fit:contain}
+.main-banner{width:calc(100% - 52px);margin:0 26px 16px;padding:24px 28px;border:0;border-radius:20px;background:linear-gradient(110deg,#1774ef,#073e94);color:#fff;display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;text-align:left}
+.main-banner .round-icon{width:82px;height:82px;border-radius:50%;background:rgba(255,255,255,.15);display:grid;place-items:center;font-size:38px}.main-banner b{display:block;font-size:30px}.main-banner small{display:block;margin-top:6px}
+.menu-grid{padding:0 26px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.menu-card{min-height:190px;padding:18px;border:1px solid var(--line);border-radius:18px;background:#fff;color:var(--text);box-shadow:0 7px 20px rgba(30,70,100,.05)}
+.menu-icon{width:60px;height:60px;margin:auto auto 13px;border-radius:50%;display:grid;place-items:center;background:#eaf4ff;font-size:29px}.menu-card b{display:block;font-size:19px}.menu-card small{display:block;margin-top:8px;color:var(--muted)}
+.mission{width:calc(100% - 52px);margin:16px 26px;padding:17px 20px;border:1px solid var(--line);border-radius:16px;background:#f7fbff;color:var(--text);display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;text-align:left}.mission strong{font-size:22px;color:#0d62cc}
+.rank-content,.quiz-content,.result-content,.history-content,.settings-content,.sales-content{padding:30px}
+.rank-grid{max-width:780px;margin:24px auto;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.rank-button{min-height:175px;padding:24px;border:1px solid var(--line);border-radius:20px;background:#fff;color:var(--text)}.rank-button span{display:block;font-size:40px}.rank-button b{display:block;margin-top:8px;font-size:25px}.rank-button small{display:block;margin-top:8px;color:var(--muted)}
+.rank-button.beginner{background:#f3fbf4}.rank-button.middle{background:#f2f7ff}.rank-button.advanced{background:#fff4f4}.rank-button.random{background:#f7f3ff}
+.quiz-content{max-width:900px;margin:auto}.quiz-meta{display:flex;justify-content:space-between;margin-bottom:12px}.quiz-meta span{padding:7px 12px;border-radius:999px;background:#eaf4ff;color:#176fd0;font-weight:900}
+.question-card{padding:24px;border-radius:18px;background:#f1f8fc;font-size:23px;font-weight:900;line-height:1.55}
+.choice-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.choice{min-height:82px;padding:16px;border:1px solid #d5e3ec;border-radius:15px;background:#fff;text-align:left;color:var(--text);font-weight:800}.choice.correct{background:#e8f8ef;border-color:#4bb879}.choice.wrong{background:#fff0f0;border-color:#e26a6a}
+.answer-result{margin-top:15px;padding:17px;border-radius:15px;background:#f6f9fb;line-height:1.6}.next-button{width:100%;margin-top:16px;min-height:55px;border:0;border-radius:13px;background:#116fe8;color:#fff;font-weight:900}
+.result-content{max-width:650px;margin:auto}.result-card{text-align:center;padding:36px;border-radius:22px;background:#f5faff}.result-card strong{display:block;margin:15px 0;font-size:52px;color:#176fd0}
+.sales-stepper{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}.sales-stepper span{height:8px;border-radius:99px;background:#dbe6ef}.sales-stepper span.active{background:#1675e8}
+.sales-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px}.sales-customer-card,.sales-question-card{border:1px solid var(--line);border-radius:20px;padding:22px}.sales-avatar{font-size:78px;text-align:center;padding:22px;border-radius:18px;background:#eff7fc}
+.sales-facts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.sales-facts div{padding:10px;border-radius:10px;background:#f5f9fb;font-size:13px}.sales-speech{margin-top:14px;padding:14px;border-radius:14px;background:#f3f8fb;font-weight:800}
+.history-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.history-summary div{padding:22px;border-radius:18px;background:#f5faff;text-align:center}.history-summary strong{display:block;font-size:30px;color:#176fd0}.history-row{padding:15px;border:1px solid var(--line);border-radius:14px;margin-top:10px}
+.settings-content{max-width:620px;margin:auto}.settings-row{display:grid;grid-template-columns:1fr auto;gap:10px}.settings-row input{min-height:50px;padding:0 14px;border:1px solid #cedde8;border-radius:12px}.settings-row button{border:0;border-radius:12px;background:#116fe8;color:#fff;padding:0 20px;font-weight:900}
+
+.flow-intro{max-width:820px;margin:0 auto 20px;padding:20px;border-radius:18px;background:#f2f8fc;line-height:1.7}
+.flow-case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1000px;margin:auto}
+.flow-case{padding:20px;border:1px solid var(--line);border-radius:18px;background:#fff;text-align:left;color:var(--text)}
+.flow-case span{display:block;font-size:42px;text-align:center;margin-bottom:12px}
+.flow-case b{display:block;font-size:18px;margin-bottom:7px}
+.flow-case small{color:var(--muted);line-height:1.5}
+.flow-stage{max-width:900px;margin:auto}
+.flow-customer{padding:20px;border-radius:18px;background:#eef7fc;margin-bottom:16px}
+.flow-customer strong{display:block;font-size:21px;margin-bottom:7px}
+.flow-step-label{display:inline-block;padding:6px 11px;border-radius:99px;background:#eaf4ff;color:#176fd0;font-weight:900;margin-bottom:12px}
+.flow-question{font-size:23px;font-weight:900;line-height:1.55;padding:22px;border-radius:18px;background:#f7fafc}
+.flow-result-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+.flow-score-card{padding:16px;border-radius:15px;background:#f3f8fb;text-align:center}
+.flow-score-card strong{display:block;font-size:28px;color:#176fd0;margin-top:5px}
+.flow-checks{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.flow-check-box{padding:18px;border-radius:16px;background:#f7fafc}
+.flow-check-box h3{margin:0 0 10px}
+.flow-check-box p{margin:7px 0;line-height:1.5}
+.flow-manager-comment{margin-top:16px;padding:18px;border-left:5px solid #176fd0;border-radius:12px;background:#eef7ff;line-height:1.7}
+
+.daikin-wrap{padding:30px}
+.daikin-note{max-width:980px;margin:0 auto 18px;padding:16px;border-radius:15px;background:#fff8e8;border:1px solid #f1d28b;line-height:1.6}
+.series-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:980px;margin:0 auto 18px}
+.series-tab{padding:16px;border:1px solid var(--line);border-radius:15px;background:#fff;font-weight:900;color:var(--text)}
+.series-tab.active{background:#116fe8;color:#fff;border-color:#116fe8}
+.series-panel{max-width:980px;margin:auto}
+.series-hero{padding:24px;border-radius:20px;background:linear-gradient(120deg,#f5fbff,#eaf4ff);border:1px solid #c9e3f7}
+.series-hero h2{margin:0 0 8px;font-size:30px;color:#0b315f}
+.series-tag{display:inline-block;padding:6px 11px;border-radius:999px;background:#fff;color:#176fd0;font-weight:900;margin-bottom:10px}
+.series-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.series-card{padding:18px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.series-card h3{margin:0 0 10px;color:#0b315f}
+.series-card p,.series-card li{line-height:1.7}
+.compare-table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
+.compare-table th,.compare-table td{border:1px solid #dbe6ef;padding:11px;text-align:left;vertical-align:top}
+.compare-table th{background:#eef6fb}
+.daikin-diagnosis{max-width:980px;margin:24px auto;padding:20px;border-radius:18px;background:#f7fafc}
+.diagnosis-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.diagnosis-btn{padding:18px;border:1px solid var(--line);border-radius:15px;background:#fff;text-align:left;color:var(--text);font-weight:800}
+.diagnosis-result{margin-top:15px;padding:18px;border-radius:15px;background:#eaf4ff;line-height:1.7}
+.daikin-quiz{max-width:980px;margin:24px auto}
+
+.feature-panel{max-width:980px;margin:0 auto 22px;padding:22px;border:1px solid var(--line);border-radius:20px;background:#fff}
+.feature-panel h2{margin:0 0 8px;color:#0b315f}
+.feature-lead{line-height:1.7;margin-bottom:18px}
+.diagram-compare{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center}
+.diagram-box{padding:18px;border-radius:18px;background:#f7fafc;border:1px solid #dbe6ef;min-height:220px}
+.diagram-box.good{background:#edf8ff;border-color:#9ed2f3}
+.diagram-title{font-weight:900;font-size:18px;margin-bottom:12px}
+.diagram-arrow{font-size:30px;color:#176fd0;font-weight:900}
+.diagram-flow{display:grid;gap:10px}
+.flow-node{padding:12px;border-radius:12px;background:#fff;border:1px solid #cddde8;text-align:center;font-weight:800}
+.flow-node.blue{background:#e9f5ff;border-color:#8fc9f1}
+.flow-node.yellow{background:#fff8df;border-color:#efcf6a}
+.flow-node.green{background:#edf9f0;border-color:#88c99a}
+.flow-link{text-align:center;color:#176fd0;font-size:22px;font-weight:900}
+.airflow-room{position:relative;height:180px;border:2px solid #bdd7e7;border-radius:16px;background:linear-gradient(#fbfdff,#eff7fb);overflow:hidden}
+.aircon-unit{position:absolute;top:14px;left:20px;width:105px;height:34px;border-radius:8px;background:#fff;border:2px solid #96b3c5;text-align:center;padding-top:7px;font-size:12px;font-weight:900}
+.person-icon{position:absolute;bottom:20px;right:35px;font-size:48px}
+.wind-direct,.wind-wide{position:absolute;top:54px;left:105px;font-size:56px;color:#42a5f5;transform:rotate(10deg)}
+.wind-wide{top:37px;left:100px;transform:rotate(-12deg)}
+.compressor-vis{display:flex;align-items:center;justify-content:center;gap:22px;min-height:150px}
+.comp-part{width:92px;height:92px;border-radius:50%;border:10px solid #8dc9ed;display:grid;place-items:center;font-weight:900;background:#fff}
+.comp-arrow{font-size:34px;color:#176fd0}
+.feature-talk{margin-top:16px;padding:17px;border-left:5px solid #176fd0;border-radius:12px;background:#eef7ff;line-height:1.7}
+.feature-caution{margin-top:12px;padding:14px;border-radius:12px;background:#fff8e8;border:1px solid #f1d28b;line-height:1.6}
+.feature-close{margin-top:14px;width:100%;padding:14px;border:0;border-radius:12px;background:#0b315f;color:#fff;font-weight:900}
+
+.visual-library{padding:30px}
+.visual-intro{max-width:1080px;margin:0 auto 18px;padding:18px;border-radius:18px;background:#f2f8fc;line-height:1.7}
+.visual-grid{max-width:1080px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.visual-card{border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 8px 24px rgba(30,70,100,.07)}
+.visual-card img{width:100%;height:260px;object-fit:contain;object-position:center top;display:block;background:#eef5fa;padding:8px;box-sizing:border-box}
+.visual-card-body{padding:16px}
+.visual-card h3{margin:0 0 8px;color:#0b315f}
+.visual-card p{margin:0;color:var(--muted);line-height:1.6}
+.visual-card button{width:100%;margin-top:13px;padding:12px;border:0;border-radius:11px;background:#116fe8;color:#fff;font-weight:900}
+.image-modal{position:fixed;inset:0;background:rgba(5,23,43,.9);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
+.image-modal.hidden{display:none!important}
+.image-modal-inner{max-width:1200px;width:100%;max-height:95vh;overflow:auto;background:#fff;border-radius:18px;padding:12px}
+.image-modal img{width:100%;height:auto;display:block;border-radius:12px}
+.image-modal-close{position:sticky;top:0;float:right;border:0;border-radius:999px;background:#0b315f;color:#fff;width:44px;height:44px;font-size:22px;font-weight:900;z-index:2}
+.quick-summary{max-width:1080px;margin:20px auto 0;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.quick-box{padding:18px;border-radius:16px;background:#f7fafc;border:1px solid var(--line)}
+.quick-box h3{margin-top:0}
+.construction-grid{max-width:980px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.construction-card{padding:18px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+.construction-card h3{margin-top:0;color:#0b315f}
+.construction-card p{line-height:1.7}
+@media(min-width:768px) and (max-width:1366px){
+ .visual-grid{grid-template-columns:repeat(2,1fr)}
+ .visual-card img{height:320px;object-fit:contain;object-position:center top}
+ .menu-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+.checklist-wrap{max-width:760px;margin:auto;padding:26px}
+.checklist-intro{padding:18px;border-radius:16px;background:#f2f8fc;line-height:1.7;margin-bottom:16px}
+.check-item{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:10px}
+.check-item input{width:24px;height:24px;margin-top:2px}
+.check-item b{display:block;font-size:17px;margin-bottom:4px}
+.check-item small{color:var(--muted);line-height:1.5}
+.check-progress{padding:18px;border-radius:16px;background:#eaf4ff;text-align:center;margin:18px 0}
+.check-progress strong{font-size:30px;color:#116fe8}
+.check-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.check-actions button{padding:14px;border:0;border-radius:12px;font-weight:900}
+.check-reset{background:#eef2f5;color:#17324f}
+.check-complete{background:#116fe8;color:#fff}
+
+/* 利用者名を大きく見やすく表示 */
+#displayName,
+#userNameDisplay,
+.user-name,
+.user-name-display,
+.profile-name,
+.current-user-name,
+.name-display{
+  display:block !important;
+  max-width:900px;
+  margin:14px auto 18px !important;
+  padding:16px 20px !important;
+  border-radius:16px !important;
+  background:#eef7ff !important;
+  border:2px solid #8fc5ee !important;
+  color:#0b315f !important;
+  font-size:28px !important;
+  line-height:1.35 !important;
+  font-weight:900 !important;
+  text-align:center !important;
+  letter-spacing:.02em !important;
+  box-shadow:0 6px 18px rgba(17,111,232,.12) !important;
+}
+#displayName:empty,
+#userNameDisplay:empty,
+.user-name:empty,
+.user-name-display:empty,
+.profile-name:empty,
+.current-user-name:empty,
+.name-display:empty{
+  display:none !important;
+}
+
+/* ===== 配布用ホーム画面 Ver.2.0 ===== */
+.home-v2{background:#fff}
+.home-topbar{height:auto;min-height:88px;padding:14px 26px;border-bottom:1px solid #edf3f8}
+.home-topbar .brand{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;font-size:29px}
+.home-topbar .brand-snow{font-size:34px;color:#25a7f5}
+.home-topbar .brand small{flex-basis:auto;background:#0b67e8;color:#fff;font-size:14px;padding:7px 14px}
+.status-button{font-size:31px}
+.home-v2-content{padding:20px 26px 12px}
+.profile-dashboard{display:grid;grid-template-columns:1fr 1.15fr;gap:18px;padding:24px;border:1.5px solid #b9dcf8;border-radius:25px;background:linear-gradient(125deg,#fbfdff,#eef8ff);box-shadow:0 10px 30px rgba(34,105,160,.08)}
+.profile-left{display:grid;grid-template-columns:160px 1fr;gap:20px;align-items:center}
+.staff-avatar{width:160px;height:160px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#2b92f4,#0d5cd0);border:9px solid #d9edff;box-shadow:0 8px 22px rgba(15,95,190,.18);overflow:hidden}.staff-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.staff-name-line{display:flex;align-items:center;gap:10px}
+.staff-name-line strong{font-size:36px;line-height:1.2;color:#082c58;white-space:nowrap}
+.edit-name-button{width:40px;height:40px;border:0;border-radius:12px;background:#e7f2ff;color:#116fe8;font-size:21px;font-weight:900}
+.level-label{display:inline-block;margin-top:16px;padding:5px 12px;border-radius:999px;background:#176fe1;color:#fff;font-size:14px;font-weight:900}
+.profile-level{font-size:66px;font-weight:950;line-height:1;color:#1467e8;margin-top:7px}
+.star-row{font-size:32px;letter-spacing:3px;color:#ffbb00;margin-top:9px;white-space:nowrap}.star-row span{color:#aeb9c5}
+.rank-chip{margin-top:12px;padding:10px 14px;border-radius:999px;background:#fff;border:1px solid #d3e5f2;display:flex;align-items:center;gap:8px;font-size:14px}
+.rank-chip b{color:#173d65}.rank-chip em{margin-left:auto;font-style:normal;color:#116fe8;font-weight:900}
+.profile-right{display:grid;grid-template-rows:auto auto;gap:12px}
+.today-learning-card,.mini-stat{background:rgba(255,255,255,.86);border:1px solid #e0ebf4;border-radius:19px;box-shadow:0 8px 22px rgba(35,86,120,.06)}
+.today-learning-card{padding:20px}
+.today-title{font-size:22px;font-weight:900;color:#0b315f}
+.today-progress-row{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;margin:13px 0 8px}
+.segmented-progress{display:grid;grid-template-columns:repeat(10,1fr);gap:6px}.segmented-progress i{height:28px;border-radius:6px;background:#dfe8ef}.segmented-progress i.filled{background:#126bea}
+.today-progress-row strong{font-size:46px;color:#116fe8}
+.today-learning-card .progress{height:9px}.today-learning-card p{margin:10px 0 0;color:#34516b}
+.stat-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mini-stat{padding:17px;text-align:center}.mini-stat span{font-weight:900}.mini-stat strong{display:block;margin-top:7px;font-size:34px;color:#0b315f}
+.primary-actions{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.primary-card{min-height:220px;padding:20px;border:0;border-radius:24px;color:#fff;display:grid;grid-template-columns:145px 1fr auto;align-items:center;gap:16px;text-align:left;overflow:hidden;box-shadow:0 12px 26px rgba(23,78,130,.13)}
+.sales-primary{background:linear-gradient(125deg,#087bf3,#064caf)}.learn-primary{background:linear-gradient(125deg,#22c494,#079a89)}
+.primary-illustration{font-size:96px;text-align:center}.primary-copy b{display:block;font-size:40px}.primary-copy small{display:block;margin-top:10px;font-size:18px;line-height:1.55}.primary-arrow{width:52px;height:52px;border-radius:50%;background:#fff;color:#116fe8;display:grid;place-items:center;font-size:43px;line-height:1}
+.utility-heading{display:flex;align-items:center;gap:16px;margin:24px 0 14px;color:#0b4b9d}.utility-heading:before,.utility-heading:after{content:"";height:2px;background:#d8e6f0;flex:1}.utility-heading b{font-size:28px}.utility-heading span{color:#086de7}
+.utility-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.utility-card{position:relative;min-height:205px;padding:18px 12px;border:1px solid #d9e6ef;border-radius:20px;background:#fff;color:#0d3158;text-align:center;box-shadow:0 7px 20px rgba(22,75,115,.04)}
+.utility-icon{display:block;font-size:55px;margin-bottom:11px}.utility-card b{display:block;font-size:20px}.utility-card small{display:block;margin-top:8px;line-height:1.45;color:#426078}.utility-card em{position:absolute;right:10px;bottom:10px;width:28px;height:28px;border-radius:50%;background:#eaf4ff;color:#116fe8;font-style:normal;font-size:26px;line-height:25px}
+.news-card{width:100%;margin:16px 0 4px;padding:16px 20px;border:1px solid #bddcf5;border-radius:17px;background:#edf7ff;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:13px;text-align:left;color:#0d3158}.news-icon{font-size:35px}.news-card b{display:block;font-size:18px}.news-card small{display:block;margin-top:3px}.news-card strong{color:#116fe8;font-size:21px}
+.bottom-nav{position:sticky;bottom:0;z-index:20;margin-top:8px;padding:9px 14px calc(9px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(4,1fr);background:rgba(255,255,255,.96);border-top:1px solid #dbe6ee;box-shadow:0 -7px 20px rgba(40,70,100,.07);backdrop-filter:blur(15px)}
+.bottom-nav button{border:0;background:transparent;color:#667684;display:grid;place-items:center;gap:2px}.bottom-nav span{font-size:25px;font-weight:900}.bottom-nav b{font-size:12px}.bottom-nav .active{color:#116fe8}
+
+
+.help-page-content{max-width:980px;margin:0 auto;padding:24px}
+.help-hero{display:grid;grid-template-columns:78px 1fr;gap:18px;align-items:center;padding:22px;border-radius:22px;background:linear-gradient(135deg,#eef7ff,#f9fcff);border:1px solid #cfe4f5}
+.help-icon{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;background:#116fe8;color:#fff;font-size:38px;font-weight:900}
+.help-hero h2{margin:0 0 7px;color:#0b315f;font-size:28px}
+.help-hero p{margin:0;color:#536d81;line-height:1.7}
+.help-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+.help-card{padding:20px;border-radius:18px;background:#fff;border:1px solid #dbe8f1;box-shadow:0 7px 20px rgba(28,77,110,.05)}
+.help-card span{font-size:38px}
+.help-card h3{margin:9px 0 6px;color:#0b315f}
+.help-card p{margin:0;line-height:1.65;color:#536d81}
+.help-note{margin-top:18px;padding:18px 20px;border-radius:18px;background:#fff7dd;border:1px solid #ead184}
+.help-note h3{margin:0 0 7px;color:#684e00}
+.help-note p{margin:0;line-height:1.65;color:#684e00}
+
+.special-thanks{
+  margin:14px auto 82px;
+  padding:8px 10px 14px;
+  text-align:center;
+  color:#a0a8b0;
+  font-size:10px;
+  line-height:1.5;
+  font-weight:400;
+}
+.special-thanks .produced-by{
+  display:block;
+  margin-top:3px;
+  font-size:10px;
+  letter-spacing:.06em;
+  color:inherit;
+  font-weight:500;
+}
+
+
+.sales-tips-content{max-width:980px;margin:0 auto;padding:24px}
+.sales-tip-hero{display:grid;grid-template-columns:76px 1fr;gap:18px;align-items:center;padding:22px;border-radius:22px;background:linear-gradient(135deg,#fff9e8,#fffdf7);border:1px solid #ead8a0}
+.sales-tip-hero-icon{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:#ffcc3d;font-size:36px}
+.sales-tip-hero h2{margin:0 0 7px;color:#4e3a00;font-size:28px}
+.sales-tip-hero p{margin:0;color:#6b5b31;line-height:1.7}
+.sales-tip-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+.sales-tip-card{padding:20px;border-radius:18px;background:#fff;border:1px solid #e4e8ec;box-shadow:0 7px 20px rgba(40,70,90,.05)}
+.sales-tip-card span{font-size:38px}
+.sales-tip-card h3{margin:9px 0 6px;color:#173d65}
+.sales-tip-card p{margin:0;line-height:1.65;color:#536d81}
+.sales-tip-note{margin-top:18px;padding:18px 20px;border-radius:18px;background:#eef7ff;border:1px solid #c6def1;color:#31566f}
+.sales-tip-note b{display:block;margin-bottom:6px;color:#0b4b9d}
+.sales-tip-note p{margin:0;line-height:1.65}
+@media(max-width:767px){
+ .sales-tips-content{padding:16px 14px}
+ .sales-tip-hero{grid-template-columns:56px 1fr;padding:16px}
+ .sales-tip-hero-icon{width:54px;height:54px;font-size:29px}
+ .sales-tip-hero h2{font-size:21px}
+ .sales-tip-grid{grid-template-columns:1fr;gap:10px}
+ .sales-tip-card{padding:16px}
+}
+
+@media(max-width:767px){
+ .help-page-content{padding:16px 14px}
+ .help-hero{grid-template-columns:58px 1fr;padding:16px}
+ .help-icon{width:54px;height:54px;font-size:29px}
+ .help-hero h2{font-size:21px}
+ .help-grid{grid-template-columns:1fr;gap:10px}
+ .help-card{padding:16px}
+}
+
+@media(max-width:767px){
+ .home-topbar{min-height:74px;padding:10px 13px}.home-topbar .brand{font-size:20px;line-height:1.15}.home-topbar .brand-snow{font-size:24px}.home-topbar .brand small{font-size:11px;padding:5px 9px}
+ .home-v2-content{padding:12px 12px 6px}
+ .profile-dashboard{grid-template-columns:1fr;padding:16px;gap:14px}
+ .profile-left{grid-template-columns:105px 1fr;gap:13px}.staff-avatar{width:105px;height:105px;font-size:61px;border-width:6px}
+ .staff-name-line strong{font-size:28px}.edit-name-button{width:34px;height:34px}.level-label{margin-top:9px;font-size:12px}.profile-level{font-size:52px}.star-row{font-size:23px;letter-spacing:1px}.rank-chip{font-size:12px;padding:8px 10px}.rank-chip em{font-size:11px}
+ .today-learning-card{padding:14px}.today-title{font-size:18px}.segmented-progress{gap:3px}.segmented-progress i{height:20px}.today-progress-row strong{font-size:36px}
+ .mini-stat{padding:12px}.mini-stat strong{font-size:27px}
+ .primary-actions{grid-template-columns:1fr;gap:11px;margin-top:13px}.primary-card{min-height:148px;grid-template-columns:93px 1fr auto;padding:13px}.primary-illustration{font-size:69px}.primary-copy b{font-size:30px}.primary-copy small{font-size:15px}.primary-arrow{width:43px;height:43px;font-size:36px}
+ .utility-heading{margin:18px 0 10px}.utility-heading b{font-size:22px}
+ .utility-grid{grid-template-columns:1fr 1fr;gap:9px}.utility-card{min-height:160px;padding:13px 8px}.utility-icon{font-size:42px}.utility-card b{font-size:17px}.utility-card small{font-size:12px}
+ .news-card{margin-top:12px;padding:13px}.news-card strong{font-size:17px}
+}
+@media(min-width:768px) and (max-width:1100px){
+ .profile-left{grid-template-columns:125px 1fr}.staff-avatar{width:125px;height:125px;font-size:73px}.staff-name-line strong{font-size:30px}.profile-level{font-size:55px}
+ .primary-card{grid-template-columns:112px 1fr auto;min-height:190px}.primary-illustration{font-size:80px}.primary-copy b{font-size:33px}
+}
+
+@media(max-width:767px){
+  #displayName,
+  #userNameDisplay,
+  .user-name,
+  .user-name-display,
+  .profile-name,
+  .current-user-name,
+  .name-display{
+    font-size:23px !important;
+    padding:14px 16px !important;
+    margin:12px 14px 16px !important;
+  }
+}
+
+@media(max-width:767px){
+ .visual-card img{height:250px;object-fit:contain;object-position:center top;padding:6px}
+
+ .checklist-wrap{padding:20px 14px}
+ .check-actions{grid-template-columns:1fr}
+}
+
+@media(max-width:767px){
+ .visual-library{padding:20px 14px}
+ .visual-grid,.quick-summary,.construction-grid{grid-template-columns:1fr}
+ .image-modal{padding:8px}
+ .image-modal-inner{padding:8px}
+}
+
+@media(max-width:767px){
+ .diagram-compare{grid-template-columns:1fr}
+ .diagram-arrow{transform:rotate(90deg);text-align:center}
+ .diagram-box{min-height:auto}
+}
+
+@media(max-width:767px){
+ .daikin-wrap{padding:20px 15px}
+ .series-tabs{grid-template-columns:1fr 1fr}
+ .series-grid,.diagnosis-grid{grid-template-columns:1fr}
+ .compare-table{font-size:12px}
+ .compare-table th,.compare-table td{padding:8px}
+}
+
+@media(max-width:767px){
+ .flow-case-grid{grid-template-columns:1fr}
+ .flow-result-grid{grid-template-columns:1fr 1fr}
+ .flow-checks{grid-template-columns:1fr}
+ .flow-question{font-size:20px}
+}
+
+@media(max-width:767px){.app{padding:0}.page{min-height:100vh;border-radius:0}.topbar,.subheader{height:72px;padding:0 15px}.brand{font-size:20px}.hero{margin:12px 14px;padding:20px;grid-template-columns:1fr}.hero-image{display:none}.main-banner{width:calc(100% - 28px);margin:0 14px 12px;padding:18px}.menu-grid{padding:0 14px;grid-template-columns:1fr 1fr;gap:9px}.menu-card{min-height:165px;padding:13px}.menu-card:last-child{grid-column:1/-1}.mission{width:calc(100% - 28px);margin:12px 14px}.rank-content,.quiz-content,.result-content,.history-content,.settings-content,.sales-content{padding:20px 15px}.rank-grid{gap:10px}.rank-button{min-height:135px;padding:15px}.choice-list,.sales-layout{grid-template-columns:1fr}.question-card{font-size:20px}.history-summary{grid-template-columns:1fr 1fr}}
+@media(min-width:768px) and (max-width:1366px){.app{max-width:none;width:100%;padding:20px}.page{max-width:1160px;margin:auto}.sales-layout{grid-template-columns:.75fr 1.25fr}}
+
+.primary-illustration.momo-illustration{
+  width:150px;height:150px;display:flex;align-items:flex-end;justify-content:center;
+  overflow:hidden;flex:0 0 150px;
+}
+.primary-illustration.momo-illustration img{
+  width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block;
+}
+@media(max-width:767px){
+  .primary-illustration.momo-illustration{width:104px;height:142px;flex-basis:104px;margin-left:-4px}
+}
+
+</style>
+<link rel="manifest" href="manifest.webmanifest?v=3890">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="エアコン販買マスター">
+</head>
+<body>
+<div class="app">
+
+<section id="home" class="page home-v2">
+  <header class="topbar home-topbar">
+    <button class="icon-button" onclick="openSettings()" aria-label="設定">☰</button>
+    <div class="brand">
+      <span class="brand-snow">❄</span>
+      <span>エアコン販買マスター</span>
+      <small>Ver.4.0 開発版・日立攻略追加</small>
+    </div>
+    <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
+  </header>
+
+  <main class="home-v2-content">
+    <section class="profile-dashboard">
+      <div class="profile-left">
+        <div class="staff-avatar" aria-hidden="true"><img src="consult-kun-avatar.png" alt=""></div>
+        <div class="staff-info">
+          <div class="staff-name-line">
+            <strong id="profileName">スタッフさん</strong>
+            <button class="edit-name-button" onclick="openSettings()" aria-label="名前を変更">✎</button>
+          </div>
+          <span class="level-label">販売レベル</span>
+          <div class="profile-level" id="levelText">Lv.1</div>
+          <div class="star-row" aria-label="レベル評価">★ ★ ★ ★ <span>★</span></div>
+          <div class="rank-chip">
+            <span>🔰</span>
+            <b id="rankText">新人スタッフ</b>
+            <em id="nextExp">ランクアップまで100EXP</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-right">
+        <div class="today-learning-card">
+          <div class="today-title">▣ 今日の学習</div>
+          <div class="today-progress-row">
+            <div class="segmented-progress" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <strong id="todayPercent">0%</strong>
+          </div>
+          <div class="progress"><span id="expBar"></span></div>
+          <p>目標：100EXP ／ 現在：<b id="expCurrent">0EXP</b></p>
+        </div>
+        <div class="stat-pair">
+          <div class="mini-stat">
+            <span>🔥 連続学習</span>
+            <strong id="streakDays">0日</strong>
+          </div>
+          <div class="mini-stat">
+            <span>🏆 総獲得EXP</span>
+            <strong id="totalExp">0 EXP</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="primary-actions">
+      <button class="primary-card sales-primary" onclick="startSales()">
+        <span class="primary-illustration momo-illustration"><img src="momo-chan.png?v=3890" alt="ももちゃん"></span>
+        <span class="primary-copy">
+          <b>販買モード</b>
+          <small>お客様へのご提案や<br>製品・機能の確認に</small>
+        </span>
+        <span class="primary-arrow">›</span>
+      </button>
+      <button class="primary-card learn-primary" onclick="openRank('practice')">
+        <span class="primary-illustration">📖</span>
+        <span class="primary-copy">
+          <b>学習モード</b>
+          <small>知識の習得や<br>練習問題に挑戦</small>
+        </span>
+        <span class="primary-arrow">›</span>
+      </button>
+    </section>
+
+    <div class="utility-heading"><span>★</span><b>便利機能</b><span>★</span></div>
+
+    <section class="utility-grid">
+      <button class="utility-card" onclick="openVisualLibrary()">
+        <span class="utility-icon blue">📘</span><b>図解ライブラリ</b><small>機能・工事を<br>図で確認</small><em>›</em>
+      </button>
+      <button class="utility-card" onclick="openRank('practice')">
+        <span class="utility-icon red">🎯</span><b>練習問題</b><small>接客・工事の<br>問題に挑戦</small><em>›</em>
+      </button>
+      <button class="utility-card" onclick="openRank('price')">
+        <span class="utility-icon green">🔧</span><b>工事料金表</b><small>追加工事・部材の<br>料金を確認</small><em>›</em>
+      </button>
+      <button class="utility-card" onclick="showHistory()">
+        <span class="utility-icon orange">📋</span><b>学習記録</b><small>学習の履歴と<br>結果を確認</small><em>›</em>
+      </button>
+      <button class="utility-card" onclick="openFlowMenu()">
+        <span class="utility-icon purple">🎓</span><b>接客フロー</b><small>お客様対応の<br>流れを確認</small><em>›</em>
+      </button>
+      <button class="utility-card" onclick="openDaikin()">
+        <span class="utility-icon teal">📗</span><b>ダイキン攻略</b><small>特徴・機能・<br>比較ポイント</small><em>›</em>
+      </button>
+      <button class="utility-card" onclick="openHitachi()">
+        <span class="utility-icon blue">🐻‍❄️</span><b>日立攻略</b><small>清潔・除湿・<br>WNシリーズ</small><em>›</em>
+      </button>
+      <button class="utility-card" onclick="showCases()">
+        <span class="utility-icon gold">👤</span><b>お客様カルテ</b><small>接客ケースを<br>選んで練習</small><em>›</em>
+      </button>
+      <button class="utility-card" onclick="openSettings()">
+        <span class="utility-icon gray">⚙️</span><b>設定</b><small>名前やアプリの<br>情報を確認</small><em>›</em>
+      </button>
+    </section>
+
+    <button class="news-card" onclick="openMission()">
+      <span class="news-icon">📣</span>
+      <span><b>今日のミッション</b><small id="homeMissionText">学習を始めましょう</small></span>
+      <strong id="missionCount">0 / 3</strong>
+    </button>
+
+<footer class="special-thanks">
+  © 2026 エアコン販買マスター　Special Thanks　監修 玉ちゃん
+  <span class="produced-by">Produced by LiSA ISHIDA</span>
+</footer>
+  </main>
+
+  <nav class="bottom-nav" aria-label="ホームメニュー">
+    <button onclick="show('home')" class="active"><span>⌂</span><b>ホーム</b></button>
+    <button onclick="openRank('practice')"><span>●</span><b>練習</b></button>
+    <button onclick="show('helpPage')"><span>?</span><b>使い方</b></button>
+    <button onclick="show('salesTips')"><span>💡</span><b>販売のコツ</b></button>
+  </nav>
+</section>
+
+<section id="rank" class="page hidden"><header class="subheader"><button onclick="show('home')">‹</button><h1 id="rankTitle">ランク選択</h1><span></span></header><div class="rank-content"><div class="rank-grid">
+<button class="rank-button beginner" onclick="startQuiz('初級')"><span>🟢</span><b>初級</b><small id="beginnerCount"></small></button>
+<button class="rank-button middle" onclick="startQuiz('中級')"><span>🔵</span><b>中級</b><small id="middleCount"></small></button>
+<button class="rank-button advanced" onclick="startQuiz('上級')"><span>🔴</span><b>上級</b><small id="advancedCount"></small></button>
+<button class="rank-button random" onclick="startQuiz('ランダム')"><span>🟣</span><b>ランダム</b><small id="randomCount"></small></button>
+</div></div></section>
+
+<section id="quiz" class="page hidden"><header class="subheader"><button onclick="show('rank')">‹</button><h1 id="quizTitle">練習問題</h1><button onclick="show('home')">終了</button></header><div class="quiz-content"><div class="quiz-meta"><span id="rankBadge"></span><b id="quizProgress"></b></div><div id="questionText" class="question-card"></div><div id="choiceList" class="choice-list"></div><div id="answerResult" class="answer-result hidden"></div><button id="nextButton" class="next-button hidden" onclick="nextQuestion()">次の問題</button></div></section>
+
+<section id="sales" class="page hidden"><header class="subheader"><button onclick="show('home')">‹</button><h1>販買モード</h1><button onclick="show('home')">終了</button></header><div class="sales-content"><div id="salesStepper" class="sales-stepper"></div><div class="sales-layout"><div id="salesCustomer" class="sales-customer-card"></div><div class="sales-question-card"><h2 id="salesQuestion"></h2><div id="salesChoices" class="choice-list"></div><div id="salesFeedback" class="answer-result hidden"></div></div></div></div></section>
+
+<section id="mission" class="page hidden"><header class="subheader"><button onclick="show('home')">‹</button><h1>今日のミッション</h1><span></span></header><div class="result-content"><div class="result-card"><span>今日の目標</span><strong id="missionDetail">0 / 3</strong><p>販買モードを3件実施する</p></div><div class="progress"><span id="missionBar"></span></div><button class="next-button" onclick="startSales()">販買モードを始める</button></div></section>
+
+<section id="result" class="page hidden"><header class="subheader"><button onclick="show('home')">‹</button><h1>結果</h1><span></span></header><div class="result-content"><div class="result-card"><span>今回の成績</span><strong id="resultScore"></strong><p id="resultMessage"></p></div><button class="next-button" onclick="show('home')">ホームへ戻る</button></div></section>
+
+<section id="history" class="page hidden"><header class="subheader"><button onclick="show('home')">‹</button><h1>学習記録</h1><span></span></header><div id="historyContent" class="history-content"></div></section>
+
+
+<section id="cases" class="page hidden"><header class="subheader"><button onclick="show('home')">‹</button><h1>お客様カルテ</h1><span></span></header><div class="history-content"><div id="caseGrid" class="rank-grid"></div></div></section>
+
+<section id="flowMenu" class="page hidden">
+  <header class="subheader">
+    <button onclick="show('home')">‹</button>
+    <h1>接客フロー</h1>
+    <span></span>
+  </header>
+  <div class="rank-content">
+    <div class="flow-intro">
+      お客様の希望を聞きながら、接客で必要な確認を順番に選びます。
+      最後にヒアリング・工事確認・提案・説明の4項目で採点します。
+    </div>
+    <div id="flowCaseGrid" class="flow-case-grid"></div>
+  </div>
+</section>
+
+<section id="flowPlay" class="page hidden">
+  <header class="subheader">
+    <button onclick="openFlowMenu()">‹</button>
+    <h1 id="flowTitle">接客フロー</h1>
+    <button onclick="show('home')">終了</button>
+  </header>
+  <div class="quiz-content flow-stage">
+    <div class="flow-customer" id="flowCustomer"></div>
+    <div class="flow-step-label" id="flowStepLabel">STEP 1</div>
+    <div class="flow-question" id="flowQuestion"></div>
+    <div id="flowChoices" class="choice-list"></div>
+    <div id="flowFeedback" class="answer-result hidden"></div>
+    <button id="flowNextButton" class="next-button hidden" onclick="nextFlowStep()">次へ</button>
+  </div>
+</section>
+
+<section id="flowResult" class="page hidden">
+  <header class="subheader">
+    <button onclick="show('home')">‹</button>
+    <h1>店長チェック</h1>
+    <span></span>
+  </header>
+  <div class="result-content">
+    <div class="result-card">
+      <span>総合評価</span>
+      <strong id="flowTotalScore">0点</strong>
+      <p id="flowRankText"></p>
+    </div>
+    <div id="flowScoreGrid" class="flow-result-grid"></div>
+    <div class="flow-checks">
+      <div class="flow-check-box">
+        <h3>✅ 良かった点</h3>
+        <div id="flowGoodList"></div>
+      </div>
+      <div class="flow-check-box">
+        <h3>⚠ 次回の改善点</h3>
+        <div id="flowImproveList"></div>
+      </div>
+    </div>
+    <div class="flow-manager-comment" id="flowManagerComment"></div>
+    <button class="next-button" onclick="openFlowMenu()">別のケースに挑戦</button>
+    <button class="next-button" onclick="show('home')">ホームへ戻る</button>
+  </div>
+</section>
+
+
+
+<section id="hitachi" class="page hidden">
+  <header class="subheader">
+    <button onclick="show('home')">‹</button>
+    <h1>日立攻略</h1>
+    <span></span>
+  </header>
+  <div class="daikin-wrap">
+    <div class="daikin-note">
+      日立の清潔機能・除湿機能と、ノジマオリジナルWNシリーズを接客で使いやすい形に整理しています。搭載内容は能力帯・型番で異なる場合があるため、最終案内は該当型番のカタログ・取扱説明書で確認してください。
+    </div>
+
+    <div class="series-card" style="max-width:980px;margin:0 auto 18px">
+      <h3 style="margin-top:0">🐻‍❄️ 日立の強み</h3>
+      <div class="diagnosis-grid">
+        <button class="diagnosis-btn" onclick="showHitachiFeature('freeze')">❄️ 凍結洗浄</button>
+        <button class="diagnosis-btn" onclick="showHitachiFeature('fan')">🌀 ファンお掃除ロボ</button>
+        <button class="diagnosis-btn" onclick="showHitachiFeature('mold')">🛡️ カビバスター</button>
+        <button class="diagnosis-btn" onclick="showHitachiFeature('stainless')">✨ ステンレス・クリーン</button>
+        <button class="diagnosis-btn" onclick="showHitachiFeature('dry')">💧 カラッと除湿</button>
+        <button class="diagnosis-btn" onclick="showHitachiFeature('wave')">🔇 ウェーブファン</button>
+      </div>
+    </div>
+
+    <div id="hitachiFeaturePanel" class="feature-panel hidden"></div>
+
+    <div class="series-card" style="max-width:980px;margin:0 auto 18px;border:2px solid #2563eb">
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <span style="background:#2563eb;color:white;font-weight:800;border-radius:999px;padding:6px 12px">ノジマオリジナル</span>
+        <h2 style="margin:0">WNシリーズ</h2>
+      </div>
+      <p style="font-weight:700;font-size:1.05rem">上位Xシリーズと同じウェーブファンを採用し、静音性を高めたモデル。</p>
+      <div class="diagnosis-grid">
+        <div class="diagnosis-btn" style="cursor:default;text-align:left">🔇 <b>ウェーブファン</b><br><small>上位Xシリーズと同じファンを採用。静音性が魅力。</small></div>
+        <div class="diagnosis-btn" style="cursor:default;text-align:left">📏 <b>高さ24.8cm</b><br><small>カーテンレール上など、限られた設置スペースにも提案しやすい。</small></div>
+        <div class="diagnosis-btn" style="cursor:default;text-align:left">🧼 <b>清潔機能</b><br><small>凍結洗浄、ファンお掃除ロボ、カビバスターを搭載。</small></div>
+        <div class="diagnosis-btn" style="cursor:default;text-align:left">💧 <b>カラッと除湿</b><br><small>室温を下げすぎにくい再熱方式の除湿。</small></div>
+      </div>
+      <div style="margin-top:14px;padding:14px;border-radius:14px;background:#eff6ff">
+        <b>接客トーク</b>
+        <p style="margin-bottom:0">「WNシリーズは、上位Xシリーズと同じウェーブファンを採用しているため、清潔機能だけでなく静音性も魅力です。」</p>
+      </div>
+    </div>
+
+    <div class="series-card" style="max-width:980px;margin:0 auto 18px">
+      <h2 style="margin-top:0">初期設定・操作一覧</h2>
+      <div style="overflow-x:auto">
+        <table style="width:100%;border-collapse:collapse;min-width:620px">
+          <thead><tr><th style="padding:10px;border-bottom:2px solid #ddd;text-align:left">機能</th><th style="padding:10px;border-bottom:2px solid #ddd;text-align:left">購入時の状態</th><th style="padding:10px;border-bottom:2px solid #ddd;text-align:left">接客時の案内</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:10px;border-bottom:1px solid #eee"><b>シーズン前自動点検</b></td><td style="padding:10px;border-bottom:1px solid #eee">工場出荷時設定済み</td><td style="padding:10px;border-bottom:1px solid #eee">シーズン前に自動で点検することを案内</td></tr>
+            <tr><td style="padding:10px;border-bottom:1px solid #eee"><b>内部送風乾燥運転</b></td><td style="padding:10px;border-bottom:1px solid #eee">工場出荷時設定済み</td><td style="padding:10px;border-bottom:1px solid #eee">停止後に内部を乾燥させる機能</td></tr>
+            <tr><td style="padding:10px;border-bottom:1px solid #eee"><b>カビバスター</b></td><td style="padding:10px;border-bottom:1px solid #eee">設定確認が必要</td><td style="padding:10px;border-bottom:1px solid #eee">搭載＝自動で有効とは限らないため設定確認</td></tr>
+            <tr><td style="padding:10px;border-bottom:1px solid #eee"><b>凍結洗浄</b></td><td style="padding:10px;border-bottom:1px solid #eee">自動運転あり</td><td style="padding:10px;border-bottom:1px solid #eee">運転条件や時間指定設定があることを案内</td></tr>
+            <tr><td style="padding:10px;border-bottom:1px solid #eee"><b>白くまくんアプリ</b></td><td style="padding:10px;border-bottom:1px solid #eee">接続設定が必要</td><td style="padding:10px;border-bottom:1px solid #eee">無線LAN・アプリの初期設定が必要</td></tr>
+            <tr><td style="padding:10px"><b>カラッと除湿</b></td><td style="padding:10px">手動で選択</td><td style="padding:10px">梅雨時や冷えが苦手な方へ提案</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="series-card" style="max-width:980px;margin:0 auto 18px">
+      <h2 style="margin-top:0">接客での注意点</h2>
+      <div class="diagnosis-grid">
+        <div class="diagnosis-btn" style="cursor:default;text-align:left">⭕ 「お手入れの負担を軽くできます」</div>
+        <div class="diagnosis-btn" style="cursor:default;text-align:left">⭕ 「内部を汚れにくくする工夫があります」</div>
+        <div class="diagnosis-btn" style="cursor:default;text-align:left">❌ 「絶対にカビません」</div>
+        <div class="diagnosis-btn" style="cursor:default;text-align:left">❌ 「掃除は一切いりません」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="daikin" class="page hidden">
+  <header class="subheader">
+    <button onclick="show('home')">‹</button>
+    <h1>ダイキン攻略</h1>
+    <span></span>
+  </header>
+  <div class="daikin-wrap">
+    <div class="daikin-note">
+      2026年量販モデルのR・A・F・Eを、接客で使いやすい形に整理しています。
+      搭載機能は能力帯・型番で異なる場合があるため、最終案内は該当型番のカタログで確認してください。
+    </div>
+
+    <div class="series-card" style="max-width:980px;margin:0 auto 18px">
+      <h3 style="margin-top:0">図解で学ぶダイキン機能</h3>
+      <div class="diagnosis-grid">
+        <button class="diagnosis-btn" onclick="showDaikinFeature('premium')">❄️ プレミアム冷房</button>
+        <button class="diagnosis-btn" onclick="showDaikinFeature('airflow')">🌬 風ないス運転</button>
+        <button class="diagnosis-btn" onclick="showDaikinFeature('streamer')">✨ ストリーマ</button>
+        <button class="diagnosis-btn" onclick="showDaikinFeature('compressor')">⚙️ スイングコンプレッサー</button>
+        <button class="diagnosis-btn" onclick="showDaikinFeature('patrol')">🌡 室温パトロール</button>
+        <button class="diagnosis-btn" onclick="showDaikinFeature('dehumidify')">💧 さらら除湿</button>
+      </div>
+    </div>
+
+    <div id="daikinFeaturePanel" class="feature-panel hidden"></div>
+
+    <div class="series-tabs">
+      <button class="series-tab active" onclick="showDaikinSeries('R',this)">Rシリーズ</button>
+      <button class="series-tab" onclick="showDaikinSeries('A',this)">Aシリーズ</button>
+      <button class="series-tab" onclick="showDaikinSeries('F',this)">Fシリーズ</button>
+      <button class="series-tab" onclick="showDaikinSeries('E',this)">Eシリーズ</button>
+    </div>
+
+    <div id="daikinSeriesPanel" class="series-panel"></div>
+
+    <div class="daikin-diagnosis">
+      <h2>お客様タイプ別シリーズ診断</h2>
+      <div class="diagnosis-grid">
+        <button class="diagnosis-btn" onclick="diagnoseDaikin('highest')">👑 長時間使う・快適性を最優先</button>
+        <button class="diagnosis-btn" onclick="diagnoseDaikin('comfort')">😊 快適機能は欲しいが加湿は不要</button>
+        <button class="diagnosis-btn" onclick="diagnoseDaikin('balance')">⚖️ 価格と快適性のバランス重視</button>
+        <button class="diagnosis-btn" onclick="diagnoseDaikin('simple')">💰 シンプル・価格重視</button>
+      </div>
+      <div id="daikinDiagnosisResult" class="diagnosis-result hidden"></div>
+    </div>
+
+    <div class="daikin-quiz">
+      <h2>シリーズ提案ミニテスト</h2>
+      <div id="daikinQuizQuestion" class="question-card"></div>
+      <div id="daikinQuizChoices" class="choice-list"></div>
+      <div id="daikinQuizFeedback" class="answer-result hidden"></div>
+      <button id="daikinQuizNext" class="next-button hidden" onclick="nextDaikinQuiz()">次の問題</button>
+    </div>
+  </div>
+</section>
+
+
+<section id="visualLibrary" class="page hidden">
+  <header class="subheader">
+    <button onclick="show('home')">‹</button>
+    <h1>図解ライブラリ</h1>
+    <span></span>
+  </header>
+  <div class="visual-library">
+    <div class="visual-intro">
+      図解をタップすると大きく表示できます。iPadでは横画面にすると、接客中にお客様へ見せやすくなります。
+    </div>
+    <div id="visualGrid" class="visual-grid"></div>
+    <div class="quick-summary">
+      <div class="quick-box">
+        <h3>30秒で復習</h3>
+        <p><b>プレミアム冷房：</b>温度だけでなく湿度も細かくコントロールし、設定温度後もサラッとした快適さを狙う。</p>
+      </div>
+      <div class="quick-box">
+        <h3>接客での一言</h3>
+        <p>「同じ26℃でも、湿度まで見ながら運転するので、ベタつきを感じにくい冷房です。」</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="constructionVisuals" class="page hidden">
+  <header class="subheader">
+    <button onclick="show('home')">‹</button>
+    <h1>工事図解</h1>
+    <span></span>
+  </header>
+  <div class="visual-library">
+    <div class="visual-intro">
+      販売員が使う5テーマに絞りました。図をタップすると全体を拡大できます。
+    </div>
+    <div class="visual-grid">
+      <div class="visual-card"><img src="voltage-100-200.png" alt="100V・200V"><div class="visual-card-body"><h3>100V・200V</h3><p>コンセント・電圧・分電盤をセットで確認。</p><button onclick="openImageModal('voltage-100-200.png','100V・200V')">拡大して見る</button></div></div>
+      <div class="visual-card"><img src="dedicated-circuit.png" alt="専用回路"><div class="visual-card-body"><h3>専用回路</h3><p>分電盤からエアコンまで他機器と共用しない回路。</p><button onclick="openImageModal('dedicated-circuit.png','専用回路')">拡大して見る</button></div></div>
+      <div class="visual-card"><img src="distribution-board.svg" alt="分電盤" onclick="openImageModal('distribution-board.svg','分電盤')"><div class="visual-card-body"><h3>分電盤</h3><p>主幹容量・空き回路・電圧・専用回路を確認。</p><button onclick="openImageModal('distribution-board.svg','分電盤')">拡大して見る</button></div></div>
+      <div class="visual-card"><img src="cover.svg" alt="化粧カバー" onclick="openImageModal('cover.svg','化粧カバー')"><div class="visual-card-body"><h3>化粧カバー</h3><p>室内・室外、色、長さ、曲がりを確認。</p><button onclick="openImageModal('cover.svg','化粧カバー')">拡大して見る</button></div></div>
+      <div class="visual-card"><img src="concealed-piping.svg" alt="隠ぺい配管" onclick="openImageModal('concealed-piping.svg','隠ぺい配管')"><div class="visual-card-body"><h3>隠ぺい配管</h3><p>配管径・電線・ドレン・再利用可否を確認。</p><button onclick="openImageModal('concealed-piping.svg','隠ぺい配管')">拡大して見る</button></div></div>
+    </div>
+  </div>
+</section>
+
+<div id="imageModal" class="image-modal hidden" onclick="closeImageModal(event)">
+  <div class="image-modal-inner">
+    <button class="image-modal-close" onclick="closeImageModal(event,true)">×</button>
+    <img id="modalImage" alt="図解拡大表示">
+  </div>
+</div>
+
+
+
+
+
+<section id="helpPage" class="page hidden">
+  <header class="subheader">
+    <button onclick="show('home')" aria-label="戻る">‹</button>
+    <h1>使い方</h1>
+    <span></span>
+  </header>
+  <main class="help-page-content">
+    <section class="help-hero">
+      <div class="help-icon">?</div>
+      <div>
+        <h2>エアコン販買マスターの使い方</h2>
+        <p>販売・学習・工事確認を、目的に合わせて使い分けます。</p>
+      </div>
+    </section>
+
+    <section class="help-grid">
+      <article class="help-card">
+        <span>🛍️</span>
+        <h3>販売モード</h3>
+        <p>お客様への提案や、製品・機能の確認に使います。</p>
+      </article>
+      <article class="help-card">
+        <span>📖</span>
+        <h3>学習モード</h3>
+        <p>練習問題や図解で、知識の復習に使います。</p>
+      </article>
+      <article class="help-card">
+        <span>🎓</span>
+        <h3>接客フロー</h3>
+        <p>便利機能の「接客フロー」から、お客様対応の流れを確認します。</p>
+      </article>
+      <article class="help-card">
+        <span>🔧</span>
+        <h3>工事料金表</h3>
+        <p>追加工事や部材料金の確認に使います。</p>
+      </article>
+      <article class="help-card">
+        <span>📘</span>
+        <h3>図解ライブラリ</h3>
+        <p>ダイキン機能や工事内容を、図で確認できます。</p>
+      </article>
+      <article class="help-card">
+        <span>⚙️</span>
+        <h3>名前・設定</h3>
+        <p>設定からスタッフ名を変更できます。学習記録は端末ごとに保存されます。</p>
+      </article>
+    </section>
+
+    <section class="help-note">
+      <h3>更新後の確認</h3>
+      <p>表示が古い場合は、アプリを一度閉じてSafariで公開URLを再読み込みしてください。</p>
+    </section>
+  </main>
+</section>
+
+
+<section id="salesTips" class="page hidden">
+  <header class="subheader">
+    <button onclick="show('home')" aria-label="戻る">‹</button>
+    <h1>販売のコツ</h1>
+    <span></span>
+  </header>
+  <main class="sales-tips-content">
+    <section class="sales-tip-hero">
+      <div class="sales-tip-hero-icon">💡</div>
+      <div>
+        <h2>接客で使えるワンポイント</h2>
+        <p>説明しすぎず、お客様の困りごとに合わせて提案しましょう。</p>
+      </div>
+    </section>
+    <section class="sales-tip-grid">
+      <article class="sales-tip-card"><span>👂</span><h3>最初は聞く</h3><p>いきなり商品説明をせず、「今お困りのことは何ですか？」から始めます。</p></article>
+      <article class="sales-tip-card"><span>🎯</span><h3>比較は絞る</h3><p>候補を増やしすぎず、違いが伝わる2〜3機種に絞って案内します。</p></article>
+      <article class="sales-tip-card"><span>🗣️</span><h3>機能より効果</h3><p>機能名だけでなく、「お客様にどんな良さがあるか」に言い換えます。</p></article>
+      <article class="sales-tip-card"><span>🛡️</span><h3>安心を伝える</h3><p>価格だけでなく、工事・サポート・お手入れまで含めて安心材料を伝えます。</p></article>
+      <article class="sales-tip-card"><span>❓</span><h3>確認してから答える</h3><p>不確かな内容は断定せず、最新カタログや社内資料を確認して案内します。</p></article>
+      <article class="sales-tip-card"><span>✅</span><h3>最後に要点確認</h3><p>畳数・電圧・工事条件・希望日など、大切な条件を一緒に確認します。</p></article>
+    </section>
+    <section class="sales-tip-note"><b>今日の一言</b><p>「高い・安い」ではなく、「何が違って、誰に合うか」を伝えましょう。</p></section>
+  </main>
+</section>
+
+<section id="settings" class="page hidden"><header class="subheader"><button onclick="show('home')">‹</button><h1>設定</h1><span></span></header><div class="settings-content">
+<label>あなたの名前</label><div class="settings-row"><input id="nameInput" maxlength="20"><button onclick="saveName()">保存</button></div>
+<div style="margin-top:24px;padding-top:20px;border-top:1px solid #dbe6ef">
+<h3 style="margin:0 0 8px">学習記録の引き継ぎ</h3>
+<p style="margin:0 0 12px;color:#667085;font-size:13px;line-height:1.6">旧アイコンでコードを発行し、新しいアイコンで貼り付けると、名前・レベル・EXP・正解数・間違えた問題・学習履歴を移せます。</p>
+<button onclick="exportLearningData()" style="width:100%;margin-bottom:10px">引き継ぎコードを発行</button>
+<textarea id="transferCode" rows="7" placeholder="発行したコード、または旧アイコンでコピーしたコードをここに貼り付け" style="width:100%;box-sizing:border-box;border:1px solid #cbd5e1;border-radius:12px;padding:10px;font-size:12px;line-height:1.45;resize:vertical"></textarea>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px"><button onclick="copyTransferCode()">コードをコピー</button><button onclick="importLearningData()">コードから復元</button></div>
+<p id="transferStatus" style="min-height:1.5em;margin:10px 0 0;color:#475467;font-size:12px"></p>
+</div></div></section>
+</div>
+
+<script>
+const DATA={"practice":[{"id":"v17-001","level":"初級","category":"基礎・工事","q":"APFは何を表す数値ですか？","choices":["年間を通した省エネ性能","冷房能力","室外機の大きさ","配管の長さ"],"answer":0,"ex":"APFは通年エネルギー消費効率で、年間を通した省エネ性能の目安です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-002","level":"初級","category":"基礎・工事","q":"2.2kWは一般に何畳用の目安ですか？","choices":["6畳","8畳","10畳","14畳"],"answer":0,"ex":"2.2kWは一般に主として6畳用の目安です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-003","level":"初級","category":"基礎・工事","q":"2.5kWは一般に何畳用の目安ですか？","choices":["8畳","6畳","10畳","14畳"],"answer":0,"ex":"2.5kWは一般に主として8畳用の目安です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-004","level":"初級","category":"基礎・工事","q":"2.8kWは一般に何畳用の目安ですか？","choices":["10畳","6畳","8畳","18畳"],"answer":0,"ex":"2.8kWは一般に主として10畳用の目安です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-005","level":"初級","category":"基礎・工事","q":"4.0kWは一般に何畳用の目安ですか？","choices":["14畳","10畳","18畳","23畳"],"answer":0,"ex":"4.0kWは一般に主として14畳用の目安です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-006","level":"初級","category":"基礎・工事","q":"室内機の結露水を屋外へ流す部材は？","choices":["ドレンホース","冷媒管","VVFケーブル","アース線"],"answer":0,"ex":"ドレンホースが結露水を屋外へ排出します。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-007","level":"初級","category":"基礎・工事","q":"冷媒配管の役割は？","choices":["室内機と室外機の間で冷媒を循環させる","結露水を排出する","電源を供給する","室外機を固定する"],"answer":0,"ex":"冷媒配管は室内機と室外機の間で冷媒を循環させます。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-008","level":"初級","category":"基礎・工事","q":"専用回路とは？","choices":["エアコンに使う電気回路","他のコンセントと共用する回路","他室エアコンと共用する回路","屋外専用回路"],"answer":0,"ex":"エアコンだけに使用する専用の回路です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-009","level":"初級","category":"基礎・工事","q":"アースの主な目的は？","choices":["漏電時の感電リスクを抑える","冷房能力を上げる","運転音を下げる","運転効率を上げる"],"answer":0,"ex":"漏電時に電気を逃がし、感電リスクを抑えます。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-010","level":"初級","category":"基礎・工事","q":"室外機を地面やベランダへ通常設置する方法は？","choices":["平地置き","壁面置き","天吊り","屋根置き"],"answer":0,"ex":"地面やベランダへの通常設置は平地置きです。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-011","level":"初級","category":"基礎・工事","q":"配管を保護し見た目を整える部材は？","choices":["化粧カバー","配管接続部材","連絡電線","ドレンホース"],"answer":0,"ex":"配管化粧カバーは配管を保護し外観も整えます。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-012","level":"初級","category":"基礎・工事","q":"隠ぺい配管とは？","choices":["壁や天井内部を通る配管","窓から垂らす配管","室外機上の配管","排水専用配管"],"answer":0,"ex":"壁や天井内部に通された配管です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-013","level":"初級","category":"基礎・工事","q":"買い替え相談の最初のヒアリングとして、優先度が低いものは？","choices":["希望するメーカーや機能を確認する","室外機の取付方法や電源など設置環境を確認する","畳数に加え、日当たりや吹き抜けなど部屋条件を確認する","リモコンの使いやすさを詳しく比較する"],"answer":3,"ex":"リモコンの操作性も大切ですが、最初は希望条件・部屋条件・設置環境を整理します。操作性を重視する場合は、候補を絞った後に実機で確認します。"},{"id":"v17-014","level":"初級","category":"基礎・工事","q":"新規穴あけ工事の受付で、最初に確認する建物情報として最も重要なのは？","choices":["建物の着工時期と壁の構造","室内機の希望色と本体幅","使用する時間帯と設定温度","希望メーカーと予算"],"answer":0,"ex":"穴あけでは石綿事前調査の要否や構造物への影響を判断するため、着工時期と壁の構造を確認します。"},{"id":"v17-018","level":"初級","category":"基礎・工事","q":"100V機から200V機へ変更する際、電気工事の判断に直接必要な組み合わせは？","choices":["専用回路・配線方式・分電盤・コンセント形状","冷媒配管径・ドレン勾配・室外機寸法","室内機寸法・配管穴位置・化粧カバー色","契約者名・購入時期・保証期間"],"answer":0,"ex":"200V化では、専用回路、単相3線式か、分電盤、コンセント形状などを確認します。"},{"id":"v17-019","level":"初級","category":"基礎・工事","q":"工事条件や機種選びの判断材料として、写真で確認しても参考になりにくいものは？","choices":["室内機周辺とコンセントの位置関係","室外機置場と周囲の放熱スペース","配管穴と配管経路が分かる設置面","リモコン画面に表示された設定温度"],"answer":3,"ex":"設定温度は使い方の聞き取りには役立ちますが、設置可否や追加工事の判断材料としては優先度が低い情報です。室内機周辺・電源・室外機置場・配管経路が分かる写真を確認します。"},{"id":"v17-020","level":"初級","category":"基礎・工事","q":"配管カバー希望を確認するタイミングは？","choices":["工事受付時","工事完了後","配送後","修理受付時"],"answer":0,"ex":"受付時に室内外、色、経路を確認します。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-024","level":"初級","category":"電気","q":"築年数の経った戸建てでエアコンを1台新規増設する相談。30A契約と分かった時、最初の対応として最も適切なのは？","choices":["希望機種の電圧と専用回路の有無、分電盤、同時使用家電を確認する","契約容量を40Aへ変更してから、希望機種と設置場所を確認する","100V機を候補に絞り、室外機置場と配管経路を確認する","現在使用中の家電を減らせるか確認し、標準工事で受付する"],"answer":0,"ex":"契約容量だけでは設置可否を断定できません。新規増設では、希望機種の電圧、専用回路、分電盤、配線方式、同時使用家電を確認して判断します。"},{"id":"v17-028","level":"初級","category":"電気","q":"専用回路増設の概算を案内するうえで、優先度が低い情報は？","choices":["分電盤の空き状況","分電盤から室内機までの配線経路","室内機と分電盤の位置関係","室内機と室外機の位置関係"],"answer":3,"ex":"専用回路工事では分電盤から室内機側までの経路が重要です。室外機位置はエアコン工事全体では必要ですが、専用回路増設の概算では優先度が低い情報です。","scenarioType":"new"},{"id":"v17-030","level":"初級","category":"電気","q":"電源プラグ形状が合わない場合、確認・案内として優先度が低いものは？","choices":["既設コンセントの形状と電圧を確認する","専用回路と分電盤側の電圧を確認する","電圧切替やコンセント交換の要否を案内する","市販の変換プラグで対応できるかを先に確認する"],"answer":3,"ex":"プラグ形状が合わない場合は、変換プラグで済ませず、既設電源・専用回路・分電盤側の電圧を確認し、必要な電気工事を案内します。"},{"id":"v17-031","level":"初級","category":"工事料金","q":"2.2～3.6kWの標準工事の料金はいくらですか？","choices":["19,250円","20,350円","21,450円","23,650円"],"answer":1,"ex":"2.2～3.6kWの標準工事は税込20,350円です。 新規設置では、専用回路・穴あけ・室外機置場を特に確認します。"},{"id":"v17-032","level":"初級","category":"工事料金","q":"4.0～5.6kWの標準工事の料金はいくらですか？","choices":["23,650円","24,750円","25,850円","28,050円"],"answer":1,"ex":"4.0～5.6kWの標準工事は税込24,750円です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-033","level":"初級","category":"工事料金","q":"6.3kW以上の標準工事の料金はいくらですか？","choices":["26,950円","28,050円","29,150円","31,350円"],"answer":1,"ex":"6.3kW以上の標準工事は税込28,050円です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-034","level":"初級","category":"工事料金","q":"内機2階・外機1階の料金はいくらですか？","choices":["18,700円","19,800円","20,900円","23,100円"],"answer":1,"ex":"内機2階・外機1階は税込19,800円です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-035","level":"初級","category":"工事料金","q":"内機3階・外機1階の料金はいくらですか？","choices":["35,200円","36,300円","37,400円","39,600円"],"answer":1,"ex":"内機3階・外機1階は税込36,300円です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-036","level":"初級","category":"工事料金","q":"隠ぺい配管の料金はいくらですか？","choices":["7,700円","8,800円","9,900円","12,100円"],"answer":1,"ex":"隠ぺい配管は税込8,800円です。 新規設置では、専用回路・穴あけ・室外機置場を特に確認します。"},{"id":"v17-037","level":"初級","category":"工事料金","q":"ソフトドレン取付の料金はいくらですか？","choices":["6,600円","7,700円","8,800円","11,000円"],"answer":1,"ex":"ソフトドレン取付は税込7,700円です。 新規設置では、専用回路・穴あけ・室外機置場を特に確認します。"},{"id":"v17-038","level":"初級","category":"工事料金","q":"屋内壁貫通の料金はいくらですか？","choices":["5,500円","6,600円","7,700円","9,900円"],"answer":1,"ex":"屋内壁貫通は税込6,600円です。 新規設置では、専用回路・穴あけ・室外機置場を特に確認します。"},{"id":"v17-039","level":"初級","category":"工事料金","q":"立ち上げ工事（配管4m）の料金はいくらですか？","choices":["8,800円","9,900円","11,000円","13,200円"],"answer":1,"ex":"立ち上げ工事（配管4m）は税込9,900円です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-041","level":"初級","category":"メーカー","q":"ストリーマを比較軸にしやすいメーカーは？","choices":["ダイキン","日立","三菱電機","SHARP"],"answer":0,"ex":"ストリーマはダイキンの代表的な空気・清潔技術です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-043","level":"初級","category":"メーカー","q":"凍結洗浄を比較軸にしやすいメーカーは？","choices":["日立","ダイキン","三菱電機","東芝"],"answer":0,"ex":"凍結洗浄は日立の代表的な清潔機能です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-045","level":"初級","category":"メーカー","q":"ムーブアイ系センサーを比較軸にしやすいメーカーは？","choices":["三菱電機","ダイキン","日立","東芝"],"answer":0,"ex":"ムーブアイは三菱電機の代表的なセンサー技術です。 新規設置では、専用回路・穴あけ・室外機置場を特に確認します。"},{"id":"v17-047","level":"初級","category":"メーカー","q":"熱交換器加熱除菌を比較軸にしやすいメーカーは？","choices":["ゼネラル","日立","ダイキン","SHARP"],"answer":0,"ex":"ゼネラルは熱交換器加熱除菌を代表的な清潔機能として展開しています。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-049","level":"初級","category":"メーカー","q":"プラズマ空清を比較軸にしやすいメーカーは？","choices":["東芝","SHARP","日立","三菱電機"],"answer":0,"ex":"東芝はプラズマ空清を代表的な空気清浄機能として展開しています。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-050","level":"初級","category":"メーカー","q":"風を感じにくい無風感空調を比較軸にしやすいメーカーは？","choices":["東芝","ダイキン","日立","SHARP"],"answer":0,"ex":"東芝は無風感空調を特徴として展開しています。搭載機種を確認します。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-051","level":"初級","category":"メーカー","q":"プラズマクラスターを比較軸にしやすいメーカーは？","choices":["SHARP","東芝","ダイキン","日立"],"answer":0,"ex":"プラズマクラスターはSHARPの代表的な空気ケア技術です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-055","level":"初級","category":"接客","q":"価格重視のお客様への提案・ヒアリングとして、不適切な対応は？","choices":["最安機種に加え、施策を含めて価格メリットのある機種も紹介する","希望機能を確認し、お手入れ頻度や自動清掃機能の違いを説明する","候補が決まっていても、設置寸法や工事条件を確認する","最安機種と次に安い機種に絞り、予算を超える提案は行わない"],"answer":3,"ex":"価格重視でも、価格だけで候補を狭めるのは適切ではありません。必要機能や設置条件を確認し、対象条件を確認した上で無金利分割や価格保証券なども案内し、総合的に比較します。"},{"id":"v17-058","level":"初級","category":"接客","q":"直接風が苦手なお客様への提案候補として、比較上もっとも優先度が低いものは？","choices":["東芝DXシリーズ","三菱電機Rシリーズ","SHARP Vシリーズ","日立Gシリーズ"],"answer":3,"ex":"東芝DXは無風感空調、三菱Rはセンサーによる気流制御、SHARP Vは寒くなりにくい除湿を比較軸にできます。日立Gも機能確認は必要ですが、今回の悩みへの直接的な比較軸はほかの候補より弱いため優先度が下がります。"},{"id":"v17-068","level":"中級","category":"工事判断","q":"配管が標準長を超えるか判断できない場合、配管延長の案内として最も適切なものは？","choices":["一度帰宅して設置環境を確認してもらい、配管長が確定するまで成約を控える","標準工事条件だけを説明し、配管延長については工事当日に案内する","室内機と室外機が同一階なら標準長に収まるものとして案内する","可能な範囲で設置環境を聞き取り、延長が発生する場合の1m当たり料金を事前説明する"],"answer":3,"ex":"判断できない場合でも、可能な限り経路や位置関係を聞き取り、配管延長の可能性と単価を事前に説明します。同一階でも横引きなどで標準長を超える場合があります。"},{"id":"v17-070","level":"中級","category":"工事判断","q":"安全にハシゴを掛ける場所がない現場で、対応として不適切なものは？","choices":["設置場所周辺の写真を確認する","現地確認で施工方法と可否を判断する","室外機位置や配管経路の変更案を検討する","ハシゴの傾斜スペースが確保できない場合は、追加料金で足場を組んで施工できると案内する"],"answer":3,"ex":"写真確認・現地確認・室外機位置や配管経路の変更検討は有効です。ハシゴの安全な傾斜スペースを確保できない場合、追加料金をいただいて足場を組む対応は行わないため、足場施工を前提に案内してはいけません。"},{"id":"v17-097","level":"中級","category":"電気","q":"同じ畳数の100V機と200V機を比較する際、確認項目として優先度が低いものは？","choices":["冷暖房能力と立ち上がり","期間消費電力量と使用時間","専用回路・電圧・コンセント形状","リモコンのボタン配置"],"answer":3,"ex":"操作性も確認事項ですが、100V・200V比較では能力、省エネ性、電源工事条件を優先して確認します。"},{"id":"v17-099","level":"上級","category":"電気","q":"10年以上使用しているエアコンが、運転中にブレーカーが落ちるという相談。対応として適さないものは？","choices":["本体故障が原因と考えられる内容のため、使用年数を踏まえて買い替えを案内する","症状が始まった時期と、ブレーカーが落ちるまでの運転時間を聞き取る","契約容量や他家電の同時使用状況、専用回路の状態を確認する","本体故障の可能性も考え、必要に応じて点検や修理を案内する"],"answer":0,"ex":"使用年数が10年を超えていても、契約容量・同時使用家電・回路・分電盤・本体故障など複数の原因が考えられます。年数だけで故障と断定せず、原因を確認してから修理・買い替えを提案します。"},{"id":"v17-100","level":"中級","category":"電気","q":"専用回路の増設案内・概算料金の説明で、優先度が低い情報は？","choices":["専用回路の配線経路","分電盤の空き状況","室内機と分電盤の位置関係","室内機と室外機の位置関係"],"answer":3,"ex":"室外機の位置もエアコン工事全体では重要ですが、専用回路増設の概算には、分電盤・室内機位置・配線経路を優先して確認します。","scenarioType":"new"},{"id":"v17-102","level":"上級","category":"電気","q":"新規設置で専用回路がない場合の確認・説明として、不適当なものは？","choices":["分電盤の空き状況と配線経路を確認した上で概算料金を案内する","現在のエアコン設置台数と契約容量を確認してから商品提案を進める","配管穴の穴あけ料金と、専用回路工事で壁貫通が必要な場合の料金を分けて説明する","取付後にブレーカーが落ちた場合は契約容量を増やせばよいと事前了承を得る"],"answer":3,"ex":"契約方式や分電盤・配線状況によっては、簡単に契約容量を増やせない場合があります。取付後の対応を前提にせず、設置前に電気設備全体を確認します。"},{"id":"v17-103","level":"中級","category":"メーカー提案","q":"花粉やニオイを重視し、ストリーマにも関心があるお客様。第一候補は？","choices":["ダイキン","三菱電機","日立","ゼネラル"],"answer":0,"ex":"ダイキンを第一候補にし、搭載機種と他社空気機能も比較します。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-104","level":"中級","category":"メーカー提案","q":"内部の熱交換器やファンの清潔性を最優先するお客様。第一候補は？","choices":["日立","SHARP","三菱電機","東芝"],"answer":0,"ex":"日立を第一候補にし、凍結洗浄など対象機種の清潔機能を確認します。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-105","level":"中級","category":"メーカー提案","q":"家族の暑がり・寒がりの差が大きく、気流制御重視。第一候補は？","choices":["三菱電機","日立","東芝","SHARP"],"answer":0,"ex":"三菱電機を第一候補にし、ムーブアイ系機能の搭載状況を確認します。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-106","level":"中級","category":"メーカー提案","q":"熱交換器の加熱除菌と設置性を比較したいお客様。第一候補は？","choices":["ゼネラル","ダイキン","日立","SHARP"],"answer":0,"ex":"ゼネラルを第一候補にし、対象機種の搭載機能と寸法を確認します。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-107","level":"中級","category":"メーカー提案","q":"風を感じにくい冷房と空気清浄を重視するお客様。第一候補は？","choices":["東芝","三菱電機","日立","ゼネラル"],"answer":0,"ex":"東芝を第一候補にし、無風感空調・プラズマ空清の搭載機種を確認します。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-108","level":"中級","category":"メーカー提案","q":"プラズマクラスターによる空気ケアを希望するお客様。第一候補は？","choices":["SHARP","東芝","ダイキン","日立"],"answer":0,"ex":"SHARPを第一候補にし、対象機種の機能を確認します。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-110","level":"中級","category":"メーカー提案","q":"空気清浄を重視し、メーカー指定のないお客様へ提案する機種として適切なのは？","choices":["プラズマ空清搭載の東芝対象シリーズ","内部カビ対策を中心とする日立Gシリーズ","熱交換器加熱除菌を中心とするゼネラルWシリーズ","ストリーマ空気清浄を搭載するダイキン対象シリーズ"],"answer":3,"ex":"内部清潔機能と室内空気への空気清浄機能は分けて確認します。この選択肢では、室内空気へのストリーマ空気清浄を搭載するダイキン対象シリーズが要望に直接合います。型式ごとの搭載有無は確認します。"},{"id":"v17-112","level":"中級","category":"メーカー提案","q":"価格重視のお客様へのコンサルとして、不適切な対応は？","choices":["特価機種や本体・工事施策を含め、総額で比較する","対象条件を確認し、無金利分割による月々の負担も案内する","価格保証券の条件を説明し、購入後の価格不安にも対応する","予算を超える候補は説明せず、最安機種だけで決定する"],"answer":3,"ex":"価格重視でも、必要機能や設置条件を確認した上で選択肢を示します。無金利分割や価格保証券は、対象条件・実施状況を確認して案内します。"},{"id":"v17-116","level":"中級","category":"接客","q":"「空気をきれいにしたい」と言われた時、追加ヒアリングとして優先度が低いものは？","choices":["花粉・ニオイ・ホコリ・PM2.5のうち、特に何が気になるか","ペットや喫煙など、ニオイや汚れの発生要因があるか","空気清浄機を併用しているか、現在の対策で不足を感じる点は何か","冷暖房時の設定温度を何度にすることが多いか"],"answer":3,"ex":"設定温度も使い方の確認には役立ちますが、空気ケア提案では、対象物・発生要因・現在の対策を先に具体化します。"},{"id":"v17-117","level":"中級","category":"接客","q":"「風が苦手」と言われた時、追加ヒアリングとして優先度が低いものは？","choices":["直接風が身体に当たることが苦手か","除湿運転時の冷えすぎが気になるか","部屋の温度ムラや家族の体感差が気になるか","暖房運転を開始してから設定温度へ達するまでの時間を重視するか"],"answer":3,"ex":"暖房の立ち上がりも商品比較では重要ですが、「風が苦手」という悩みを具体化する最初の聞き取りとしては、直接風・冷えすぎ・温度ムラの確認を優先します。"},{"id":"v17-118","level":"中級","category":"接客","q":"追加料金トラブルを減らす対応として、不適切なものは？","choices":["標準工事内容を説明し、追加料金が発生する条件を分けて概算案内する","設置場所の写真を確認し、不足があれば帰宅後の追加確認を依頼する","コンサルナビや工事コード表を確認しながら追加料金を説明する","追加料金が掛からない条件を中心に説明し、その条件に当てはまる前提で案内する"],"answer":3,"ex":"追加料金が掛からない条件だけを前提にすると、申告との差異や現地条件でトラブルになりやすくなります。標準工事と追加条件を切り分け、未確認部分は概算として説明します。"},{"id":"v17-124","level":"上級","category":"総合工事","q":"屋根置き室外機の買い替えで、配管延長と高所作業の可能性があります。店頭案内として不適切なものは？","choices":["既存架台の状態・再利用可否・搬出入経路を確認し、現地判断で金額が変わる可能性を説明する","設置写真やおおよその寸法を確認し、配管延長と高所作業の料金を分けて概算案内する","同じ場所・同じ能力帯なら既存架台は再利用できると考え、標準工事と配管延長だけで総額を案内する","店頭で判断しきれない条件は、現地調査後に施工可否と追加料金を確定すると説明する"],"answer":2,"ex":"同じ場所・同じ能力帯でも、既存架台の劣化、寸法、固定状態や安全な作業条件によって再利用できない場合があります。屋根置きでは、架台・搬出入経路・作業スペース・配管長を確認し、未確定部分は現地調査後に確定すると案内します。"},{"id":"v17-127","level":"上級","category":"総合工事","q":"室外機2段置きで、上段と下段に能力の異なる機種を設置する際、確認として不適当なものは？","choices":["架台の対応能力区分と耐荷重を確認する","上下の室外機寸法と吸排気・点検スペースを確認する","搬入経路と据付時の安全な作業スペースを確認する","下段の高さ制限を優先して小さい室外機を置き、上段へ大きく重い室外機を載せる前提で案内する"],"answer":3,"ex":"2段置きでは、架台の適合・耐荷重・上下の室外機寸法・放熱・点検・搬入条件を確認します。基本は重く大きい室外機を下段、小さく軽い室外機を上段に配置し、上段へ大きく重い室外機を載せる案内は安全面や施工条件から不適当です。"},{"id":"v17-132","level":"上級","category":"総合工事","q":"室外機を密閉気味のサービスバルコニーへ設置する際、確認項目として優先度が低いものは？","choices":["吸排気と放熱に必要なスペース","搬入・搬出経路と点検スペース","管理規約や室外機設置条件","室外機の外装色が周囲の外観と合うか"],"answer":3,"ex":"サービスバルコニーでは、吸排気・放熱スペース、搬入搬出・点検スペース、管理規約や設置条件を優先します。室外機の外装色は外観上の参考にはなりますが、設置可否の判断では優先度が低い情報です。"},{"id":"v17-134","level":"上級","category":"総合工事","q":"室内機3階・室外機1階で、道路側にハシゴを設置する相談。追加確認として優先度が低いものは？","choices":["道路使用や歩行者動線への影響を確認する","ハシゴ設置場所と作業員の安全確保方法を確認する","配管経路と必要長、高所作業条件を確認する","室外機の外装色が外壁や周囲の景観と合うか確認する"],"answer":3,"ex":"道路側の高所作業では、道路使用条件・歩行者動線への影響・ハシゴの安全な設置条件・配管経路と必要長を優先します。室外機の外装色は施工可否や高所作業条件には直接影響しないため、優先度が低い情報です。"},{"id":"v17-151","level":"上級","category":"メーカー総合","q":"犬2匹・花粉症・空気ケア重視のお客様。比較候補の組み合わせとして不適当なものは？","choices":["空気清浄機能を搭載したダイキン・東芝の対象機種を比較する","イオン放出系の空気ケアを搭載したSHARPなどの対象機種を比較する","ペット臭や花粉への対応内容を、各社の対象機種ごとに比較する","内部清潔機能を搭載していれば、空気清浄機能の有無は確認せず候補にする"],"answer":3,"ex":"内部清潔機能と、室内空気を対象とする空気清浄機能は同じではありません。対象物と搭載機能を機種ごとに確認します。"},{"id":"v17-153","level":"上級","category":"メーカー総合","q":"家族の体感差と直風対策を重視する場合、比較方法として不適当なものは？","choices":["人の位置や体感を見分けるセンサー気流を搭載した機種を比較する","直接風を避ける気流制御や無風感運転を搭載した機種を比較する","部屋の温度ムラを抑える気流制御の仕組みを対象機種で比較する","APFの数値の高さを基準に、家族の体感差や直風への対応力を判断する"],"answer":3,"ex":"体感差と直風対策では、人感センサー・気流制御・温度ムラ対策を比較します。APFは省エネ性能の目安であり、体感差や直風への対応力を直接示す数値ではありません。"},{"id":"v17-158","level":"上級","category":"メーカー総合","q":"在宅勤務・長時間運転・温度ムラが気になるお客様への提案として、最も適切なものは？","choices":["三菱電機Z・Rなどのセンサー気流を軸に、他社の気流制御も比較する","ダイキンのスイングコンプレッサーを気流制御機能として比較する","ゼネラルのハイドロフィリック熱交換器を温度ムラ対策として比較する","日立のウェーブファンを部屋の温度ムラ対策として比較する"],"answer":0,"ex":"温度ムラには、室内の人や温度を見分けるセンサー気流など、使用効果と機能が一致するものを比較します。スイングコンプレッサー、熱交換器の親水処理、ウェーブファンは別の目的の技術です。"},{"id":"v17-159","level":"上級","category":"メーカー総合","q":"部屋干し臭とPM2.5対策を重視する場合、比較方法として不適当なものは？","choices":["ニオイ対策と集じん・空気清浄機能を対象機種ごとに確認する","室内空気への作用と、エアコン内部の清潔機能を分けて比較する","集じんフィルターの有無・捕集対象と、イオン・放電技術が作用する対象を確認して比較する","熱交換器の自動洗浄機能があれば、PM2.5対策も十分と判断する"],"answer":3,"ex":"内部洗浄機能はエアコン内部の清潔を保つ機能で、PM2.5を含む室内空気の集じん性能とは別です。集じんフィルターの有無・捕集対象、イオンや放電技術が作用する対象を機種ごとに確認します。"},{"id":"v17-163","level":"上級","category":"メーカー総合","q":"ニオイ対策を最重視しプラズマクラスターを希望。第一候補は？","choices":["SHARP","東芝","日立","三菱電機"],"answer":0,"ex":"希望機能が明確なのでSHARPを第一候補にします。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-173","level":"上級","category":"接客総合","q":"上位モデルを提案する際の応対として、不適切なものはどれか？","choices":["使用時間を確認し、省エネ性能による電気代差を比較して説明する","温度ムラや除湿などの困りごとを確認し、搭載機能との関係を説明する","清潔機能や手入れ方法を確認し、日常の負担がどう変わるか説明する","搭載機能が多いほど満足度も高くなるため、使用状況にかかわらず上位モデルを提案する"],"answer":3,"ex":"①～③は、お客様の使い方や困りごとに価格差が見合うかを確認する提案です。上位モデルは機能数やグレードだけで勧めず、お客様に必要な機能と価格差を結び付けて案内します。"},{"id":"v17-175","level":"上級","category":"接客総合","q":"工事条件が未確定の段階で総額を案内する場合、説明として不適当なものは？","choices":["確認済みの範囲を概算で示し、未確認条件で変動する可能性を伝える","標準工事と想定される追加工事を分け、条件ごとの概算を示す","写真や聞き取りで確認できた内容と、現地判断になる内容を分けて説明する","過去の類似工事と同額になる前提で、確定総額として案内する"],"answer":3,"ex":"未確認条件がある段階では確定額と誤解されないよう、概算範囲・確認済み条件・変動要因を明確にします。"},{"id":"v17-176","level":"上級","category":"接客総合","q":"他メーカーの悪口で自社推奨を強める接客は？","choices":["不適切","適切","高額商品なら適切","競合時は適切"],"answer":0,"ex":"事実に基づく比較とお客様への適合理由を説明します。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v215-r005","level":"上級","category":"接客総合","q":"買い替えで既存の配管穴を再利用できるか判断できない場合、案内として不適切なものは？","choices":["新旧室内機の寸法と配管取出し位置を比較し、既存穴が使えない可能性も説明する","新規穴あけの可能性に備え、建物の構造や着工時期、石綿事前調査の対象可否を確認する","既存穴が使えない場合は、据付位置の調整や新規穴あけを現地確認後に検討すると案内する","同じ能力帯への買い替えなら既存穴を再利用できる可能性が高いとして、新規穴あけの説明は省く"],"answer":3,"ex":"同じ能力帯でも室内機の高さ・奥行き・配管取出し位置は機種ごとに異なります。既存穴の再利用を前提にせず、新規穴あけの可能性、建物条件、石綿事前調査の要否まで含めて説明します。"},{"id":"v2q004","level":"上級","category":"工事","q":"隠ぺい配管の買い替え案内として、不適当なものは？","choices":["配管径・状態・ドレン方式により、現地確認後の可否判断となる可能性を説明する","設置環境と了承内容によっては、露出配管への変更も選択肢として案内する","隠ぺい配管で施工する場合は、連絡線の長さなど施工条件に合う機種を確認する","現在がダイキン製なら隠ぺい配管を再利用できる可能性が高いため、Rシリーズ以外は取付可能として機種紹介する"],"answer":3,"ex":"現在がダイキン製でも、配管径・状態・ドレン方式・連絡線の長さなどにより再利用可否は変わります。メーカー名だけで取付可能と判断せず、施工条件を確認し、必要に応じて露出配管も検討します。"},{"id":"v2q005","level":"上級","category":"暖房","q":"寒冷時の暖房性能を比較する時の確認方法として、適さないものは？","choices":["低温時暖房能力が外気温2℃条件で示される数値であることを理解して比較する","定格暖房能力や暖房時消費電力も含めて運転特性を比較する","室外機の運転可能外気温範囲や寒冷地向け仕様を確認する","冷房時の最大能力を基準に寒冷時の暖房性能を判断する"],"answer":3,"ex":"低温時暖房能力は外気温2℃条件で示される数値です。定格暖房能力・消費電力・運転可能外気温範囲なども確認し、冷房時最大能力だけでは判断しません。"},{"id":"qa-a02","level":"上級","category":"総合","q":"30A契約の住宅で200Vエアコンを希望された場合、確認の進め方として不適切なものは？","choices":["専用回路・配線方式・分電盤・同時使用家電を確認して判断する","単相3線式か確認し、200Vへの電圧切替が可能か判断する","契約容量が30A以上であれば、200V機を設置できるとして受付する","必要に応じて主幹容量や契約変更の可否も確認する"],"answer":2,"ex":"30A以上でも単相2線式では200Vへ切り替えできません。契約容量だけで判断せず、単相3線式か、専用回路・分電盤・主幹容量・同時使用家電などを確認します。"},{"id":"qa-a04","level":"上級","category":"総合","q":"屋根置き室外機の買い替えで、見積案内として不適切なものは？","choices":["既存架台の劣化と、新しい室外機の寸法・重量への適合を確認する","屋根の勾配、足場、搬出入経路など、安全に作業できる条件か確認する","配管延長の可能性や、屋根形状・配管経路によって化粧カバーを施工できない場合があることを説明する","屋根置き料金を加えれば施工可能として、現地確認前に工事可と確定する"],"answer":3,"ex":"屋根置きでは、架台の劣化、新室外機の寸法・重量、屋根の勾配、足場、搬出入経路を確認します。屋根の状態などで安全を確保できない場合は、追加料金を加えても施工できません。配管延長や化粧カバーも、屋根形状・配管経路により必要性や施工可否が変わります。"},{"id":"v38-001","level":"初級","category":"接客","q":"お客様が『電気代を抑えたい』と話した場合、最初の確認として優先度が低いものは？","choices":["一日の使用時間と主な使用時間帯","現在の設定温度と困っている場面","部屋の広さ・日当たり・断熱条件","候補機種のリモコン配色"],"answer":3,"ex":"省エネ提案では使用時間、使い方、部屋条件を先に確認します。リモコン配色は商品選定後の確認事項です。"},{"id":"v38-002","level":"中級","category":"工事","q":"買い替えで既存配管の再利用を希望された場合、受付時の説明として不適切なものは？","choices":["配管径・長さ・状態と新機種の施工条件を確認する","隠ぺい配管の場合は連絡線やドレン方式も確認する","現地確認で再利用不可となる可能性を説明する","同じ能力帯なら配管径も同じと考え、再利用前提で案内する"],"answer":3,"ex":"能力帯が同じでも配管径や施工条件が一致するとは限りません。配管・連絡線・ドレンなどを確認して判断します。"},{"id":"v38-003","level":"上級","category":"接客総合","q":"省エネ性能の高い上位機種を提案する際、説明として不適切なものは？","choices":["使用時間を確認し、年間電気代の差が価格差に見合うか比較する","部屋条件を確認し、能力不足や過大能力にならないよう機種を選ぶ","対象条件を確認し、無金利分割など支払い方法も含めて比較する","APFが高い機種なら、使用時間や部屋条件に関係なく得になると説明する"],"answer":3,"ex":"APFは重要な比較指標ですが、使用時間や部屋条件によって実際のメリットは変わります。価格差に見合うかを個別に説明します。"},{"id":"v38-004","level":"上級","category":"工事総合","q":"現地確認前の工事見積で、確定金額と誤解されにくい案内として最も適切なのは？","choices":["確認できた工事項目、未確認条件、変動する可能性を分けて概算表示する","標準工事と予想追加工事を合計し、参考総額として一つだけ表示する","過去の類似現場の平均額を基準に、今回も同程度と説明する","追加工事は現地精算とだけ伝え、本体と標準工事の総額を表示する"],"answer":0,"ex":"確認済み範囲と未確認条件を分けることで、概算と確定額の違いが明確になります。"}],"price":[{"id":"v17-031","level":"初級","category":"工事料金","q":"2.2～3.6kWの標準工事の料金はいくらですか？","choices":["19,250円","20,350円","21,450円","23,650円"],"answer":1,"ex":"2.2～3.6kWの標準工事は税込20,350円です。 新規設置では、専用回路・穴あけ・室外機置場を特に確認します。"},{"id":"v17-032","level":"初級","category":"工事料金","q":"4.0～5.6kWの標準工事の料金はいくらですか？","choices":["23,650円","24,750円","25,850円","28,050円"],"answer":1,"ex":"4.0～5.6kWの標準工事は税込24,750円です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-033","level":"初級","category":"工事料金","q":"6.3kW以上の標準工事の料金はいくらですか？","choices":["26,950円","28,050円","29,150円","31,350円"],"answer":1,"ex":"6.3kW以上の標準工事は税込28,050円です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-034","level":"初級","category":"工事料金","q":"内機2階・外機1階の料金はいくらですか？","choices":["18,700円","19,800円","20,900円","23,100円"],"answer":1,"ex":"内機2階・外機1階は税込19,800円です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-035","level":"中級","category":"工事料金","q":"内機3階・外機1階の料金はいくらですか？","choices":["35,200円","36,300円","37,400円","39,600円"],"answer":1,"ex":"内機3階・外機1階は税込36,300円です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"v17-036","level":"中級","category":"工事料金","q":"隠ぺい配管の料金はいくらですか？","choices":["7,700円","8,800円","9,900円","12,100円"],"answer":1,"ex":"隠ぺい配管は税込8,800円です。 新規設置では、専用回路・穴あけ・室外機置場を特に確認します。"},{"id":"v17-037","level":"中級","category":"工事料金","q":"ソフトドレン取付の料金はいくらですか？","choices":["6,600円","7,700円","8,800円","11,000円"],"answer":1,"ex":"ソフトドレン取付は税込7,700円です。 新規設置では、専用回路・穴あけ・室外機置場を特に確認します。"},{"id":"v17-038","level":"中級","category":"工事料金","q":"屋内壁貫通の料金はいくらですか？","choices":["5,500円","6,600円","7,700円","9,900円"],"answer":1,"ex":"屋内壁貫通は税込6,600円です。 新規設置では、専用回路・穴あけ・室外機置場を特に確認します。"},{"id":"v17-039","level":"上級","category":"工事料金","q":"立ち上げ工事（配管4m）の料金はいくらですか？","choices":["8,800円","9,900円","11,000円","13,200円"],"answer":1,"ex":"立ち上げ工事（配管4m）は税込9,900円です。 買い替えでは、既存機の取り外し・配管・電源・設置状況を確認します。"},{"id":"qa-p01","level":"上級","category":"料金説明","q":"標準工事料金を案内する際、最も適切な説明は？","choices":["標準範囲と追加条件を分けて説明する","本体と標準工事を確定総額として説明する","過去の平均追加額を一律に加えて説明する","追加料金は現地で初めて説明すると案内する"],"answer":0,"ex":"標準工事の範囲と追加になる条件を分け、店頭案内は概算であることを伝えます。"},{"id":"qa-p02","level":"上級","category":"配管延長","q":"配管延長が必要か不明な場合、料金案内として最も適切なのは？","choices":["設置条件を聞き、延長時の単価と概算を説明する","標準長で収まる前提で会計し現地精算とする","同一階なら延長なしとして案内する","配管長が確定するまで本体提案を行わない"],"answer":0,"ex":"可能な限り設置条件を確認し、延長が発生する条件と単価・概算を説明します。"},{"id":"qa-p03","level":"上級","category":"複合工事","q":"2階室内機・1階室外機の概算で、優先度が低い情報は？","choices":["配管経路と高低差","高所作業の有無","化粧カバーの希望","リモコンホルダーの位置"],"answer":3,"ex":"立ち下ろし工事では配管長、高所作業、カバー、穴あけ条件が見積に影響します。"},{"id":"qa-p04","level":"初級","category":"料金区分","q":"5.6kWのエアコンに該当する標準工事料金区分は？","choices":["2.2～3.6kWの区分","4.0～5.6kWの区分","6.3kW以上の区分","能力に関係なく同一料金"],"answer":1,"ex":"5.6kWは4.0～5.6kWの標準工事料金区分に該当します。"},{"id":"qa-p05","level":"中級","category":"料金案内","q":"工事料金表を使って概算を案内する際、最も適切な進め方は？","choices":["標準工事料金だけを伝え、追加工事は当日説明とする","設置状況を聞き取り、標準工事と追加候補を分けて説明する","過去の平均追加額を一律に加えて総額を確定する","写真がなければ料金案内を行わない"],"answer":1,"ex":"工事料金表は、設置条件を聞き取ったうえで標準工事と追加候補を分けて案内します。未確認条件は確定額として伝えません。"},{"id":"qa-p06","level":"上級","category":"料金判断","q":"内機2階・外機1階の相談で、料金表から追加項目を判断するために最も重要な確認は？","choices":["配管経路・高低差・高所作業条件","室内機の色とリモコン形状","希望メーカーと保証年数","使用時間と設定温度"],"answer":0,"ex":"立ち下ろし工事では、配管経路・高低差・高所作業条件が追加料金の判断に直結します。"}],"salesCases":[{"id":"C001","title":"電気代を下げたいご夫婦","avatar":"👨‍👩","customer":"40代ご夫婦","home":"木造2階建て","room":"LDK18畳","budget":"25万円前後","speech":"電気代が高くて、どのエアコンがいいか迷っています。","steps":[{"q":"電気代を下げたいという相談で、最初の確認として最も適切なのは？","choices":["現在の使用時間・設定温度・困っている季節を確認する","年間消費電力量が最も少ない機種から紹介する","現在の契約アンペアと分電盤の空きを確認する","予算上限と希望メーカーを先に確認する"],"answer":0,"ex":"契約容量や予算確認も必要ですが、電気代の悩みを正しく捉えるには、まず現在の使い方と負担が大きい季節を確認します。その後、部屋条件・設置条件・予算へ広げます。"},{"q":"省エネ上位機種を比較する際、説明として最も適切なのは？","choices":["APFが高い機種ほど必ず電気代が安くなると説明する","本体価格差と年間消費電力量の差を、使用時間を踏まえて比較する","最上位機種のみを比較し、標準機種は候補から外す","省エネ性能よりも値引き額を優先して比較する"],"answer":1,"ex":"省エネ性は重要ですが、実際の使用時間や部屋条件で効果は変わります。本体価格差とランニングコスト差を並べ、お客様にとって価格差に見合うかを確認します。"},{"q":"価格と省エネ性で迷うお客様へのまとめ方として最も適切なのは？","choices":["本体価格・想定電気代・必要機能・工事費を並べて選びやすくする","省エネ性能が高い機種を将来得になるとして勧め切る","初期費用が安い機種を選び、電気代は使い方で調整してもらう","無金利分割が使える機種の中から上位機種へ絞る"],"answer":0,"ex":"無金利分割などの支払い方法は有効ですが、先に本体価格・電気代・必要機能・工事費を比較し、総合的に納得できる候補を作ることが大切です。"}]},{"id":"C002","title":"100Vから200Vを検討","avatar":"👨‍👩","customer":"40代ご夫婦","home":"戸建て","room":"LDK18畳","budget":"30万円前後","speech":"今は100Vですが、200Vのエアコンも付けられますか？","steps":[{"q":"100Vから200V機を検討しているお客様への最初の返答として最も適切なのは？","choices":["現在のコンセント形状を確認し、200V形状なら設置可能と案内する","専用回路・分電盤・配線方式を確認して可否を判断すると案内する","契約容量が30A以上なら200V機を候補にできると案内する","200V機の消費電力を確認して契約容量内なら受付する"],"answer":1,"ex":"コンセント形状や契約容量だけでは判断できません。単相3線式か、専用回路・分電盤・配線状況などを確認して電源工事の可否を判断します。"},{"q":"確認の順序として最も適切なのは？","choices":["希望機種を決定してから、必要な電気工事を確認する","契約容量変更を案内してから、専用回路の有無を確認する","設置場所・専用回路・分電盤・配線方式を確認して候補機種を絞る","100V機と200V機の電気代を比較し、安い方の電圧を選ぶ"],"answer":2,"ex":"先に設置条件と電源条件を確認すれば、設置できない機種を提案するリスクを減らせます。電気代だけで電圧を決めるものではありません。"},{"q":"工事費の案内として最も適切なのは？","choices":["電圧切替とコンセント交換のみの料金を確定額として伝える","分電盤や配線状況により追加工事が変わるため、確認範囲と概算を分けて伝える","200V機は標準工事外になるため、現地で全額精算とだけ伝える","契約容量変更の費用を含めた総額を先に案内する"],"answer":1,"ex":"必要工事は現場条件で変わります。店頭で確認できた内容と未確認条件を分け、電圧切替・コンセント交換・配線工事などの可能性を概算で説明します。"}]},{"id":"C003","title":"隠ぺい配管のマンション","avatar":"👨‍👩","customer":"50代ご夫婦","home":"マンション","room":"LDK16畳","budget":"28万円前後","speech":"配管は壁の中です。今の配管を使えますか？","steps":[{"q":"隠ぺい配管を再利用できるか聞かれた際、最も適切な案内は？","choices":["同じメーカーへの買い替えなら再利用できる可能性が高いと案内する","配管径・状態・ドレン方式・連絡線などを確認して判断すると案内する","能力が同じ機種なら既存配管を使えると案内する","配管洗浄を行えば基本的に再利用できると案内する"],"answer":1,"ex":"メーカーや能力だけでは判断できません。配管径・状態・ドレン方式・連絡線・施工条件などを確認し、必要に応じて現地判断とします。"},{"q":"機種選びの進め方として最も適切なのは？","choices":["隠ぺい配管対応を優先し、予算や必要機能は後で確認する","希望機能と予算を確認しつつ、配管条件に適合する機種へ絞る","既存機と同じメーカー・同じ能力の機種から選ぶ","配管再利用の可否が確定するまで商品提案を行わない"],"answer":1,"ex":"配管条件だけでなく、お客様の希望や予算も必要です。条件に合う機種を複数残し、現地確認後に最終確定できる進め方が適切です。"},{"q":"露出配管の提案を含めた説明として最も適切なのは？","choices":["隠ぺい配管が使えない場合は工事不可と案内する","再利用できない場合に備え、露出配管の可否や見た目も含めて選択肢を説明する","露出配管の方が確実なので、最初から露出配管で案内する","現在がダイキンなら露出配管の検討は不要と案内する"],"answer":1,"ex":"隠ぺい配管が使えない場合でも、露出配管が可能なら代替案になります。施工可否や外観を確認し、お客様の了承を得て選択肢として案内します。"}]},{"id":"C004","title":"ペットのため24時間運転","avatar":"👩🐶","customer":"30代女性・犬2匹","home":"戸建て","room":"LDK16畳","budget":"30万円前後","speech":"犬がいるので、留守中も一日中使います。","steps":[{"q":"犬がいるため24時間運転するお客様へ、最初に確認する内容として最も適切なのは？","choices":["留守時間・設定温度・現在困っていることを確認する","犬種と頭数を確認し、適用畳数を一段上げる","年間消費電力量が最も少ない機種を紹介する","自動掃除機能の有無を先に確認する"],"answer":0,"ex":"犬種や頭数も参考になりますが、まず実際の使用時間・設定温度・温度ムラ・ニオイなどの困りごとを確認し、必要な性能を整理します。"},{"q":"24時間運転を前提に比較する際、優先順位として最も適切なのは？","choices":["省エネ性・温度安定・清潔性を、使い方に合わせて比較する","APFが最も高い機種を第一候補にする","空気清浄機能を搭載する機種だけに絞る","自動掃除機能が多い上位機種を中心に比較する"],"answer":0,"ex":"長時間運転では省エネ性が重要ですが、温度安定や清潔性も欠かせません。単一機能で決めず、実際の困りごとに合わせて比較します。"},{"q":"予算を超える上位機種を提案する場合、最も適切なのは？","choices":["長時間運転なら元が取れると説明して勧める","価格差に見合う省エネ・温度管理・清潔機能があるかを具体的に示す","ペットがいる家庭には上位機種が必要と説明する","無金利分割を案内し、月額が収まれば上位機種に決める"],"answer":1,"ex":"上位機種は価格差に見合う価値がある場合に提案します。無金利分割は支払い方法の選択肢であり、必要性の説明に代わるものではありません。"}]},{"id":"C005","title":"高齢者の寝室買い替え","avatar":"👵","customer":"70代女性","home":"木造平屋","room":"寝室8畳","budget":"18万円前後","speech":"操作が簡単で、冬も暖かいものがいいです。","steps":[{"q":"操作が簡単で冬も暖かい機種を希望する高齢のお客様へ、最初に確認する内容は？","choices":["普段使う運転・暖房の困りごと・リモコン操作への不安を確認する","低温時暖房能力が高い機種から案内する","大きな文字のリモコンを採用するメーカーへ絞る","予算内の上位モデルを複数紹介する"],"answer":0,"ex":"暖房性能だけでなく、どの操作に不安があるかを確認します。必要な機能を絞ることで、使いやすさと暖かさを両立しやすくなります。"},{"q":"比較の進め方として最も適切なのは？","choices":["暖房能力・気流・操作性を実機で確認し、使う機能に絞って比べる","低温時暖房能力が最も高い機種を第一候補にする","操作が簡単な標準機種を選び、暖房能力は畳数で判断する","音声操作やスマホ連携がある機種を中心に比較する"],"answer":0,"ex":"数値だけでなく、直接風の当たり方やリモコンの見やすさも大切です。実際に使う機能に絞って確認します。"},{"q":"説明時の配慮として最も適切なのは？","choices":["主要機能を一通り説明し、後で家族と相談してもらう","操作手順を実機で確認し、必要なボタンと注意点を絞って伝える","上位モデルと標準モデルの違いを一覧で説明する","紙のカタログへ印を付けて渡し、操作は設置後に覚えてもらう"],"answer":1,"ex":"情報量が多いと混乱しやすいため、実際に使う操作を確認しながら、必要な内容へ絞って説明します。"}]},{"id":"C006","title":"新築LDKのまとめ買い相談","avatar":"👨‍👩‍👧","customer":"30代夫婦・子ども1人","home":"新築戸建て","room":"LDK20畳","budget":"35万円前後","speech":"新築なので失敗したくありません。電気代も気になります。","steps":[{"q":"新築LDKで失敗したくないという相談。最初の確認として最も適切なのは？","choices":["図面・設置位置・部屋条件・使用時間を確認する","20畳用の上位機種を中心に紹介する","予算と希望メーカーを確認して候補を絞る","省エネ基準達成率の高い機種から案内する"],"answer":0,"ex":"予算確認も必要ですが、新築では能力選定や工事条件に関わる図面・日当たり・吹き抜け・設置位置などを先に整理します。"},{"q":"機種比較として最も適切なのは？","choices":["本体価格・年間電気代・必要機能・工事条件を総合比較する","省エネ性能が高い上位機種同士で比較する","予算内で最も能力が大きい機種を選ぶ","新築なので長期使用を前提に最上位機種を勧める"],"answer":0,"ex":"長期使用を考えても、上位機種が必ず最適とは限りません。初期費用・電気代・必要機能・設置条件を合わせて比較します。"},{"q":"工事案内として最も適切なのは？","choices":["図面上で穴位置と室外機置場が確認できれば工事内容を確定する","専用回路・穴位置・配管経路・室外機置場を確認し、未確定条件を明確にする","新築工事会社へエアコン用の穴と回路を任せれば確認不要と案内する","外観を重視するため化粧カバーを標準で含めて案内する"],"answer":1,"ex":"図面だけでは現地の納まりまで確定できない場合があります。確認済み事項と未確認事項を分け、追加の可能性も説明します。"}]},{"id":"C007","title":"海沿い住宅の買い替え","avatar":"👨","customer":"50代男性","home":"海から500mの戸建て","room":"LDK16畳","budget":"30万円前後","speech":"海が近いので、室外機がすぐ傷まないか心配です。","steps":[{"q":"海沿い住宅で室外機の腐食が心配という相談。最初の確認として最も適切なのは？","choices":["海からの距離・風向き・設置場所・現在の腐食状態を確認する","耐塩害仕様の有無を確認して対応メーカーへ絞る","既存室外機の使用年数とメーカーを確認する","予算と希望能力を確認してから塩害対策を説明する"],"answer":0,"ex":"塩害の影響は距離だけでは決まりません。潮風の当たり方、設置環境、現在の腐食状態を確認して対策の必要性を判断します。"},{"q":"提案として最も適切なのは？","choices":["耐塩害仕様なら設置場所を問わず安心と説明する","耐塩害仕様と、潮風を受けにくい設置方法を合わせて検討する","標準機へ室外機カバーを付ければ十分と説明する","重塩害地域では最上位機種を選ぶ必要があると説明する"],"answer":1,"ex":"耐塩害仕様だけで完全に防げるわけではありません。設置方向・固定方法・清掃や点検なども含めて検討します。"},{"q":"既存架台を再利用する場合の案内として最も適切なのは？","choices":["見た目に問題がなければ再利用できると案内する","新室外機の寸法・重量と架台の腐食状態を確認して判断する","耐塩害室外機なら既存架台もそのまま使えると案内する","架台は消耗品なので必ず交換すると案内する"],"answer":1,"ex":"外観だけでは強度を判断できません。腐食状態と新室外機への適合を確認し、安全に使えるか判断します。"}]},{"id":"C008","title":"2階設置・1階室外機","avatar":"👩","customer":"40代女性","home":"木造2階建て","room":"2階寝室10畳","budget":"22万円前後","speech":"室外機は1階に置きたいです。工事費は高くなりますか？","steps":[{"q":"2階室内機・1階室外機を希望する相談で、最初の確認として最も適切なのは？","choices":["配管経路・高低差・穴位置・室外機置場を確認する","室内機の設置高さと本体寸法を確認する","化粧カバーの色と希望メーカーを確認する","予算と工事希望日を確認して概算を案内する"],"answer":0,"ex":"本体寸法や予算も必要ですが、まず追加工事へ直結する配管経路・高低差・高所作業条件を確認します。"},{"q":"追加料金の説明として最も適切なのは？","choices":["2階から1階なら立ち下ろし料金を加えた総額で案内する","配管延長・高所作業・化粧カバーなど、条件ごとに概算を説明する","現地でしか分からないため追加料金は説明しない","配管写真があれば店頭で確定額を案内する"],"answer":1,"ex":"追加項目は条件で変わります。分かる範囲で項目別に概算を示し、現地確認で最終確定することを伝えます。"},{"q":"成約前のまとめとして最も適切なのは？","choices":["標準工事と追加候補を説明し、未確認条件で変動することを了承いただく","追加料金が発生する可能性が高いので現地調査後に再来店してもらう","概算の上限額を決め、その範囲内で工事してもらう","工事業者から当日説明があるとだけ伝える"],"answer":0,"ex":"即決を避ける必要はありません。確認済み条件と未確認条件を分け、追加の可能性を説明して納得いただくことが重要です。"}]},{"id":"C009","title":"赤ちゃんのいる寝室","avatar":"👩‍🍼","customer":"30代女性・乳児","home":"マンション","room":"寝室8畳","budget":"20万円前後","speech":"赤ちゃんがいるので、風が直接当たらないものがいいです。","steps":[{"q":"赤ちゃんに風を直接当てたくないという相談。最初の確認として最も適切なのは？","choices":["ベッド位置・使用時間・現在の温度や風の困りごとを確認する","気流制御機能が強いメーカーへ候補を絞る","静音性と清潔機能を優先して比較する","室内機の設置位置を確認し、風向きだけで判断する"],"answer":0,"ex":"まず赤ちゃんの位置と実際の困りごとを確認します。そのうえで気流・温度安定・静音・清潔性を比較します。"},{"q":"候補機種の比較方法として最も適切なのは？","choices":["気流制御・温度安定・静音性・清潔性を、寝室での使い方に合わせて比べる","風よけ機能がある上位機種に絞って比較する","寒くなりにくい除湿を搭載する機種だけを比較する","センサー搭載機種ならどれでも直接風を避けられると説明する"],"answer":0,"ex":"一つの機能だけでなく、寝室での使用時間や除湿時の冷え、音、清潔性まで含めて比較します。"},{"q":"実機案内として最も適切なのは？","choices":["風向き・風量・リモコン操作を確認し、設置位置との関係も説明する","最大風量を実演して、風向き調整範囲を確認してもらう","自動運転にすれば直接風は避けられると説明する","カタログの気流図を見せ、実機確認は不要と案内する"],"answer":0,"ex":"実機で操作と風向きを確認しつつ、実際の部屋では設置位置によって感じ方が変わることも説明します。"}]},{"id":"C010","title":"ブレーカー容量が不安","avatar":"👴","customer":"60代男性","home":"築30年戸建て","room":"LDK14畳","budget":"25万円前後","speech":"家の契約が30Aですが、エアコンを大きくして大丈夫ですか？","steps":[{"q":"30A契約で能力の大きいエアコンを希望する相談。最初の返答として最も適切なのは？","choices":["30Aでも200V機なら負担が少ないため候補にできると案内する","契約容量・同時使用家電・専用回路・分電盤を確認して判断すると案内する","能力が大きい機種は40A以上が必要と案内する","100V機に絞れば現在の契約で使えると案内する"],"answer":1,"ex":"契約容量や電圧だけでは判断できません。専用回路、配線方式、分電盤、同時使用家電などを確認します。"},{"q":"追加確認として最も適切なのは？","choices":["主幹容量・空き回路・配線方式・現在の使用家電を確認する","現在の電気料金と年間消費電力量を確認する","既存機のメーカーと能力を確認し、同等機種を選ぶ","契約変更にかかる費用を先に案内する"],"answer":0,"ex":"電気料金や既存機も参考になりますが、設置可否の判断には電気設備と同時使用状況の確認が優先です。"},{"q":"提案のまとめとして最も適切なのは？","choices":["必要に応じて電気工事や契約変更も含め、設置可能な候補を比較する","30Aのまま使える機種の中から最も能力が高いものを選ぶ","他家電の同時使用を控える条件で希望機種を受付する","契約容量を上げてから再来店してもらう"],"answer":0,"ex":"最初から契約変更を前提にせず、設備確認後に必要な工事や契約変更を整理し、設置可能な候補を比較します。"}]}]};
+const STORE="aircon_v2130_stats",NAME="aircon_v2130_name";
+const WRONG_STORE="aircon_v2130_wrong";
+const LIFETIME_EXP_KEY="aircon_master_lifetime_exp";
+/* 更新時に過去版の学習記録を失わないための自動引き継ぎ */
+(function preserveLearningData(){
+ const safeParse=(value)=>{try{return JSON.parse(value)}catch{return null}};
+ const scoreOf=(value)=>{
+  const data=safeParse(value);
+  if(!data || typeof data!=="object")return -1;
+  return (Number(data.correct)||0)*20+(Number(data.sales)||0)*30;
+ };
+
+ // 過去版を含む保存キーの中から、最も進んでいる記録を採用する。
+ let bestValue=localStorage.getItem(STORE);
+ let bestScore=scoreOf(bestValue);
+ for(let i=0;i<localStorage.length;i++){
+  const key=localStorage.key(i)||"";
+  if(!/aircon/i.test(key) || !/stats/i.test(key))continue;
+  const value=localStorage.getItem(key);
+  const score=scoreOf(value);
+  if(score>bestScore){bestScore=score;bestValue=value}
+ }
+ if(bestValue!==null)localStorage.setItem(STORE,bestValue);
+
+ // 名前と間違えた問題も、現行キーが空の場合は過去版から引き継ぐ。
+ const copyFirst=(target,pattern)=>{
+  if(localStorage.getItem(target)!==null)return;
+  for(let i=0;i<localStorage.length;i++){
+   const key=localStorage.key(i)||"";
+   if(key!==target && pattern.test(key) && localStorage.getItem(key)!==null){
+    localStorage.setItem(target,localStorage.getItem(key));return;
+   }
+  }
+ };
+ copyFirst(NAME,/aircon.*name/i);
+ copyFirst(WRONG_STORE,/aircon.*wrong/i);
+
+ // 版更新で統計キーが読めなくなっても、過去最高EXPを別キーで保持する。
+ let recoveredExp=Math.max(0,bestScore);
+ for(let i=0;i<localStorage.length;i++){
+  const key=localStorage.key(i)||"";
+  const value=localStorage.getItem(key);
+  if(!value)continue;
+  const data=safeParse(value);
+  if(data&&typeof data==="object"){
+   const candidates=[data.exp,data.totalExp,data.lifetimeExp,data.lastTotalExp];
+   candidates.forEach(v=>{const n=Number(v);if(Number.isFinite(n))recoveredExp=Math.max(recoveredExp,n)});
+  }
+ }
+ const savedLifetime=Number(localStorage.getItem(LIFETIME_EXP_KEY)||0);
+ recoveredExp=Math.max(recoveredExp,Number.isFinite(savedLifetime)?savedLifetime:0);
+ localStorage.setItem(LIFETIME_EXP_KEY,String(recoveredExp));
+})();
+
+let category="practice",rank="初級",pool=[],qIndex=0,qScore=0,current=null,answered=false;
+let salesCase=null,salesIndex=0,salesScore=0;
+
+function show(id){document.querySelectorAll(".page").forEach(p=>p.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");window.scrollTo(0,0);if(id==="home")updateHome()}
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function safeNonNegativeNumber(value,fallback=0){
+ const n=Number(value);
+ return Number.isFinite(n)&&n>=0?n:fallback;
+}
+function stats(){
+ let raw={};
+ try{raw=JSON.parse(localStorage.getItem(STORE)||"{}")}catch(e){raw={}}
+ const clean={
+  answered:safeNonNegativeNumber(raw.answered),
+  correct:safeNonNegativeNumber(raw.correct),
+  sales:safeNonNegativeNumber(raw.sales),
+  sessions:Array.isArray(raw.sessions)?raw.sessions:[]
+ };
+ // 壊れた保存値（NaN・null・文字列など）を自動修復する。
+ if(clean.correct>clean.answered)clean.answered=clean.correct;
+ localStorage.setItem(STORE,JSON.stringify(clean));
+ return clean;
+}
+function saveStats(s){
+ const clean={
+  answered:safeNonNegativeNumber(s&&s.answered),
+  correct:safeNonNegativeNumber(s&&s.correct),
+  sales:safeNonNegativeNumber(s&&s.sales),
+  sessions:Array.isArray(s&&s.sessions)?s.sessions:[]
+ };
+ if(clean.correct>clean.answered)clean.answered=clean.correct;
+ localStorage.setItem(STORE,JSON.stringify(clean));
+}
+function lifetimeExp(){
+ const n=Number(localStorage.getItem(LIFETIME_EXP_KEY)||0);
+ if(!Number.isFinite(n)||n<0){localStorage.setItem(LIFETIME_EXP_KEY,"0");return 0}
+ return n;
+}
+function awardExp(amount){
+ const earned=Math.max(0,Number(amount)||0);
+ const next=lifetimeExp()+earned;
+ localStorage.setItem(LIFETIME_EXP_KEY,String(next));
+ addDailyExp(earned);
+ return next;
+}
+function missionKey(){return"aircon_v2130_mission_"+new Date().toISOString().slice(0,10)}
+function dailyMission(){
+ const day=new Date().getDate()%3;
+ if(day===0)return{type:"sales",goal:3,title:"販買モードを3件実施する"};
+ if(day===1)return{type:"quiz",goal:10,title:"練習問題を10問回答する"};
+ return{type:"price",goal:5,title:"工事料金を5問回答する"}
+}
+function missionCount(){const m=dailyMission();return Number(localStorage.getItem(missionKey()+"_"+m.type)||0)}
+function addMission(type,amount=1){const m=dailyMission();if(m.type!==type)return;localStorage.setItem(missionKey()+"_"+m.type,String(missionCount()+amount))}
+
+const DAILY_EXP_KEY="aircon_master_daily_exp_v388";
+function localDateKey(date=new Date()){
+ return date.getFullYear()+"-"+String(date.getMonth()+1).padStart(2,"0")+"-"+String(date.getDate()).padStart(2,"0");
+}
+function readDailyExp(){
+ try{
+  const saved=JSON.parse(localStorage.getItem(DAILY_EXP_KEY)||"{}");
+  const today=localDateKey();
+  if(saved.date!==today){
+   const reset={date:today,exp:0};
+   localStorage.setItem(DAILY_EXP_KEY,JSON.stringify(reset));
+   return reset;
+  }
+  return {date:today,exp:Math.max(0,Number(saved.exp)||0)};
+ }catch(e){
+  const reset={date:localDateKey(),exp:0};
+  localStorage.setItem(DAILY_EXP_KEY,JSON.stringify(reset));
+  return reset;
+ }
+}
+function addDailyExp(amount){
+ const daily=readDailyExp();
+ daily.exp+=Math.max(0,Number(amount)||0);
+ localStorage.setItem(DAILY_EXP_KEY,JSON.stringify(daily));
+ return daily.exp;
+}
+
+function updateHome(){
+ const s=stats();
+ const calculatedExp=safeNonNegativeNumber(s.correct)*20+safeNonNegativeNumber(s.sales)*30;
+ const exp=Math.max(safeNonNegativeNumber(calculatedExp),safeNonNegativeNumber(lifetimeExp()));
+ const lv=Math.max(1,Math.floor(exp/100)+1);
+ const within=exp%100;
+ const todayExp=readDailyExp().exp;
+ const todayProgress=Math.min(todayExp,100);
+ const name=(localStorage.getItem(NAME)||"").trim();
+ const displayName=name?name+"さん":"スタッフさん";
+ const rank=lv>=60?"エアコン販買マスター":lv>=50?"エアコンマスター":lv>=40?"エアコンコンサルタント":lv>=30?"エアコンアドバイザー":lv>=20?"エアコン担当":lv>=10?"接客スタッフ":"新人スタッフ";
+ const nextRankLevel=lv<10?10:lv<20?20:lv<30?30:lv<40?40:lv<50?50:lv<60?60:null;
+
+ const profileName=document.getElementById("profileName");
+ if(profileName)profileName.textContent=displayName;
+ const levelText=document.getElementById("levelText");
+ if(levelText)levelText.textContent="Lv."+lv;
+ const rankText=document.getElementById("rankText");
+ if(rankText)rankText.textContent=rank;
+ const expBar=document.getElementById("expBar");
+ if(expBar)expBar.style.width=todayProgress+"%";
+ const expCurrent=document.getElementById("expCurrent");
+ if(expCurrent)expCurrent.textContent=todayExp+"EXP";
+ const todayPercent=document.getElementById("todayPercent");
+ if(todayPercent)todayPercent.textContent=todayProgress+"%";
+ const totalExp=document.getElementById("totalExp");
+ if(totalExp)totalExp.textContent=exp.toLocaleString("ja-JP")+" EXP";
+ const nextExp=document.getElementById("nextExp");
+ if(nextExp){
+  nextExp.textContent=nextRankLevel===null?"最高ランク達成":"ランクアップまで "+Math.max(0,(nextRankLevel-1)*100-exp)+"EXP";
+ }
+
+ const segments=[...document.querySelectorAll(".segmented-progress i")];
+ const filled=Math.round(todayProgress/10);
+ segments.forEach((seg,i)=>seg.classList.toggle("filled",i<filled));
+
+ let streak=0;
+ const dateKeys=new Set();
+ (s.sessions||[]).forEach(session=>{
+   const raw=String(session.date||"");
+   const match=raw.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})/);
+   if(match)dateKeys.add(match[1]+"-"+String(match[2]).padStart(2,"0")+"-"+String(match[3]).padStart(2,"0"));
+ });
+ const cursor=new Date();
+ for(let i=0;i<365;i++){
+   const key=cursor.getFullYear()+"-"+String(cursor.getMonth()+1).padStart(2,"0")+"-"+String(cursor.getDate()).padStart(2,"0");
+   if(dateKeys.has(key)){streak++;cursor.setDate(cursor.getDate()-1)}
+   else if(i===0){cursor.setDate(cursor.getDate()-1)}
+   else break;
+ }
+ const streakDays=document.getElementById("streakDays");
+ if(streakDays)streakDays.textContent=streak+"日";
+
+ const dm=dailyMission();
+ const missionText=document.getElementById("homeMissionText");
+ if(missionText)missionText.textContent=dm.title;
+ const missionCountEl=document.getElementById("missionCount");
+ if(missionCountEl)missionCountEl.textContent=Math.min(missionCount(),dm.goal)+" / "+dm.goal;
+}
+function openRank(type){category=type;const list=DATA[type],c={初級:0,中級:0,上級:0};list.forEach(q=>c[q.level]++);document.getElementById("rankTitle").textContent=(type==="price"?"工事料金":"練習問題")+"・ランク選択";document.getElementById("beginnerCount").textContent=c.初級+"問";document.getElementById("middleCount").textContent=c.中級+"問";document.getElementById("advancedCount").textContent=c.上級+"問";document.getElementById("randomCount").textContent=list.length+"問";show("rank")}
+function startQuiz(r){rank=r;const src=DATA[category],sel=r==="ランダム"?src:src.filter(q=>q.level===r);pool=shuffle(sel).slice(0,10);qIndex=0;qScore=0;document.getElementById("quizTitle").textContent=(category==="price"?"工事料金":"練習問題")+"・"+r;show("quiz");renderQuestion()}
+function renderQuestion(){
+ if(!Array.isArray(pool)||pool.length===0){alert("出題できる問題がありません。");show("home");return}
+ if(qIndex>=pool.length){finishQuiz();return}
+ current=pool[qIndex];answered=false;
+ document.getElementById("rankBadge").textContent=rank==="ランダム"?"ランダム／"+current.level:current.level;
+ document.getElementById("quizProgress").textContent=(qIndex+1)+" / "+pool.length;
+ document.getElementById("questionText").textContent=current.q;
+ document.getElementById("answerResult").classList.add("hidden");
+ const next=document.getElementById("nextButton");
+ next.classList.add("hidden");
+ next.disabled=false;
+ next.textContent=(qIndex===pool.length-1)?"結果を見る":"次の問題";
+ const box=document.getElementById("choiceList");box.innerHTML="";
+ shuffle(current.choices.map((text,index)=>({text,index}))).forEach((x,i)=>{const b=document.createElement("button");b.className="choice";b.textContent=(i+1)+"　"+x.text;b.onclick=()=>answerQuestion(x.index,b);box.appendChild(b)})
+}
+function answerQuestion(i,b){if(answered)return;answered=true;const ok=i===current.answer,buttons=[...document.querySelectorAll("#choiceList .choice")];buttons.forEach(x=>x.disabled=true);b.classList.add(ok?"correct":"wrong");if(ok)qScore++;else buttons.find(x=>x.textContent.includes(current.choices[current.answer]))?.classList.add("correct");const r=document.getElementById("answerResult");r.innerHTML="<b>"+(ok?"⭕ 正解":"❌ 不正解")+"</b><br>"+(current.ex||"正解を確認しましょう。");r.classList.remove("hidden");document.getElementById("nextButton").classList.remove("hidden");const s=stats();s.answered++;if(ok){s.correct++;awardExp(20)}saveStats(s);addMission(category==="price"?"price":"quiz",1);
+if(!ok){let w=[];try{w=JSON.parse(localStorage.getItem(WRONG_STORE)||"[]")}catch{};if(!w.some(x=>x.q===current.q)){w.push(current);localStorage.setItem(WRONG_STORE,JSON.stringify(w.slice(-100)))}}}
+function nextQuestion(){
+ if(!answered)return;
+ const next=document.getElementById("nextButton");
+ next.disabled=true;
+ if(qIndex>=pool.length-1){finishQuiz();return}
+ qIndex++;
+ renderQuestion();
+}
+function finishQuiz(){
+ const total=Array.isArray(pool)?pool.length:0;
+ const s=stats();
+ s.sessions.unshift({date:new Date().toLocaleString("ja-JP"),category:category==="price"?"工事料金":category==="review"?"間違い復習":"練習問題",rank,score:safeNonNegativeNumber(qScore),total});
+ saveStats(s);
+ document.getElementById("resultScore").textContent=safeNonNegativeNumber(qScore)+" / "+total;
+ document.getElementById("resultMessage").textContent=safeNonNegativeNumber(qScore)>=Math.ceil(total*0.8)?"合格です！":"復習してもう一度挑戦しましょう。";
+ show("result");
+}
+
+function startReview(){
+ let wrong=[];
+ try{wrong=JSON.parse(localStorage.getItem(WRONG_STORE)||"[]")}catch{}
+ if(!wrong.length){alert("復習する問題はまだありません。");return}
+ category="review";rank="間違い復習";pool=shuffle(wrong).slice(0,10);qIndex=0;qScore=0;
+ document.getElementById("quizTitle").textContent="間違い復習";
+ show("quiz");renderQuestion()
+}
+function startSales(){startSalesCase(Math.floor(Math.random()*DATA.salesCases.length))}
+function renderSales(){const st=salesCase.steps[salesIndex];document.getElementById("salesStepper").innerHTML=salesCase.steps.map((_,i)=>'<span class="'+(i<=salesIndex?"active":"")+'"></span>').join("");document.getElementById("salesCustomer").innerHTML='<div class="sales-avatar">'+salesCase.avatar+'</div><h2>'+salesCase.title+'</h2><div class="sales-facts"><div>'+salesCase.customer+'</div><div>'+salesCase.home+'</div><div>'+salesCase.room+'</div><div>'+salesCase.budget+'</div></div><div class="sales-speech">'+salesCase.speech+'</div>';document.getElementById("salesQuestion").textContent=st.q;const box=document.getElementById("salesChoices");box.innerHTML="";document.getElementById("salesFeedback").classList.add("hidden");shuffle(st.choices.map((text,index)=>({text,index}))).forEach((x,i)=>{const b=document.createElement("button");b.className="choice";b.textContent=(i+1)+"　"+x.text;b.onclick=()=>answerSales(x.index,b);box.appendChild(b)})}
+function answerSales(i,b){const st=salesCase.steps[salesIndex],ok=i===st.answer,buttons=[...document.querySelectorAll("#salesChoices .choice")];buttons.forEach(x=>x.disabled=true);b.classList.add(ok?"correct":"wrong");if(ok)salesScore++;else buttons.find(x=>x.textContent.includes(st.choices[st.answer]))?.classList.add("correct");const f=document.getElementById("salesFeedback");f.innerHTML="<b>"+(ok?"⭕ 正解":"❌ 不正解")+"</b><br>"+st.ex;f.classList.remove("hidden");setTimeout(()=>{salesIndex++;salesIndex<salesCase.steps.length?renderSales():finishSales()},700)}
+function finishSales(){const s=stats();s.sales++;awardExp(30);s.sessions.unshift({date:new Date().toLocaleString("ja-JP"),category:"販買モード",rank:salesCase.title,score:salesScore,total:salesCase.steps.length});saveStats(s);addMission("sales",1);document.getElementById("salesQuestion").textContent="接客終了";document.getElementById("salesChoices").innerHTML='<div class="result-card"><strong>'+salesScore+" / "+salesCase.steps.length+'</strong><p>'+salesCase.title+'</p></div><button class="next-button" onclick="startSales()">別のお客様</button><button class="next-button" onclick="show(\'home\')">ホームへ戻る</button>';document.getElementById("salesFeedback").classList.add("hidden")}
+function openMission(){const m=dailyMission(),c=Math.min(missionCount(),m.goal);document.querySelector("#mission .result-card p").textContent=m.title;document.getElementById("missionDetail").textContent=c+" / "+m.goal;document.getElementById("missionBar").style.width=(c/m.goal*100)+"%";show("mission")}
+function showHistory(){const s=stats(),rate=s.answered?Math.round(s.correct/s.answered*100):0,box=document.getElementById("historyContent"),quizCount=s.sessions.filter(x=>x.category==="練習問題").length,priceCount=s.sessions.filter(x=>x.category==="工事料金").length;box.innerHTML='<div class="history-summary"><div>回答数<strong>'+s.answered+'</strong></div><div>正答率<strong>'+rate+'%</strong></div><div>販買モード<strong>'+s.sales+'</strong></div><div>練習履歴<strong>'+quizCount+'</strong></div><div>工事履歴<strong>'+priceCount+'</strong></div></div>';s.sessions.forEach(x=>box.innerHTML+='<div class="history-row"><b>'+x.category+"・"+x.rank+'</b><p>'+x.score+" / "+x.total+" 正解　"+x.date+"</p></div>");show("history")}
+
+function showCases(){
+ const box=document.getElementById("caseGrid");box.innerHTML="";
+ DATA.salesCases.forEach((c,i)=>{
+  const b=document.createElement("button");b.className="rank-button";
+  b.innerHTML='<span>'+c.avatar+'</span><b>'+c.title+'</b><small>'+c.customer+'／'+c.room+'</small>';
+  b.onclick=()=>startSalesCase(i);box.appendChild(b)
+ });
+ show("cases")
+}
+function startSalesCase(i){salesCase=DATA.salesCases[i];salesIndex=0;salesScore=0;show("sales");renderSales()}
+
+const FLOW_CASES=[
+ {
+  id:"F001",icon:"👨‍👩",title:"電気代重視のご夫婦",
+  profile:"40代ご夫婦／戸建てLDK18畳",
+  speech:"電気代を抑えたいんですが、どれを選べばいいですか？",
+  steps:[
+   {category:"hearing",q:"最初の確認として最も適切なのは？",choices:["使用時間・設定温度・現在の困りごとを聞く","一番省エネ性能が高い機種を見せる","予算だけを聞く","メーカーの希望だけを聞く"],answer:0,good:"使い方と困りごとを先に確認できた",tip:"電気代は機種だけでなく使用時間や設定温度でも変わります。"},
+   {category:"hearing",q:"次に確認したい内容は？",choices:["日当たり・断熱・キッチン接続など部屋条件","室内機の色","会員登録の有無","リモコンの形"],answer:0,good:"部屋条件まで確認できた",tip:"LDKは西日やキッチン熱の影響も確認します。"},
+   {category:"construction",q:"工事確認で優先する内容は？",choices:["専用回路・電圧・室外機置場・配管経路","保証年数だけ","メーカー人気順位","値引き希望額"],answer:0,good:"工事条件を早めに確認できた",tip:"本体を絞る前に設置できる条件を確認します。"},
+   {category:"proposal",q:"提案のまとめとして最も適切なのは？",choices:["本体価格と年間電気代、使用時間を合わせて比較する","APFが最高の機種だけを勧める","最安機種だけを勧める","本体価格だけで比較する"],answer:0,good:"初期費用と電気代を総合比較できた",tip:"使用時間によっては高額機の差額を回収しにくい場合もあります。"},
+   {category:"explanation",q:"工事費の説明として最も適切なのは？",choices:["標準範囲と追加になる条件を分けて案内する","工事当日まで説明しない","表示価格だけで必ず収まると伝える","追加工事は業者に任せて説明しない"],answer:0,good:"総額の不安を減らす説明ができた",tip:"追加条件は早めに伝えると安心につながります。"}
+  ]
+ },
+ {
+  id:"F002",icon:"👵",title:"操作と暖房重視のお客様",
+  profile:"70代女性／木造平屋・寝室8畳",
+  speech:"操作が簡単で、冬もしっかり暖かいものがいいです。",
+  steps:[
+   {category:"hearing",q:"最初に確認する内容は？",choices:["使用時間・暖房の困りごと・操作の希望","メーカー希望だけ","価格だけ","室内機の色だけ"],answer:0,good:"使い方と操作面の不安を聞けた",tip:"暖房の困りごとと操作性を具体的に聞きます。"},
+   {category:"hearing",q:"追加で確認すると良い内容は？",choices:["寝る位置・寒さを感じる時間帯・部屋の断熱","希望メーカーだけ","テレビのサイズ","リモコンの大きさだけ"],answer:0,good:"生活場面まで確認できた",tip:"暖房の感じ方は時間帯や寝る位置でも変わります。"},
+   {category:"construction",q:"設置面で確認する内容は？",choices:["既存コンセント・専用回路・室外機の位置","リモコン収納場所だけ","カタログの保管場所","メーカー保証だけ"],answer:0,good:"電源と設置条件を確認できた",tip:"買い替えでも既存設備が新機種に合うか確認します。"},
+   {category:"proposal",q:"比較ポイントとして最も適切なのは？",choices:["低温時暖房能力・気流・リモコンの見やすさ","スマホ連携だけ","最大冷房能力だけ","室外機の色"],answer:0,good:"お客様の希望に合う比較ができた",tip:"暖房性能と操作性を実機で確認してもらいます。"},
+   {category:"explanation",q:"最後の案内として最も適切なのは？",choices:["実機リモコンを触ってもらい、工事条件も一緒に確認する","機能を一度に全部説明する","一番高い機種だけ勧める","価格だけで決めてもらう"],answer:0,good:"安心して選べる案内ができた",tip:"操作を実際に試してもらうと購入後の不安を減らせます。"}
+  ]
+ },
+ {
+  id:"F003",icon:"👩🐶",title:"ペットのため24時間運転",
+  profile:"30代女性・犬2匹／戸建てLDK16畳",
+  speech:"犬がいるので、夏は留守中もずっとつけています。",
+  steps:[
+   {category:"hearing",q:"最初に確認する内容は？",choices:["留守時間・設定温度・現在の電気代や困りごと","犬の種類だけ","メーカー希望だけ","室内機の色だけ"],answer:0,good:"24時間運転の実態を確認できた",tip:"留守時間や設定温度を聞くと必要な性能を判断しやすくなります。"},
+   {category:"hearing",q:"追加で確認したい内容は？",choices:["部屋の日当たり・断熱・ペットの居場所","希望する本体価格だけ","本体カラーだけ","リモコンの大きさだけ"],answer:0,good:"ペットが過ごす環境を確認できた",tip:"ペットの居場所と直射日光の有無も重要です。"},
+   {category:"construction",q:"工事確認として最も適切なのは？",choices:["専用回路・電圧・室外機置場・停電後の再運転方法","リモコンの色","保証書の色","本体の横幅だけ"],answer:0,good:"長時間使用に関わる設置条件を確認できた",tip:"停電後の挙動や遠隔確認機能も説明材料になります。"},
+   {category:"proposal",q:"重視する比較ポイントは？",choices:["省エネ性・温度安定・清潔性・見守り機能","APFだけ","自動掃除だけ","本体価格だけ"],answer:0,good:"複数の必要条件を総合して提案できた",tip:"一つの機能だけでなく、長時間運転全体を考えます。"},
+   {category:"explanation",q:"提案のまとめとして最も適切なのは？",choices:["使用条件に合う機種を複数比較し、電気代の目安も説明する","最上位機種だけを勧める","安い機種でも差はないと説明する","ペットがいればメーカーを一社に決める"],answer:0,good:"押しつけず比較提案ができた",tip:"条件に合う複数候補から納得して選んでもらいます。"}
+  ]
+ }
+];
+
+let flowCase=null,flowStep=0,flowScores=null,flowGood=[],flowImprove=[],flowAnswered=false;
+
+function openFlowMenu(){
+ const box=document.getElementById("flowCaseGrid");box.innerHTML="";
+ FLOW_CASES.forEach((c,i)=>{
+  const b=document.createElement("button");b.className="flow-case";
+  b.innerHTML="<span>"+c.icon+"</span><b>"+c.title+"</b><small>"+c.profile+"</small>";
+  b.onclick=()=>startFlow(i);box.appendChild(b)
+ });
+ show("flowMenu")
+}
+
+function startFlow(i){
+ flowCase=FLOW_CASES[i];flowStep=0;
+ flowScores={hearing:0,construction:0,proposal:0,explanation:0};
+ flowGood=[];flowImprove=[];flowAnswered=false;
+ document.getElementById("flowTitle").textContent=flowCase.title;
+ show("flowPlay");renderFlowStep()
+}
+
+function renderFlowStep(){
+ if(flowStep>=flowCase.steps.length){finishFlow();return}
+ const step=flowCase.steps[flowStep];flowAnswered=false;
+ document.getElementById("flowCustomer").innerHTML="<strong>"+flowCase.icon+" お客様</strong><div>"+flowCase.profile+"</div><p>「"+flowCase.speech+"」</p>";
+ document.getElementById("flowStepLabel").textContent="STEP "+(flowStep+1)+" / "+flowCase.steps.length;
+ document.getElementById("flowQuestion").textContent=step.q;
+ document.getElementById("flowFeedback").classList.add("hidden");
+ document.getElementById("flowNextButton").classList.add("hidden");
+ const box=document.getElementById("flowChoices");box.innerHTML="";
+ shuffle(step.choices.map((text,index)=>({text,index}))).forEach((x,i)=>{
+  const b=document.createElement("button");b.className="choice";
+  b.textContent=(i+1)+"　"+x.text;b.dataset.originalIndex=String(x.index);
+  b.onclick=()=>answerFlow(x.index,b);box.appendChild(b)
+ })
+}
+
+function answerFlow(index,button){
+ if(flowAnswered)return;flowAnswered=true;
+ const step=flowCase.steps[flowStep],ok=index===step.answer;
+ const buttons=[...document.querySelectorAll("#flowChoices .choice")];
+ buttons.forEach(b=>b.disabled=true);
+ button.classList.add(ok?"correct":"wrong");
+ if(!ok){
+  const right=buttons.find(b=>Number(b.dataset.originalIndex)===step.answer);
+  if(right)right.classList.add("correct")
+ }
+ if(ok){
+  flowScores[step.category]+=25;
+  flowGood.push(step.good)
+ }else{
+  flowImprove.push(step.tip)
+ }
+ const f=document.getElementById("flowFeedback");
+ f.innerHTML="<b>"+(ok?"⭕ 良い判断です":"❌ ここは見直しましょう")+"</b><br>"+step.tip;
+ f.classList.remove("hidden");
+ document.getElementById("flowNextButton").classList.remove("hidden")
+}
+
+function nextFlowStep(){
+ if(!flowAnswered)return;flowStep++;renderFlowStep()
+}
+
+function finishFlow(){
+ const total=flowScores.hearing+flowScores.construction+flowScores.proposal+flowScores.explanation;
+ const rank=total>=90?"Sランク":total>=75?"Aランク":total>=60?"Bランク":"Cランク";
+ document.getElementById("flowTotalScore").textContent=total+"点";
+ document.getElementById("flowRankText").textContent=rank;
+ const labels={hearing:"ヒアリング",construction:"工事確認",proposal:"提案力",explanation:"説明力"};
+ const grid=document.getElementById("flowScoreGrid");grid.innerHTML="";
+ Object.keys(labels).forEach(k=>{
+  const d=document.createElement("div");d.className="flow-score-card";
+  d.innerHTML=labels[k]+"<strong>"+flowScores[k]+"点</strong>";grid.appendChild(d)
+ });
+ document.getElementById("flowGoodList").innerHTML=flowGood.length?flowGood.map(x=>"<p>✔ "+x+"</p>").join(""):"<p>次回は一つずつ確認していきましょう。</p>";
+ document.getElementById("flowImproveList").innerHTML=flowImprove.length?flowImprove.map(x=>"<p>・"+x+"</p>").join(""):"<p>大きな確認漏れはありません。</p>";
+ document.getElementById("flowManagerComment").innerHTML="<b>店長コメント</b><br>"+(total>=90?"流れがとても良いです。お客様の言葉を繰り返しながら進めると、さらに安心感が出ます。":total>=75?"基本の流れはできています。改善点を一つ意識して、もう一度挑戦しましょう。":"提案を急がず、困りごと・部屋条件・工事条件の順に確認しましょう。");
+ const s=stats();s.sessions.unshift({date:new Date().toLocaleString("ja-JP"),category:"接客フロー",rank:flowCase.title,score:total,total:100});saveStats(s);
+ show("flowResult")
+}
+
+
+const DAIKIN_SERIES={
+ R:{
+  title:"Rシリーズ",
+  tag:"フラッグシップ／うるさらX",
+  summary:"無給水加湿を含む快適機能を重視した最上位シリーズ。長時間使うリビングや、快適性を妥協したくないお客様に提案しやすい。",
+  suitable:["リビングで長時間使う","加湿・除湿・気流まで重視","初期価格より快適性や節電性を優先","最上位機能を長く使いたい"],
+  features:["無給水加湿を備える最上位系統","温度・湿度・気流を総合的に制御する考え方","快適・節電自動運転を重視","清潔・換気・ネットワーク機能も含めて比較しやすい"],
+  talk:"「冷やす・暖めるだけでなく、湿度や気流まで含めて一年中の快適性を重視するシリーズです。リビングで長時間使うなら、価格差だけでなく毎日の快適さも比較してみてください。」",
+  caution:"無給水加湿の能力や換気などは外気条件・設置条件・型番で異なります。カタログの注記まで確認するようにしましょう。"
+ },
+ A:{
+  title:"Aシリーズ",
+  tag:"高機能／加湿なし",
+  summary:"快適性・自動運転・気流などを重視しつつ、無給水加湿を必要としないお客様向けの高機能シリーズ。",
+  suitable:["快適機能を重視する","加湿機能は不要","リビングで長時間使う","Rより価格を抑えたい"],
+  features:["高機能な自動運転を重視","センサーや気流制御を含めた快適性","R・Aはさらら除湿（リニアハイブリッド方式）を含めて比較しやすい","Rとの大きな分岐は加湿の必要性"],
+  talk:"「加湿までは必要ないけれど、リビングで快適に長く使いたい方に合いやすいシリーズです。Rシリーズの快適性を比較しながら、必要な機能だけ選びやすい位置づけです。」",
+  caution:"Rとの差を『加湿だけ』で断定せず、能力帯ごとの搭載機能・省エネ性能も型番で確認します。"
+ },
+ F:{
+  title:"Fシリーズ",
+  tag:"バランス型",
+  summary:"快適気流やさらら除湿、水内部クリーンなどを備え、価格と快適機能のバランスを取りやすいシリーズ。",
+  suitable:["価格と機能のバランス重視","寝室よりリビングで快適に使いたい","除湿や気流にもこだわりたい","Eより一段上を比較したい"],
+  features:["快適気流を提案しやすい","Fシリーズは、さらら除湿（ハイブリッド方式）を比較材料にできる","水内部クリーンなど清潔機能","上位機ほどの全部入りは不要なお客様に提案しやすい"],
+  talk:"「シンプル機より快適性を上げたいけれど、最上位までは必要ない方にちょうど良いシリーズです。特にリビングで、気流や除湿も大切にしたい方に比較していただきやすいです。」",
+  caution:"『コスパが一番』と決めつけず、使用時間と上位機との年間消費電力量差を確認します。"
+ },
+ E:{
+  title:"Eシリーズ",
+  tag:"コンパクト・スタンダード",
+  summary:"高さと奥行きを抑えたコンパクト室内機を採用したスタンダードシリーズ。基本機能と設置性、価格を重視するお客様向け。",
+  suitable:["価格を抑えたい","寝室・子ども部屋・使用時間が短い","設置スペースが限られる","複雑な機能を求めない"],
+  features:["高さ250mm・奥行き255mmのコンパクト設計","結露水を利用する水内部クリーン","室温パトロール","シンプルで使いやすい基本構成"],
+  talk:"「基本性能をしっかり備えたコンパクトなシリーズです。寝室や子ども部屋など、使い方がシンプルなお部屋なら価格を抑えながら選びやすいです。」",
+  caution:"長時間使うリビングでは、F・A・Rとの省エネ性や快適性の差も一度比較します。"
+ }
+};
+
+const DAIKIN_QUIZ=[
+ {q:"リビングで長時間使用。加湿も含めて快適性を最優先するお客様に、最初に比較したいシリーズは？",choices:["Rシリーズ","Aシリーズ","Fシリーズ","Eシリーズ"],answer:0,ex:"無給水加湿を含む最上位の快適機能を重視する場合は、まずRを比較します。"},
+ {q:"加湿は不要だが、リビングで自動運転や気流などの快適性を重視するお客様は？",choices:["Aシリーズ","Rシリーズだけ","Eシリーズ","価格だけでFシリーズ"],answer:0,ex:"加湿不要で高機能を求める場合、Aが有力です。Rとの機能差と価格差を型番で比較します。"},
+ {q:"価格と快適機能のバランスを重視し、除湿や気流も比較したいお客様は？",choices:["Fシリーズ","Eシリーズだけ","Rシリーズだけ","シリーズでは判断できないので説明不要"],answer:0,ex:"Fは快適気流・除湿・清潔機能を含めて、バランス提案しやすいシリーズです。"},
+ {q:"寝室用で、設置スペースが狭く、基本機能と価格を重視するお客様は？",choices:["Eシリーズ","Rシリーズ","Aシリーズ","必ずFシリーズ"],answer:0,ex:"コンパクト設計と基本機能を重視する場合、Eが比較しやすいです。"},
+ {q:"Eシリーズを検討中のリビング長時間使用のお客様。最も適切な対応は？",choices:["F・A・Rとの電気代や快適性も比較してもらう","Eで十分と即断する","必ずRへ変更する","価格だけ説明する"],answer:0,ex:"使い方に応じて上位シリーズとの価格差・快適性・省エネ性を比較します。"}
+];
+
+let daikinQuizIndex=0,daikinQuizAnswered=false,daikinQuizScore=0;
+
+function openDaikin(){
+ show("daikin");
+ const first=document.querySelector("#daikin .series-tab");
+ showDaikinSeries("R",first);
+ daikinQuizIndex=0;daikinQuizScore=0;
+ renderDaikinQuiz()
+}
+
+function showDaikinSeries(key,button){
+ document.querySelectorAll("#daikin .series-tab").forEach(b=>b.classList.remove("active"));
+ if(button)button.classList.add("active");
+ const s=DAIKIN_SERIES[key];
+ document.getElementById("daikinSeriesPanel").innerHTML=
+  '<div class="series-hero"><span class="series-tag">'+s.tag+'</span><h2>'+s.title+'</h2><p>'+s.summary+'</p></div>'+
+  '<div class="series-grid">'+
+   '<div class="series-card"><h3>おすすめのお客様</h3><ul>'+s.suitable.map(x=>"<li>"+x+"</li>").join("")+'</ul></div>'+
+   '<div class="series-card"><h3>主な提案ポイント</h3><ul>'+s.features.map(x=>"<li>"+x+"</li>").join("")+'</ul></div>'+
+   '<div class="series-card"><h3>接客トーク例</h3><p>'+s.talk+'</p></div>'+
+   '<div class="series-card"><h3>注意点</h3><p>'+s.caution+'</p></div>'+
+  '</div>'+
+  '<div class="series-card" style="margin-top:14px"><h3>R・A・F・Eの位置づけ</h3>'+
+  '<table class="compare-table"><tr><th>シリーズ</th><th>提案の軸</th><th>向きやすい使い方</th></tr>'+
+  '<tr><td>R</td><td>加湿を含む最上位の快適性</td><td>長時間使うリビング・全部入り重視</td></tr>'+
+  '<tr><td>A</td><td>加湿なしの高機能</td><td>快適性重視・Rより価格を抑えたい</td></tr>'+
+  '<tr><td>F</td><td>価格と快適機能のバランス</td><td>除湿・気流も重視するリビング</td></tr>'+
+  '<tr><td>E</td><td>コンパクト・基本機能</td><td>寝室・子ども部屋・価格重視</td></tr></table></div>'
+}
+
+function diagnoseDaikin(type){
+ const result={
+  highest:"<b>おすすめ候補：Rシリーズ</b><br>無給水加湿を含む快適性を最優先。ただし加湿が不要ならAも比較します。",
+  comfort:"<b>おすすめ候補：Aシリーズ</b><br>加湿は不要でも、自動運転・気流・快適性を重視する方に比較しやすいです。",
+  balance:"<b>おすすめ候補：Fシリーズ</b><br>快適気流・除湿・清潔機能と価格のバランスを確認します。",
+  simple:"<b>おすすめ候補：Eシリーズ</b><br>寝室など使用時間が短く、コンパクト性と基本機能を重視する方に向きます。"
+ }[type];
+ const box=document.getElementById("daikinDiagnosisResult");
+ box.innerHTML=result+"<br><small>最終判断は部屋条件・使用時間・予算・該当型番の仕様で行います。</small>";
+ box.classList.remove("hidden")
+}
+
+function renderDaikinQuiz(){
+ const q=DAIKIN_QUIZ[daikinQuizIndex%DAIKIN_QUIZ.length];
+ daikinQuizAnswered=false;
+ document.getElementById("daikinQuizQuestion").textContent="Q"+(daikinQuizIndex+1)+"　"+q.q;
+ document.getElementById("daikinQuizFeedback").classList.add("hidden");
+ document.getElementById("daikinQuizNext").classList.add("hidden");
+ const box=document.getElementById("daikinQuizChoices");box.innerHTML="";
+ shuffle(q.choices.map((text,index)=>({text,index}))).forEach((x,i)=>{
+  const b=document.createElement("button");b.className="choice";b.dataset.originalIndex=String(x.index);
+  b.textContent=(i+1)+"　"+x.text;b.onclick=()=>answerDaikinQuiz(x.index,b);box.appendChild(b)
+ })
+}
+
+function answerDaikinQuiz(index,button){
+ if(daikinQuizAnswered)return;daikinQuizAnswered=true;
+ const q=DAIKIN_QUIZ[daikinQuizIndex%DAIKIN_QUIZ.length];
+ const ok=index===q.answer,buttons=[...document.querySelectorAll("#daikinQuizChoices .choice")];
+ if(ok)daikinQuizScore++;
+ buttons.forEach(b=>b.disabled=true);button.classList.add(ok?"correct":"wrong");
+ if(!ok){
+  const right=buttons.find(b=>Number(b.dataset.originalIndex)===q.answer);
+  if(right)right.classList.add("correct")
+ }
+ const f=document.getElementById("daikinQuizFeedback");
+ f.innerHTML="<b>"+(ok?"⭕ 正解":"❌ 不正解")+"</b><br>"+q.ex;
+ f.classList.remove("hidden");document.getElementById("daikinQuizNext").classList.remove("hidden")
+}
+
+function nextDaikinQuiz(){
+ if(daikinQuizIndex>=DAIKIN_QUIZ.length-1){
+  finishDaikinQuiz();
+  return;
+ }
+ daikinQuizIndex++;
+ renderDaikinQuiz()
+}
+
+function finishDaikinQuiz(){
+ document.getElementById("daikinQuizQuestion").textContent="シリーズミニ提案テスト終了";
+ document.getElementById("daikinQuizChoices").innerHTML=
+  '<div class="result-card"><strong>'+daikinQuizScore+" / "+DAIKIN_QUIZ.length+'</strong><p>全5問が終了しました。</p></div>'+
+  '<button class="next-button" onclick="daikinQuizIndex=0;daikinQuizScore=0;renderDaikinQuiz()">もう一度挑戦</button>'+
+  '<button class="next-button" onclick="show(\'home\')">ホームへ戻る</button>';
+ document.getElementById("daikinQuizFeedback").classList.add("hidden");
+ document.getElementById("daikinQuizNext").classList.add("hidden");
+}
+
+
+const DAIKIN_FEATURES={
+ premium:{
+  title:"プレミアム冷房",
+  lead:"💡 一言でいうと：設定温度に達した後も、温度だけでなく湿度も見ながら、蒸し暑さを感じにくくする冷房です。",
+  html:`
+   <div class="diagram-box good">
+    <div class="diagram-title">お客様にとってのメリット</div>
+    <div class="diagram-flow">
+     <div class="flow-node">設定温度に到達</div><div class="flow-link">↓</div>
+     <div class="flow-node blue">デシクル制御で除湿を続ける</div><div class="flow-link">＋</div>
+     <div class="flow-node blue">PIT（ピット）制御で室温を細かく調整</div><div class="flow-link">↓</div>
+     <div class="flow-node green">室温安定後も蒸し暑さを感じにくい</div>
+    </div>
+   </div>
+   <div class="diagram-compare">
+    <div class="diagram-box">
+     <div class="diagram-title">デシクル制御とは？</div>
+     <p><b>湿度をコントロールする技術です。</b></p>
+     <p>設定温度に達した後も、熱交換器の冷やす部分を無段階に切り替えながら除湿を続けます。</p>
+    </div>
+    <div class="diagram-box">
+     <div class="diagram-title">PIT（ピット）制御とは？</div>
+     <p><b>温度をきめ細かくコントロールする技術です。</b></p>
+     <p>室温が安定した後も、0.5℃単位で室温を調整し、冷えすぎや温度の上がりすぎを抑えます。</p>
+    </div>
+   </div>`,
+  talk:"「設定温度になった後も除湿を続け、温度も細かく調整するので、同じ室温でも蒸し暑さを感じにくい冷房です。」",
+  caution:"プレミアム冷房や各制御の搭載内容はシリーズ・型番で異なります。最新の機能表を確認してください。『湿度を必ず一定に保つ』『冷えすぎない』とは断定しません。"
+ },
+ airflow:{
+  title:"風ないス運転",
+  lead:"気流を直接体に当てにくい方向へコントロールし、冷えすぎや風当たりの不快感を抑える考え方です。",
+  html:`
+   <div class="diagram-compare">
+    <div class="diagram-box">
+     <div class="diagram-title">直接風</div>
+     <div class="airflow-room"><div class="aircon-unit">エアコン</div><div class="wind-direct">➜➜</div><div class="person-icon">😣</div></div>
+     <p>風が体へ直接当たり、冷えすぎを感じやすい。</p>
+    </div>
+    <div class="diagram-arrow">→</div>
+    <div class="diagram-box good">
+     <div class="diagram-title">風ないス運転</div>
+     <div class="airflow-room"><div class="aircon-unit">エアコン</div><div class="wind-wide">↗︎ 〰︎</div><div class="person-icon">😊</div></div>
+     <p>風向きを工夫して、体へ直接当たりにくくする。</p>
+    </div>
+   </div>`,
+  talk:"「冷たい風が苦手な方には、風を直接当てにくい運転が便利です。赤ちゃんや寝室にも比較しやすいポイントです。」",
+  caution:"部屋の形・家具・設置位置により気流の届き方は変わります。完全に無風になる機能ではありません。"
+ },
+ streamer:{
+  title:"ストリーマ",
+  lead:"放電技術を利用し、エアコン内部や空気清浄フィルターなどの清潔機能に活用されるダイキン独自技術です。",
+  html:`
+   <div class="diagram-box good">
+    <div class="diagram-title">ストリーマの流れ</div>
+    <div class="diagram-flow">
+     <div class="flow-node blue">ストリーマ放電</div><div class="flow-link">↓</div>
+     <div class="flow-node">分解力を持つ高速電子を生成</div><div class="flow-link">↓</div>
+     <div class="flow-node green">内部清潔・脱臭などの機能に活用</div>
+    </div>
+   </div>`,
+  talk:"「フィルターで集めるだけではなく、ダイキン独自の放電技術を内部清潔や脱臭に活用しています。」",
+  caution:"効果の対象・試験条件・運転時間は機能ごとに異なります。空間全体への効果を過大に断定しないでください。"
+ },
+ compressor:{
+  title:"スイングコンプレッサー",
+  lead:"圧縮機内部の一体構造により、冷媒漏れや摩擦を抑えることを狙ったダイキン独自のコンプレッサー技術です。",
+  html:`
+   <div class="diagram-compare">
+    <div class="diagram-box">
+     <div class="diagram-title">一般的なイメージ</div>
+     <div class="compressor-vis"><div class="comp-part">部品A</div><div class="comp-arrow">⇄</div><div class="comp-part">部品B</div></div>
+     <p>複数部品の接触部で摩擦や冷媒漏れが発生し得る。</p>
+    </div>
+    <div class="diagram-arrow">→</div>
+    <div class="diagram-box good">
+     <div class="diagram-title">スイングコンプレッサー</div>
+     <div class="compressor-vis"><div class="comp-part">一体化</div><div class="comp-arrow">⟳</div></div>
+     <p>一体構造で摩擦・冷媒漏れを抑え、安定運転を支える。</p>
+    </div>
+   </div>`,
+  talk:"「心臓部のコンプレッサーを一体構造にして、摩擦や冷媒漏れを抑える設計です。細かな能力制御や長期使用の安心感を支えます。」",
+  caution:"耐久性を『絶対に壊れない』と表現せず、構造上の特徴として説明します。"
+ },
+ patrol:{
+  title:"室温パトロール",
+  lead:"停止中でも室温・湿度の状態を見守り、暑さや寒さが厳しくなった際に自動運転する機能です。",
+  html:`
+   <div class="diagram-box good">
+    <div class="diagram-title">見守りの流れ</div>
+    <div class="diagram-flow">
+     <div class="flow-node">エアコン停止中</div><div class="flow-link">↓</div>
+     <div class="flow-node blue">室温・湿度をチェック</div><div class="flow-link">↓</div>
+     <div class="flow-node yellow">暑すぎる／寒すぎる状態を検知</div><div class="flow-link">↓</div>
+     <div class="flow-node green">自動で冷房・暖房運転</div>
+    </div>
+   </div>`,
+  talk:"「エアコンを切っている時も部屋の状態を見守り、暑くなりすぎた時などに自動で運転してくれるので、高齢の方やペットのお留守番にも安心材料になります。」",
+  caution:"運転開始条件・対象運転・設定方法は型番で異なります。熱中症を完全に防ぐ機能とは案内しないでください。"
+ },
+ dehumidify:{
+  title:"さらら除湿",
+  lead:"💡 一言でいうと：季節や室温・湿度に合わせて除湿量を細かく調整し、肌寒さを抑えながら湿気を取りやすくするダイキンの除湿機能です。",
+  html:`
+   <div class="diagram-box good">
+    <div class="diagram-title">さらら除湿の本質</div>
+    <div class="diagram-flow">
+     <div class="flow-node">室温・湿度や季節を確認</div><div class="flow-link">↓</div>
+     <div class="flow-node blue">必要な除湿量に合わせて運転を調整</div><div class="flow-link">↓</div>
+     <div class="flow-node green">湿気を取りながら肌寒さを抑える</div>
+    </div>
+   </div>
+   <div class="diagram-compare">
+    <div class="diagram-box">
+     <div class="diagram-title">R・Aシリーズ</div>
+     <p><b>リニアハイブリッド方式</b></p>
+     <p>状況に合わせて複数の除湿方式を切り替え、熱交換器をリニアに制御して、必要な除湿量へ細かく合わせます。</p>
+    </div>
+    <div class="diagram-box">
+     <div class="diagram-title">Fシリーズ</div>
+     <p><b>ハイブリッド方式</b></p>
+     <p>季節やシーンに合わせて除湿能力を細かく制御し、肌寒さを抑えながら除湿します。</p>
+    </div>
+   </div>
+   <div class="feature-caution">
+    <b>⚠ 新人が勘違いしやすいポイント</b><br>
+    リニアハイブリッド方式は、複数の除湿方式を切り替える方式で、一般社団法人 日本冷凍空調工業会による「再熱除湿方式」には該当しません。
+   </div>`,
+  talk:"「気温や湿度に合わせて除湿のしかたを細かく調整するので、ただ冷やして湿気を取る除湿より、肌寒さを抑えながら使いやすい機能です。」",
+  caution:"シリーズ・能力帯・型番で方式や搭載内容が異なります。除湿運転中に吹き出し温度が下がる場合もあるため、『室温が下がらない』『必ず寒くならない』とは案内しません。"
+ }
+};
+
+function showDaikinFeature(key){
+ const f=DAIKIN_FEATURES[key];
+ const panel=document.getElementById("daikinFeaturePanel");
+ panel.innerHTML="<h2>"+f.title+"</h2><p class='feature-lead'>"+f.lead+"</p>"+f.html+
+  "<div class='feature-talk'><b>売場での説明例</b><br>"+f.talk+"</div>"+
+  "<div class='feature-caution'><b>案内時の注意</b><br>"+f.caution+"</div>"+
+  "<button class='feature-close' onclick=\"document.getElementById('daikinFeaturePanel').classList.add('hidden')\">閉じる</button>";
+ panel.classList.remove("hidden");
+ panel.scrollIntoView({behavior:"smooth",block:"start"})
+}
+
+
+const VISUAL_LIBRARY=[
+ {file:"premium-cooling.png?v=3890",title:"プレミアム冷房",desc:"デシクル制御とPIT制御を、初心者向けに図解。"},
+ {file:"no-direct-airflow.png",title:"風ないス運転",desc:"直接風と、体に当たりにくい気流を比較。"},
+ {file:"swing-compressor.png",title:"スイングコンプレッサー",desc:"一般的な構造との違いと、一体構造の特徴を図解。"},
+ {file:"streamer.png",title:"ストリーマ",desc:"放電技術を内部清潔や脱臭へ活用する仕組みを図解。"},
+ {file:"sarara-dehumidify.png?v=3890",title:"さらら除湿",desc:"さらら除湿の本質と、R・A・Fの方式の違いを図解。"},
+ {file:"room-patrol.png",title:"室温パトロール",desc:"停止中の見守りから自動運転までの流れを図解。"},
+ {file:"daikin-overview.png",title:"R・A・F・E比較",desc:"使い方・希望・予算から、4シリーズの提案軸を比較。"}
+];
+
+function openVisualLibrary(){
+ const box=document.getElementById("visualGrid");box.innerHTML="";
+ VISUAL_LIBRARY.forEach(v=>{
+  const card=document.createElement("div");card.className="visual-card";
+  card.innerHTML='<img src="'+v.file+'" alt="'+v.title+'"><div class="visual-card-body"><h3>'+v.title+'</h3><p>'+v.desc+'</p><button type="button">拡大して見る</button></div>';
+  card.querySelector("button").onclick=()=>openImageModal(v.file,v.title);
+  card.querySelector("img").onclick=()=>openImageModal(v.file,v.title);
+  box.appendChild(card)
+ });
+ show("visualLibrary")
+}
+function openConstructionVisuals(){show("constructionVisuals")}
+function openImageModal(src,title){
+ const modal=document.getElementById("imageModal");
+ const img=document.getElementById("modalImage");
+ img.src=src;img.alt=title;modal.classList.remove("hidden");
+ document.body.style.overflow="hidden"
+}
+function closeImageModal(event,force){
+ if(force || event.target.id==="imageModal"){
+  document.getElementById("imageModal").classList.add("hidden");
+  document.body.style.overflow=""
+ }
+}
+
+
+const CONSTRUCTION_CHECKS=[
+ {title:"コンセント形状と電圧",detail:"100V・200V、形状、機種の電源仕様を確認"},
+ {title:"専用回路",detail:"他のコンセントと共用していないか確認"},
+ {title:"分電盤",detail:"空き回路・主幹容量・ブレーカー容量を確認"},
+ {title:"配管穴",detail:"既存穴・新規穴あけ・隠ぺい配管の有無を確認"},
+ {title:"室外機置場",detail:"地面・ベランダ・屋根・壁面・天吊りなどを確認"},
+ {title:"配管長と高低差",detail:"標準範囲内か、追加配管が必要か確認"},
+ {title:"化粧カバー",detail:"室内・室外の必要有無と色・経路を確認"}
+];
+
+function openConstructionChecklist(){
+ const saved=JSON.parse(localStorage.getItem("constructionChecklistV42")||"[]");
+ const box=document.getElementById("constructionChecklistItems");box.innerHTML="";
+ CONSTRUCTION_CHECKS.forEach((item,i)=>{
+  const row=document.createElement("label");row.className="check-item";
+  row.innerHTML='<input type="checkbox" '+(saved[i]?'checked':'')+' onchange="updateConstructionChecklist()"><span><b>'+item.title+'</b><small>'+item.detail+'</small></span>';
+  box.appendChild(row)
+ });
+ updateConstructionChecklist(false);
+ show("constructionChecklist")
+}
+function updateConstructionChecklist(save=true){
+ const checks=[...document.querySelectorAll("#constructionChecklistItems input")].map(x=>x.checked);
+ document.getElementById("constructionCheckCount").textContent=checks.filter(Boolean).length+" / "+CONSTRUCTION_CHECKS.length;
+ if(save)localStorage.setItem("constructionChecklistV42",JSON.stringify(checks))
+}
+function resetConstructionChecklist(){
+ document.querySelectorAll("#constructionChecklistItems input").forEach(x=>x.checked=false);
+ updateConstructionChecklist()
+}
+function completeConstructionChecklist(){
+ const checked=[...document.querySelectorAll("#constructionChecklistItems input:checked")].length;
+ if(checked===CONSTRUCTION_CHECKS.length){
+  alert("7項目すべて確認済みです。最終判断は現地確認で行ってください。")
+ }else{
+  alert("未確認が "+(CONSTRUCTION_CHECKS.length-checked)+" 項目あります。")
+ }
+}
+
+
+function transferKeys(){
+ const keys=[];
+ for(let i=0;i<localStorage.length;i++){
+  const k=localStorage.key(i)||"";
+  if(/^aircon/i.test(k)||k==="constructionChecklistV42")keys.push(k);
+ }
+ return [...new Set(keys)].sort();
+}
+function utf8ToBase64(str){
+ const bytes=new TextEncoder().encode(str);let bin="";
+ bytes.forEach(b=>bin+=String.fromCharCode(b));return btoa(bin);
+}
+function base64ToUtf8(str){
+ const bin=atob(str);const bytes=Uint8Array.from(bin,c=>c.charCodeAt(0));return new TextDecoder().decode(bytes);
+}
+function exportLearningData(){
+ try{
+  const data={format:"aircon-master-transfer",version:1,createdAt:new Date().toISOString(),items:{}};
+  transferKeys().forEach(k=>data.items[k]=localStorage.getItem(k));
+  const code="AM1-"+utf8ToBase64(JSON.stringify(data));
+  const box=document.getElementById("transferCode");box.value=code;box.focus();box.select();
+  document.getElementById("transferStatus").textContent="引き継ぎコードを発行しました。コピーして新しいアイコンへ貼り付けてください。";
+ }catch(e){document.getElementById("transferStatus").textContent="コードを発行できませんでした。";console.error(e)}
+}
+async function copyTransferCode(){
+ const box=document.getElementById("transferCode");
+ if(!box.value.trim())return alert("先に引き継ぎコードを発行してください。");
+ try{await navigator.clipboard.writeText(box.value.trim());document.getElementById("transferStatus").textContent="コードをコピーしました。"}
+ catch(e){box.focus();box.select();document.execCommand("copy");document.getElementById("transferStatus").textContent="コードをコピーしました。"}
+}
+function importLearningData(){
+ const raw=(document.getElementById("transferCode").value||"").trim();
+ if(!raw)return alert("旧アイコンで発行したコードを貼り付けてください。");
+ if(!confirm("現在の学習記録を、引き継ぎコードの内容で復元します。よろしいですか？"))return;
+ try{
+  const body=raw.startsWith("AM1-")?raw.slice(4):raw;
+  const data=JSON.parse(base64ToUtf8(body));
+  if(!data||data.format!=="aircon-master-transfer"||!data.items||typeof data.items!=="object")throw new Error("invalid format");
+  let count=0;
+  Object.entries(data.items).forEach(([k,v])=>{
+   if((/^aircon/i.test(k)||k==="constructionChecklistV42")&&typeof v==="string"){localStorage.setItem(k,v);count++}
+  });
+  document.getElementById("transferStatus").textContent=count+"件の学習記録を復元しました。画面を更新します。";
+  setTimeout(()=>location.reload(),500);
+ }catch(e){alert("引き継ぎコードを読み取れませんでした。コード全体をコピーして、もう一度お試しください。");console.error(e)}
+}
+
+
+function openHitachi(){
+ show("hitachi");
+ document.getElementById("hitachiFeaturePanel").classList.add("hidden");
+}
+const HITACHI_FEATURES={
+ freeze:{title:"❄️ 凍結洗浄",body:"熱交換器を凍らせて霜を付け、一気に溶かして汚れを洗い流します。室内機・室外機の清潔維持に役立ちます。",point:"すべての汚れやカビを完全に除去する機能ではありません。"},
+ fan:{title:"🌀 ファンお掃除ロボ",body:"ホコリが付きやすいファンをブラシで掃除し、お手入れの負担を軽減します。",point:"フィルター自動掃除とは別の機能として説明します。"},
+ mold:{title:"🛡️ カビバスター",body:"エアコン内部の湿度を抑える運転などで、カビの発生を抑制します。",point:"初期設定を確認し、カビが完全に生えないとは案内しません。"},
+ stainless:{title:"✨ ステンレス・クリーンシステム",body:"風の通り道などにステンレスを採用し、汚れにくさとお手入れのしやすさに配慮しています。",point:"搭載範囲はシリーズ・型番で確認します。"},
+ dry:{title:"💧 カラッと除湿",body:"再熱方式により、室温を下げすぎにくく湿度を下げます。梅雨時や冷えが苦手なお客様に提案しやすい機能です。",point:"消費電力や運転条件も含めて説明します。"},
+ wave:{title:"🔇 ウェーブファン",body:"WNシリーズは上位Xシリーズと同じウェーブファンを採用。ノジマオリジナルの訴求点として、静音性の高さを案内できます。",point:"『無音』ではなく『静音性を高めた』と表現します。"}
+};
+function showHitachiFeature(key){
+ const d=HITACHI_FEATURES[key],p=document.getElementById("hitachiFeaturePanel");
+ if(!d)return;
+ p.innerHTML='<div class="series-card"><h2 style="margin-top:0">'+d.title+'</h2><p>'+d.body+'</p><div style="padding:12px;border-radius:12px;background:#fff7ed"><b>接客時の注意</b><p style="margin-bottom:0">'+d.point+'</p></div></div>';
+ p.classList.remove("hidden");
+ p.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function openSettings(){document.getElementById("nameInput").value=localStorage.getItem(NAME)||"";show("settings")}
+function saveName(){const v=document.getElementById("nameInput").value.trim();if(!v)return alert("あなたのお名前を入力してください。");localStorage.setItem(NAME,v);alert(v+"さんで保存しました。");updateHome()}
+updateHome();
+
+window.addEventListener("error",function(e){console.error("App error:",e.error||e.message);});
+window.addEventListener("unhandledrejection",function(e){console.error("Promise error:",e.reason);});
+</script>
+</body>
+</html>
