@@ -113,13 +113,20 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
 .feature-close{margin-top:14px;width:100%;padding:14px;border:0;border-radius:12px;background:#0b315f;color:#fff;font-weight:900}
 
 .visual-library{padding:30px}
-.visual-intro{max-width:1080px;margin:0 auto 18px;padding:18px;border-radius:18px;background:#f2f8fc;line-height:1.7}
-.visual-grid{max-width:1080px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.visual-intro{max-width:1080px;margin:0 auto 14px;padding:16px;border-radius:18px;background:#f2f8fc;line-height:1.7}
+.visual-controls{max-width:1080px;margin:0 auto 16px;display:grid;gap:12px}
+.visual-search{width:100%;box-sizing:border-box;padding:13px 15px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:16px}
+.visual-tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 5px;-webkit-overflow-scrolling:touch}
+.visual-tab{flex:0 0 auto;border:1px solid #b8cbd9;background:#fff;color:#0b315f;border-radius:999px;padding:10px 15px;font-weight:900}
+.visual-tab.active{background:#116fe8;color:#fff;border-color:#116fe8}
+.visual-count{font-size:13px;color:var(--muted)}
+.visual-grid{max-width:1080px;margin:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.visual-empty{grid-column:1/-1;padding:30px;text-align:center;border:1px dashed var(--line);border-radius:16px;color:var(--muted);background:#fff}
 .visual-card{border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 8px 24px rgba(30,70,100,.07)}
-.visual-card img{width:100%;height:260px;object-fit:contain;object-position:center top;display:block;background:#eef5fa;padding:8px;box-sizing:border-box}
-.visual-card-body{padding:16px}
-.visual-card h3{margin:0 0 8px;color:#0b315f}
-.visual-card p{margin:0;color:var(--muted);line-height:1.6}
+.visual-card img{width:100%;height:210px;object-fit:contain;object-position:center;display:block;background:#eef5fa;padding:8px;box-sizing:border-box}
+.visual-card-body{padding:14px}
+.visual-card h3{margin:0 0 7px;color:#0b315f;font-size:17px;line-height:1.35}
+.visual-card p{margin:0;color:var(--muted);line-height:1.55;font-size:14px}
 .visual-card button{width:100%;margin-top:13px;padding:12px;border:0;border-radius:11px;background:#116fe8;color:#fff;font-weight:900}
 .image-modal{position:fixed;inset:0;background:rgba(5,23,43,.9);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
 .image-modal.hidden{display:none!important}
@@ -134,9 +141,22 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
 .construction-card h3{margin-top:0;color:#0b315f}
 .construction-card p{line-height:1.7}
 @media(min-width:768px) and (max-width:1366px){
- .visual-grid{grid-template-columns:repeat(2,1fr)}
- .visual-card img{height:320px;object-fit:contain;object-position:center top}
+ .visual-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .visual-card img{height:240px;object-fit:contain;object-position:center}
  .menu-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+@media(max-width:600px){
+ .visual-library{padding:16px 12px}
+ .visual-intro{padding:14px;font-size:14px}
+ .visual-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .visual-card{border-radius:14px}
+ .visual-card img{height:130px;padding:5px}
+ .visual-card-body{padding:10px}
+ .visual-card h3{font-size:14px;margin-bottom:5px}
+ .visual-card p{font-size:12px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+ .visual-card button{margin-top:9px;padding:10px 6px;font-size:13px}
+ .quick-summary{grid-template-columns:1fr}
 }
 
 .checklist-wrap{max-width:760px;margin:auto;padding:26px}
@@ -726,7 +746,17 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
   </header>
   <div class="visual-library">
     <div class="visual-intro">
-      ダイキン・日立の機能図解を収録しています。図解をタップすると大きく表示できます。iPadでは横画面にすると、接客中にお客様へ見せやすくなります。
+      メーカーや分類を選ぶと、必要な図解だけ表示されます。カードをタップすると大きく確認できます。
+    </div>
+    <div class="visual-controls">
+      <input id="visualSearch" class="visual-search" type="search" placeholder="機能名で検索（例：除湿、ファン）" aria-label="図解を検索">
+      <div class="visual-tabs" role="tablist" aria-label="図解の分類">
+        <button class="visual-tab active" type="button" data-filter="all">すべて</button>
+        <button class="visual-tab" type="button" data-filter="daikin">ダイキン</button>
+        <button class="visual-tab" type="button" data-filter="hitachi">日立</button>
+        <button class="visual-tab" type="button" data-filter="construction">工事・電源</button>
+      </div>
+      <div id="visualCount" class="visual-count"></div>
     </div>
     <div id="visualGrid" class="visual-grid"></div>
     <div class="quick-summary">
@@ -1532,33 +1562,66 @@ function showDaikinFeature(key){
 
 
 const VISUAL_LIBRARY=[
- {file:"premium-cooling.png?v=3890",title:"プレミアム冷房",desc:"デシクル制御とPIT制御を、初心者向けに図解。"},
- {file:"no-direct-airflow.png",title:"風ないス運転",desc:"直接風と、体に当たりにくい気流を比較。"},
- {file:"swing-compressor.png",title:"スイングコンプレッサー",desc:"一般的な構造との違いと、一体構造の特徴を図解。"},
- {file:"streamer.png",title:"ストリーマ",desc:"放電技術を内部清潔や脱臭へ活用する仕組みを図解。"},
- {file:"sarara-dehumidify.png?v=3890",title:"さらら除湿",desc:"さらら除湿の本質と、R・A・Fの方式の違いを図解。"},
- {file:"room-patrol.png",title:"室温パトロール",desc:"停止中の見守りから自動運転までの流れを図解。"},
- {file:"daikin-overview.png",title:"R・A・F・E比較",desc:"使い方・希望・予算から、4シリーズの提案軸を比較。"},
- {file:"hitachi-freeze-indoor.svg",title:"日立 凍結洗浄（室内機）",desc:"凍らせる・溶かす・洗い流す流れを図解。"},
- {file:"hitachi-freeze-outdoor.svg",title:"日立 凍結洗浄（室外機）",desc:"室外熱交換器の汚れを洗い流す仕組みを図解。"},
- {file:"hitachi-fan-robot.svg",title:"日立 ファンお掃除ロボ",desc:"ファンのホコリをブラシで掃除する流れを図解。"},
- {file:"hitachi-mold-buster.svg",title:"日立 カビバスター",desc:"内部を見張り、加熱・低湿制御でカビを抑制。"},
- {file:"hitachi-stainless.svg",title:"日立 ステンレス・クリーン",desc:"ステンレス採用箇所と清潔性の考え方を図解。"},
- {file:"hitachi-karatto.svg",title:"日立 カラッと除湿",desc:"再熱方式で室温低下を抑えながら除湿する流れ。"},
- {file:"hitachi-wave-fan.svg",title:"WN ウェーブファン",desc:"Xシリーズと同じファンを採用し、静音性を高めたノジマオリジナル仕様。"},
- {file:"hitachi-initial-settings.svg",title:"WN 初期設定・操作一覧",desc:"出荷時設定済み・設定確認・手動設定を整理。"}
+ {category:"daikin",file:"premium-cooling.png?v=3890",title:"プレミアム冷房",desc:"デシクル制御とPIT制御を、初心者向けに図解。"},
+ {category:"daikin",file:"no-direct-airflow.png",title:"風ないス運転",desc:"直接風と、体に当たりにくい気流を比較。"},
+ {category:"daikin",file:"swing-compressor.png",title:"スイングコンプレッサー",desc:"一般的な構造との違いと、一体構造の特徴を図解。"},
+ {category:"daikin",file:"streamer.png",title:"ストリーマ",desc:"放電技術を内部清潔や脱臭へ活用する仕組みを図解。"},
+ {category:"daikin",file:"sarara-dehumidify.png?v=3890",title:"さらら除湿",desc:"さらら除湿の本質と、R・A・Fの方式の違いを図解。"},
+ {category:"daikin",file:"room-patrol.png",title:"室温パトロール",desc:"停止中の見守りから自動運転までの流れを図解。"},
+ {category:"daikin",file:"daikin-overview.png",title:"R・A・F・E比較",desc:"使い方・希望・予算から、4シリーズの提案軸を比較。"},
+ {category:"hitachi",file:"hitachi-freeze-indoor.svg",title:"凍結洗浄（室内機）",desc:"凍らせる・溶かす・洗い流す流れを図解。"},
+ {category:"hitachi",file:"hitachi-freeze-outdoor.svg",title:"凍結洗浄（室外機）",desc:"室外熱交換器の汚れを洗い流す仕組みを図解。"},
+ {category:"hitachi",file:"hitachi-fan-robot.svg",title:"ファンお掃除ロボ",desc:"ファンのホコリをブラシで掃除する流れを図解。"},
+ {category:"hitachi",file:"hitachi-mold-buster.svg",title:"カビバスター",desc:"内部を見張り、加熱・低湿制御でカビを抑制。"},
+ {category:"hitachi",file:"hitachi-stainless.svg",title:"ステンレス・クリーン",desc:"ステンレス採用箇所と清潔性の考え方を図解。"},
+ {category:"hitachi",file:"hitachi-karatto.svg",title:"カラッと除湿",desc:"再熱方式で室温低下を抑えながら除湿する流れ。"},
+ {category:"hitachi",file:"hitachi-wave-fan.svg",title:"WN ウェーブファン",desc:"Xシリーズと同じファンを採用し、静音性を高めたノジマオリジナル仕様。"},
+ {category:"hitachi",file:"hitachi-initial-settings.svg",title:"WN 初期設定一覧",desc:"出荷時設定済み・設定確認・手動設定を整理。"},
+ {category:"construction",file:"voltage-100-200.png",title:"100V・200V",desc:"コンセント・電圧・分電盤をセットで確認。"},
+ {category:"construction",file:"dedicated-circuit.png",title:"専用回路",desc:"分電盤からエアコンまで他機器と共用しない回路。"},
+ {category:"construction",file:"distribution-board.svg",title:"分電盤",desc:"主幹容量・空き回路・電圧・専用回路を確認。"},
+ {category:"construction",file:"cover.svg",title:"化粧カバー",desc:"室内・室外、色、長さ、曲がりを確認。"},
+ {category:"construction",file:"concealed-piping.svg",title:"隠ぺい配管",desc:"配管径・電線・ドレン・再利用可否を確認。"}
 ];
 
-function openVisualLibrary(){
- const box=document.getElementById("visualGrid");box.innerHTML="";
- VISUAL_LIBRARY.forEach(v=>{
+let visualFilter="all";
+function renderVisualLibrary(){
+ const box=document.getElementById("visualGrid");
+ const search=(document.getElementById("visualSearch")?.value||"").trim().toLowerCase();
+ const items=VISUAL_LIBRARY.filter(v=>{
+  const categoryOK=visualFilter==="all"||v.category===visualFilter;
+  const text=(v.title+" "+v.desc).toLowerCase();
+  return categoryOK && (!search||text.includes(search));
+ });
+ box.innerHTML="";
+ items.forEach(v=>{
   const card=document.createElement("div");card.className="visual-card";
-  card.innerHTML='<img src="'+v.file+'" alt="'+v.title+'"><div class="visual-card-body"><h3>'+v.title+'</h3><p>'+v.desc+'</p><button type="button">拡大して見る</button></div>';
+  card.innerHTML='<img src="'+v.file+'" alt="'+v.title+'"><div class="visual-card-body"><h3>'+v.title+'</h3><p>'+v.desc+'</p><button type="button">大きく見る</button></div>';
   card.querySelector("button").onclick=()=>openImageModal(v.file,v.title);
   card.querySelector("img").onclick=()=>openImageModal(v.file,v.title);
-  box.appendChild(card)
+  box.appendChild(card);
  });
- show("visualLibrary")
+ if(!items.length) box.innerHTML='<div class="visual-empty">該当する図解がありません。</div>';
+ const count=document.getElementById("visualCount");
+ if(count) count.textContent=items.length+"件を表示";
+}
+function setupVisualControls(){
+ const search=document.getElementById("visualSearch");
+ if(search && !search.dataset.ready){search.addEventListener("input",renderVisualLibrary);search.dataset.ready="1";}
+ document.querySelectorAll(".visual-tab").forEach(btn=>{
+  if(btn.dataset.ready) return;
+  btn.addEventListener("click",()=>{
+   visualFilter=btn.dataset.filter;
+   document.querySelectorAll(".visual-tab").forEach(b=>b.classList.toggle("active",b===btn));
+   renderVisualLibrary();
+  });
+  btn.dataset.ready="1";
+ });
+}
+function openVisualLibrary(){
+ show("visualLibrary");
+ setupVisualControls();
+ renderVisualLibrary();
 }
 function openConstructionVisuals(){show("constructionVisuals")}
 function openImageModal(src,title){
