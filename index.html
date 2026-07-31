@@ -133,6 +133,12 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
 .image-modal-inner{max-width:1200px;width:100%;max-height:95vh;overflow:auto;background:#fff;border-radius:18px;padding:12px}
 .image-modal img{width:100%;height:auto;display:block;border-radius:12px}
 .image-modal-close{position:sticky;top:0;float:right;border:0;border-radius:999px;background:#0b315f;color:#fff;width:44px;height:44px;font-size:22px;font-weight:900;z-index:2}
+.modal-visual-title{margin:8px 54px 12px 6px;color:#0b315f;font-size:22px;line-height:1.35}
+.modal-learning{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+.modal-learning .quick-box{margin:0;background:#f4f8fc;border:1px solid var(--line);border-radius:15px;padding:16px}
+.modal-learning h3{margin:0 0 8px;color:#0b315f;font-size:18px}
+.modal-learning p{margin:0;line-height:1.7;color:#243b55}
+@media(max-width:700px){.modal-learning{grid-template-columns:1fr}.modal-visual-title{font-size:19px}}
 .quick-summary{max-width:1080px;margin:20px auto 0;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .quick-box{padding:18px;border-radius:16px;background:#f7fafc;border:1px solid var(--line)}
 .quick-box h3{margin-top:0}
@@ -759,16 +765,6 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
       <div id="visualCount" class="visual-count"></div>
     </div>
     <div id="visualGrid" class="visual-grid"></div>
-    <div class="quick-summary">
-      <div class="quick-box">
-        <h3>30秒で復習</h3>
-        <p><b>プレミアム冷房：</b>温度だけでなく湿度も細かくコントロールし、設定温度後もサラッとした快適さを狙う。</p>
-      </div>
-      <div class="quick-box">
-        <h3>接客での一言</h3>
-        <p>「同じ26℃でも、湿度まで見ながら運転するので、ベタつきを感じにくい冷房です。」</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -797,7 +793,18 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
 <div id="imageModal" class="image-modal hidden" onclick="closeImageModal(event)">
   <div class="image-modal-inner">
     <button class="image-modal-close" onclick="closeImageModal(event,true)">×</button>
+    <h2 id="modalTitle" class="modal-visual-title"></h2>
     <img id="modalImage" alt="図解拡大表示">
+    <div class="modal-learning">
+      <div class="quick-box">
+        <h3>30秒で復習</h3>
+        <p id="modalReview"></p>
+      </div>
+      <div class="quick-box">
+        <h3>接客での一言</h3>
+        <p id="modalTalk"></p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1583,7 +1590,31 @@ const VISUAL_LIBRARY=[
  {category:"construction",file:"cover.svg",title:"化粧カバー",desc:"室内・室外、色、長さ、曲がりを確認。"},
  {category:"construction",file:"concealed-piping.svg",title:"隠ぺい配管",desc:"配管径・電線・ドレン・再利用可否を確認。"},
  {category:"construction",file:"multi-aircon.svg",title:"マルチエアコン",desc:"室外機1台に複数の室内機を接続。組み合わせ・配管・電源を確認。"}
-];
+ ];
+
+const VISUAL_GUIDE={
+ "プレミアム冷房":{review:"温度だけでなく湿度も細かく制御し、設定温度到達後も快適さを保つための冷房制御。",talk:"同じ設定温度でも、湿度まで見ながら運転するので、ベタつきを抑えた快適さを狙えます。"},
+ "風ないス運転":{review:"風向を調整し、冷風や暖風が体へ直接当たりにくくする気流機能。",talk:"エアコンの風が苦手な方へ、体に直接当たりにくい運転としてご案内できます。"},
+ "スイングコンプレッサー":{review:"圧縮機の主要部品を一体化し、摩擦や冷媒漏れを抑えることを狙った構造。",talk:"エアコンの心臓部に、長く安定して運転するための独自構造を採用しています。"},
+ "ストリーマ":{review:"放電によって生じる分解力を、内部清潔や空気清浄の補助に活用する技術。",talk:"本体内部の清潔維持や空気清浄を支える、ダイキン独自の放電技術です。"},
+ "さらら除湿":{review:"室温や湿度に応じて除湿方式を調整し、肌寒さを抑えながら湿気を取る機能。",talk:"梅雨時など、冷えすぎを抑えながら湿気を取りたい方へおすすめです。"},
+ "室温パトロール":{review:"停止中も室温などを見守り、条件を満たしたときに自動運転する見守り機能。",talk:"暑さが心配なご家族やペットがいるお部屋の見守りに役立ちます。"},
+ "R・A・F・E比較":{review:"Rは最上位、Aは高機能、Fは快適性と価格のバランス、Eはシンプルという提案軸。",talk:"必要な機能とご予算を伺い、4シリーズから無理なく絞り込めます。"},
+ "凍結洗浄（室内機）":{review:"熱交換器を凍らせ、霜を一気に溶かして付着した汚れを洗い流す清潔機能。",talk:"フィルターの奥にある熱交換器まで、自動で洗浄する機能です。"},
+ "凍結洗浄（室外機）":{review:"室外熱交換器の汚れを凍結・解凍で洗い流し、性能低下を抑える機能。",talk:"室内機だけでなく、外にある室外機の熱交換器も自動で洗浄します。"},
+ "ファンお掃除ロボ":{review:"ブラシでファンの先端に付着したホコリを掃除し、能力低下を抑える機能。",talk:"お手入れしにくい送風ファンまで自動で掃除するのが日立の強みです。"},
+ "カビバスター":{review:"内部の温度・湿度を見張り、加熱や低湿制御などでカビの発生を抑制する機能。",talk:"運転していない時間も内部を見張り、カビを抑えるお手伝いをします。"},
+ "ステンレス・クリーン":{review:"通風路やフラップ、フィルターなどに汚れにくいステンレス素材を採用する清潔設計。",talk:"風の通り道にステンレスを採用し、汚れにくさにも配慮されています。"},
+ "カラッと除湿":{review:"再熱方式により、室温低下を抑えながらしっかり除湿する日立の除湿機能。",talk:"お部屋を冷やしすぎずに湿気を取りたい梅雨時や秋口にも使いやすいです。"},
+ "WN ウェーブファン":{review:"上位Xシリーズと同じウェーブファンを採用し、静音性を高めたノジマオリジナル仕様。",talk:"WNは上位Xと同じウェーブファン搭載で、清潔機能に加えて静かさも魅力です。"},
+ "WN 初期設定一覧":{review:"シーズン前自動点検と内部送風乾燥は出荷時設定済み。カビバスターやアプリは設定確認が必要。",talk:"便利な機能を使い切れるよう、購入後に初期設定も一緒に確認しましょう。"},
+ "100V・200V":{review:"コンセント形状だけで断定せず、電圧・分電盤・専用回路をセットで確認する。",talk:"設置予定場所のコンセントと分電盤のお写真があると、より正確に確認できます。"},
+ "専用回路":{review:"分電盤からエアコンまで、他の機器と共用せず単独で配線された回路。",talk:"安全に設置するため、エアコン専用の回路があるか確認します。"},
+ "分電盤":{review:"主幹容量、空き回路、単相2線・3線、100V・200V、専用回路の有無を確認する。",talk:"ブレーカー容量だけで判断せず、分電盤全体のお写真で確認します。"},
+ "化粧カバー":{review:"配管を保護し見た目を整える部材。室内外、色、長さ、曲がり部品を確認する。",talk:"見た目をすっきりさせたい場合は、配管カバーの色や経路も事前に確認します。"},
+ "隠ぺい配管":{review:"壁内の既存配管を使う方式。配管径、電線、ドレン、長さ、劣化状態から再利用可否を判断する。",talk:"隠ぺい配管は再利用できない場合もあるため、型番と現場確認が必要です。"},
+ "マルチエアコン":{review:"室外機1台に複数の室内機を接続する方式。組み合わせ、合計能力、配管、電源確認が必要。",talk:"室外機を1台にまとめられますが、交換時は現在の室内外機の型番確認が重要です。"}
+};
 
 let visualFilter="all";
 function renderVisualLibrary(){
@@ -1600,6 +1631,7 @@ function renderVisualLibrary(){
   card.innerHTML='<img src="'+v.file+'" alt="'+v.title+'"><div class="visual-card-body"><h3>'+v.title+'</h3><p>'+v.desc+'</p><button type="button">大きく見る</button></div>';
   card.querySelector("button").onclick=()=>openImageModal(v.file,v.title);
   card.querySelector("img").onclick=()=>openImageModal(v.file,v.title);
+  card.onclick=(e)=>{if(e.target.tagName!=="BUTTON" && e.target.tagName!=="IMG") openImageModal(v.file,v.title);};
   box.appendChild(card);
  });
  if(!items.length) box.innerHTML='<div class="visual-empty">該当する図解がありません。</div>';
@@ -1628,7 +1660,12 @@ function openConstructionVisuals(){show("constructionVisuals")}
 function openImageModal(src,title){
  const modal=document.getElementById("imageModal");
  const img=document.getElementById("modalImage");
- img.src=src;img.alt=title;modal.classList.remove("hidden");
+ const guide=VISUAL_GUIDE[title]||{review:"図解の要点を確認し、搭載条件や設置条件は型番・現場ごとに確認します。",talk:"この図を使いながら、お客様の使い方や設置状況に合わせてご説明します。"};
+ img.src=src;img.alt=title;
+ document.getElementById("modalTitle").textContent=title;
+ document.getElementById("modalReview").textContent=guide.review;
+ document.getElementById("modalTalk").textContent="「"+guide.talk+"」";
+ modal.classList.remove("hidden");
  document.body.style.overflow="hidden"
 }
 function closeImageModal(event,force){
