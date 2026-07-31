@@ -402,6 +402,21 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
   .primary-illustration.momo-illustration{width:104px;height:142px;flex-basis:104px;margin-left:-4px}
 }
 
+
+.modal-detail{margin:16px 0;display:grid;gap:12px;text-align:left}
+.modal-detail-section{border:1px solid #dbe5ef;border-radius:14px;padding:14px;background:#fff}
+.modal-detail-section h3{margin:0 0 8px;color:#173b66;font-size:1.02rem}
+.modal-detail-section ul{margin:0;padding-left:1.25rem;line-height:1.65}
+.modal-detail-section p{margin:0;line-height:1.65}
+.hitachi-study-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.hitachi-study-card{border:1px solid #cfe0ef;border-radius:16px;padding:14px;background:#fff}
+.hitachi-study-card h3{margin:0 0 8px;color:#163b66}
+.hitachi-study-card p{margin:0 0 8px;line-height:1.6}
+.hitachi-study-card ul{margin:0;padding-left:1.2rem;line-height:1.55}
+.hitachi-series-table{width:100%;border-collapse:collapse;min-width:720px}
+.hitachi-series-table th,.hitachi-series-table td{padding:10px;border-bottom:1px solid #dce6ef;text-align:left;vertical-align:top}
+.hitachi-series-table th{background:#eef6fc;color:#173b66}
+@media(max-width:600px){.hitachi-study-grid{grid-template-columns:1fr}.modal-detail-section{padding:12px}}
 </style>
 <link rel="manifest" href="manifest.webmanifest?v=3890">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -621,74 +636,48 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
 
 
 <section id="hitachi" class="page hidden">
-  <header class="subheader">
-    <button onclick="show('home')">‹</button>
-    <h1>日立攻略</h1>
-    <span></span>
-  </header>
+  <header class="subheader"><button onclick="show('home')">‹</button><h1>日立攻略</h1><span></span></header>
   <div class="daikin-wrap">
-    <div class="daikin-note">
-      日立の清潔機能・除湿機能と、ノジマオリジナルWNシリーズを接客で使いやすい形に整理しています。搭載内容は能力帯・型番で異なる場合があるため、最終案内は該当型番のカタログ・取扱説明書で確認してください。
-    </div>
-
+    <div class="daikin-note">日立は「熱交換器・ファン・通風路・運転後の内部」まで、清潔維持を多段階で考えるメーカーです。搭載範囲・自動運転条件・初期設定はシリーズや能力帯で異なるため、最後は該当型番のカタログ・取扱説明書で確認します。</div>
     <div class="series-card" style="max-width:980px;margin:0 auto 18px">
-      <h3 style="margin-top:0">🐻‍❄️ 日立の強み</h3>
-      <div class="diagnosis-grid">
-        <button class="diagnosis-btn" onclick="showHitachiFeature('freeze')">❄️ 凍結洗浄</button>
-        <button class="diagnosis-btn" onclick="showHitachiFeature('fan')">🌀 ファンお掃除ロボ</button>
-        <button class="diagnosis-btn" onclick="showHitachiFeature('mold')">🛡️ カビバスター</button>
-        <button class="diagnosis-btn" onclick="showHitachiFeature('stainless')">✨ ステンレス・クリーン</button>
-        <button class="diagnosis-btn" onclick="showHitachiFeature('dry')">💧 カラッと除湿</button>
-        <button class="diagnosis-btn" onclick="showHitachiFeature('wave')">🔇 ウェーブファン</button>
+      <h2 style="margin-top:0">日立を説明する5つの軸</h2>
+      <div class="hitachi-study-grid">
+        <div class="hitachi-study-card"><h3>① 熱交換器を洗う</h3><p><b>凍結洗浄</b>で、フィルターの奥にある熱交換器の付着物を凍結・解凍の水で洗い流します。</p><ul><li>室内機と室外機は目的が異なる</li><li>汚れを完全に除去する機能ではない</li></ul></div>
+        <div class="hitachi-study-card"><h3>② ファンを掃除する</h3><p><b>ファンお掃除ロボ</b>は、フィルター掃除とは別に送風ファンの先端をブラシで清掃します。</p><ul><li>風量低下の原因となるホコリに対応</li><li>ファン全体を完全洗浄する機能ではない</li></ul></div>
+        <div class="hitachi-study-card"><h3>③ カビを抑える</h3><p><b>カビバスター・内部送風乾燥</b>で、停止中や運転後の内部湿度を管理します。</p><ul><li>搭載と初期設定ONは別</li><li>「絶対にカビない」とは案内しない</li></ul></div>
+        <div class="hitachi-study-card"><h3>④ 汚れにくい素材</h3><p><b>ステンレス・クリーン</b>は、フィルターや通風路などの素材面から汚れにくさに配慮します。</p><ul><li>採用箇所はシリーズで異なる</li><li>日常のお手入れが不要になるわけではない</li></ul></div>
+        <div class="hitachi-study-card"><h3>⑤ 冷やしすぎにくい除湿</h3><p><b>カラッと除湿</b>は再熱方式。冷やして湿気を取り、空気を暖め直して室温低下を抑えます。</p><ul><li>梅雨・秋雨・部屋干しに提案</li><li>消費電力とのバランスも説明</li></ul></div>
+        <div class="hitachi-study-card"><h3>WN独自の販売軸</h3><p><b>Xシリーズと同じウェーブファン</b>を採用し、静音性を高めたノジマオリジナルモデルです。</p><ul><li>高さ24.8cmのスリム設計</li><li>清潔・除湿・静音をまとめて提案</li></ul></div>
       </div>
     </div>
-
+    <div class="series-card" style="max-width:980px;margin:0 auto 18px">
+      <h2 style="margin-top:0">機能を深く学ぶ</h2>
+      <div class="diagnosis-grid">
+        <button class="diagnosis-btn" onclick="showHitachiFeature('freeze')">❄️ 凍結洗浄</button><button class="diagnosis-btn" onclick="showHitachiFeature('fan')">🌀 ファンお掃除ロボ</button><button class="diagnosis-btn" onclick="showHitachiFeature('mold')">🛡️ カビバスター</button><button class="diagnosis-btn" onclick="showHitachiFeature('stainless')">✨ ステンレス・クリーン</button><button class="diagnosis-btn" onclick="showHitachiFeature('dry')">💧 カラッと除湿</button><button class="diagnosis-btn" onclick="showHitachiFeature('wave')">🔇 ウェーブファン</button>
+      </div>
+    </div>
     <div id="hitachiFeaturePanel" class="feature-panel hidden"></div>
-
     <div class="series-card" style="max-width:980px;margin:0 auto 18px;border:2px solid #2563eb">
-      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-        <span style="background:#2563eb;color:white;font-weight:800;border-radius:999px;padding:6px 12px">ノジマオリジナル</span>
-        <h2 style="margin:0">WNシリーズ</h2>
-      </div>
-      <p style="font-weight:700;font-size:1.05rem">上位Xシリーズと同じウェーブファンを採用し、静音性を高めたモデル。</p>
-      <div class="diagnosis-grid">
-        <div class="diagnosis-btn" style="cursor:default;text-align:left">🔇 <b>ウェーブファン</b><br><small>上位Xシリーズと同じファンを採用。静音性が魅力。</small></div>
-        <div class="diagnosis-btn" style="cursor:default;text-align:left">📏 <b>高さ24.8cm</b><br><small>カーテンレール上など、限られた設置スペースにも提案しやすい。</small></div>
-        <div class="diagnosis-btn" style="cursor:default;text-align:left">🧼 <b>清潔機能</b><br><small>凍結洗浄、ファンお掃除ロボ、カビバスターを搭載。</small></div>
-        <div class="diagnosis-btn" style="cursor:default;text-align:left">💧 <b>カラッと除湿</b><br><small>室温を下げすぎにくい再熱方式の除湿。</small></div>
-      </div>
-      <div style="margin-top:14px;padding:14px;border-radius:14px;background:#eff6ff">
-        <b>接客トーク</b>
-        <p style="margin-bottom:0">「WNシリーズは、上位Xシリーズと同じウェーブファンを採用しているため、清潔機能だけでなく静音性も魅力です。」</p>
-      </div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="background:#2563eb;color:white;font-weight:800;border-radius:999px;padding:6px 12px">ノジマオリジナル</span><h2 style="margin:0">WNシリーズ</h2></div>
+      <p style="font-weight:700">上位Xシリーズと同じウェーブファンによる静音性、高さ24.8cm、室内外凍結洗浄、ファンお掃除ロボ、カラッと除湿をまとめて訴求できるモデル。</p>
+      <div style="overflow-x:auto"><table class="hitachi-series-table"><thead><tr><th>比較軸</th><th>WNでの説明</th><th>接客確認</th></tr></thead><tbody>
+      <tr><td><b>静音</b></td><td>Xシリーズと同じウェーブファンを採用</td><td>無音ではなく、静音性を高めた仕様と説明</td></tr>
+      <tr><td><b>設置性</b></td><td>本体高さ24.8cmのスリムモデル</td><td>上部・左右・カーテンレールとの必要寸法を確認</td></tr>
+      <tr><td><b>清潔</b></td><td>凍結洗浄、ファンお掃除ロボ、ステンレス、カビバスター</td><td>各機能の対象部位と限界を分けて説明</td></tr>
+      <tr><td><b>除湿</b></td><td>再熱方式のカラッと除湿</td><td>冷えにくさと消費電力の両面を説明</td></tr>
+      <tr><td><b>初期設定</b></td><td>シーズン前自動点検・内部送風乾燥は出荷時設定済み</td><td>カビバスター、アプリなど別途設定項目を確認</td></tr>
+      </tbody></table></div>
+      <div class="feature-talk"><b>売場での説明例</b><br>「WNは、上位Xと同じウェーブファンによる静音性に加え、熱交換器とファンの清潔機能、再熱除湿まで備えたノジマオリジナルモデルです。」</div>
     </div>
-
-    <div class="series-card" style="max-width:980px;margin:0 auto 18px">
-      <h2 style="margin-top:0">初期設定・操作一覧</h2>
-      <div style="overflow-x:auto">
-        <table style="width:100%;border-collapse:collapse;min-width:620px">
-          <thead><tr><th style="padding:10px;border-bottom:2px solid #ddd;text-align:left">機能</th><th style="padding:10px;border-bottom:2px solid #ddd;text-align:left">購入時の状態</th><th style="padding:10px;border-bottom:2px solid #ddd;text-align:left">接客時の案内</th></tr></thead>
-          <tbody>
-            <tr><td style="padding:10px;border-bottom:1px solid #eee"><b>シーズン前自動点検</b></td><td style="padding:10px;border-bottom:1px solid #eee">工場出荷時設定済み</td><td style="padding:10px;border-bottom:1px solid #eee">シーズン前に自動で点検することを案内</td></tr>
-            <tr><td style="padding:10px;border-bottom:1px solid #eee"><b>内部送風乾燥運転</b></td><td style="padding:10px;border-bottom:1px solid #eee">工場出荷時設定済み</td><td style="padding:10px;border-bottom:1px solid #eee">停止後に内部を乾燥させる機能</td></tr>
-            <tr><td style="padding:10px;border-bottom:1px solid #eee"><b>カビバスター</b></td><td style="padding:10px;border-bottom:1px solid #eee">設定確認が必要</td><td style="padding:10px;border-bottom:1px solid #eee">搭載＝自動で有効とは限らないため設定確認</td></tr>
-            <tr><td style="padding:10px;border-bottom:1px solid #eee"><b>凍結洗浄</b></td><td style="padding:10px;border-bottom:1px solid #eee">自動運転あり</td><td style="padding:10px;border-bottom:1px solid #eee">運転条件や時間指定設定があることを案内</td></tr>
-            <tr><td style="padding:10px;border-bottom:1px solid #eee"><b>白くまくんアプリ</b></td><td style="padding:10px;border-bottom:1px solid #eee">接続設定が必要</td><td style="padding:10px;border-bottom:1px solid #eee">無線LAN・アプリの初期設定が必要</td></tr>
-            <tr><td style="padding:10px"><b>カラッと除湿</b></td><td style="padding:10px">手動で選択</td><td style="padding:10px">梅雨時や冷えが苦手な方へ提案</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="series-card" style="max-width:980px;margin:0 auto 18px">
-      <h2 style="margin-top:0">接客での注意点</h2>
-      <div class="diagnosis-grid">
-        <div class="diagnosis-btn" style="cursor:default;text-align:left">⭕ 「お手入れの負担を軽くできます」</div>
-        <div class="diagnosis-btn" style="cursor:default;text-align:left">⭕ 「内部を汚れにくくする工夫があります」</div>
-        <div class="diagnosis-btn" style="cursor:default;text-align:left">❌ 「絶対にカビません」</div>
-        <div class="diagnosis-btn" style="cursor:default;text-align:left">❌ 「掃除は一切いりません」</div>
-      </div>
-    </div>
+    <div class="series-card" style="max-width:980px;margin:0 auto 18px"><h2 style="margin-top:0">初期設定・自動運転の確認</h2><div style="overflow-x:auto"><table class="hitachi-series-table"><thead><tr><th>機能</th><th>購入時</th><th>動く条件・操作</th><th>案内のポイント</th></tr></thead><tbody>
+      <tr><td>シーズン前自動点検</td><td>工場出荷時設定済み</td><td>冷房シーズン前に自動点検</td><td>故障予知ではなく、運転状態を自動確認する機能</td></tr>
+      <tr><td>内部送風乾燥</td><td>工場出荷時設定済み</td><td>冷房・除湿停止後に自動運転</td><td>内部の水分を乾かす補助。汚れを洗う機能とは別</td></tr>
+      <tr><td>カビバスター</td><td>設定確認が必要</td><td>内部を見張り、条件に応じて加熱・低湿制御</td><td>搭載されていても設定状態を確認</td></tr>
+      <tr><td>凍結洗浄</td><td>自動運転あり</td><td>運転時間・室温・外気温など所定条件で実行</td><td>毎回必ず動くわけではない。手動・時刻設定も確認</td></tr>
+      <tr><td>白くまくんアプリ</td><td>未接続</td><td>無線LANとアプリの登録が必要</td><td>スマホ・Wi-Fi環境・利用者登録を確認</td></tr>
+      <tr><td>カラッと除湿</td><td>手動選択</td><td>除湿メニューから選択</td><td>能力帯や運転モードの違いを型番で確認</td></tr>
+    </tbody></table></div></div>
+    <div class="series-card" style="max-width:980px;margin:0 auto 18px"><h2 style="margin-top:0">日立の説明で避ける断定</h2><div class="hitachi-study-grid"><div class="hitachi-study-card"><h3>❌ 掃除は不要</h3><p>フィルター、ダストボックス、外装など、使用者のお手入れは残ります。</p></div><div class="hitachi-study-card"><h3>❌ 絶対にカビない</h3><p>抑制機能であり、環境・使用状況・お手入れにより汚れ方は変わります。</p></div><div class="hitachi-study-card"><h3>❌ 室温が下がらない除湿</h3><p>再熱方式でも条件により室温変化はあります。「下げにくい」と説明します。</p></div><div class="hitachi-study-card"><h3>❌ 搭載＝最初から作動</h3><p>初期設定OFF、手動選択、条件付き自動運転を区別します。</p></div></div></div>
   </div>
 </section>
 
@@ -788,9 +777,9 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
     <div class="visual-grid">
       <div class="visual-card"><img src="voltage-100-200.png" alt="100V・200V"><div class="visual-card-body"><h3>100V・200V</h3><p>コンセント・電圧・分電盤をセットで確認。</p><button onclick="openImageModal('voltage-100-200.png','100V・200V')">拡大して見る</button></div></div>
       <div class="visual-card"><img src="dedicated-circuit.png" alt="専用回路"><div class="visual-card-body"><h3>専用回路</h3><p>分電盤からエアコンまで他機器と共用しない回路。</p><button onclick="openImageModal('dedicated-circuit.png','専用回路')">拡大して見る</button></div></div>
-      <div class="visual-card"><img src="distribution-board.svg" alt="分電盤" onclick="openImageModal('distribution-board.svg','分電盤')"><div class="visual-card-body"><h3>分電盤</h3><p>主幹容量・空き回路・電圧・専用回路を確認。</p><button onclick="openImageModal('distribution-board.svg','分電盤')">拡大して見る</button></div></div>
-      <div class="visual-card"><img src="cover.svg" alt="化粧カバー" onclick="openImageModal('cover.svg','化粧カバー')"><div class="visual-card-body"><h3>化粧カバー</h3><p>室内・室外、色、長さ、曲がりを確認。</p><button onclick="openImageModal('cover.svg','化粧カバー')">拡大して見る</button></div></div>
-      <div class="visual-card"><img src="concealed-piping.svg" alt="隠ぺい配管" onclick="openImageModal('concealed-piping.svg','隠ぺい配管')"><div class="visual-card-body"><h3>隠ぺい配管</h3><p>配管径・電線・ドレン・再利用可否を確認。</p><button onclick="openImageModal('concealed-piping.svg','隠ぺい配管')">拡大して見る</button></div></div>
+      <div class="visual-card"><img src="distribution-board.svg" alt="分電盤" onclick="openImageModal('distribution-board.svg','分電盤')"><div class="visual-card-body"><h3>分電盤</h3><p>主幹・分岐・単相2線/3線・空き回路・専用回路を総合確認。</p><button onclick="openImageModal('distribution-board.svg','分電盤')">拡大して見る</button></div></div>
+      <div class="visual-card"><img src="cover.svg" alt="化粧カバー" onclick="openImageModal('cover.svg','化粧カバー')"><div class="visual-card-body"><h3>化粧カバー</h3><p>室内外の違い、部材構成、色・長さ・曲がり・再利用条件を確認。</p><button onclick="openImageModal('cover.svg','化粧カバー')">拡大して見る</button></div></div>
+      <div class="visual-card"><img src="concealed-piping.svg" alt="隠ぺい配管" onclick="openImageModal('concealed-piping.svg','隠ぺい配管')"><div class="visual-card-body"><h3>隠ぺい配管</h3><p>冷媒管・連絡線・ドレン・長さ・劣化・機種適合から再利用を判断。</p><button onclick="openImageModal('concealed-piping.svg','隠ぺい配管')">拡大して見る</button></div></div>
     </div>
   </div>
 </section>
@@ -800,7 +789,7 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
     <button class="image-modal-close" onclick="closeImageModal(event,true)">×</button>
     <h2 id="modalTitle" class="modal-visual-title"></h2>
     <img id="modalImage" alt="図解拡大表示">
-    <div class="modal-learning">
+    <div id="modalDetail" class="modal-detail"></div><div class="modal-learning">
       <div class="quick-box">
         <h3>30秒で復習</h3>
         <p id="modalReview"></p>
@@ -1581,19 +1570,19 @@ const VISUAL_LIBRARY=[
  {category:"daikin",file:"sarara-dehumidify.png?v=3890",title:"さらら除湿",desc:"さらら除湿の本質と、R・A・Fの方式の違いを図解。"},
  {category:"daikin",file:"room-patrol.png",title:"室温パトロール",desc:"停止中の見守りから自動運転までの流れを図解。"},
  {category:"daikin",file:"daikin-overview.png",title:"R・A・F・E比較",desc:"使い方・希望・予算から、4シリーズの提案軸を比較。"},
- {category:"hitachi",file:"hitachi-freeze-indoor.svg",title:"凍結洗浄（室内機）",desc:"凍らせる・溶かす・洗い流す流れを図解。"},
- {category:"hitachi",file:"hitachi-freeze-outdoor.svg",title:"凍結洗浄（室外機）",desc:"室外熱交換器の汚れを洗い流す仕組みを図解。"},
- {category:"hitachi",file:"hitachi-fan-robot.svg",title:"ファンお掃除ロボ",desc:"ファンのホコリをブラシで掃除する流れを図解。"},
- {category:"hitachi",file:"hitachi-mold-buster.svg",title:"カビバスター",desc:"内部を見張り、加熱・低湿制御でカビを抑制。"},
- {category:"hitachi",file:"hitachi-stainless.svg",title:"ステンレス・クリーン",desc:"ステンレス採用箇所と清潔性の考え方を図解。"},
- {category:"hitachi",file:"hitachi-karatto.svg",title:"カラッと除湿",desc:"再熱方式で室温低下を抑えながら除湿する流れ。"},
+ {category:"hitachi",file:"hitachi-freeze-indoor.svg",title:"凍結洗浄（室内機）",desc:"凍結・汚れ捕捉・解凍排水の流れ、自動運転条件と限界まで確認。"},
+ {category:"hitachi",file:"hitachi-freeze-outdoor.svg",title:"凍結洗浄（室外機）",desc:"室外熱交換器の洗浄目的、作動条件、放熱環境との違いを確認。"},
+ {category:"hitachi",file:"hitachi-fan-robot.svg",title:"ファンお掃除ロボ",desc:"フィルター掃除との違い、ブラシ清掃の対象部位と限界を確認。"},
+ {category:"hitachi",file:"hitachi-mold-buster.svg",title:"カビバスター",desc:"内部送風乾燥との違い、監視・加熱・低湿制御、初期設定を確認。"},
+ {category:"hitachi",file:"hitachi-stainless.svg",title:"ステンレス・クリーン",desc:"採用箇所、汚れにくさ、お手入れが残る部分まで整理。"},
+ {category:"hitachi",file:"hitachi-karatto.svg",title:"カラッと除湿",desc:"冷却・除湿・再加熱の流れ、向く場面と消費電力の注意を確認。"},
  {category:"hitachi",file:"hitachi-wave-fan.svg",title:"WN ウェーブファン",desc:"Xシリーズと同じファンを採用し、静音性を高めたノジマオリジナル仕様。"},
  {category:"hitachi",file:"hitachi-initial-settings.svg",title:"WN 初期設定一覧",desc:"出荷時設定済み・設定確認・手動設定を整理。"},
  {category:"construction",file:"voltage-100-200.png",title:"100V・200V",desc:"コンセント・電圧・分電盤をセットで確認。"},
  {category:"construction",file:"dedicated-circuit.png",title:"専用回路",desc:"分電盤からエアコンまで他機器と共用しない回路。"},
- {category:"construction",file:"distribution-board.svg",title:"分電盤",desc:"主幹容量・空き回路・電圧・専用回路を確認。"},
- {category:"construction",file:"cover.svg",title:"化粧カバー",desc:"室内・室外、色、長さ、曲がりを確認。"},
- {category:"construction",file:"concealed-piping.svg",title:"隠ぺい配管",desc:"配管径・電線・ドレン・再利用可否を確認。"},
+ {category:"construction",file:"distribution-board.svg",title:"分電盤",desc:"主幹・分岐・単相2線/3線・空き回路・専用回路を総合確認。"},
+ {category:"construction",file:"cover.svg",title:"化粧カバー",desc:"室内外の違い、部材構成、色・長さ・曲がり・再利用条件を確認。"},
+ {category:"construction",file:"concealed-piping.svg",title:"隠ぺい配管",desc:"冷媒管・連絡線・ドレン・長さ・劣化・機種適合から再利用を判断。"},
  {category:"construction",file:"multi-aircon.svg",title:"マルチエアコン",desc:"室外機1台に複数の室内機を接続。組み合わせ・配管・電源を確認。"}
  ];
 
@@ -1662,12 +1651,31 @@ function openVisualLibrary(){
  renderVisualLibrary();
 }
 function openConstructionVisuals(){show("constructionVisuals")}
+
+const VISUAL_DETAIL={
+ "凍結洗浄（室内機）":[["仕組み",["熱交換器を凍らせ、霜に汚れを取り込む","一気に解凍して洗浄水とともに排出","フィルター掃除では届かない奥を清潔維持"]],["自動運転条件",["運転時間・室温・外気温など所定条件がある","毎回停止後に必ず作動するわけではない","手動洗浄や時刻設定の有無を型番で確認"]],["案内の限界",["すべての油汚れ・カビを完全除去する機能ではない","ドレン経路の状態や設置環境でも効果は変わる"]]],
+ "凍結洗浄（室外機）":[["目的",["室外熱交換器のホコリや付着物による効率低下を抑える","屋外で掃除しにくい部分を自動洗浄"]],["確認",["搭載シリーズ・能力帯","運転できる外気温条件","狭い設置場所では放熱スペースも別途確認"]]],
+ "ファンお掃除ロボ":[["フィルター掃除との違い",["フィルター：吸い込み口のホコリ","ファン：吹き出し側で空気を送る羽根","別の部位を掃除する2つの機能"]],["動作",["ファンを加熱・逆回転","ブラシで羽根先端のホコリを除去","落としたホコリを処理する"]],["限界",["分解洗浄ではない","油汚れや長期蓄積は専門清掃が必要な場合がある"]]],
+ "カビバスター":[["内部送風乾燥との違い",["内部送風乾燥：冷房・除湿停止後に乾かす","カビバスター：停止中も温湿度を監視して必要時に制御"]],["初期設定",["搭載＝最初から有効とは限らない","WNはカタログ・取扱説明書で設定状態を確認"]],["NG案内",["絶対にカビない","クリーニング不要"]]],
+ "ステンレス・クリーン":[["採用箇所",["フィルター","通風路","フラップなど（シリーズで異なる）"]],["説明",["汚れにくさ・拭き取りやすさに配慮","内部すべてがステンレスではない","除菌試験の条件を一般環境へそのまま断定しない"]]],
+ "カラッと除湿":[["再熱除湿の流れ",["空気を冷やして水分を結露","水分を排水","冷えた空気を暖め直して戻す"]],["提案",["梅雨・秋雨・部屋干し","冷風が苦手","寝室や在宅勤務"]],["注意",["弱冷房除湿より消費電力が増える場合がある","室温が絶対に下がらないわけではない"]]],
+ "WN ウェーブファン":[["WNオリジナル価値",["上位Xシリーズと同じウェーブファン","ファン形状の工夫で静音性を向上","通常Wとの差別化ポイント"]],["提案",["寝室・子ども部屋","テレビ視聴・在宅勤務","清潔機能と静音を両方重視"]]],
+ "WN 初期設定一覧":[["出荷時設定済み",["シーズン前自動点検","内部送風乾燥運転"]],["設定確認",["カビバスター","白くまくんアプリ接続"]],["手動選択",["カラッと除湿","凍結洗浄の手動・時間指定設定"]]],
+ "分電盤":[["見る場所",["主幹ブレーカー：家全体の容量","分岐ブレーカー：各回路の容量と空き","エアコン専用回路の表示","単相2線式・単相3線式","100V・200Vの供給可否"]],["販売判断",["30A・40Aなど契約容量だけで設置可否を断定しない","新規増設では空き回路と配線経路が重要","100V→200Vは分電盤・専用回路・配線方式・コンセントを確認"]],["写真の撮り方",["扉を閉じた全体","扉を開けたブレーカー全体","主幹・分岐の文字が読める近接写真"]]],
+ "化粧カバー":[["種類",["室内カバー：室内の配管を隠す","室外カバー：紫外線や雨から配管を保護","直管・曲がり・端末・ジャバラ等の部材を組み合わせる"]],["見積確認",["色・長さ・曲がり数","穴位置と室外機位置","2階→1階など高所・延長","既存カバーのサイズ・劣化・再利用可否"]],["注意",["『カバー一式』だけでは確定しない","本体位置変更で既存カバーが使えない場合がある","メーカーや配管束の太さで収まらない場合がある"]]],
+ "隠ぺい配管":[["壁内にあるもの",["冷媒配管","連絡電線","ドレン配管","機種によって換気・加湿ホース等"]],["再利用確認",["配管径と必要長さ","フレア部・劣化・つぶれ・漏れ","連絡線の本数・太さ・長さ","ドレン勾配・詰まり・排水先","新機種の配管条件との適合"]],["代替案",["配管洗浄・延長","露出配管への変更","機種変更","現地調査後に最終決定"]],["断定禁止",["同じメーカーなら使える","同じ畳数なら使える","洗浄すれば必ず使える"]]]
+};
+function renderVisualDetail(title){
+ const data=VISUAL_DETAIL[title]||[];
+ return data.map(sec=>"<section class='modal-detail-section'><h3>"+sec[0]+"</h3><ul>"+sec[1].map(x=>"<li>"+x+"</li>").join("")+"</ul></section>").join("");
+}
 function openImageModal(src,title){
  const modal=document.getElementById("imageModal");
  const img=document.getElementById("modalImage");
  const guide=VISUAL_GUIDE[title]||{review:"図解の要点を確認し、搭載条件や設置条件は型番・現場ごとに確認します。",talk:"この図を使いながら、お客様の使い方や設置状況に合わせてご説明します。"};
  img.src=src;img.alt=title;
  document.getElementById("modalTitle").textContent=title;
+ document.getElementById("modalDetail").innerHTML=renderVisualDetail(title);
  document.getElementById("modalReview").textContent=guide.review;
  document.getElementById("modalTalk").textContent="「"+guide.talk+"」";
  modal.classList.remove("hidden");
@@ -1774,19 +1782,17 @@ function openHitachi(){
  document.getElementById("hitachiFeaturePanel").classList.add("hidden");
 }
 const HITACHI_FEATURES={
- freeze:{title:"❄️ 凍結洗浄",body:"熱交換器を凍らせて霜を付け、一気に溶かして汚れを洗い流します。室内機・室外機の清潔維持に役立ちます。",point:"すべての汚れやカビを完全に除去する機能ではありません。"},
- fan:{title:"🌀 ファンお掃除ロボ",body:"ホコリが付きやすいファンをブラシで掃除し、お手入れの負担を軽減します。",point:"フィルター自動掃除とは別の機能として説明します。"},
- mold:{title:"🛡️ カビバスター",body:"エアコン内部の湿度を抑える運転などで、カビの発生を抑制します。",point:"初期設定を確認し、カビが完全に生えないとは案内しません。"},
- stainless:{title:"✨ ステンレス・クリーンシステム",body:"風の通り道などにステンレスを採用し、汚れにくさとお手入れのしやすさに配慮しています。",point:"搭載範囲はシリーズ・型番で確認します。"},
- dry:{title:"💧 カラッと除湿",body:"再熱方式により、室温を下げすぎにくく湿度を下げます。梅雨時や冷えが苦手なお客様に提案しやすい機能です。",point:"消費電力や運転条件も含めて説明します。"},
- wave:{title:"🔇 ウェーブファン",body:"WNシリーズは上位Xシリーズと同じウェーブファンを採用。ノジマオリジナルの訴求点として、静音性の高さを案内できます。",point:"『無音』ではなく『静音性を高めた』と表現します。"}
+ freeze:{title:"❄️ 凍結洗浄",lead:"熱交換器を『凍らせる→霜を成長させる→一気に溶かす』ことで、付着したホコリや油分を洗い流す清潔機能です。",html:"<div class='feature-steps'><div><b>1. 凍結</b><br>熱交換器を低温にして霜を付着させる</div><div><b>2. 捕まえる</b><br>霜が汚れを包み込む</div><div><b>3. 解凍・排水</b><br>一気に溶かし、ドレン水と一緒に流す</div></div><div class='hitachi-study-grid'><div class='hitachi-study-card'><h3>室内機</h3><p>フィルターの奥にある室内熱交換器を洗浄。ニオイや効率低下の原因となる付着物を減らす。</p></div><div class='hitachi-study-card'><h3>室外機</h3><p>屋外の熱交換器に付くホコリ等を洗浄し、熱交換効率の低下を抑える。</p></div></div>",talk:"『フィルターの奥にある熱交換器を、霜の力で自動洗浄します。室内機と室外機の両方に清潔機能があるのが特徴です。』",caution:"すべての汚れ・カビを完全に除去する機能ではありません。自動運転には温度・運転時間などの条件があり、毎回必ず作動するわけではありません。"},
+ fan:{title:"🌀 ファンお掃除ロボ",lead:"空気を送り出す送風ファンは、フィルターより奥にあり、家庭では掃除しにくい部品です。ブラシで羽根の先端を定期的に清掃します。",html:"<div class='feature-steps'><div><b>加熱</b><br>付着したホコリを取りやすくする</div><div><b>逆回転・ブラシ清掃</b><br>ファン先端のホコリを落とす</div><div><b>排出・洗浄</b><br>落としたホコリを処理する</div></div><div class='feature-caution'><b>フィルター自動掃除との違い</b><br>フィルター掃除は吸い込み口、ファンお掃除ロボは吹き出し側の送風ファンが対象です。両方を分けて説明します。</div>",talk:"『一般的な自動掃除はフィルターが中心ですが、こちらはその奥の送風ファンまで自動でお掃除します。』",caution:"ファン全体を分解洗浄する機能ではありません。油汚れや長年蓄積した汚れなど、状態によっては専門クリーニングが必要です。"},
+ mold:{title:"🛡️ カビバスター",lead:"運転していない時間も内部の温度・湿度を監視し、条件に応じて加熱・低湿制御などを行い、カビの増殖を抑制します。",html:"<div class='hitachi-study-grid'><div class='hitachi-study-card'><h3>内部送風乾燥</h3><p>冷房・除湿停止後の水分を送風で乾燥。運転直後の湿りを減らします。</p></div><div class='hitachi-study-card'><h3>カビバスター</h3><p>停止中も内部を見張り、必要時に制御。運転後だけでなく長期的に内部環境を管理します。</p></div></div>",talk:"『冷房後に乾かすだけでなく、使っていない時間も内部を見張ってカビを抑える機能です。』",caution:"初期設定状態はシリーズ・型番で確認します。カビを完全に防止する保証ではなく、定期的なお手入れも必要です。"},
+ stainless:{title:"✨ ステンレス・クリーンシステム",lead:"汚れが付きやすい風の通り道や部品にステンレス素材を採用し、素材面から清潔維持を支えます。",html:"<div class='hitachi-study-grid'><div class='hitachi-study-card'><h3>確認する採用箇所</h3><ul><li>ステンレスフィルター</li><li>ステンレス通風路</li><li>ステンレスフラップ</li></ul></div><div class='hitachi-study-card'><h3>説明の本質</h3><p>『除菌素材だから何もしなくてよい』ではなく、汚れにくさと拭き取りやすさに配慮した設計です。</p></div></div>",talk:"『空気が通る部分にステンレスを使い、汚れにくさとお手入れのしやすさに配慮しています。』",caution:"採用部位・除菌試験の条件はシリーズごとに異なります。エアコン内部すべてがステンレスではありません。"},
+ dry:{title:"💧 カラッと除湿",lead:"冷やして水分を取り除いた空気を、捨てる熱などで暖め直して戻す再熱方式。室温低下を抑えながら湿度を下げます。",html:"<div class='feature-steps'><div><b>冷却</b><br>空気を冷やして結露させる</div><div><b>除湿</b><br>水分をドレンから排出</div><div><b>再加熱</b><br>空気を暖め直して室内へ戻す</div></div><div class='hitachi-study-grid'><div class='hitachi-study-card'><h3>向く場面</h3><ul><li>梅雨・秋雨</li><li>部屋干し</li><li>冷風が苦手</li><li>就寝時の湿気</li></ul></div><div class='hitachi-study-card'><h3>比較ポイント</h3><p>弱冷房除湿より室温を下げにくい一方、再加熱に電力を使います。快適性と消費電力をセットで説明します。</p></div></div>",talk:"『湿気はしっかり取りたいけれど、冷えすぎるのが苦手な方に向く再熱方式の除湿です。』",caution:"運転条件により室温が変化することがあります。『室温が絶対に下がらない』とは案内しません。"},
+ wave:{title:"🔇 WN ウェーブファン",lead:"ノジマオリジナルWNシリーズは、上位Xシリーズと同じウェーブファンを採用。風を生み出すファン形状を工夫し、静音性を高めています。",html:"<div class='hitachi-study-grid'><div class='hitachi-study-card'><h3>通常Wとの差別化</h3><p>WNのオリジナル訴求はウェーブファン。『日立だから』ではなく『WNだから』の価値として説明します。</p></div><div class='hitachi-study-card'><h3>提案するお客様</h3><ul><li>寝室・子ども部屋</li><li>テレビ視聴や在宅勤務</li><li>運転音に敏感</li><li>清潔機能も欲しい</li></ul></div></div>",talk:"『WNは上位Xと同じウェーブファンを採用しているため、清潔機能だけでなく静かさも選ぶ理由になります。』",caution:"『無音』『必ず他機種より静か』とは断定せず、運転モード・風量・設置環境で音の感じ方が変わることを説明します。"}
 };
 function showHitachiFeature(key){
- const d=HITACHI_FEATURES[key],p=document.getElementById("hitachiFeaturePanel");
- if(!d)return;
- p.innerHTML='<div class="series-card"><h2 style="margin-top:0">'+d.title+'</h2><p>'+d.body+'</p><div style="padding:12px;border-radius:12px;background:#fff7ed"><b>接客時の注意</b><p style="margin-bottom:0">'+d.point+'</p></div></div>';
- p.classList.remove("hidden");
- p.scrollIntoView({behavior:"smooth",block:"start"});
+ const f=HITACHI_FEATURES[key],p=document.getElementById("hitachiFeaturePanel");if(!f)return;
+ p.innerHTML="<h2>"+f.title+"</h2><p class='feature-lead'>"+f.lead+"</p>"+f.html+"<div class='feature-talk'><b>売場での説明例</b><br>"+f.talk+"</div><div class='feature-caution'><b>案内時の注意</b><br>"+f.caution+"</div><button class='feature-close' onclick="document.getElementById('hitachiFeaturePanel').classList.add('hidden')">閉じる</button>";
+ p.classList.remove("hidden");p.scrollIntoView({behavior:"smooth",block:"start"});
 }
 
 function openSettings(){document.getElementById("nameInput").value=localStorage.getItem(NAME)||"";show("settings")}
