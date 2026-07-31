@@ -1791,7 +1791,7 @@ const HITACHI_FEATURES={
 };
 function showHitachiFeature(key){
  const f=HITACHI_FEATURES[key],p=document.getElementById("hitachiFeaturePanel");if(!f)return;
- p.innerHTML="<h2>"+f.title+"</h2><p class='feature-lead'>"+f.lead+"</p>"+f.html+"<div class='feature-talk'><b>売場での説明例</b><br>"+f.talk+"</div><div class='feature-caution'><b>案内時の注意</b><br>"+f.caution+"</div><button class='feature-close' onclick="document.getElementById('hitachiFeaturePanel').classList.add('hidden')">閉じる</button>";
+ p.innerHTML="<h2>"+f.title+"</h2><p class='feature-lead'>"+f.lead+"</p>"+f.html+"<div class='feature-talk'><b>売場での説明例</b><br>"+f.talk+"</div><div class='feature-caution'><b>案内時の注意</b><br>"+f.caution+"</div><button class='feature-close' id='hitachiFeatureClose'>閉じる</button>";
  p.classList.remove("hidden");p.scrollIntoView({behavior:"smooth",block:"start"});
 }
 
