@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="470" viewBox="0 0 820 470">
+<rect width="820" height="470" rx="28" fill="#f8fbfd"/><rect x="24" y="24" width="772" height="422" rx="24" fill="#fff" stroke="#c7dce9" stroke-width="3"/>
+<text x="410" y="75" text-anchor="middle" font-size="30" font-weight="800" fill="#173b66">WN 初期設定一覧</text>
+<text x="410" y="112" text-anchor="middle" font-size="18" fill="#567083">仕組み・できること・案内時の注意</text>
+<rect x="45" y="150" width="220" height="95" rx="18" fill="#e9f5ff" stroke="#7aa7c7" stroke-width="2"/><text x="155" y="190" text-anchor="middle" font-size="20" font-weight="700" fill="#163b66">設定済み：点検・内部乾燥</text><text x="283" y="205" font-size="30" fill="#4a7896">→</text><rect x="300" y="150" width="220" height="95" rx="18" fill="#edf9f1" stroke="#7aa7c7" stroke-width="2"/><text x="410" y="190" text-anchor="middle" font-size="20" font-weight="700" fill="#163b66">確認必要：カビバスター</text><text x="538" y="205" font-size="30" fill="#4a7896">→</text><rect x="555" y="150" width="220" height="95" rx="18" fill="#fff7e8" stroke="#7aa7c7" stroke-width="2"/><text x="665" y="190" text-anchor="middle" font-size="20" font-weight="700" fill="#163b66">手動/接続：除湿・アプリ</text>
+<rect x="45" y="275" width="730" height="135" rx="18" fill="#f2f7fa"/><text x="70" y="315" font-size="19" fill="#243849">● 搭載と初期ONは別</text><text x="70" y="358" font-size="19" fill="#243849">● 作動条件のある自動機能</text><text x="70" y="401" font-size="19" fill="#243849">● 型番の取扱説明書で最終確認</text>
+</svg>

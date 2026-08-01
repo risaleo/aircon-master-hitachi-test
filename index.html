@@ -650,12 +650,18 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
     <div class="series-card" style="max-width:980px;margin:0 auto 18px">
       <h3 style="margin-top:0">図解で学ぶ日立機能</h3>
       <div class="diagnosis-grid">
-        <button class="diagnosis-btn" onclick="showHitachiFeature('freeze')">❄️ 凍結洗浄</button>
+        <button class="diagnosis-btn" onclick="showHitachiFeature('freeze')">❄️ 凍結洗浄（室内機）</button>
+        <button class="diagnosis-btn" onclick="showHitachiFeature('freezeOutdoor')">🌿 凍結洗浄（室外機）</button>
         <button class="diagnosis-btn" onclick="showHitachiFeature('fan')">🌀 ファンお掃除ロボ</button>
+        <button class="diagnosis-btn" onclick="showHitachiFeature('filter')">🧹 フィルター自動掃除</button>
         <button class="diagnosis-btn" onclick="showHitachiFeature('mold')">🛡️ カビバスター</button>
+        <button class="diagnosis-btn" onclick="showHitachiFeature('drying')">🌬️ 内部送風乾燥</button>
         <button class="diagnosis-btn" onclick="showHitachiFeature('stainless')">✨ ステンレス・クリーン</button>
         <button class="diagnosis-btn" onclick="showHitachiFeature('dry')">💧 カラッと除湿</button>
+        <button class="diagnosis-btn" onclick="showHitachiFeature('season')">🩺 シーズン前自動点検</button>
+        <button class="diagnosis-btn" onclick="showHitachiFeature('app')">📱 白くまくんアプリ</button>
         <button class="diagnosis-btn" onclick="showHitachiFeature('wave')">🔇 WNウェーブファン</button>
+        <button class="diagnosis-btn" onclick="showHitachiFeature('settings')">⚙️ WN初期設定</button>
       </div>
     </div>
 
@@ -1595,14 +1601,18 @@ const VISUAL_LIBRARY=[
  {category:"daikin",file:"sarara-dehumidify.png?v=3890",title:"さらら除湿",desc:"さらら除湿の本質と、R・A・Fの方式の違いを図解。"},
  {category:"daikin",file:"room-patrol.png",title:"室温パトロール",desc:"停止中の見守りから自動運転までの流れを図解。"},
  {category:"daikin",file:"daikin-overview.png",title:"R・A・F・E比較",desc:"使い方・希望・予算から、4シリーズの提案軸を比較。"},
- {category:"hitachi",file:"hitachi-freeze-indoor.svg",title:"凍結洗浄（室内機）",desc:"凍結・汚れ捕捉・解凍排水の流れ、自動運転条件と限界まで確認。"},
- {category:"hitachi",file:"hitachi-freeze-outdoor.svg",title:"凍結洗浄（室外機）",desc:"室外熱交換器の洗浄目的、作動条件、放熱環境との違いを確認。"},
- {category:"hitachi",file:"hitachi-fan-robot.svg",title:"ファンお掃除ロボ",desc:"フィルター掃除との違い、ブラシ清掃の対象部位と限界を確認。"},
- {category:"hitachi",file:"hitachi-mold-buster.svg",title:"カビバスター",desc:"内部送風乾燥との違い、監視・加熱・低湿制御、初期設定を確認。"},
- {category:"hitachi",file:"hitachi-stainless.svg",title:"ステンレス・クリーン",desc:"採用箇所、汚れにくさ、お手入れが残る部分まで整理。"},
- {category:"hitachi",file:"hitachi-karatto.svg",title:"カラッと除湿",desc:"冷却・除湿・再加熱の流れ、向く場面と消費電力の注意を確認。"},
- {category:"hitachi",file:"hitachi-wave-fan.svg",title:"WN ウェーブファン",desc:"Xシリーズと同じファンを採用し、静音性を高めたノジマオリジナル仕様。"},
- {category:"hitachi",file:"hitachi-initial-settings.svg",title:"WN 初期設定一覧",desc:"出荷時設定済み・設定確認・手動設定を整理。"},
+ {category:"hitachi",file:"hitachi-freeze-indoor-detail.svg",title:"凍結洗浄（室内機）",desc:"凍結→汚れ捕捉→解凍排水の工程と、できること・限界を図解。"},
+ {category:"hitachi",file:"hitachi-freeze-outdoor-detail.svg",title:"凍結洗浄（室外機）",desc:"室外熱交換器の汚れ、放熱効率、作動条件を詳しく図解。"},
+ {category:"hitachi",file:"hitachi-fan-robot-detail.svg",title:"ファンお掃除ロボ",desc:"送風ファンの清掃範囲と、フィルター自動掃除との違いを図解。"},
+ {category:"hitachi",file:"hitachi-filter-clean-detail.svg",title:"フィルター自動掃除",desc:"吸込み口のフィルターを掃除し、ダストボックスへ集める流れを図解。"},
+ {category:"hitachi",file:"hitachi-mold-buster-detail.svg",title:"カビバスター",desc:"停止中の温湿度監視と、加熱・低湿制御によるカビ抑制を図解。"},
+ {category:"hitachi",file:"hitachi-internal-dry-detail.svg",title:"内部送風乾燥",desc:"冷房・除湿停止後の水分を乾かす流れと、カビバスターとの違いを図解。"},
+ {category:"hitachi",file:"hitachi-stainless-detail.svg",title:"ステンレス・クリーン",desc:"フィルター・通風路・フラップなど、採用箇所と限界を図解。"},
+ {category:"hitachi",file:"hitachi-karatto-detail.svg",title:"カラッと除湿",desc:"冷却・除湿・再加熱の再熱方式と、弱冷房除湿との違いを図解。"},
+ {category:"hitachi",file:"hitachi-season-check-detail.svg",title:"シーズン前自動点検",desc:"本格使用前の自動確認と、故障予知ではない点を図解。"},
+ {category:"hitachi",file:"hitachi-app-detail.svg",title:"白くまくんアプリ",desc:"外出先操作・状態確認・接続設定の流れを図解。"},
+ {category:"hitachi",file:"hitachi-wave-fan-detail.svg",title:"WN ウェーブファン",desc:"Xシリーズと同じファン採用、静音性向上、案内時の注意を図解。"},
+ {category:"hitachi",file:"hitachi-initial-settings-detail.svg",title:"WN 初期設定一覧",desc:"出荷時設定済み・設定確認・手動選択・アプリ設定を整理。"},
  {category:"construction",file:"voltage-100-200.png",title:"100V・200V",desc:"コンセント・電圧・分電盤をセットで確認。"},
  {category:"construction",file:"dedicated-circuit.png",title:"専用回路",desc:"分電盤からエアコンまで他機器と共用しない回路。"},
  {category:"construction",file:"distribution-board.svg",title:"分電盤",desc:"主幹・分岐・単相2線/3線・空き回路・専用回路を総合確認。"},
@@ -1859,12 +1869,44 @@ function nextHitachiQuiz(){if(hitachiQuizIndex>=HITACHI_QUIZ.length-1){finishHit
 function finishHitachiQuiz(){document.getElementById("hitachiQuizQuestion").textContent="シリーズミニ提案テスト終了";document.getElementById("hitachiQuizChoices").innerHTML='<div class="result-card"><strong>'+hitachiQuizScore+" / "+HITACHI_QUIZ.length+'</strong><p>全5問が終了しました。</p></div><button class="next-button" onclick="hitachiQuizIndex=0;hitachiQuizScore=0;renderHitachiQuiz()">もう一度挑戦</button><button class="next-button" onclick="show(\'home\')">ホームへ戻る</button>';document.getElementById("hitachiQuizFeedback").classList.add("hidden");document.getElementById("hitachiQuizNext").classList.add("hidden");}
 
 const HITACHI_FEATURES={
- freeze:{title:"❄️ 凍結洗浄",lead:"熱交換器を凍らせ、霜に汚れを取り込ませて一気に溶かし、排水と一緒に洗い流す清潔機能です。",html:"<div class='feature-steps'><div><b>1. 凍結</b><br>熱交換器に霜を付着</div><div><b>2. 捕集</b><br>霜が汚れを包み込む</div><div><b>3. 解凍・排水</b><br>溶かしてドレンへ排出</div></div>",talk:"『フィルターの奥にある熱交換器を、霜の力で自動洗浄します。』",caution:"完全洗浄ではなく、作動には温度や運転時間などの条件があります。"},
- fan:{title:"🌀 ファンお掃除ロボ",lead:"フィルターの奥にある送風ファンの先端をブラシで清掃する機能です。",html:"<div class='feature-caution'><b>フィルター掃除との違い</b><br>フィルター自動掃除は吸い込み口、ファンお掃除ロボは吹き出し側の送風ファンが対象です。</div>",talk:"『一般的な自動掃除はフィルター中心ですが、その奥のファンまで掃除します。』",caution:"ファン全体の分解洗浄ではありません。状態により専門清掃が必要です。"},
- mold:{title:"🛡️ カビバスター",lead:"停止中も内部の温度・湿度を見張り、条件に応じて加熱・低湿制御などを行い、カビの増殖を抑制します。",html:"<div class='feature-caution'><b>内部送風乾燥との違い</b><br>内部送風乾燥は運転後、カビバスターは停止中も見張る考え方です。</div>",talk:"『運転後に乾かすだけでなく、使っていない時間も内部を見張ります。』",caution:"初期設定状態を確認し、『絶対にカビない』とは説明しません。"},
- stainless:{title:"✨ ステンレス・クリーン",lead:"汚れが付きやすい部位にステンレス素材を採用し、汚れにくさと手入れのしやすさに配慮します。",html:"<div class='feature-caution'><b>確認する採用箇所</b><br>フィルター・通風路・フラップなど。シリーズにより異なります。</div>",talk:"『空気が通る部分にステンレスを使い、清潔維持に配慮しています。』",caution:"内部すべてがステンレスではなく、お手入れ不要でもありません。"},
- dry:{title:"💧 カラッと除湿",lead:"冷やして湿気を取り、空気を暖め直して戻す再熱方式の除湿です。",html:"<div class='feature-steps'><div><b>冷却</b><br>結露させる</div><div><b>除湿</b><br>水分を排出</div><div><b>再加熱</b><br>暖め直して戻す</div></div>",talk:"『湿気は取りたいけれど、冷えすぎが苦手な方に向く除湿です。』",caution:"室温変化がゼロではなく、再加熱に電力を使います。"},
- wave:{title:"🔇 WNウェーブファン",lead:"WNシリーズは上位Xシリーズと同じウェーブファンを採用し、静音性を高めています。",html:"<div class='feature-caution'><b>ノジマオリジナルの核</b><br>通常Wとの差別化として、WN独自の販売価値を明確に説明します。</div>",talk:"『WNは上位Xと同じウェーブファンを採用しているので、清潔機能に加えて静かさも選ぶ理由になります。』",caution:"無音ではなく、音の感じ方は風量・モード・設置環境で変わります。"}
+ freeze:{title:"❄️ 凍結洗浄（室内機）",lead:"熱交換器を凍らせて霜に汚れを取り込み、解凍水と一緒に洗い流す日立の代表的な清潔機能です。",html:`
+  <div class='diagram-box good'><div class='diagram-title'>洗浄の3段階</div><div class='feature-steps'><div><b>1. 凍結</b><br>熱交換器に霜を付ける</div><div><b>2. 捕集</b><br>霜へホコリや汚れを取り込む</div><div><b>3. 解凍・排水</b><br>一気に溶かしてドレンへ流す</div></div></div>
+  <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>得意なこと</div><p>フィルターの奥にある熱交換器を自動でケア。汚れによる能力低下を抑える助けになります。</p></div><div class='diagram-box'><div class='diagram-title'>限界</div><p>油汚れ・固着汚れ・すべてのカビを完全に除去する機能ではありません。</p></div></div>
+  <div class='feature-caution'><b>作動条件</b><br>温度・湿度・累積運転時間などの条件があり、停止のたびに必ず作動するわけではありません。</div>`,talk:"『フィルターでは届かない熱交換器を、凍らせて洗い流すのが日立の凍結洗浄です。』",caution:"『完全にきれいになる』『業者清掃が不要』とは案内しません。作動条件と対象部位を明確にします。"},
+ freezeOutdoor:{title:"🌿 凍結洗浄（室外機）",lead:"屋外の熱交換器に付着したホコリなどを凍結・解凍で洗い流し、放熱しやすい状態を保つための機能です。",html:`
+  <div class='feature-steps'><div><b>屋外の汚れ</b><br>砂ぼこり・土・落ち葉など</div><div><b>凍結・解凍</b><br>熱交換器の汚れを洗い流す</div><div><b>放熱を支える</b><br>能力低下を抑える助け</div></div>
+  <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>室内機との違い</div><p>室内機は空気中のホコリや内部汚れ、室外機は屋外環境による汚れが主な対象です。</p></div><div class='diagram-box'><div class='diagram-title'>設置環境も重要</div><p>吹出口をふさがない、周囲の落ち葉や物を取り除くなど、放熱スペースの確保は別に必要です。</p></div></div>`,talk:"『外にある室外機の熱交換器も自動で洗い、放熱効率の低下を抑える工夫があります。』",caution:"室外機周囲の清掃や設置スペースの確保まで不要になる機能ではありません。"},
+ fan:{title:"🌀 ファンお掃除ロボ",lead:"風を送り出す送風ファンの先端をブラシで掃除する機能。一般的なフィルター自動掃除より奥の部位まで対象にします。",html:`
+  <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>フィルター自動掃除</div><p><b>吸込み口</b>のフィルターに付いたホコリを掃除。</p></div><div class='diagram-box good'><div class='diagram-title'>ファンお掃除ロボ</div><p><b>吹出し側</b>の送風ファン先端に付いたホコリをブラシで掃除。</p></div></div>
+  <div class='feature-steps'><div><b>ファンを動かす</b></div><div><b>ブラシで清掃</b></div><div><b>落としたホコリを処理</b></div></div>
+  <div class='feature-caution'><b>学習ポイント</b><br>「お掃除機能付き」でも、フィルターだけの機種とファンまで掃除する機種では対象範囲が違います。</div>`,talk:"『フィルターだけでなく、風を送るファンまで自動で掃除するのが日立の大きな強みです。』",caution:"ファン全体を分解洗浄する機能ではありません。付着状態により専門清掃が必要です。"},
+ filter:{title:"🧹 フィルター自動掃除",lead:"吸込み口のフィルターに付着したホコリをブラシで取り、ダストボックスへ集める機能です。",html:`
+  <div class='feature-steps'><div><b>フィルター移動</b></div><div><b>ブラシでホコリ除去</b></div><div><b>ダストボックスへ回収</b></div></div>
+  <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>減らせる手間</div><p>頻繁なフィルター掃除の負担を軽減します。</p></div><div class='diagram-box'><div class='diagram-title'>残る手入れ</div><p>ダストボックスのゴミ捨て、ブラシやフィルターの定期確認は必要です。</p></div></div>`,talk:"『日常のフィルター掃除を自動化し、お手入れの頻度を減らせます。』",caution:"掃除不要ではありません。ゴミ捨て時期と手入れ方法を取扱説明書で確認します。"},
+ mold:{title:"🛡️ カビバスター",lead:"停止中も内部の温度・湿度を見張り、条件に応じて加熱・低湿制御などを行い、カビの増殖を抑制します。",html:`
+  <div class='feature-steps'><div><b>停止中も監視</b><br>内部の温度・湿度を確認</div><div><b>必要時に制御</b><br>加熱・低湿化など</div><div><b>カビを抑制</b><br>発生しにくい状態へ</div></div>
+  <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>カビバスター</div><p>停止中も継続的に内部環境を見張る考え方。</p></div><div class='diagram-box'><div class='diagram-title'>内部送風乾燥</div><p>冷房・除湿運転の停止後に、残った水分を乾かす運転。</p></div></div>`,talk:"『運転後に乾かすだけでなく、使っていない時間も内部を見張ってカビを抑えます。』",caution:"初期設定状態を確認し、『絶対にカビない』とは説明しません。"},
+ drying:{title:"🌬️ 内部送風乾燥",lead:"冷房・除湿後に熱交換器や通風路へ残った水分を、送風などで乾かして内部の湿気を減らす機能です。",html:`
+  <div class='feature-steps'><div><b>冷房・除湿停止</b></div><div><b>内部に水分が残る</b></div><div><b>送風で乾燥</b></div></div>
+  <div class='feature-caution'><b>カビバスターとの違い</b><br>内部送風乾燥は運転直後の水分対策、カビバスターは停止中の温湿度監視を含む継続的な抑制機能です。</div>`,talk:"『冷房後に内部を乾かすことで、湿ったまま放置しにくくします。』",caution:"乾燥運転中に送風音や室温変化を感じることがあります。完全乾燥を保証する機能ではありません。"},
+ stainless:{title:"✨ ステンレス・クリーン",lead:"汚れが付きやすい空気の通り道などにステンレス素材を採用し、汚れにくさと拭き取りやすさに配慮した清潔設計です。",html:`
+  <div class='feature-steps'><div><b>フィルター</b><br>吸込み口</div><div><b>通風路</b><br>風の通り道</div><div><b>フラップ</b><br>吹出口周辺</div></div>
+  <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>メリット</div><p>樹脂だけの構造と比べ、汚れの付きにくさや手入れのしやすさを訴求できます。</p></div><div class='diagram-box'><div class='diagram-title'>確認点</div><p>採用箇所はシリーズ・型番で異なり、内部すべてがステンレスではありません。</p></div></div>`,talk:"『空気が通る部分にステンレスを採用し、汚れにくさとお手入れのしやすさに配慮しています。』",caution:"『抗菌だから掃除不要』『内部全部がステンレス』とは案内しません。"},
+ dry:{title:"💧 カラッと除湿",lead:"冷やして湿気を取り、必要に応じて空気を暖め直して戻す再熱方式の除湿。室温低下を抑えながら湿度を下げたい場面に向きます。",html:`
+  <div class='feature-steps'><div><b>冷却</b><br>空気を冷やして結露</div><div><b>除湿</b><br>水分を排出</div><div><b>再加熱</b><br>暖め直して室内へ</div></div>
+  <div class='diagram-compare'><div class='diagram-box good'><div class='diagram-title'>再熱除湿</div><p>冷やした空気を暖め直すため、室温低下を抑えやすい。</p></div><div class='diagram-box'><div class='diagram-title'>弱冷房除湿</div><p>弱い冷房で除湿するため、外気や設定によって室温が下がりやすい。</p></div></div>
+  <div class='feature-caution'><b>電気代の考え方</b><br>再加熱に電力を使うため、常に省エネとは限りません。快適性と消費電力のバランスで案内します。</div>`,talk:"『湿気は取りたいけれど、冷えすぎが苦手な方に使いやすい再熱除湿です。』",caution:"室温変化がゼロではなく、能力帯や運転モードによって仕様が異なります。"},
+ season:{title:"🩺 シーズン前自動点検",lead:"本格的に使い始める前に、エアコンが正常に運転できるかを自動で確認する機能です。",html:`
+  <div class='feature-steps'><div><b>使用時期を見計らう</b></div><div><b>自動で試運転・確認</b></div><div><b>異常時はお知らせ</b></div></div>
+  <div class='feature-caution'><b>誤解しやすい点</b><br>将来の故障を予知する機能ではなく、その時点の運転状態を確認する機能です。</div>`,talk:"『暑くなる前に自動で運転状態を確認してくれるので、シーズン初めの安心につながります。』",caution:"故障を完全に防ぐ機能ではありません。異常表示時は点検・修理案内が必要です。"},
+ app:{title:"📱 白くまくんアプリ",lead:"無線LAN対応機なら、スマートフォンから運転操作や状態確認を行える機能です。",html:`
+  <div class='feature-steps'><div><b>Wi‑Fi環境</b></div><div><b>アプリ登録</b></div><div><b>外出先操作・確認</b></div></div>
+  <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>便利な場面</div><p>帰宅前運転、切り忘れ確認、ペット留守番、離れて暮らす家族の見守り補助。</p></div><div class='diagram-box'><div class='diagram-title'>事前確認</div><p>対応機種、無線LAN環境、スマートフォン、アカウント設定が必要です。</p></div></div>`,talk:"『帰宅前に運転したり、外出先から切り忘れを確認できます。』",caution:"通信環境やサービス仕様により使えない場合があります。安全確認の代替にはなりません。"},
+ wave:{title:"🔇 WNウェーブファン",lead:"WNシリーズは上位Xシリーズと同じウェーブファンを採用し、静音性を高めたノジマオリジナル仕様です。",html:`
+  <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>通常Wの提案軸</div><p>スリム設計と日立の清潔機能。</p></div><div class='diagram-box good'><div class='diagram-title'>WNの追加価値</div><p><b>Xシリーズと同じウェーブファン</b>を採用し、静音性を高めたノジマオリジナル。</p></div></div>
+  <div class='feature-steps'><div><b>清潔</b><br>凍結洗浄・ファン清掃</div><div><b>除湿</b><br>カラッと除湿</div><div><b>静音</b><br>ウェーブファン</div></div>`,talk:"『WNは上位Xと同じウェーブファンを採用しているので、清潔機能に加えて静かさも選ぶ理由になります。』",caution:"無音ではありません。運転モード・風量・設置環境・個人の感じ方で音は変わります。"},
+ settings:{title:"⚙️ WN初期設定",lead:"搭載機能が、購入直後から自動で働くのか、設定確認や手動操作が必要なのかを整理します。",html:`
+  <div style='overflow-x:auto'><table class='compare-table'><tr><th>機能</th><th>購入時</th><th>接客ポイント</th></tr><tr><td>シーズン前自動点検</td><td>設定済み</td><td>その時点の運転状態を確認</td></tr><tr><td>内部送風乾燥</td><td>設定済み</td><td>冷房・除湿後の水分対策</td></tr><tr><td>カビバスター</td><td>設定確認</td><td>搭載＝必ずONではない</td></tr><tr><td>凍結洗浄</td><td>自動運転あり</td><td>作動条件がある</td></tr><tr><td>カラッと除湿</td><td>手動選択</td><td>除湿時に選ぶ</td></tr><tr><td>白くまくんアプリ</td><td>未接続</td><td>Wi‑Fiと登録が必要</td></tr></table></div>`,talk:"『便利な機能をきちんと使えるよう、最初にON/OFFとアプリ設定を確認しておくと安心です。』",caution:"型番・能力帯・取扱説明書で出荷時設定が異なる場合があるため、最終確認を行います。"}
 };
 function showHitachiFeature(key){const f=HITACHI_FEATURES[key],p=document.getElementById("hitachiFeaturePanel");if(!f)return;p.innerHTML="<h2>"+f.title+"</h2><p class='feature-lead'>"+f.lead+"</p>"+f.html+"<div class='feature-talk'><b>売場での説明例</b><br>"+f.talk+"</div><div class='feature-caution'><b>案内時の注意</b><br>"+f.caution+"</div><button class='feature-close' onclick=\"document.getElementById('hitachiFeaturePanel').classList.add('hidden')\">閉じる</button>";p.classList.remove("hidden");p.scrollIntoView({behavior:"smooth",block:"start"});}
 
