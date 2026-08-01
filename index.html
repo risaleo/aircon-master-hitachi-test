@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.4.0.4 開発版・マルチエアコン追加</title>
+<title>エアコン販買マスター Pro Ver.4.1.7 日立表示修正・ダイキン図解統一</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -417,6 +417,19 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
 .hitachi-series-table th,.hitachi-series-table td{padding:10px;border-bottom:1px solid #dce6ef;text-align:left;vertical-align:top}
 .hitachi-series-table th{background:#eef6fc;color:#173b66}
 @media(max-width:600px){.hitachi-study-grid{grid-template-columns:1fr}.modal-detail-section{padding:12px}}
+
+/* Ver.4.1.7: iPhone詳細画面の横見切れ防止 */
+html,body{max-width:100%;overflow-x:hidden}
+.image-modal{box-sizing:border-box;overflow:hidden}
+.image-modal-inner{box-sizing:border-box;max-width:min(1200px,calc(100vw - 16px));width:calc(100vw - 16px);margin:0 auto;overflow-x:hidden}
+.image-modal img{box-sizing:border-box;max-width:100%;width:100%;height:auto;object-fit:contain;object-position:center}
+.modal-detail,.modal-learning,.modal-detail-section,.quick-box{box-sizing:border-box;max-width:100%;min-width:0}
+@media(max-width:600px){
+ .image-modal{padding:4px;align-items:flex-start}
+ .image-modal-inner{width:calc(100vw - 8px);max-width:calc(100vw - 8px);padding:8px 6px;border-radius:12px}
+ .modal-visual-title{margin-left:8px;margin-right:50px}
+ .modal-detail-section,.modal-learning .quick-box{padding:12px}
+}
 </style>
 <link rel="manifest" href="manifest.webmanifest?v=3890">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -432,7 +445,7 @@ button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.4.0.4 開発版・マルチエアコン追加</small>
+      <small>Ver.4.1.7 日立表示修正・ダイキン図解統一</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -1594,11 +1607,11 @@ function showDaikinFeature(key){
 
 
 const VISUAL_LIBRARY=[
- {category:"daikin",file:"premium-cooling.png?v=3890",title:"プレミアム冷房",desc:"デシクル制御とPIT制御を、初心者向けに図解。"},
- {category:"daikin",file:"no-direct-airflow.png",title:"風ないス運転",desc:"直接風と、体に当たりにくい気流を比較。"},
+ {category:"daikin",file:"daikin-premium-illustrated.png?v=417",title:"プレミアム冷房",desc:"デシクル制御とPIT制御を、初心者向けに図解。"},
+ {category:"daikin",file:"daikin-airflow-illustrated.png?v=417",title:"風ないス運転",desc:"直接風と、体に当たりにくい気流を比較。"},
  {category:"daikin",file:"swing-compressor.png",title:"スイングコンプレッサー",desc:"一般的な構造との違いと、一体構造の特徴を図解。"},
- {category:"daikin",file:"streamer.png",title:"ストリーマ",desc:"放電技術を内部清潔や脱臭へ活用する仕組みを図解。"},
- {category:"daikin",file:"sarara-dehumidify.png?v=3890",title:"さらら除湿",desc:"さらら除湿の本質と、R・A・Fの方式の違いを図解。"},
+ {category:"daikin",file:"daikin-streamer-illustrated.png?v=417",title:"ストリーマ",desc:"放電技術を内部清潔や脱臭へ活用する仕組みを図解。"},
+ {category:"daikin",file:"daikin-sarara-illustrated.png?v=417",title:"さらら除湿",desc:"さらら除湿の本質と、R・A・Fの方式の違いを図解。"},
  {category:"daikin",file:"room-patrol.png",title:"室温パトロール",desc:"停止中の見守りから自動運転までの流れを図解。"},
  {category:"daikin",file:"daikin-overview.png",title:"R・A・F・E比較",desc:"使い方・希望・予算から、4シリーズの提案軸を比較。"},
  {category:"hitachi",file:"hitachi-freeze-indoor-illustrated.png?v=414",title:"凍結洗浄（室内機）",desc:"凍結→汚れ捕捉→解凍排水の工程と、できること・限界を図解。"},
