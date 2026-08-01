@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.4.2.3 日立シリーズカード統一版</title>
+<title>エアコン販買マスター Pro Ver.4.3.0 日立攻略完成版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -472,6 +472,56 @@ html,body{max-width:100%;overflow-x:hidden}
   .hitachi-series-card.energy{grid-column:1 / -1;min-height:150px}
 }
 
+
+/* Hitachi completion UI */
+#hitachi, #hitachi *{box-sizing:border-box}
+#hitachi img{display:block;max-width:100%;height:auto;object-fit:contain;object-position:center}
+#hitachi .feature-panel,#hitachi .series-panel,#hitachi .series-card,#hitachi .diagram-box,
+#hitachi .feature-talk,#hitachi .feature-caution{min-width:0;max-width:100%;overflow-wrap:anywhere}
+#hitachi .compare-table{width:100%;border-collapse:collapse}
+#hitachi .compare-table th,#hitachi .compare-table td{white-space:normal;overflow-wrap:anywhere}
+.hitachi-master-card{max-width:980px;margin:0 auto 18px;padding:18px;border-radius:22px;background:linear-gradient(135deg,#eef7ff,#f7fbff);border:1px solid #b9d8ef}
+.hitachi-master-head{display:flex;gap:18px;align-items:center;justify-content:space-between}
+.hitachi-master-head h2{margin:6px 0;font-size:24px}
+.hitachi-master-head p{margin:0;line-height:1.65;color:#48606f}
+.hitachi-master-badge{display:inline-block;padding:5px 10px;border-radius:999px;background:#176fd0;color:white;font-size:12px;font-weight:900}
+.hitachi-master-score{width:108px;height:108px;flex:0 0 108px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:white;border:8px solid #cbe5f7}
+.hitachi-master-score span{font-size:25px;font-weight:900;color:#176fd0}
+.hitachi-master-score small{font-size:11px;color:#5c7180}
+.hitachi-course-steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:16px}
+.hitachi-course-steps button{border:1px solid #c4dceb;border-radius:14px;background:white;padding:11px 8px;text-align:left;color:#203744}
+.hitachi-course-steps b{display:block;color:#176fd0;font-size:11px;margin-bottom:3px}
+.hitachi-course-steps span{font-weight:800;font-size:13px}
+.hitachi-flow-row{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:8px;align-items:center}
+.hitachi-flow-row>div{padding:14px;border-radius:15px;background:#f4f9fc;border:1px solid #d3e4ee;min-height:92px}
+.hitachi-flow-row b,.hitachi-flow-row span{display:block}
+.hitachi-flow-row span{margin-top:6px;font-size:13px;line-height:1.5;color:#526d7c}
+.hitachi-flow-row i{font-style:normal;font-weight:900;color:#176fd0;font-size:20px}
+.hitachi-check-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.hitachi-check-grid label{display:flex;align-items:center;gap:8px;padding:11px;border:1px solid #d7e3ea;border-radius:12px;background:#f9fbfc;font-weight:700}
+.hitachi-check-grid input{width:20px;height:20px;flex:0 0 20px}
+.hitachi-check-note{margin-top:10px;font-size:13px;color:#607684}
+.hitachi-finish-card{display:flex;align-items:center;gap:16px;background:#fff9e8;border-color:#e9ce77}
+.hitachi-finish-card h2{margin:0 0 5px}
+.hitachi-finish-card p{margin:0 0 8px;color:#60707a}
+.hitachi-finish-card strong{color:#8a6700}
+.hitachi-finish-icon{font-size:46px}
+@media(max-width:760px){
+  #hitachi .daikin-wrap{padding-left:10px;padding-right:10px;overflow-x:hidden}
+  #hitachi .feature-panel{padding:14px;margin-left:0;margin-right:0;width:100%}
+  #hitachi .feature-panel>*{max-width:100%}
+  #hitachi .feature-panel .diagram-compare,#hitachi .feature-panel .feature-steps{grid-template-columns:1fr}
+  #hitachi .feature-panel img{width:100%!important;max-height:none!important}
+  .hitachi-master-head{align-items:flex-start}
+  .hitachi-master-score{width:82px;height:82px;flex-basis:82px;border-width:6px}
+  .hitachi-master-score span{font-size:20px}
+  .hitachi-course-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hitachi-course-steps button:last-child{grid-column:1/-1}
+  .hitachi-flow-row{grid-template-columns:1fr}
+  .hitachi-flow-row i{transform:rotate(90deg);text-align:center;height:18px}
+  .hitachi-check-grid{grid-template-columns:1fr}
+}
+
 </style>
 <link rel="manifest" href="manifest.webmanifest?v=3890">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -487,7 +537,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.4.2.3 日立シリーズカード統一版</small>
+      <small>Ver.4.3.0 日立攻略完成版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -702,7 +752,39 @@ html,body{max-width:100%;overflow-x:hidden}
       搭載機能・初期設定・自動運転条件は能力帯や型番で異なるため、最終案内は該当型番のカタログ・取扱説明書で確認してください。
     </div>
 
-    <div class="series-card" style="max-width:980px;margin:0 auto 18px">
+    <div class="hitachi-master-card">
+      <div class="hitachi-master-head">
+        <div>
+          <span class="hitachi-master-badge">日立マスターコース</span>
+          <h2>機能暗記ではなく、提案理由まで学ぶ</h2>
+          <p>困りごとを聞き、シリーズを選び、機能を暮らしのメリットへ置き換え、工事・初期設定まで案内する流れで学びます。</p>
+        </div>
+        <div class="hitachi-master-score"><span id="hitachiProgressValue">0%</span><small>学習進捗</small></div>
+      </div>
+      <div class="hitachi-course-steps">
+        <button type="button" onclick="scrollHitachiTo('hitachiSeriesMap')"><b>STEP 1</b><span>シリーズを知る</span></button>
+        <button type="button" onclick="scrollHitachiTo('hitachiFeatureArea')"><b>STEP 2</b><span>機能を図解で学ぶ</span></button>
+        <button type="button" onclick="scrollHitachiTo('hitachiCompareArea')"><b>STEP 3</b><span>搭載差・初期設定</span></button>
+        <button type="button" onclick="scrollHitachiTo('hitachiSalesFlow')"><b>STEP 4</b><span>接客へつなげる</span></button>
+        <button type="button" onclick="scrollHitachiTo('hitachiQuizArea')"><b>STEP 5</b><span>ミニテスト</span></button>
+      </div>
+    </div>
+
+    <div id="hitachiSalesFlow" class="series-card hitachi-sales-flow" style="max-width:980px;margin:0 auto 18px">
+      <h2 style="margin-top:0">白くまくんを提案する考え方</h2>
+      <div class="hitachi-flow-row">
+        <div><b>1. 困りごと</b><span>冷えすぎ・掃除・電気代・暖房・設置性</span></div>
+        <i>→</i>
+        <div><b>2. 生活スタイル</b><span>使用時間・部屋・家族・ペット</span></div>
+        <i>→</i>
+        <div><b>3. シリーズ選定</b><span>X・WN・G・D・Eを比較</span></div>
+        <i>→</i>
+        <div><b>4. 安心案内</b><span>工事・初期設定・使い方</span></div>
+      </div>
+      <div class="feature-caution"><b>販売で大切なこと</b><br>「上位だから」ではなく、どの機能がそのお客様の困りごとに役立つのかを具体的に伝えます。</div>
+    </div>
+
+    <div id="hitachiSeriesMap" class="series-card" style="max-width:980px;margin:0 auto 18px">
       <h2 style="margin-top:0">図でつかむ 日立のシリーズ構成</h2>
       <div class="hitachi-series-grid">
         <div class="hitachi-series-card premium">
@@ -739,7 +821,7 @@ html,body{max-width:100%;overflow-x:hidden}
       <div class="feature-caution"><b>選び方の軸</b><br>シリーズ名だけで上下を決めず、清潔機能の範囲、空気清浄・センサー、再熱除湿、暖房快適機能、省エネ性の違いをお客様の使い方に結び付けて説明します。</div>
     </div>
 
-    <div class="series-card" style="max-width:980px;margin:0 auto 18px">
+    <div id="hitachiFeatureArea" class="series-card" style="max-width:980px;margin:0 auto 18px">
       <h3 style="margin-top:0">図解で学ぶ日立機能</h3>
       <div class="diagnosis-grid">
         <button class="diagnosis-btn" onclick="showHitachiFeature('freeze')">❄️ 凍結洗浄（室内機）</button>
@@ -781,7 +863,7 @@ html,body{max-width:100%;overflow-x:hidden}
       <div id="hitachiDiagnosisResult" class="diagnosis-result hidden"></div>
     </div>
 
-    <div class="series-card" style="max-width:980px;margin:0 auto 18px">
+    <div id="hitachiCompareArea" class="series-card" style="max-width:980px;margin:0 auto 18px">
       <h2 style="margin-top:0">機能搭載グレード・初期設定早見表</h2>
       <div style="overflow-x:auto"><table class="compare-table">
         <tr><th>機能</th><th>主な搭載</th><th>購入時</th><th>接客ポイント</th></tr>
@@ -797,7 +879,34 @@ html,body{max-width:100%;overflow-x:hidden}
       <div class="feature-caution"><b>重要</b><br>「搭載している」と「購入時から有効」は別です。特に室外機の凍結洗浄とヒートプラスは工場出荷時OFFのため、設定案内まで行います。</div>
     </div>
 
-    <div class="daikin-quiz">
+
+    <div class="series-card hitachi-check-card" style="max-width:980px;margin:0 auto 18px">
+      <h2 style="margin-top:0">新人が最初に覚える10項目</h2>
+      <div class="hitachi-check-grid" id="hitachiCheckGrid">
+        <label><input type="checkbox" data-hitachi-check="problem"> 困りごとを聞く</label>
+        <label><input type="checkbox" data-hitachi-check="room"> 部屋・畳数を確認</label>
+        <label><input type="checkbox" data-hitachi-check="usage"> 使用時間を確認</label>
+        <label><input type="checkbox" data-hitachi-check="heat"> 暖房利用を確認</label>
+        <label><input type="checkbox" data-hitachi-check="comfort"> 冷え方・除湿の好み</label>
+        <label><input type="checkbox" data-hitachi-check="clean"> 掃除・清潔の希望</label>
+        <label><input type="checkbox" data-hitachi-check="family"> ペット・家族構成</label>
+        <label><input type="checkbox" data-hitachi-check="install"> 設置場所・電源</label>
+        <label><input type="checkbox" data-hitachi-check="work"> 工事・追加料金</label>
+        <label><input type="checkbox" data-hitachi-check="setting"> 初期設定・使い方</label>
+      </div>
+      <div class="hitachi-check-note" id="hitachiCheckNote">チェックした内容はこの端末に保存されます。</div>
+    </div>
+
+    <div class="series-card hitachi-finish-card" style="max-width:980px;margin:0 auto 18px">
+      <div class="hitachi-finish-icon">🏅</div>
+      <div>
+        <h2>日立攻略 修了チェック</h2>
+        <p>シリーズ5種・機能図解・初期設定表・ミニテストを確認すると、進捗が更新されます。</p>
+        <strong id="hitachiFinishText">学習を始めましょう</strong>
+      </div>
+    </div>
+
+    <div id="hitachiQuizArea" class="daikin-quiz">
       <h2>シリーズ提案ミニテスト</h2>
       <div id="hitachiQuizQuestion" class="question-card"></div>
       <div id="hitachiQuizChoices" class="choice-list"></div>
@@ -1958,14 +2067,32 @@ function showHitachiSeries(key,button){
  document.querySelectorAll("#hitachi .series-tab").forEach(b=>b.classList.remove("active"));
  if(button)button.classList.add("active");
  const s=HITACHI_SERIES[key];
+ const shortPoint={
+  X:"清潔・空清・快適・省エネを総合したプレミアム",
+  WN:"Wの充実機能に、Xと同じウェーブファンを加えたノジマオリジナル",
+  G:"奥行き25cmで、設置性と清潔機能を両立",
+  D:"カビバスターを備えた日立のスタンダード",
+  E:"2027年度省エネ基準達成を軸に選ぶスタンダード"
+ }[key];
+ const dailyPoint={
+  X:"『全部入り』ではなく、下位にない機能が暮らしにどう役立つかを説明します。",
+  WN:"Wのベース機能と、WN独自のウェーブファンを分けて案内します。",
+  G:"薄型だけでなく、凍結洗浄・カビバスターまで備える点を伝えます。",
+  D:"価格だけでなく、Eにはないカビバスターを提案理由にします。",
+  E:"基準達成だけで終わらず、APFや期間消費電力量も比較します。"
+ }[key];
  document.getElementById("hitachiSeriesPanel").innerHTML=
- '<div class="series-hero"><span class="series-tag">'+s.tag+'</span><h2>'+s.title+'</h2><p>'+s.summary+'</p></div>'+ 
+ '<div class="series-hero"><span class="series-tag">'+s.tag+'</span><h2>'+s.title+'</h2><p>'+s.summary+'</p></div>'+
+ '<div class="series-card" style="margin-bottom:14px"><h3>一言でいうと</h3><p><b>'+shortPoint+'</b></p></div>'+
  '<div class="series-grid">'+
- '<div class="series-card"><h3>おすすめのお客様</h3><ul>'+s.suitable.map(x=>"<li>"+x+"</li>").join("")+'</ul></div>'+ 
- '<div class="series-card"><h3>主な提案ポイント</h3><ul>'+s.features.map(x=>"<li>"+x+"</li>").join("")+'</ul></div>'+ 
- '<div class="series-card"><h3>接客トーク例</h3><p>'+s.talk+'</p></div>'+ 
- '<div class="series-card"><h3>注意点</h3><p>'+s.caution+'</p></div></div>'+ 
- '<div class="series-card" style="margin-top:14px"><h3>X・WN・G・D・Eの位置づけ</h3><table class="compare-table"><tr><th>シリーズ</th><th>具体的な強み</th><th>下位・上位との主な差</th></tr><tr><td>X</td><td>空清・センサー・清潔対象・再熱除湿まで充実</td><td>日立機能を総合搭載</td></tr><tr><td>WN</td><td>Wの充実機能＋Xと同じウェーブファン</td><td>ノジマ独自の静音性</td></tr><tr><td>G</td><td>奥行き25cm＋室内外凍結洗浄＋カビバスター</td><td>ファン掃除・再熱除湿はWN以上</td></tr><tr><td>D</td><td>スタンダード＋カビバスター</td><td>Eよりカビ対策が充実</td></tr><tr><td>E</td><td>スタンダード＋2027年度省エネ基準達成</td><td>基本清潔機能と省エネ基準</td></tr></table></div>';
+ '<div class="series-card"><h3>おすすめのお客様</h3><ul>'+s.suitable.map(x=>"<li>"+x+"</li>").join("")+'</ul></div>'+
+ '<div class="series-card"><h3>主な提案ポイント</h3><ul>'+s.features.map(x=>"<li>"+x+"</li>").join("")+'</ul></div>'+
+ '<div class="series-card"><h3>接客トーク例</h3><p>'+s.talk+'</p></div>'+
+ '<div class="series-card"><h3>注意点</h3><p>'+s.caution+'</p></div></div>'+
+ '<div class="feature-talk" style="margin-top:14px"><b>今日の接客ポイント</b><br>'+dailyPoint+'</div>'+
+ '<div class="feature-caution"><b>30秒復習</b><br>'+shortPoint+'。提案時は、お客様の困りごとに合う機能差を一つずつ確認します。</div>'+
+ '<div class="series-card" style="margin-top:14px"><h3>X・WN・G・D・Eの位置づけ</h3><div style="overflow-x:auto"><table class="compare-table"><tr><th>シリーズ</th><th>具体的な強み</th><th>下位・上位との主な差</th></tr><tr><td>X</td><td>空清・センサー・清潔対象・再熱除湿まで充実</td><td>日立機能を総合搭載</td></tr><tr><td>WN</td><td>Wの充実機能＋Xと同じウェーブファン</td><td>ノジマ独自の静音性</td></tr><tr><td>G</td><td>奥行き25cm＋室内外凍結洗浄＋カビバスター</td><td>ファン掃除・再熱除湿はWN以上</td></tr><tr><td>D</td><td>スタンダード＋カビバスター</td><td>Eよりカビ対策が充実</td></tr><tr><td>E</td><td>スタンダード＋2027年度省エネ基準達成</td><td>基本清潔機能と省エネ基準</td></tr></table></div></div>';
+ markHitachiSeriesViewed(key);
 }
 function diagnoseHitachi(type){
  const result={premium:"<b>おすすめ候補：Xシリーズ</b><br>清潔・快適・省エネを総合比較します。",nozima:"<b>おすすめ候補：WNシリーズ</b><br>Xと同じウェーブファンによる静音性と、ノジマ独自価値を提案します。",slim:"<b>おすすめ候補：WN・Gシリーズ</b><br>WNは高さ24.8cm、Gは奥行き25cm。必要据付寸法を確認して比較します。",simple:"<b>おすすめ候補：D・Eシリーズ</b><br>寝室などで基本機能と価格を重視する場合に比較しやすいです。"}[type];
@@ -1983,6 +2110,7 @@ function answerHitachiQuiz(index,button){
 }
 function nextHitachiQuiz(){if(hitachiQuizIndex>=HITACHI_QUIZ.length-1){finishHitachiQuiz();return;}hitachiQuizIndex++;renderHitachiQuiz();}
 function finishHitachiQuiz(){
+ markHitachiQuizFinished();
  const total=HITACHI_QUIZ.length;
  document.getElementById("hitachiQuizQuestion").textContent="シリーズミニ提案テスト終了";
  document.getElementById("hitachiQuizChoices").innerHTML=`
@@ -2041,7 +2169,79 @@ const HITACHI_FEATURES={
  settings:{title:"⚙️ WN初期設定",lead:"搭載機能が、購入直後から自動で働くのか、設定確認や手動操作が必要なのかを整理します。",html:`
   <div style='overflow-x:auto'><table class='compare-table'><tr><th>機能</th><th>購入時</th><th>接客ポイント</th></tr><tr><td>シーズン前自動点検</td><td>設定済み</td><td>その時点の運転状態を確認</td></tr><tr><td>内部送風乾燥</td><td>設定済み</td><td>冷房・除湿後の水分対策</td></tr><tr><td>カビバスター</td><td>設定確認</td><td>搭載＝必ずONではない</td></tr><tr><td>凍結洗浄</td><td>自動運転あり</td><td>作動条件がある</td></tr><tr><td>カラッと除湿</td><td>手動選択</td><td>除湿時に選ぶ</td></tr><tr><td>白くまくんアプリ</td><td>未接続</td><td>Wi‑Fiと登録が必要</td></tr></table></div>`,talk:"『便利な機能をきちんと使えるよう、最初にON/OFFとアプリ設定を確認しておくと安心です。』",caution:"型番・能力帯・取扱説明書で出荷時設定が異なる場合があるため、最終確認を行います。"}
 };
-function showHitachiFeature(key){const f=HITACHI_FEATURES[key],p=document.getElementById("hitachiFeaturePanel");if(!f)return;p.innerHTML="<h2>"+f.title+"</h2><p class='feature-lead'>"+f.lead+"</p>"+f.html+"<div class='feature-talk'><b>売場での説明例</b><br>"+f.talk+"</div><div class='feature-caution'><b>案内時の注意</b><br>"+f.caution+"</div><button class='feature-close' onclick=\"document.getElementById('hitachiFeaturePanel').classList.add('hidden')\">閉じる</button>";p.classList.remove("hidden");p.scrollIntoView({behavior:"smooth",block:"start"});}
+function showHitachiFeature(key){
+ const f=HITACHI_FEATURES[key],p=document.getElementById("hitachiFeaturePanel");
+ if(!f)return;
+ p.innerHTML="<h2>"+f.title+"</h2><p class='feature-lead'>"+f.lead+"</p>"+f.html+"<div class='feature-talk'><b>売場での説明例</b><br>"+f.talk+"</div><div class='feature-caution'><b>案内時の注意</b><br>"+f.caution+"</div><div class='feature-caution'><b>30秒復習</b><br>"+f.lead+"</div><button class='feature-close' onclick=\"document.getElementById('hitachiFeaturePanel').classList.add('hidden')\">閉じる</button>";
+ p.classList.remove("hidden");
+ markHitachiFeatureViewed(key);
+ p.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+
+const HITACHI_PROGRESS_KEY="aircon_hitachi_progress_v430";
+const HITACHI_CHECK_KEY="aircon_hitachi_check_v430";
+function getHitachiProgress(){
+ try{
+  const p=JSON.parse(localStorage.getItem(HITACHI_PROGRESS_KEY)||"{}");
+  return {series:Array.isArray(p.series)?p.series:[],features:Array.isArray(p.features)?p.features:[],quiz:!!p.quiz};
+ }catch(e){return {series:[],features:[],quiz:false};}
+}
+function saveHitachiProgress(p){
+ localStorage.setItem(HITACHI_PROGRESS_KEY,JSON.stringify(p));
+ updateHitachiProgressUI();
+}
+function markHitachiSeriesViewed(key){
+ const p=getHitachiProgress();
+ if(!p.series.includes(key))p.series.push(key);
+ saveHitachiProgress(p);
+}
+function markHitachiFeatureViewed(key){
+ const p=getHitachiProgress();
+ if(!p.features.includes(key))p.features.push(key);
+ saveHitachiProgress(p);
+}
+function markHitachiQuizFinished(){
+ const p=getHitachiProgress();p.quiz=true;saveHitachiProgress(p);
+}
+function updateHitachiProgressUI(){
+ const p=getHitachiProgress();
+ const seriesScore=Math.min(p.series.length,5);
+ const featureScore=Math.min(p.features.length,13);
+ const total=5+13+1;
+ const done=seriesScore+featureScore+(p.quiz?1:0);
+ const percent=Math.round(done/total*100);
+ const value=document.getElementById("hitachiProgressValue");
+ const finish=document.getElementById("hitachiFinishText");
+ if(value)value.textContent=percent+"%";
+ if(finish){
+  finish.textContent=percent>=100?"🎉 日立攻略マスター：全項目修了":percent>=60?"あと少しです（"+percent+"%）":"現在 "+percent+"% 完了";
+ }
+}
+function scrollHitachiTo(id){
+ const el=document.getElementById(id);
+ if(el)el.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function initHitachiChecks(){
+ let saved={};
+ try{saved=JSON.parse(localStorage.getItem(HITACHI_CHECK_KEY)||"{}");}catch(e){}
+ document.querySelectorAll("[data-hitachi-check]").forEach(cb=>{
+  const key=cb.dataset.hitachiCheck;
+  cb.checked=!!saved[key];
+  cb.addEventListener("change",()=>{
+   saved[key]=cb.checked;
+   localStorage.setItem(HITACHI_CHECK_KEY,JSON.stringify(saved));
+   const count=Object.values(saved).filter(Boolean).length;
+   const note=document.getElementById("hitachiCheckNote");
+   if(note)note.textContent=count+" / 10項目を確認済み";
+  });
+ });
+ const count=Object.values(saved).filter(Boolean).length;
+ const note=document.getElementById("hitachiCheckNote");
+ if(note)note.textContent=count+" / 10項目を確認済み";
+ updateHitachiProgressUI();
+}
+setTimeout(initHitachiChecks,0);
 
 function openSettings(){document.getElementById("nameInput").value=localStorage.getItem(NAME)||"";show("settings")}
 function saveName(){const v=document.getElementById("nameInput").value.trim();if(!v)return alert("あなたのお名前を入力してください。");localStorage.setItem(NAME,v);alert(v+"さんで保存しました。");updateHome()}
