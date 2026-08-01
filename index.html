@@ -836,11 +836,11 @@ html,body{max-width:100%;overflow-x:hidden}
       販売員が使う5テーマに絞りました。図をタップすると全体を拡大できます。
     </div>
     <div class="visual-grid">
-      <div class="visual-card"><img src="voltage-100-200.png" alt="100V・200V"><div class="visual-card-body"><h3>100V・200V</h3><p>コンセント・電圧・分電盤をセットで確認。</p><button onclick="openImageModal('voltage-100-200.png','100V・200V')">拡大して見る</button></div></div>
-      <div class="visual-card"><img src="dedicated-circuit.png" alt="専用回路"><div class="visual-card-body"><h3>専用回路</h3><p>分電盤からエアコンまで他機器と共用しない回路。</p><button onclick="openImageModal('dedicated-circuit.png','専用回路')">拡大して見る</button></div></div>
-      <div class="visual-card"><img src="distribution-board.svg" alt="分電盤" onclick="openImageModal('distribution-board.svg','分電盤')"><div class="visual-card-body"><h3>分電盤</h3><p>主幹・分岐・単相2線/3線・空き回路・専用回路を総合確認。</p><button onclick="openImageModal('distribution-board.svg','分電盤')">拡大して見る</button></div></div>
-      <div class="visual-card"><img src="cover.svg" alt="化粧カバー" onclick="openImageModal('cover.svg','化粧カバー')"><div class="visual-card-body"><h3>化粧カバー</h3><p>室内外の違い、部材構成、色・長さ・曲がり・再利用条件を確認。</p><button onclick="openImageModal('cover.svg','化粧カバー')">拡大して見る</button></div></div>
-      <div class="visual-card"><img src="concealed-piping.svg" alt="隠ぺい配管" onclick="openImageModal('concealed-piping.svg','隠ぺい配管')"><div class="visual-card-body"><h3>隠ぺい配管</h3><p>冷媒管・連絡線・ドレン・長さ・劣化・機種適合から再利用を判断。</p><button onclick="openImageModal('concealed-piping.svg','隠ぺい配管')">拡大して見る</button></div></div>
+      <div class="visual-card"><img src="construction-voltage.png" alt="100V・200V"><div class="visual-card-body"><h3>100V・200V</h3><p>コンセント・電圧・分電盤をセットで確認。</p><button onclick="openImageModal('construction-voltage.png','100V・200V')">拡大して見る</button></div></div>
+      <div class="visual-card"><img src="construction-dedicated.png" alt="専用回路"><div class="visual-card-body"><h3>専用回路</h3><p>分電盤からエアコンまで他機器と共用しない回路。</p><button onclick="openImageModal('construction-dedicated.png','専用回路')">拡大して見る</button></div></div>
+      <div class="visual-card"><img src="construction-board.png" alt="分電盤" onclick="openImageModal('construction-board.png','分電盤')"><div class="visual-card-body"><h3>分電盤</h3><p>主幹・分岐・単相2線/3線・空き回路・専用回路を総合確認。</p><button onclick="openImageModal('construction-board.png','分電盤')">拡大して見る</button></div></div>
+      <div class="visual-card"><img src="construction-cover.png" alt="化粧カバー" onclick="openImageModal('construction-cover.png','化粧カバー')"><div class="visual-card-body"><h3>化粧カバー</h3><p>室内外の違い、部材構成、色・長さ・曲がり・再利用条件を確認。</p><button onclick="openImageModal('construction-cover.png','化粧カバー')">拡大して見る</button></div></div>
+      <div class="visual-card"><img src="construction-concealed.png" alt="隠ぺい配管" onclick="openImageModal('construction-concealed.png','隠ぺい配管')"><div class="visual-card-body"><h3>隠ぺい配管</h3><p>冷媒管・連絡線・ドレン・長さ・劣化・機種適合から再利用を判断。</p><button onclick="openImageModal('construction-concealed.png','隠ぺい配管')">拡大して見る</button></div></div>
     </div>
   </div>
 </section>
@@ -1648,12 +1648,12 @@ const VISUAL_LIBRARY=[
  {category:"hitachi",file:"hitachi-swing-illustrated.png?v=415",title:"上下左右スイング",desc:"上下・左右の羽根を動かし、部屋全体へ気流を届ける仕組みを図解。"},
  {category:"hitachi",file:"hitachi-wave-fan-illustrated.png?v=414",title:"WN ウェーブファン",desc:"Xシリーズと同じファン採用、静音性向上、案内時の注意を図解。"},
  {category:"hitachi",file:"hitachi-initial-settings-illustrated.png",title:"WN 初期設定一覧",desc:"出荷時設定済み・設定確認・手動選択・アプリ設定を整理。"},
- {category:"construction",file:"voltage-100-200.png",title:"100V・200V",desc:"コンセント・電圧・分電盤をセットで確認。"},
- {category:"construction",file:"dedicated-circuit.png",title:"専用回路",desc:"分電盤からエアコンまで他機器と共用しない回路。"},
- {category:"construction",file:"distribution-board.svg",title:"分電盤",desc:"主幹・分岐・単相2線/3線・空き回路・専用回路を総合確認。"},
- {category:"construction",file:"cover.svg",title:"化粧カバー",desc:"室内外の違い、部材構成、色・長さ・曲がり・再利用条件を確認。"},
- {category:"construction",file:"concealed-piping.svg",title:"隠ぺい配管",desc:"冷媒管・連絡線・ドレン・長さ・劣化・機種適合から再利用を判断。"},
- {category:"construction",file:"multi-aircon.svg",title:"マルチエアコン",desc:"室外機1台に複数の室内機を接続。組み合わせ・配管・電源を確認。"}
+ {category:"construction",file:"construction-voltage.png",title:"100V・200V",desc:"コンセント・電圧・分電盤をセットで確認。"},
+ {category:"construction",file:"construction-dedicated.png",title:"専用回路",desc:"分電盤からエアコンまで他機器と共用しない回路。"},
+ {category:"construction",file:"construction-board.png",title:"分電盤",desc:"主幹・分岐・単相2線/3線・空き回路・専用回路を総合確認。"},
+ {category:"construction",file:"construction-cover.png",title:"化粧カバー",desc:"室内外の違い、部材構成、色・長さ・曲がり・再利用条件を確認。"},
+ {category:"construction",file:"construction-concealed.png",title:"隠ぺい配管",desc:"冷媒管・連絡線・ドレン・長さ・劣化・機種適合から再利用を判断。"},
+ {category:"construction",file:"construction-multi.png",title:"マルチエアコン",desc:"室外機1台に複数の室内機を接続。組み合わせ・配管・電源を確認。"}
  ];
 
 const VISUAL_GUIDE={
