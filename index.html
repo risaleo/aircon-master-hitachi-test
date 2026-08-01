@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.4.1.9 日立Eシリーズ省エネ基準追記</title>
+<title>エアコン販買マスター Pro Ver.4.2.0 玉ちゃん指摘反映版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -445,7 +445,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.4.1.9 日立Eシリーズ省エネ基準追記</small>
+      <small>Ver.4.2.0 玉ちゃん指摘反映版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -656,8 +656,22 @@ html,body{max-width:100%;overflow-x:hidden}
   </header>
   <div class="daikin-wrap">
     <div class="daikin-note">
-      2026年モデルを、ダイキン攻略と同じ流れで学べるように整理しています。
+      2026年モデルを、図解 → シリーズ差 → 接客トークの順で学べるように整理しています。
       搭載機能・初期設定・自動運転条件は能力帯や型番で異なるため、最終案内は該当型番のカタログ・取扱説明書で確認してください。
+    </div>
+
+    <div class="series-card" style="max-width:980px;margin:0 auto 18px">
+      <h2 style="margin-top:0">図でつかむ 日立のシリーズ構成</h2>
+      <div class="feature-steps">
+        <div><b>👑 X</b><br>清潔・空清・快適・省エネを総合したプレミアム</div>
+        <div><b>⭐ WN</b><br>Wの充実機能＋Xと同じウェーブファン</div>
+        <div><b>📏 G</b><br>奥行き25cmの薄型＋凍結洗浄・カビバスター</div>
+      </div>
+      <div class="diagram-compare" style="margin-top:10px">
+        <div class="diagram-box"><div class="diagram-title">D：ベーシック</div><p>室内外の凍結洗浄Light、カビバスター、ステンレス・クリーンを搭載。</p></div>
+        <div class="diagram-box good"><div class="diagram-title">E：省エネ基準達成ベーシック</div><p>室内外の凍結洗浄Light、ステンレス・クリーンに加え、2.2～7.1kW全機種が2027年度省エネ基準達成。</p></div>
+      </div>
+      <div class="feature-caution"><b>選び方の軸</b><br>上位ほど「清潔機能の対象範囲」「空気清浄・センサー」「再熱除湿・暖房快適機能」が広がります。価格差だけでなく、お客様が毎日使う機能差へ置き換えて説明します。</div>
     </div>
 
     <div class="series-card" style="max-width:980px;margin:0 auto 18px">
@@ -665,6 +679,7 @@ html,body{max-width:100%;overflow-x:hidden}
       <div class="diagnosis-grid">
         <button class="diagnosis-btn" onclick="showHitachiFeature('freeze')">❄️ 凍結洗浄（室内機）</button>
         <button class="diagnosis-btn" onclick="showHitachiFeature('freezeOutdoor')">🌿 凍結洗浄（室外機）</button>
+        <button class="diagnosis-btn" onclick="showHitachiFeature('heatplus')">🔥 ヒートプラス</button>
         <button class="diagnosis-btn" onclick="showHitachiFeature('fan')">🌀 ファンお掃除ロボ</button>
         <button class="diagnosis-btn" onclick="showHitachiFeature('filter')">🧹 フィルター自動掃除</button>
         <button class="diagnosis-btn" onclick="showHitachiFeature('mold')">🛡️ カビバスター</button>
@@ -683,7 +698,6 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="series-tabs">
       <button class="series-tab active" onclick="showHitachiSeries('X',this)">Xシリーズ</button>
       <button class="series-tab" onclick="showHitachiSeries('WN',this)">WNシリーズ</button>
-      <button class="series-tab" onclick="showHitachiSeries('W',this)">Wシリーズ</button>
       <button class="series-tab" onclick="showHitachiSeries('G',this)">Gシリーズ</button>
       <button class="series-tab" onclick="showHitachiSeries('D',this)">Dシリーズ</button>
       <button class="series-tab" onclick="showHitachiSeries('E',this)">Eシリーズ</button>
@@ -703,16 +717,19 @@ html,body{max-width:100%;overflow-x:hidden}
     </div>
 
     <div class="series-card" style="max-width:980px;margin:0 auto 18px">
-      <h2 style="margin-top:0">初期設定・自動運転の確認</h2>
+      <h2 style="margin-top:0">機能搭載グレード・初期設定早見表</h2>
       <div style="overflow-x:auto"><table class="compare-table">
-        <tr><th>機能</th><th>購入時</th><th>接客での確認</th></tr>
-        <tr><td>シーズン前自動点検</td><td>工場出荷時設定済み</td><td>故障予知ではなく、運転状態を自動確認する機能</td></tr>
-        <tr><td>内部送風乾燥</td><td>工場出荷時設定済み</td><td>冷房・除湿停止後に内部の水分を乾かす補助</td></tr>
-        <tr><td>カビバスター</td><td>設定確認が必要</td><td>搭載＝初期設定ONではないため設定状態を確認</td></tr>
-        <tr><td>凍結洗浄</td><td>自動運転あり</td><td>温度・運転時間など所定条件があり、毎回必ず動くわけではない</td></tr>
-        <tr><td>白くまくんアプリ</td><td>未接続</td><td>Wi‑Fi・アプリ登録・利用者設定が必要</td></tr>
-        <tr><td>カラッと除湿</td><td>手動選択</td><td>能力帯や運転モードの違いを型番で確認</td></tr>
+        <tr><th>機能</th><th>主な搭載</th><th>購入時</th><th>接客ポイント</th></tr>
+        <tr><td>室外機 凍結洗浄</td><td>X・WN（Wベース）・G・D・E</td><td><b>OFF</b></td><td>お客様自身で設定が必要。室外機周囲の清掃や放熱スペース確保は別途必要</td></tr>
+        <tr><td>凍結洗浄 ヒートプラス</td><td>X・WN（Wベース）</td><td><b>OFF</b></td><td>熱交換器を加熱してから凍結洗浄。使用したい場合は設定が必要</td></tr>
+        <tr><td>ファンお掃除ロボ</td><td>X・WN（Wベース）</td><td>自動</td><td>フィルターだけでなく、吹出し側の送風ファン先端まで掃除</td></tr>
+        <tr><td>カビバスター</td><td>X・WN（Wベース）・G・D</td><td>型番で確認</td><td>停止中も温湿度を見張り、プラズマイオンや加熱・低湿制御でカビを抑制</td></tr>
+        <tr><td>カラッと除湿</td><td>X・WN（Wベース）</td><td>手動選択</td><td>再熱方式。冷えすぎを抑えながら除湿したい方へ</td></tr>
+        <tr><td>シーズン前自動点検</td><td>X・WN・G・D・E</td><td>設定済み</td><td>故障予知ではなく、その時点の運転状態を自動確認</td></tr>
+        <tr><td>内部送風乾燥</td><td>X・WN・G・D・E</td><td>設定済み</td><td>冷房・除湿停止後の水分を乾かす補助</td></tr>
+        <tr><td>白くまくんアプリ</td><td>シリーズ・型番で確認</td><td>未接続</td><td>内蔵／別売アダプターの違い、Wi‑Fi・アプリ登録を確認</td></tr>
       </table></div>
+      <div class="feature-caution"><b>重要</b><br>「搭載している」と「購入時から有効」は別です。特に室外機の凍結洗浄とヒートプラスは工場出荷時OFFのため、設定案内まで行います。</div>
     </div>
 
     <div class="daikin-quiz">
@@ -1453,7 +1470,7 @@ function nextDaikinQuiz(){
 function finishDaikinQuiz(){
  document.getElementById("daikinQuizQuestion").textContent="シリーズミニ提案テスト終了";
  document.getElementById("daikinQuizChoices").innerHTML=
-  '<div class="result-card"><strong>'+daikinQuizScore+" / "+DAIKIN_QUIZ.length+'</strong><p>全5問が終了しました。</p></div>'+
+  '<div class="result-card"><strong>'+daikinQuizScore+" / "+DAIKIN_QUIZ.length+'</strong><p>全"+HITACHI_QUIZ.length+"問が終了しました。</p></div>'+
   '<button class="next-button" onclick="daikinQuizIndex=0;daikinQuizScore=0;renderDaikinQuiz()">もう一度挑戦</button>'+
   '<button class="next-button" onclick="show(\'home\')">ホームへ戻る</button>';
  document.getElementById("daikinQuizFeedback").classList.add("hidden");
@@ -1847,21 +1864,20 @@ function importLearningData(){
 
 
 const HITACHI_SERIES={
- X:{title:"Xシリーズ",tag:"プレミアム",summary:"日立の清潔機能・快適機能・省エネ性を総合的に比較する上位シリーズ。長時間使うリビングや、清潔性を妥協したくないお客様に提案しやすい。",suitable:["リビングで長時間使う","清潔・快適・省エネをまとめて重視","上位機能を長く使いたい","価格より使用満足度を優先"],features:["凍結洗浄やファン清掃など清潔機能を総合提案","上位シリーズとして快適性・省エネ性を比較","シリーズ内でも能力帯による搭載差を確認","WNのウェーブファン比較元になる上位シリーズ"],talk:"「熱交換器・ファン・内部の清潔維持まで含めて、日立の強みを総合的に選びたい方に向く上位シリーズです。」",caution:"すべての機能が全能力帯に共通とは限りません。型番ごとの搭載表と注記を確認します。"},
- WN:{title:"WNシリーズ",tag:"ノジマオリジナル",summary:"高さ24.8cmのスリム設計に、上位Xシリーズと同じウェーブファンを採用。清潔・除湿・静音性をまとめて提案できるノジマオリジナルモデル。",suitable:["静音性を重視","カーテンレール上など高さ制限がある","清潔機能と再熱除湿が欲しい","ノジマ独自の付加価値を求める"],features:["Xシリーズと同じウェーブファン","室内外凍結洗浄","ファンお掃除ロボ","カラッと除湿・高さ24.8cm"],talk:"「WNは、上位Xと同じウェーブファンによる静音性に加え、熱交換器とファンの清潔機能、再熱除湿まで備えたノジマオリジナルです。」",caution:"『無音』『必ず他機種より静か』とは断定せず、運転モード・風量・設置環境で変わると説明します。"},
- W:{title:"Wシリーズ",tag:"スリム高機能",summary:"高さを抑えた室内機で、設置性と日立らしい清潔機能を両立しやすいシリーズ。",suitable:["高さ制限がある","清潔機能を重視","上位機ほどの全部入りは不要","設置性と機能のバランス重視"],features:["スリム設計","凍結洗浄など清潔機能","シリーズ内の能力帯差を確認","WNとの差はウェーブファンなど独自仕様"],talk:"「設置スペースが限られていても、日立の清潔機能を比較したい方に向くシリーズです。」",caution:"WNとの違いを曖昧にせず、ノジマオリジナル仕様はウェーブファンであることを明確にします。"},
- G:{title:"Gシリーズ",tag:"薄型・清潔",summary:"本体の奥行きや設置性を意識しつつ、清潔機能を比較しやすいシリーズ。",suitable:["圧迫感を抑えたい","寝室や個室で清潔性も欲しい","設置スペースに制限がある","価格と清潔機能の両立"],features:["薄型・設置性","日立の清潔機能を比較","能力帯ごとの仕様確認","使用時間に応じ上位機も比較"],talk:"「お部屋での圧迫感を抑えながら、清潔機能も比較したい方に向くシリーズです。」",caution:"『薄いから必ず設置できる』とは限りません。左右・上部・配管取り回しを確認します。"},
- D:{title:"Dシリーズ",tag:"スタンダード",summary:"基本性能と価格のバランスを取りやすいスタンダードシリーズ。",suitable:["価格を抑えたい","寝室・子ども部屋","複雑な機能は不要","使用時間が比較的短い"],features:["基本冷暖房","シンプルな操作性","必要な清潔機能を型番で確認","上位機との差を使用時間で比較"],talk:"「基本機能を中心に、価格を抑えて選びたいお部屋に比較しやすいシリーズです。」",caution:"清潔機能の名称だけで上位シリーズと同等と誤解させないよう、搭載範囲を確認します。"},
- E:{title:"Eシリーズ",tag:"2027年度省エネ基準達成",summary:"2.2kW～7.1kWの全機種が、目標年度2027年度の省エネ基準を達成したベーシックシリーズ。基本機能・清潔機能・省エネ基準達成を分かりやすく提案できます。",suitable:["2027年度省エネ基準達成モデルを選びたい","価格と省エネ性を両立したい","寝室・子ども部屋で使いたい","基本操作と清潔機能を重視"],features:["2.2kW～7.1kW全機種が2027年度省エネ基準達成","凍結洗浄Light・ステンレス・クリーン","シーズン前自動点検・内部送風乾燥","長時間使用では期間消費電力量や上位機も比較"],talk:"「価格を抑えたベーシックモデルですが、2.2kW～7.1kWの全機種が2027年度省エネ基準を達成しています。」",caution:"省エネ基準達成＝上位シリーズより電気代が必ず安い、という意味ではありません。畳数・APF・期間消費電力量・使用時間も合わせて比較します。"}
+ X:{title:"Xシリーズ",tag:"プレミアム",summary:"日立の清潔・空気清浄・センサー・除湿・暖房快適機能を幅広く搭載した上位シリーズ。『上位だから』ではなく、下位シリーズにない機能が暮らしにどう役立つかで提案します。",suitable:["長時間使うリビングで省エネと快適性を重視","熱交換器・ファン・排水まわりまで清潔性を重視","空気清浄や人感センサーも活用したい","再熱除湿や暖房快適機能まで妥協したくない"],features:["凍結洗浄ヒートプラス＋室外機凍結洗浄で熱交換器を清潔に保つ","ファンお掃除ロボに加え、Xは排水トレーまで清潔対象が広い","Premiumプラズマ空清・人感センサーなど下位シリーズにない機能を搭載","カラッと除湿や暖房快適機能を含め、長時間使用時の満足度を比較"],talk:"「Xは清潔機能の対象範囲が広く、空気清浄・センサー・再熱除湿・暖房快適機能まで含めて選べる日立のプレミアムモデルです。」",caution:"必要のない機能まで『上位だから安心』とまとめず、空清・センサー・排水トレー洗浄・暖房機能など、お客様が使う機能と価格差を一つずつ照合します。室外機凍結洗浄とヒートプラスは工場出荷時OFFです。"},
+ WN:{title:"WNシリーズ（Wベース）",tag:"ノジマオリジナル",summary:"Wシリーズのスリム設計と充実した清潔・除湿機能をベースに、上位Xシリーズと同じウェーブファンを採用して静音性を高めたノジマオリジナルモデル。",suitable:["高さ24.8cmのスリム設計が必要","室内外凍結洗浄・ファン掃除・カビ対策を重視","冷えすぎにくい再熱除湿を使いたい","Wの機能に加えて静音性も選ぶ理由にしたい"],features:["Wベース：凍結洗浄ヒートプラス・室外機凍結洗浄","Wベース：ファンお掃除ロボ・カビバスター・カラッと除湿","WN独自：上位Xシリーズと同じウェーブファンを採用","高さ24.8cmのスリム設計で設置性と機能を両立"],talk:"「WNはWシリーズの清潔機能と再熱除湿をベースに、ノジマオリジナルとして上位Xと同じウェーブファンを採用し、静音性を高めています。」",caution:"再熱除湿や凍結洗浄はWシリーズ由来のベース機能です。ノジマオリジナルの優位性はウェーブファンであることを分けて説明します。室外機凍結洗浄とヒートプラスは工場出荷時OFFです。"},
+ G:{title:"Gシリーズ",tag:"薄型モデル",summary:"奥行き25cmの薄型ボディに、室内外の凍結洗浄Light・カビバスター・ステンレス・クリーン システムを搭載。設置性だけでなく、具体的な清潔機能で比較できます。",suitable:["室内機の出っ張りを抑えたい","寝室や個室でもカビ対策を重視","再熱除湿やファン掃除までは不要","薄型と清潔機能のバランスを取りたい"],features:["奥行き25cmの薄型設計","室内機・室外機の凍結洗浄Light","カビバスター＋ステンレス・クリーン システム","3モード除湿・白くまくんアプリ対応を型番で確認"],talk:"「Gは奥行き25cmの薄型ですが、室内外の凍結洗浄とカビバスターまで備えているので、設置性と清潔性を両立できます。」",caution:"ファンお掃除ロボやカラッと除湿はWN・Xとの主な差です。薄型でも必要据付寸法、カーテンレール、配管取り回しを確認します。"},
+ D:{title:"Dシリーズ",tag:"ベーシック",summary:"価格を抑えながら、室内外の凍結洗浄Light・カビバスター・ステンレス・クリーンを搭載した、クリーン機能充実のベーシックモデル。",suitable:["価格を抑えつつカビ対策も欲しい","寝室・子ども部屋で基本機能を重視","ファン自動掃除や再熱除湿までは不要","シンプル操作と清潔機能を両立したい"],features:["室内機・室外機の凍結洗浄Light","カビバスター","ステンレス・クリーン","ソフト除湿・上下左右風向コントロール"],talk:"「Dはベーシックモデルですが、室内外の凍結洗浄とカビバスターまで搭載しているのがEとの大きな違いです。」",caution:"ファンお掃除ロボ・カラッと除湿は非搭載。清潔機能の名称が似ていても、X・WNとは洗浄対象や除湿方式が異なります。"},
+ E:{title:"Eシリーズ",tag:"2027年度省エネ基準達成ベーシック",summary:"室内外の凍結洗浄Lightとステンレス・クリーンを備え、2.2kW～7.1kW全機種が目標年度2027年度の省エネ基準を達成したベーシックモデル。",suitable:["2027年度省エネ基準達成モデルを選びたい","価格と基本的な清潔機能を両立したい","寝室・子ども部屋で使いたい","カビバスターや再熱除湿までは不要"],features:["2.2kW～7.1kW全機種が2027年度省エネ基準達成","室内機・室外機の凍結洗浄Light","ステンレス・クリーン","シーズン前自動点検・内部送風乾燥・ソフト除湿"],talk:"「Eはベーシックモデルで、室内外の凍結洗浄を備えながら、全能力帯で2027年度省エネ基準を達成しています。」",caution:"Dと同じベーシックでも、Eはカビバスター非搭載、Dはカビバスター搭載という違いがあります。省エネ基準達成＝上位機より必ず電気代が安い、ではありません。"}
 };
 
 const HITACHI_QUIZ=[
- {q:"清潔・快適・省エネを総合的に重視するリビングのお客様。最初に比較したいシリーズは？",choices:["Xシリーズ","Eシリーズ","Dシリーズ","価格だけでWNシリーズ"],answer:0,ex:"日立の上位機能を総合比較する場合は、まずXシリーズが基準になります。"},
- {q:"高さ制限があり、静音性と清潔機能、再熱除湿も重視。ノジマ独自モデルとして適切なのは？",choices:["WNシリーズ","Wシリーズだけ","Eシリーズ","Dシリーズ"],answer:0,ex:"WNは高さ24.8cmに加え、Xと同じウェーブファンを採用したノジマオリジナルです。"},
- {q:"WNシリーズの独自訴求として最も適切なのは？",choices:["Xシリーズと同じウェーブファンによる静音性","すべての汚れを完全除去","絶対にカビない","無音運転"],answer:0,ex:"独自訴求はウェーブファン。効果は静音性向上として説明し、断定表現は避けます。"},
- {q:"カビバスター搭載機を案内するとき、最も適切なのは？",choices:["初期設定状態も確認する","搭載なら必ず最初からON","掃除は不要と説明する","絶対にカビないと説明する"],answer:0,ex:"搭載と初期設定ONは別です。設定状態と作動条件を確認します。"},
- {q:"寝室用で価格と基本機能を優先するお客様への対応は？",choices:["D・Eを軸に使用時間や上位機との差も比較","必ずXを勧める","WNだけを勧める","価格だけ説明して設置条件は聞かない"],answer:0,ex:"D・Eを軸にしつつ、使用時間・設置条件・上位機との差を確認します。"},
- {q:"2026年モデルの日立Eシリーズについて、最も適切な説明は？",choices:["2.2kW～7.1kW全機種が2027年度省エネ基準を達成","すべて上位Xシリーズより電気代が安い","省エネ基準達成は一部能力だけ","清潔機能は一切搭載していない"],answer:0,ex:"Eシリーズは2.2kW～7.1kWの全機種が目標年度2027年度の省エネ基準を達成しています。ただし、実際の電気代はAPF・期間消費電力量・使用条件も含めて比較します。"}
+ {q:"Xシリーズを下位シリーズと比較する際、最も適切な説明は？",choices:["空清・センサー・排水まわりの清潔・再熱除湿など、追加機能が生活にどう役立つか説明する","上位機能を長く使えるとだけ説明する","価格が高いので性能もすべて高いと説明する","機能が多いため詳細説明は省略する"],answer:0,ex:"Xは上位という名称だけでなく、Premiumプラズマ空清、人感センサー、排水トレーの清潔機能、カラッと除湿など、下位との具体的な搭載差をお客様の使い方へ結び付けます。"},
+ {q:"WNシリーズの説明として最も適切なのは？",choices:["Wの清潔・再熱除湿機能をベースに、Xと同じウェーブファンを追加したノジマオリジナル","カラッと除湿と凍結洗浄がWNだけのオリジナル機能","Wとは無関係の完全な専用設計","ウェーブファンにより無音運転ができる"],answer:0,ex:"WNはWシリーズのベース機能と、ノジマオリジナルのウェーブファンを分けて説明します。"},
+ {q:"カビバスターの機能説明として最も適切なのは？",choices:["停止中も内部の温湿度を見張り、プラズマイオンや加熱・低湿制御でカビの増殖を抑える","冷房停止後だけ送風して水分を乾かす機能","熱交換器を凍らせて汚れを洗い流す機能","フィルターのホコリをダストボックスへ集める機能"],answer:0,ex:"カビバスターは停止中も内部環境を監視し、必要に応じて制御してカビを抑制する機能です。初期設定は補足として案内します。"},
+ {q:"DシリーズとEシリーズの違いとして適切なのは？",choices:["どちらもベーシックだが、Dはカビバスター搭載、Eは2027年度省エネ基準を全能力帯で達成","Dだけが凍結洗浄を搭載","Eだけがカラッと除湿を搭載","Dはプレミアム、Eはスタンダード"],answer:0,ex:"D・Eはともにベーシックとして統一し、Dはカビバスター、Eは2027年度省エネ基準達成を主な違いとして整理します。"},
+ {q:"室外機の凍結洗浄とヒートプラスの案内で重要な点は？",choices:["工場出荷時OFFのため、使うにはお客様自身の設定が必要","搭載機は購入直後から必ず自動で作動","設定変更は工事業者しかできない","どのシリーズにもヒートプラスが搭載されている"],answer:0,ex:"室外機凍結洗浄とヒートプラスは、搭載機でも工場出荷時OFFです。対象シリーズ確認と設定案内まで行います。"},
+ {q:"Gシリーズの具体的な提案ポイントとして適切なのは？",choices:["奥行き25cmの薄型に、室内外凍結洗浄Light・カビバスター・ステンレスクリーンを搭載","ファンお掃除ロボとカラッと除湿を搭載","2027年度省エネ基準を全能力帯で達成","Xと同じウェーブファンを搭載"],answer:0,ex:"Gは『薄型・清潔』を抽象的に言うのではなく、奥行き25cm、室内外凍結洗浄、カビバスターなど具体的に説明します。"}
 ];
 
 let hitachiQuizIndex=0,hitachiQuizAnswered=false,hitachiQuizScore=0;
@@ -1884,10 +1900,10 @@ function showHitachiSeries(key,button){
  '<div class="series-card"><h3>主な提案ポイント</h3><ul>'+s.features.map(x=>"<li>"+x+"</li>").join("")+'</ul></div>'+ 
  '<div class="series-card"><h3>接客トーク例</h3><p>'+s.talk+'</p></div>'+ 
  '<div class="series-card"><h3>注意点</h3><p>'+s.caution+'</p></div></div>'+ 
- '<div class="series-card" style="margin-top:14px"><h3>X・WN・W・G・D・Eの位置づけ</h3><table class="compare-table"><tr><th>シリーズ</th><th>提案の軸</th><th>向きやすい使い方</th></tr><tr><td>X</td><td>清潔・快適・省エネの上位</td><td>長時間使うリビング</td></tr><tr><td>WN</td><td>ノジマ独自・静音・スリム</td><td>高さ制限＋清潔＋再熱除湿</td></tr><tr><td>W</td><td>スリム高機能</td><td>設置性と機能の両立</td></tr><tr><td>G</td><td>薄型・清潔</td><td>圧迫感を抑えたい個室</td></tr><tr><td>D</td><td>スタンダード</td><td>寝室・子ども部屋</td></tr><tr><td>E</td><td>ベーシック</td><td>価格・基本機能重視</td></tr></table></div>';
+ '<div class="series-card" style="margin-top:14px"><h3>X・WN・G・D・Eの位置づけ</h3><table class="compare-table"><tr><th>シリーズ</th><th>具体的な強み</th><th>下位・上位との主な差</th></tr><tr><td>X</td><td>空清・センサー・清潔対象・再熱除湿まで充実</td><td>日立機能を総合搭載</td></tr><tr><td>WN</td><td>Wの充実機能＋Xと同じウェーブファン</td><td>ノジマ独自の静音性</td></tr><tr><td>G</td><td>奥行き25cm＋室内外凍結洗浄＋カビバスター</td><td>ファン掃除・再熱除湿はWN以上</td></tr><tr><td>D</td><td>ベーシック＋カビバスター</td><td>Eよりカビ対策が充実</td></tr><tr><td>E</td><td>ベーシック＋2027年度省エネ基準達成</td><td>基本清潔機能と省エネ基準</td></tr></table></div>';
 }
 function diagnoseHitachi(type){
- const result={premium:"<b>おすすめ候補：Xシリーズ</b><br>清潔・快適・省エネを総合比較します。",nozima:"<b>おすすめ候補：WNシリーズ</b><br>Xと同じウェーブファンによる静音性と、ノジマ独自価値を提案します。",slim:"<b>おすすめ候補：WN・W・Gシリーズ</b><br>高さ・奥行き・必要据付寸法を確認して比較します。",simple:"<b>おすすめ候補：D・Eシリーズ</b><br>寝室などで基本機能と価格を重視する場合に比較しやすいです。"}[type];
+ const result={premium:"<b>おすすめ候補：Xシリーズ</b><br>清潔・快適・省エネを総合比較します。",nozima:"<b>おすすめ候補：WNシリーズ</b><br>Xと同じウェーブファンによる静音性と、ノジマ独自価値を提案します。",slim:"<b>おすすめ候補：WN・Gシリーズ</b><br>WNは高さ24.8cm、Gは奥行き25cm。必要据付寸法を確認して比較します。",simple:"<b>おすすめ候補：D・Eシリーズ</b><br>寝室などで基本機能と価格を重視する場合に比較しやすいです。"}[type];
  const box=document.getElementById("hitachiDiagnosisResult");box.innerHTML=result+"<br><small>最終判断は部屋条件・使用時間・予算・該当型番の仕様で行います。</small>";box.classList.remove("hidden");
 }
 function renderHitachiQuiz(){
@@ -1901,16 +1917,20 @@ function answerHitachiQuiz(index,button){
  if(hitachiQuizAnswered)return;hitachiQuizAnswered=true;const q=HITACHI_QUIZ[hitachiQuizIndex%HITACHI_QUIZ.length];const ok=index===q.answer,buttons=[...document.querySelectorAll("#hitachiQuizChoices .choice")];if(ok)hitachiQuizScore++;buttons.forEach(b=>b.disabled=true);button.classList.add(ok?"correct":"wrong");if(!ok){const right=buttons.find(b=>Number(b.dataset.originalIndex)===q.answer);if(right)right.classList.add("correct");}const f=document.getElementById("hitachiQuizFeedback");f.innerHTML="<b>"+(ok?"⭕ 正解":"❌ 不正解")+"</b><br>"+q.ex;f.classList.remove("hidden");document.getElementById("hitachiQuizNext").classList.remove("hidden");
 }
 function nextHitachiQuiz(){if(hitachiQuizIndex>=HITACHI_QUIZ.length-1){finishHitachiQuiz();return;}hitachiQuizIndex++;renderHitachiQuiz();}
-function finishHitachiQuiz(){document.getElementById("hitachiQuizQuestion").textContent="シリーズミニ提案テスト終了";document.getElementById("hitachiQuizChoices").innerHTML='<div class="result-card"><strong>'+hitachiQuizScore+" / "+HITACHI_QUIZ.length+'</strong><p>全5問が終了しました。</p></div><button class="next-button" onclick="hitachiQuizIndex=0;hitachiQuizScore=0;renderHitachiQuiz()">もう一度挑戦</button><button class="next-button" onclick="show(\'home\')">ホームへ戻る</button>';document.getElementById("hitachiQuizFeedback").classList.add("hidden");document.getElementById("hitachiQuizNext").classList.add("hidden");}
+function finishHitachiQuiz(){document.getElementById("hitachiQuizQuestion").textContent="シリーズミニ提案テスト終了";document.getElementById("hitachiQuizChoices").innerHTML='<div class="result-card"><strong>'+hitachiQuizScore+" / "+HITACHI_QUIZ.length+'</strong><p>全"+HITACHI_QUIZ.length+"問が終了しました。</p></div><button class="next-button" onclick="hitachiQuizIndex=0;hitachiQuizScore=0;renderHitachiQuiz()">もう一度挑戦</button><button class="next-button" onclick="show(\'home\')">ホームへ戻る</button>';document.getElementById("hitachiQuizFeedback").classList.add("hidden");document.getElementById("hitachiQuizNext").classList.add("hidden");}
 
 const HITACHI_FEATURES={
  freeze:{title:"❄️ 凍結洗浄（室内機）",lead:"熱交換器を凍らせて霜に汚れを取り込み、解凍水と一緒に洗い流す日立の代表的な清潔機能です。",html:`
   <div class='diagram-box good'><div class='diagram-title'>洗浄の3段階</div><div class='feature-steps'><div><b>1. 凍結</b><br>熱交換器に霜を付ける</div><div><b>2. 捕集</b><br>霜へホコリや汚れを取り込む</div><div><b>3. 解凍・排水</b><br>一気に溶かしてドレンへ流す</div></div></div>
   <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>得意なこと</div><p>フィルターの奥にある熱交換器を自動でケア。汚れによる能力低下を抑える助けになります。</p></div><div class='diagram-box'><div class='diagram-title'>限界</div><p>油汚れ・固着汚れ・すべてのカビを完全に除去する機能ではありません。</p></div></div>
   <div class='feature-caution'><b>作動条件</b><br>温度・湿度・累積運転時間などの条件があり、停止のたびに必ず作動するわけではありません。</div>`,talk:"『フィルターでは届かない熱交換器を、凍らせて洗い流すのが日立の凍結洗浄です。』",caution:"『完全にきれいになる』『業者清掃が不要』とは案内しません。作動条件と対象部位を明確にします。"},
- freezeOutdoor:{title:"🌿 凍結洗浄（室外機）",lead:"屋外の熱交換器に付着したホコリなどを凍結・解凍で洗い流し、放熱しやすい状態を保つための機能です。",html:`
+ freezeOutdoor:{title:"🌿 凍結洗浄（室外機）",lead:"屋外の熱交換器に付着した小さなホコリを凍結・解凍で洗い流し、目詰まりによる性能低下を抑える機能です。工場出荷時はOFFです。",html:`
   <div class='feature-steps'><div><b>屋外の汚れ</b><br>砂ぼこり・土・落ち葉など</div><div><b>凍結・解凍</b><br>熱交換器の汚れを洗い流す</div><div><b>放熱を支える</b><br>能力低下を抑える助け</div></div>
-  <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>室内機との違い</div><p>室内機は空気中のホコリや内部汚れ、室外機は屋外環境による汚れが主な対象です。</p></div><div class='diagram-box'><div class='diagram-title'>設置環境も重要</div><p>吹出口をふさがない、周囲の落ち葉や物を取り除くなど、放熱スペースの確保は別に必要です。</p></div></div>`,talk:"『外にある室外機の熱交換器も自動で洗い、放熱効率の低下を抑える工夫があります。』",caution:"室外機周囲の清掃や設置スペースの確保まで不要になる機能ではありません。"},
+  <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>室内機との違い</div><p>室内機は空気中のホコリや内部汚れ、室外機は屋外環境による汚れが主な対象です。</p></div><div class='diagram-box'><div class='diagram-title'>設置環境も重要</div><p>吹出口をふさがない、周囲の落ち葉や物を取り除くなど、放熱スペースの確保は別に必要です。</p></div></div>  <div class='feature-caution'><b>初期設定</b><br>工場出荷時OFFのため、お客様ご自身による設定が必要です。</div>`,talk:"『外にある室外機の熱交換器も洗浄できます。購入時はOFFなので、使う場合は設定までご案内します。』",caution:"室外機周囲の清掃や設置スペースの確保まで不要になる機能ではありません。"},
+ heatplus:{title:"🔥 凍結洗浄 ヒートプラス",lead:"熱交換器を加熱して油分を軟化させ、凍結洗浄で汚れを洗い流しやすくする上位清潔機能です。",html:`
+  <div class='feature-steps'><div><b>1. 加熱</b><br>熱交換器を温めて油分を軟化</div><div><b>2. 凍結</b><br>霜に汚れを取り込む</div><div><b>3. 解凍・排水</b><br>溶かして洗い流す</div></div>
+  <div class='diagram-compare'><div class='diagram-box good'><div class='diagram-title'>主な搭載</div><p>X・WN（Wベース）で比較する機能。</p></div><div class='diagram-box'><div class='diagram-title'>購入時</div><p><b>工場出荷時OFF</b>。使用するにはお客様自身で設定が必要です。</p></div></div>
+  <div class='feature-caution'><b>通常の凍結洗浄との違い</b><br>洗浄前に熱交換器を加熱する工程を加え、油分を含む汚れへの清潔性を高めます。</div>`,talk:"『上位モデルは、凍らせる前に熱交換器を温めるヒートプラスで、油分を含む汚れも洗い流しやすくします。』",caution:"工場出荷時OFFです。完全に油汚れを除去する機能ではなく、対象型番と設定方法を確認します。"},
  fan:{title:"🌀 ファンお掃除ロボ",lead:"風を送り出す送風ファンの先端をブラシで掃除する機能。一般的なフィルター自動掃除より奥の部位まで対象にします。",html:`
   <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>フィルター自動掃除</div><p><b>吸込み口</b>のフィルターに付いたホコリを掃除。</p></div><div class='diagram-box good'><div class='diagram-title'>ファンお掃除ロボ</div><p><b>吹出し側</b>の送風ファン先端に付いたホコリをブラシで掃除。</p></div></div>
   <div class='feature-steps'><div><b>ファンを動かす</b></div><div><b>ブラシで清掃</b></div><div><b>落としたホコリを処理</b></div></div>
@@ -1918,9 +1938,10 @@ const HITACHI_FEATURES={
  filter:{title:"🧹 フィルター自動掃除",lead:"吸込み口のフィルターに付着したホコリをブラシで取り、ダストボックスへ集める機能です。",html:`
   <div class='feature-steps'><div><b>フィルター移動</b></div><div><b>ブラシでホコリ除去</b></div><div><b>ダストボックスへ回収</b></div></div>
   <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>減らせる手間</div><p>頻繁なフィルター掃除の負担を軽減します。</p></div><div class='diagram-box'><div class='diagram-title'>残る手入れ</div><p>ダストボックスのゴミ捨て、ブラシやフィルターの定期確認は必要です。</p></div></div>`,talk:"『日常のフィルター掃除を自動化し、お手入れの頻度を減らせます。』",caution:"掃除不要ではありません。ゴミ捨て時期と手入れ方法を取扱説明書で確認します。"},
- mold:{title:"🛡️ カビバスター",lead:"停止中も内部の温度・湿度を見張り、条件に応じて加熱・低湿制御などを行い、カビの増殖を抑制します。",html:`
-  <div class='feature-steps'><div><b>停止中も監視</b><br>内部の温度・湿度を確認</div><div><b>必要時に制御</b><br>加熱・低湿化など</div><div><b>カビを抑制</b><br>発生しにくい状態へ</div></div>
-  <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>カビバスター</div><p>停止中も継続的に内部環境を見張る考え方。</p></div><div class='diagram-box'><div class='diagram-title'>内部送風乾燥</div><p>冷房・除湿運転の停止後に、残った水分を乾かす運転。</p></div></div>`,talk:"『運転後に乾かすだけでなく、使っていない時間も内部を見張ってカビを抑えます。』",caution:"初期設定状態を確認し、『絶対にカビない』とは説明しません。"},
+ mold:{title:"🛡️ カビバスター",lead:"運転中だけでなく停止中も24時間365日エアコン内部を見張り、カビが成長しやすい環境になると、プラズマイオンの充満や加熱・低湿制御を行ってカビの増殖を抑制する機能です。",html:`
+  <div class='feature-steps'><div><b>1. 内部を見張る</b><br>停止中も温度・湿度を監視</div><div><b>2. 必要時に働く</b><br>プラズマイオン・加熱・低湿制御</div><div><b>3. カビを抑制</b><br>成長しにくい内部環境へ</div></div>
+  <div class='diagram-compare'><div class='diagram-box good'><div class='diagram-title'>カビバスター</div><p>停止中も内部環境を継続監視し、カビの増殖を抑える。</p></div><div class='diagram-box'><div class='diagram-title'>内部送風乾燥</div><p>冷房・除湿停止後に残った水分を乾かす。働くタイミングと役割が違う。</p></div></div>
+  <div class='feature-caution'><b>接客の中心</b><br>まず「停止中も見張ってカビを抑制する機能」と説明します。初期設定は、その機能を使い切るための補足確認です。</div>`,talk:"『冷房後に乾かすだけでなく、使っていない時間も内部を見張り、必要に応じて制御してカビの増殖を抑えます。』",caution:"カビを完全除去したり、絶対に発生させない機能ではありません。搭載シリーズと設定状態は説明後に補足確認します。"},
  drying:{title:"🌬️ 内部送風乾燥",lead:"冷房・除湿後に熱交換器や通風路へ残った水分を、送風などで乾かして内部の湿気を減らす機能です。",html:`
   <div class='feature-steps'><div><b>冷房・除湿停止</b></div><div><b>内部に水分が残る</b></div><div><b>送風で乾燥</b></div></div>
   <div class='feature-caution'><b>カビバスターとの違い</b><br>内部送風乾燥は運転直後の水分対策、カビバスターは停止中の温湿度監視を含む継続的な抑制機能です。</div>`,talk:"『冷房後に内部を乾かすことで、湿ったまま放置しにくくします。』",caution:"乾燥運転中に送風音や室温変化を感じることがあります。完全乾燥を保証する機能ではありません。"},
