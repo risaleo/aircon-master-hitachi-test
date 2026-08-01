@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.4.2.0 玉ちゃん指摘反映版</title>
+<title>エアコン販買マスター Pro Ver.4.2.3 日立シリーズカード統一版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -430,6 +430,48 @@ html,body{max-width:100%;overflow-x:hidden}
  .modal-visual-title{margin-left:8px;margin-right:50px}
  .modal-detail-section,.modal-learning .quick-box{padding:12px}
 }
+
+
+.hitachi-series-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:10px;
+  margin:12px 0;
+}
+.hitachi-series-card{
+  min-height:190px;
+  padding:14px;
+  border-radius:16px;
+  border:1px solid #d9e4ec;
+  background:#f8fbfd;
+  display:flex;
+  flex-direction:column;
+  box-sizing:border-box;
+}
+.hitachi-series-card.premium{background:#fff8e8;border-color:#edcf76}
+.hitachi-series-card.original{background:#fff1ef;border-color:#eda39c}
+.hitachi-series-card.slim{background:#f3efff;border-color:#b9a6eb}
+.hitachi-series-card.standard{background:#eef6ff;border-color:#9fc4eb}
+.hitachi-series-card.energy{background:#edf9f0;border-color:#94c99e}
+.hitachi-series-title{font-weight:900;font-size:17px;line-height:1.35}
+.hitachi-series-label{
+  display:inline-block;
+  align-self:flex-start;
+  margin:7px 0 8px;
+  padding:3px 8px;
+  border-radius:999px;
+  background:rgba(255,255,255,.8);
+  font-weight:800;
+  font-size:12px;
+}
+.hitachi-series-card p{margin:0 0 8px;line-height:1.55;font-size:14px;flex:1}
+.hitachi-series-card small{font-size:12px;line-height:1.5;color:#48606f;font-weight:700}
+@media(max-width:760px){
+  .hitachi-series-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hitachi-series-card{min-height:210px;padding:12px}
+  .hitachi-series-card.energy{grid-column:1 / -1;min-height:150px}
+}
+
 </style>
 <link rel="manifest" href="manifest.webmanifest?v=3890">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -445,7 +487,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.4.2.0 玉ちゃん指摘反映版</small>
+      <small>Ver.4.2.3 日立シリーズカード統一版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -662,16 +704,39 @@ html,body{max-width:100%;overflow-x:hidden}
 
     <div class="series-card" style="max-width:980px;margin:0 auto 18px">
       <h2 style="margin-top:0">図でつかむ 日立のシリーズ構成</h2>
-      <div class="feature-steps">
-        <div><b>👑 X</b><br>清潔・空清・快適・省エネを総合したプレミアム</div>
-        <div><b>⭐ WN</b><br>Wの充実機能＋Xと同じウェーブファン</div>
-        <div><b>📏 G</b><br>奥行き25cmの薄型＋凍結洗浄・カビバスター</div>
+      <div class="hitachi-series-grid">
+        <div class="hitachi-series-card premium">
+          <div class="hitachi-series-title">👑 Xシリーズ</div>
+          <div class="hitachi-series-label">プレミアム</div>
+          <p>清潔・空気清浄・快適制御・省エネを総合的に重視する上位モデル。</p>
+          <small>提案軸：機能を妥協せず、長時間快適に使いたい方</small>
+        </div>
+        <div class="hitachi-series-card original">
+          <div class="hitachi-series-title">⭐ WNシリーズ</div>
+          <div class="hitachi-series-label">ノジマオリジナル</div>
+          <p>Wシリーズの清潔・除湿機能をベースに、Xと同じウェーブファンを採用。</p>
+          <small>提案軸：清潔性・設置性・静音性のバランス</small>
+        </div>
+        <div class="hitachi-series-card slim">
+          <div class="hitachi-series-title">📏 Gシリーズ</div>
+          <div class="hitachi-series-label">薄型ハイグレード</div>
+          <p>奥行き25cmの薄型設計。凍結洗浄やカビバスターなど清潔機能も搭載。</p>
+          <small>提案軸：設置性を優先しながら清潔機能も欲しい方</small>
+        </div>
+        <div class="hitachi-series-card standard">
+          <div class="hitachi-series-title">🔷 Dシリーズ</div>
+          <div class="hitachi-series-label">スタンダード</div>
+          <p>室内外の凍結洗浄Light、カビバスター、ステンレス・クリーンを搭載。</p>
+          <small>提案軸：基本性能と日立らしい清潔機能を重視</small>
+        </div>
+        <div class="hitachi-series-card energy">
+          <div class="hitachi-series-title">🟢 Eシリーズ</div>
+          <div class="hitachi-series-label">省エネ基準達成スタンダード</div>
+          <p>2.2～7.1kW全機種が2027年度省エネ基準を達成。基本清潔機能も備える。</p>
+          <small>提案軸：価格と省エネ基準達成を重視</small>
+        </div>
       </div>
-      <div class="diagram-compare" style="margin-top:10px">
-        <div class="diagram-box"><div class="diagram-title">D：ベーシック</div><p>室内外の凍結洗浄Light、カビバスター、ステンレス・クリーンを搭載。</p></div>
-        <div class="diagram-box good"><div class="diagram-title">E：省エネ基準達成ベーシック</div><p>室内外の凍結洗浄Light、ステンレス・クリーンに加え、2.2～7.1kW全機種が2027年度省エネ基準達成。</p></div>
-      </div>
-      <div class="feature-caution"><b>選び方の軸</b><br>上位ほど「清潔機能の対象範囲」「空気清浄・センサー」「再熱除湿・暖房快適機能」が広がります。価格差だけでなく、お客様が毎日使う機能差へ置き換えて説明します。</div>
+      <div class="feature-caution"><b>選び方の軸</b><br>シリーズ名だけで上下を決めず、清潔機能の範囲、空気清浄・センサー、再熱除湿、暖房快適機能、省エネ性の違いをお客様の使い方に結び付けて説明します。</div>
     </div>
 
     <div class="series-card" style="max-width:980px;margin:0 auto 18px">
@@ -1867,15 +1932,15 @@ const HITACHI_SERIES={
  X:{title:"Xシリーズ",tag:"プレミアム",summary:"日立の清潔・空気清浄・センサー・除湿・暖房快適機能を幅広く搭載した上位シリーズ。『上位だから』ではなく、下位シリーズにない機能が暮らしにどう役立つかで提案します。",suitable:["長時間使うリビングで省エネと快適性を重視","熱交換器・ファン・排水まわりまで清潔性を重視","空気清浄や人感センサーも活用したい","再熱除湿や暖房快適機能まで妥協したくない"],features:["凍結洗浄ヒートプラス＋室外機凍結洗浄で熱交換器を清潔に保つ","ファンお掃除ロボに加え、Xは排水トレーまで清潔対象が広い","Premiumプラズマ空清・人感センサーなど下位シリーズにない機能を搭載","カラッと除湿や暖房快適機能を含め、長時間使用時の満足度を比較"],talk:"「Xは清潔機能の対象範囲が広く、空気清浄・センサー・再熱除湿・暖房快適機能まで含めて選べる日立のプレミアムモデルです。」",caution:"必要のない機能まで『上位だから安心』とまとめず、空清・センサー・排水トレー洗浄・暖房機能など、お客様が使う機能と価格差を一つずつ照合します。室外機凍結洗浄とヒートプラスは工場出荷時OFFです。"},
  WN:{title:"WNシリーズ（Wベース）",tag:"ノジマオリジナル",summary:"Wシリーズのスリム設計と充実した清潔・除湿機能をベースに、上位Xシリーズと同じウェーブファンを採用して静音性を高めたノジマオリジナルモデル。",suitable:["高さ24.8cmのスリム設計が必要","室内外凍結洗浄・ファン掃除・カビ対策を重視","冷えすぎにくい再熱除湿を使いたい","Wの機能に加えて静音性も選ぶ理由にしたい"],features:["Wベース：凍結洗浄ヒートプラス・室外機凍結洗浄","Wベース：ファンお掃除ロボ・カビバスター・カラッと除湿","WN独自：上位Xシリーズと同じウェーブファンを採用","高さ24.8cmのスリム設計で設置性と機能を両立"],talk:"「WNはWシリーズの清潔機能と再熱除湿をベースに、ノジマオリジナルとして上位Xと同じウェーブファンを採用し、静音性を高めています。」",caution:"再熱除湿や凍結洗浄はWシリーズ由来のベース機能です。ノジマオリジナルの優位性はウェーブファンであることを分けて説明します。室外機凍結洗浄とヒートプラスは工場出荷時OFFです。"},
  G:{title:"Gシリーズ",tag:"薄型モデル",summary:"奥行き25cmの薄型ボディに、室内外の凍結洗浄Light・カビバスター・ステンレス・クリーン システムを搭載。設置性だけでなく、具体的な清潔機能で比較できます。",suitable:["室内機の出っ張りを抑えたい","寝室や個室でもカビ対策を重視","再熱除湿やファン掃除までは不要","薄型と清潔機能のバランスを取りたい"],features:["奥行き25cmの薄型設計","室内機・室外機の凍結洗浄Light","カビバスター＋ステンレス・クリーン システム","3モード除湿・白くまくんアプリ対応を型番で確認"],talk:"「Gは奥行き25cmの薄型ですが、室内外の凍結洗浄とカビバスターまで備えているので、設置性と清潔性を両立できます。」",caution:"ファンお掃除ロボやカラッと除湿はWN・Xとの主な差です。薄型でも必要据付寸法、カーテンレール、配管取り回しを確認します。"},
- D:{title:"Dシリーズ",tag:"ベーシック",summary:"価格を抑えながら、室内外の凍結洗浄Light・カビバスター・ステンレス・クリーンを搭載した、クリーン機能充実のベーシックモデル。",suitable:["価格を抑えつつカビ対策も欲しい","寝室・子ども部屋で基本機能を重視","ファン自動掃除や再熱除湿までは不要","シンプル操作と清潔機能を両立したい"],features:["室内機・室外機の凍結洗浄Light","カビバスター","ステンレス・クリーン","ソフト除湿・上下左右風向コントロール"],talk:"「Dはベーシックモデルですが、室内外の凍結洗浄とカビバスターまで搭載しているのがEとの大きな違いです。」",caution:"ファンお掃除ロボ・カラッと除湿は非搭載。清潔機能の名称が似ていても、X・WNとは洗浄対象や除湿方式が異なります。"},
- E:{title:"Eシリーズ",tag:"2027年度省エネ基準達成ベーシック",summary:"室内外の凍結洗浄Lightとステンレス・クリーンを備え、2.2kW～7.1kW全機種が目標年度2027年度の省エネ基準を達成したベーシックモデル。",suitable:["2027年度省エネ基準達成モデルを選びたい","価格と基本的な清潔機能を両立したい","寝室・子ども部屋で使いたい","カビバスターや再熱除湿までは不要"],features:["2.2kW～7.1kW全機種が2027年度省エネ基準達成","室内機・室外機の凍結洗浄Light","ステンレス・クリーン","シーズン前自動点検・内部送風乾燥・ソフト除湿"],talk:"「Eはベーシックモデルで、室内外の凍結洗浄を備えながら、全能力帯で2027年度省エネ基準を達成しています。」",caution:"Dと同じベーシックでも、Eはカビバスター非搭載、Dはカビバスター搭載という違いがあります。省エネ基準達成＝上位機より必ず電気代が安い、ではありません。"}
+ D:{title:"Dシリーズ",tag:"スタンダード",summary:"価格を抑えながら、室内外の凍結洗浄Light・カビバスター・ステンレス・クリーンを搭載した、クリーン機能充実のスタンダードモデル。",suitable:["価格を抑えつつカビ対策も欲しい","寝室・子ども部屋で基本機能を重視","ファン自動掃除や再熱除湿までは不要","シンプル操作と清潔機能を両立したい"],features:["室内機・室外機の凍結洗浄Light","カビバスター","ステンレス・クリーン","ソフト除湿・上下左右風向コントロール"],talk:"「Dはスタンダードモデルですが、室内外の凍結洗浄とカビバスターまで搭載しているのがEとの大きな違いです。」",caution:"ファンお掃除ロボ・カラッと除湿は非搭載。清潔機能の名称が似ていても、X・WNとは洗浄対象や除湿方式が異なります。"},
+ E:{title:"Eシリーズ",tag:"2027年度省エネ基準達成スタンダード",summary:"室内外の凍結洗浄Lightとステンレス・クリーンを備え、2.2kW～7.1kW全機種が目標年度2027年度の省エネ基準を達成したスタンダードモデル。",suitable:["2027年度省エネ基準達成モデルを選びたい","価格と基本的な清潔機能を両立したい","寝室・子ども部屋で使いたい","カビバスターや再熱除湿までは不要"],features:["2.2kW～7.1kW全機種が2027年度省エネ基準達成","室内機・室外機の凍結洗浄Light","ステンレス・クリーン","シーズン前自動点検・内部送風乾燥・ソフト除湿"],talk:"「Eはスタンダードモデルで、室内外の凍結洗浄を備えながら、全能力帯で2027年度省エネ基準を達成しています。」",caution:"Dと同じスタンダードでも、Eはカビバスター非搭載、Dはカビバスター搭載という違いがあります。省エネ基準達成＝上位機より必ず電気代が安い、ではありません。"}
 };
 
 const HITACHI_QUIZ=[
  {q:"Xシリーズを下位シリーズと比較する際、最も適切な説明は？",choices:["空清・センサー・排水まわりの清潔・再熱除湿など、追加機能が生活にどう役立つか説明する","上位機能を長く使えるとだけ説明する","価格が高いので性能もすべて高いと説明する","機能が多いため詳細説明は省略する"],answer:0,ex:"Xは上位という名称だけでなく、Premiumプラズマ空清、人感センサー、排水トレーの清潔機能、カラッと除湿など、下位との具体的な搭載差をお客様の使い方へ結び付けます。"},
  {q:"WNシリーズの説明として最も適切なのは？",choices:["Wの清潔・再熱除湿機能をベースに、Xと同じウェーブファンを追加したノジマオリジナル","カラッと除湿と凍結洗浄がWNだけのオリジナル機能","Wとは無関係の完全な専用設計","ウェーブファンにより無音運転ができる"],answer:0,ex:"WNはWシリーズのベース機能と、ノジマオリジナルのウェーブファンを分けて説明します。"},
  {q:"カビバスターの機能説明として最も適切なのは？",choices:["停止中も内部の温湿度を見張り、プラズマイオンや加熱・低湿制御でカビの増殖を抑える","冷房停止後だけ送風して水分を乾かす機能","熱交換器を凍らせて汚れを洗い流す機能","フィルターのホコリをダストボックスへ集める機能"],answer:0,ex:"カビバスターは停止中も内部環境を監視し、必要に応じて制御してカビを抑制する機能です。初期設定は補足として案内します。"},
- {q:"DシリーズとEシリーズの違いとして適切なのは？",choices:["どちらもベーシックだが、Dはカビバスター搭載、Eは2027年度省エネ基準を全能力帯で達成","Dだけが凍結洗浄を搭載","Eだけがカラッと除湿を搭載","Dはプレミアム、Eはスタンダード"],answer:0,ex:"D・Eはともにベーシックとして統一し、Dはカビバスター、Eは2027年度省エネ基準達成を主な違いとして整理します。"},
+ {q:"DシリーズとEシリーズの違いとして適切なのは？",choices:["どちらもスタンダードだが、Dはカビバスター搭載、Eは2027年度省エネ基準を全能力帯で達成","Dだけが凍結洗浄を搭載","Eだけがカラッと除湿を搭載","Dはプレミアム、Eはスタンダード"],answer:0,ex:"D・Eはともにスタンダードとして統一し、Dはカビバスター、Eは2027年度省エネ基準達成を主な違いとして整理します。"},
  {q:"室外機の凍結洗浄とヒートプラスの案内で重要な点は？",choices:["工場出荷時OFFのため、使うにはお客様自身の設定が必要","搭載機は購入直後から必ず自動で作動","設定変更は工事業者しかできない","どのシリーズにもヒートプラスが搭載されている"],answer:0,ex:"室外機凍結洗浄とヒートプラスは、搭載機でも工場出荷時OFFです。対象シリーズ確認と設定案内まで行います。"},
  {q:"Gシリーズの具体的な提案ポイントとして適切なのは？",choices:["奥行き25cmの薄型に、室内外凍結洗浄Light・カビバスター・ステンレスクリーンを搭載","ファンお掃除ロボとカラッと除湿を搭載","2027年度省エネ基準を全能力帯で達成","Xと同じウェーブファンを搭載"],answer:0,ex:"Gは『薄型・清潔』を抽象的に言うのではなく、奥行き25cm、室内外凍結洗浄、カビバスターなど具体的に説明します。"}
 ];
@@ -1900,7 +1965,7 @@ function showHitachiSeries(key,button){
  '<div class="series-card"><h3>主な提案ポイント</h3><ul>'+s.features.map(x=>"<li>"+x+"</li>").join("")+'</ul></div>'+ 
  '<div class="series-card"><h3>接客トーク例</h3><p>'+s.talk+'</p></div>'+ 
  '<div class="series-card"><h3>注意点</h3><p>'+s.caution+'</p></div></div>'+ 
- '<div class="series-card" style="margin-top:14px"><h3>X・WN・G・D・Eの位置づけ</h3><table class="compare-table"><tr><th>シリーズ</th><th>具体的な強み</th><th>下位・上位との主な差</th></tr><tr><td>X</td><td>空清・センサー・清潔対象・再熱除湿まで充実</td><td>日立機能を総合搭載</td></tr><tr><td>WN</td><td>Wの充実機能＋Xと同じウェーブファン</td><td>ノジマ独自の静音性</td></tr><tr><td>G</td><td>奥行き25cm＋室内外凍結洗浄＋カビバスター</td><td>ファン掃除・再熱除湿はWN以上</td></tr><tr><td>D</td><td>ベーシック＋カビバスター</td><td>Eよりカビ対策が充実</td></tr><tr><td>E</td><td>ベーシック＋2027年度省エネ基準達成</td><td>基本清潔機能と省エネ基準</td></tr></table></div>';
+ '<div class="series-card" style="margin-top:14px"><h3>X・WN・G・D・Eの位置づけ</h3><table class="compare-table"><tr><th>シリーズ</th><th>具体的な強み</th><th>下位・上位との主な差</th></tr><tr><td>X</td><td>空清・センサー・清潔対象・再熱除湿まで充実</td><td>日立機能を総合搭載</td></tr><tr><td>WN</td><td>Wの充実機能＋Xと同じウェーブファン</td><td>ノジマ独自の静音性</td></tr><tr><td>G</td><td>奥行き25cm＋室内外凍結洗浄＋カビバスター</td><td>ファン掃除・再熱除湿はWN以上</td></tr><tr><td>D</td><td>スタンダード＋カビバスター</td><td>Eよりカビ対策が充実</td></tr><tr><td>E</td><td>スタンダード＋2027年度省エネ基準達成</td><td>基本清潔機能と省エネ基準</td></tr></table></div>';
 }
 function diagnoseHitachi(type){
  const result={premium:"<b>おすすめ候補：Xシリーズ</b><br>清潔・快適・省エネを総合比較します。",nozima:"<b>おすすめ候補：WNシリーズ</b><br>Xと同じウェーブファンによる静音性と、ノジマ独自価値を提案します。",slim:"<b>おすすめ候補：WN・Gシリーズ</b><br>WNは高さ24.8cm、Gは奥行き25cm。必要据付寸法を確認して比較します。",simple:"<b>おすすめ候補：D・Eシリーズ</b><br>寝室などで基本機能と価格を重視する場合に比較しやすいです。"}[type];
