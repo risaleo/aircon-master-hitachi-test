@@ -1470,7 +1470,7 @@ function nextDaikinQuiz(){
 function finishDaikinQuiz(){
  document.getElementById("daikinQuizQuestion").textContent="シリーズミニ提案テスト終了";
  document.getElementById("daikinQuizChoices").innerHTML=
-  '<div class="result-card"><strong>'+daikinQuizScore+" / "+DAIKIN_QUIZ.length+'</strong><p>全"+HITACHI_QUIZ.length+"問が終了しました。</p></div>'+
+  '<div class="result-card"><strong>'+daikinQuizScore+" / "+DAIKIN_QUIZ.length+'</strong><p>全"+DAIKIN_QUIZ.length+"問が終了しました。</p></div>'+
   '<button class="next-button" onclick="daikinQuizIndex=0;daikinQuizScore=0;renderDaikinQuiz()">もう一度挑戦</button>'+
   '<button class="next-button" onclick="show(\'home\')">ホームへ戻る</button>';
  document.getElementById("daikinQuizFeedback").classList.add("hidden");
@@ -1917,7 +1917,19 @@ function answerHitachiQuiz(index,button){
  if(hitachiQuizAnswered)return;hitachiQuizAnswered=true;const q=HITACHI_QUIZ[hitachiQuizIndex%HITACHI_QUIZ.length];const ok=index===q.answer,buttons=[...document.querySelectorAll("#hitachiQuizChoices .choice")];if(ok)hitachiQuizScore++;buttons.forEach(b=>b.disabled=true);button.classList.add(ok?"correct":"wrong");if(!ok){const right=buttons.find(b=>Number(b.dataset.originalIndex)===q.answer);if(right)right.classList.add("correct");}const f=document.getElementById("hitachiQuizFeedback");f.innerHTML="<b>"+(ok?"⭕ 正解":"❌ 不正解")+"</b><br>"+q.ex;f.classList.remove("hidden");document.getElementById("hitachiQuizNext").classList.remove("hidden");
 }
 function nextHitachiQuiz(){if(hitachiQuizIndex>=HITACHI_QUIZ.length-1){finishHitachiQuiz();return;}hitachiQuizIndex++;renderHitachiQuiz();}
-function finishHitachiQuiz(){document.getElementById("hitachiQuizQuestion").textContent="シリーズミニ提案テスト終了";document.getElementById("hitachiQuizChoices").innerHTML='<div class="result-card"><strong>'+hitachiQuizScore+" / "+HITACHI_QUIZ.length+'</strong><p>全"+HITACHI_QUIZ.length+"問が終了しました。</p></div><button class="next-button" onclick="hitachiQuizIndex=0;hitachiQuizScore=0;renderHitachiQuiz()">もう一度挑戦</button><button class="next-button" onclick="show(\'home\')">ホームへ戻る</button>';document.getElementById("hitachiQuizFeedback").classList.add("hidden");document.getElementById("hitachiQuizNext").classList.add("hidden");}
+function finishHitachiQuiz(){
+ const total=HITACHI_QUIZ.length;
+ document.getElementById("hitachiQuizQuestion").textContent="シリーズミニ提案テスト終了";
+ document.getElementById("hitachiQuizChoices").innerHTML=`
+  <div class="result-card">
+   <strong>${hitachiQuizScore} / ${total}問 正解</strong>
+   <p>全${total}問が終了しました。</p>
+  </div>
+  <button class="next-button" onclick="hitachiQuizIndex=0;hitachiQuizScore=0;renderHitachiQuiz()">もう一度挑戦</button>
+  <button class="next-button" onclick="show('home')">ホームへ戻る</button>`;
+ document.getElementById("hitachiQuizFeedback").classList.add("hidden");
+ document.getElementById("hitachiQuizNext").classList.add("hidden");
+}
 
 const HITACHI_FEATURES={
  freeze:{title:"❄️ 凍結洗浄（室内機）",lead:"熱交換器を凍らせて霜に汚れを取り込み、解凍水と一緒に洗い流す日立の代表的な清潔機能です。",html:`
