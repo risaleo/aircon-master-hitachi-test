@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.4.3.3 初期設定記載統一版</title>
+<title>エアコン販買マスター Pro Ver.4.3.4 WN初期設定統合版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -599,7 +599,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.4.3.3 初期設定記載統一版</small>
+      <small>Ver.4.3.4 WN初期設定統合版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -898,8 +898,7 @@ html,body{max-width:100%;overflow-x:hidden}
         <button class="diagnosis-btn" onclick="showHitachiFeature('season')">🩺 シーズン前自動点検</button>
         <button class="diagnosis-btn" onclick="showHitachiFeature('app')">📱 白くまくんアプリ</button>
         <button class="diagnosis-btn" onclick="showHitachiFeature('wave')">🔇 WNウェーブファン</button>
-        <button class="diagnosis-btn" onclick="showHitachiFeature('settings')">⚙️ WN初期設定</button>
-      </div>
+              </div>
     </div>
 
     <div id="hitachiFeaturePanel" class="feature-panel hidden"></div>
@@ -2272,8 +2271,7 @@ const HITACHI_FEATURES={
  wave:{title:"🔇 WNウェーブファン",lead:"WNシリーズは上位Xシリーズと同じウェーブファンを採用し、静音性を高めたノジマオリジナル仕様です。",html:`
   <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>通常Wの提案軸</div><p>スリム設計と日立の清潔機能。</p></div><div class='diagram-box good'><div class='diagram-title'>WNの追加価値</div><p><b>Xシリーズと同じウェーブファン</b>を採用し、静音性を高めたノジマオリジナル。</p></div></div>
   <div class='feature-steps'><div><b>清潔</b><br>凍結洗浄・ファン清掃</div><div><b>除湿</b><br>カラッと除湿</div><div><b>静音</b><br>ウェーブファン</div></div>`,talk:"『WNは上位Xと同じウェーブファンを採用しているので、清潔機能に加えて静かさも選ぶ理由になります。』",caution:"無音ではありません。運転モード・風量・設置環境・個人の感じ方で音は変わります。"},
- settings:{title:"⚙️ WN初期設定",lead:"搭載機能が、購入直後から自動で働くのか、設定確認や手動操作が必要なのかを整理します。",html:`
-  <div style='overflow-x:auto'><table class='compare-table'><tr><th>機能</th><th>購入時</th><th>接客ポイント</th></tr><tr><td>シーズン前自動点検</td><td>設定済み</td><td>その時点の運転状態を確認</td></tr><tr><td>内部送風乾燥</td><td>設定済み</td><td>冷房・除湿後の水分対策</td></tr><tr><td>カビバスター</td><td>設定確認</td><td>搭載＝必ずONではない</td></tr><tr><td>凍結洗浄</td><td>自動運転あり</td><td>作動条件がある</td></tr><tr><td>カラッと除湿</td><td>手動選択</td><td>除湿時に選ぶ</td></tr><tr><td>白くまくんアプリ</td><td>未接続</td><td>Wi‑Fiと登録が必要</td></tr></table></div>`,talk:"『便利な機能をきちんと使えるよう、最初にON/OFFとアプリ設定を確認しておくと安心です。』",caution:"型番・能力帯・取扱説明書で出荷時設定が異なる場合があるため、最終確認を行います。"}
+
 };
 function showHitachiFeature(key){
  const f=HITACHI_FEATURES[key],p=document.getElementById("hitachiFeaturePanel");
@@ -2313,8 +2311,8 @@ function markHitachiQuizFinished(){
 function updateHitachiProgressUI(){
  const p=getHitachiProgress();
  const seriesScore=Math.min(p.series.length,5);
- const featureScore=Math.min(p.features.length,13);
- const total=5+13+1;
+ const featureScore=Math.min(p.features.length,12);
+ const total=5+12+1;
  const done=seriesScore+featureScore+(p.quiz?1:0);
  const percent=Math.round(done/total*100);
  const value=document.getElementById("hitachiProgressValue");
