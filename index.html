@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.4.3.6 見やすさ強化版</title>
+<title>エアコン販買マスター Pro Ver.4.3.7 デザイン強化版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -590,102 +590,123 @@ html,body{max-width:100%;overflow-x:hidden}
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="エアコン販買マスター">
 
+
 <style id="chatgpt-visual-refresh">
 :root{
-  --bg-soft:#f5f8fc;
-  --card-soft:#ffffff;
-  --line-soft:#d7e2f0;
-  --shadow-soft:0 10px 24px rgba(12,42,92,.08);
-  --shadow-mini:0 4px 12px rgba(12,42,92,.06);
-  --accent-soft:#eaf2ff;
-  --accent-warm:#fff7e8;
-  --accent-mint:#edf9f3;
-  --text-main:#17365f;
+  --bg1:#eef5ff;
+  --bg2:#f8fbff;
+  --card:#ffffff;
+  --line:#d8e5f4;
+  --text:#183a66;
+  --muted:#58708f;
+  --brand:#1f69e1;
+  --brand2:#6aa7ff;
+  --warm1:#fffaf0;
+  --warm2:#fff2d8;
+  --blue1:#f3f8ff;
+  --blue2:#e6f0ff;
+  --mint1:#eefaf3;
+  --mint2:#dff4e8;
+  --shadow:0 14px 34px rgba(13,41,87,.09);
+  --shadow-sm:0 6px 16px rgba(13,41,87,.08);
+}
+html{
+  scroll-behavior:smooth;
 }
 body{
-  background:linear-gradient(180deg,#eef4fb 0%,#f8fbff 100%) !important;
-  color:var(--text-main) !important;
+  background:
+    radial-gradient(circle at top left, rgba(111,168,255,.15), transparent 28%),
+    radial-gradient(circle at top right, rgba(90,183,140,.10), transparent 26%),
+    linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 100%) !important;
+  color:var(--text) !important;
 }
 main, .app, .container, .content{
   background:transparent !important;
 }
-section, article{
-  scroll-margin-top:24px;
-}
-button{
-  box-shadow:var(--shadow-mini);
-  transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
-}
-button:hover{
-  transform:translateY(-1px);
-  filter:brightness(1.02);
-}
-button:active{
-  transform:translateY(0);
-}
-[class*="card"], [class*="panel"], [class*="box"], [class*="sheet"], [class*="section"], [class*="guide"]{
-  box-shadow:var(--shadow-soft);
-}
-[class*="card"], [class*="panel"], [class*="box"]{
-  border-radius:22px !important;
-  border:1px solid var(--line-soft) !important;
-}
 h1,h2,h3,h4{
+  color:var(--text) !important;
+  line-height:1.35 !important;
   letter-spacing:.01em;
-  line-height:1.35;
 }
 p, li, td, th{
-  line-height:1.7 !important;
+  line-height:1.72 !important;
 }
-ul, ol{
-  padding-left:1.2em;
+small, .subtext, .muted{
+  color:var(--muted) !important;
+}
+button{
+  border-radius:18px !important;
+  box-shadow:var(--shadow-sm);
+  transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+button:hover{transform:translateY(-1px); filter:brightness(1.02);}
+button:active{transform:translateY(0);}
+img{
+  border-radius:18px;
 }
 table{
   border-collapse:separate !important;
   border-spacing:0;
   overflow:hidden;
-  border-radius:16px !important;
+  border-radius:18px !important;
+  box-shadow:var(--shadow-sm);
 }
 th{
-  background:#eef4fb !important;
+  background:#edf4fd !important;
+  color:var(--text) !important;
 }
 td, th{
-  border-color:#d7e2f0 !important;
+  border-color:var(--line) !important;
 }
-img{
-  border-radius:16px;
+[class*="card"], [class*="panel"], [class*="box"], [class*="sheet"], [class*="section"], [class*="guide"], .modal-content, [role="dialog"] > div, [class*="modal"] > div{
+  background:var(--card) !important;
+  border:1px solid var(--line) !important;
+  border-radius:24px !important;
+  box-shadow:var(--shadow) !important;
 }
 [class*="summary"], [class*="review"]{
-  background:linear-gradient(180deg,#f6f9ff 0%,#eef4ff 100%) !important;
+  background:linear-gradient(180deg,var(--blue1),var(--blue2)) !important;
+  border:1px solid #cfe0fb !important;
 }
 [class*="note"], [class*="attention"], [class*="warning"]{
-  background:linear-gradient(180deg,#fffaf0 0%,#fff5df 100%) !important;
+  background:linear-gradient(180deg,var(--warm1),var(--warm2)) !important;
+  border:1px solid #f0d497 !important;
 }
 [class*="talk"], [class*="speech"], [class*="example"]{
-  background:linear-gradient(180deg,#eef6ff 0%,#e6f0ff 100%) !important;
+  background:linear-gradient(180deg,#eff6ff,#e5f0ff) !important;
+  border:1px solid #cddffd !important;
 }
-[class*="hero"], [class*="head"]{
+[class*="point"], [class*="tips"]{
+  background:linear-gradient(180deg,var(--mint1),var(--mint2)) !important;
+}
+[class*="hero"], [class*="head"], .page-title{
   position:relative;
+  padding-bottom:10px;
 }
-[class*="hero"]::after, [class*="head"]::after{
+[class*="hero"]::after, [class*="head"]::after, .page-title::after{
   content:"";
   display:block;
-  width:56px;
-  height:4px;
+  width:64px;
+  height:5px;
   margin-top:10px;
   border-radius:999px;
-  background:linear-gradient(90deg,#2b77ff,#69a7ff);
+  background:linear-gradient(90deg,var(--brand),var(--brand2));
 }
 [class*="chip"], [class*="tag"]{
+  display:inline-flex;
+  align-items:center;
+  gap:.35em;
   border-radius:999px !important;
-  padding:.28em .72em !important;
-  box-shadow:none !important;
+  background:#f3f8ff !important;
+  border:1px solid #d6e4fb !important;
+  padding:.32em .76em !important;
 }
-[class*="accordion"] button, [class*="toggle"] button, .faq button{
-  border-radius:16px !important;
+nav button, .menu button, [class*="tab"] button{
+  border-radius:20px !important;
 }
-.modal-content, [role="dialog"] > div, [class*="modal"] > div{
-  box-shadow:0 18px 42px rgba(15,36,74,.18) !important;
+.accent-frame{
+  border-left:6px solid var(--brand);
+  padding-left:14px;
 }
 </style>
 
@@ -699,7 +720,7 @@ img{
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.4.3.6 見やすさ強化版</small>
+      <small>Ver.4.3.7 デザイン強化版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -1215,7 +1236,7 @@ img{
         <p id="modalReview"></p>
       </div>
       <div class="quick-box">
-        <h3>接客での一言</h3>
+        <h3>💬 接客での一言</h3>
         <p id="modalTalk"></p>
       </div>
     </div>
@@ -1766,8 +1787,8 @@ function showDaikinSeries(key,button){
   '<div class="series-grid">'+
    '<div class="series-card"><h3>おすすめのお客様</h3><ul>'+s.suitable.map(x=>"<li>"+x+"</li>").join("")+'</ul></div>'+
    '<div class="series-card"><h3>主な提案ポイント</h3><ul>'+s.features.map(x=>"<li>"+x+"</li>").join("")+'</ul></div>'+
-   '<div class="series-card"><h3>接客トーク例</h3><p>'+s.talk+'</p></div>'+
-   '<div class="series-card"><h3>注意点</h3><p>'+s.caution+'</p></div>'+
+   '<div class="series-card"><h3>🗣️ 接客トーク例</h3><p>'+s.talk+'</p></div>'+
+   '<div class="series-card"><h3>⚠️ 注意点</h3><p>'+s.caution+'</p></div>'+
   '</div>'+
   '<div class="series-card" style="margin-top:14px"><h3>R・A・F・Eの位置づけ</h3>'+
   '<table class="compare-table"><tr><th>シリーズ</th><th>提案の軸</th><th>向きやすい使い方</th></tr>'+
@@ -1994,8 +2015,8 @@ function showDaikinFeature(key){
  const f=DAIKIN_FEATURES[key];
  const panel=document.getElementById("daikinFeaturePanel");
  panel.innerHTML="<h2>"+f.title+"</h2><p class='feature-lead'>"+f.lead+"</p>"+f.html+
-  "<div class='feature-talk'><b>買い場での説明例</b><br>"+f.talk+"</div>"+
-  "<div class='feature-caution'><b>案内時の注意</b><br>"+f.caution+"</div>"+
+  "<div class='feature-talk'><b>🛍️ 買い場での説明例</b><br>"+f.talk+"</div>"+
+  "<div class='feature-caution'><b>⚠️ 案内時の注意</b><br>"+f.caution+"</div>"+
   "<button class='feature-close' onclick=\"document.getElementById('daikinFeaturePanel').classList.add('hidden')\">閉じる</button>";
  panel.classList.remove("hidden");
  panel.scrollIntoView({behavior:"smooth",block:"start"})
@@ -2292,10 +2313,10 @@ function showHitachiSeries(key,button){
  '<div class="series-grid">'+
  '<div class="series-card"><h3>おすすめのお客様</h3><ul>'+s.suitable.map(x=>"<li>"+x+"</li>").join("")+'</ul></div>'+
  '<div class="series-card"><h3>主な提案ポイント</h3><ul>'+s.features.map(x=>"<li>"+x+"</li>").join("")+'</ul></div>'+
- '<div class="series-card"><h3>接客トーク例</h3><p>'+s.talk+'</p></div>'+
- '<div class="series-card"><h3>注意点</h3><p>'+s.caution+'</p></div></div>'+
- '<div class="feature-talk" style="margin-top:14px"><b>今日の接客ポイント</b><br>'+dailyPoint+'</div>'+
- '<div class="feature-caution"><b>30秒復習</b><br>'+shortPoint+'。提案時は、お客様の困りごとに合う機能差を一つずつ確認します。</div>'+
+ '<div class="series-card"><h3>🗣️ 接客トーク例</h3><p>'+s.talk+'</p></div>'+
+ '<div class="series-card"><h3>⚠️ 注意点</h3><p>'+s.caution+'</p></div></div>'+
+ '<div class="feature-talk" style="margin-top:14px"><b>🌟 今日の接客ポイント</b><br>'+dailyPoint+'</div>'+
+ '<div class="feature-caution"><b>📝 30秒復習</b><br>'+shortPoint+'。提案時は、お客様の困りごとに合う機能差を一つずつ確認します。</div>'+
  '<div class="series-card" style="margin-top:14px"><h3>X・WN・G・D・Eの位置づけ</h3><div style="overflow-x:auto"><table class="compare-table"><tr><th>シリーズ</th><th>具体的な強み</th><th>下位・上位との主な差</th></tr><tr><td>X</td><td>空清・センサー・清潔対象・再熱除湿まで充実</td><td>日立機能を総合搭載</td></tr><tr><td>WN</td><td>Wの充実機能＋Xと同じウェーブファン</td><td>ノジマ独自の静音性</td></tr><tr><td>G</td><td>奥行き25cm＋室内外凍結洗浄＋カビバスター</td><td>ファン掃除・再熱除湿はWN以上</td></tr><tr><td>D</td><td>スタンダード＋カビバスター</td><td>Eよりカビ対策が充実</td></tr><tr><td>E</td><td>スタンダード＋2027年度省エネ基準達成</td><td>基本清潔機能と省エネ基準</td></tr></table></div></div>';
  markHitachiSeriesViewed(key);
 }
@@ -2332,8 +2353,8 @@ function finishHitachiQuiz(){
 const HITACHI_FEATURES={
  freeze:{title:"❄️ 凍結洗浄（室内機）",lead:"熱交換器を凍らせて霜に汚れを取り込み、解凍水と一緒に洗い流す日立の代表的な清潔機能です。",html:`
   <div class='diagram-box good'><div class='diagram-title'>洗浄の3段階</div><div class='feature-steps'><div><b>1. 凍結</b><br>熱交換器に霜を付ける</div><div><b>2. 捕集</b><br>霜へホコリや汚れを取り込む</div><div><b>3. 解凍・排水</b><br>一気に溶かしてドレンへ流す</div></div></div>
-  <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>得意なこと</div><p>フィルターの奥にある熱交換器を自動でケア。汚れによる能力低下を抑える助けになります。</p></div><div class='diagram-box'><div class='diagram-title'>限界</div><p>油汚れ・固着汚れ・すべてのカビを完全に除去する機能ではありません。</p></div></div>
-  <div class='feature-caution'><b>作動条件</b><br>温度・湿度・累積運転時間などの条件があり、停止のたびに必ず作動するわけではありません。</div>`,talk:"『フィルターでは届かない熱交換器を、凍らせて洗い流すのが日立の凍結洗浄です。』",caution:"『完全にきれいになる』『業者清掃が不要』とは案内しません。作動条件と対象部位を明確にします。"},
+  <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>得意なこと</div><p>フィルターの奥にある熱交換器を自動でケア。汚れによる能力低下を抑える助けになります。</p></div><div class='diagram-box'><div class='diagram-title'>📌 限界</div><p>油汚れ・固着汚れ・すべてのカビを完全に除去する機能ではありません。</p></div></div>
+  <div class='feature-caution'><b>📍 作動条件</b><br>温度・湿度・累積運転時間などの条件があり、停止のたびに必ず作動するわけではありません。</div>`,talk:"『フィルターでは届かない熱交換器を、凍らせて洗い流すのが日立の凍結洗浄です。』",caution:"『完全にきれいになる』『業者清掃が不要』とは案内しません。作動条件と対象部位を明確にします。"},
  freezeOutdoor:{title:"🌿 凍結洗浄（室外機）",lead:"屋外の熱交換器に付着した小さなホコリを凍結・解凍で洗い流し、目詰まりによる性能低下を抑える機能です。工場出荷時はOFFです。",html:`
   <div class='feature-steps'><div><b>屋外の汚れ</b><br>砂ぼこり・土・落ち葉など</div><div><b>凍結・解凍</b><br>熱交換器の汚れを洗い流す</div><div><b>放熱を支える</b><br>能力低下を抑える助け</div></div>
   <div class='diagram-compare'><div class='diagram-box'><div class='diagram-title'>室内機との違い</div><p>室内機は空気中のホコリや内部汚れ、室外機は屋外環境による汚れが主な対象です。</p></div><div class='diagram-box'><div class='diagram-title'>設置環境も重要</div><p>吹出口をふさがない、周囲の落ち葉や物を取り除くなど、放熱スペースの確保は別に必要です。</p></div></div>  <div class='feature-caution'><b>初期設定</b><br>工場出荷時OFFのため、お客様ご自身による設定が必要です。</div>`,talk:"『外にある室外機の熱交換器も洗浄できます。購入時はOFFなので、使う場合は設定までご案内します。』",caution:"室外機周囲の清掃や設置スペースの確保まで不要になる機能ではありません。"},
@@ -2376,7 +2397,7 @@ const HITACHI_FEATURES={
 function showHitachiFeature(key){
  const f=HITACHI_FEATURES[key],p=document.getElementById("hitachiFeaturePanel");
  if(!f)return;
- p.innerHTML="<h2>"+f.title+"</h2><p class='feature-lead'>"+f.lead+"</p>"+f.html+"<div class='feature-talk'><b>買い場での説明例</b><br>"+f.talk+"</div><div class='feature-caution'><b>案内時の注意</b><br>"+f.caution+"</div><div class='feature-caution'><b>30秒復習</b><br>"+f.lead+"</div><button class='feature-close' onclick=\"document.getElementById('hitachiFeaturePanel').classList.add('hidden')\">閉じる</button>";
+ p.innerHTML="<h2>"+f.title+"</h2><p class='feature-lead'>"+f.lead+"</p>"+f.html+"<div class='feature-talk'><b>🛍️ 買い場での説明例</b><br>"+f.talk+"</div><div class='feature-caution'><b>⚠️ 案内時の注意</b><br>"+f.caution+"</div><div class='feature-caution'><b>📝 30秒復習</b><br>"+f.lead+"</div><button class='feature-close' onclick=\"document.getElementById('hitachiFeaturePanel').classList.add('hidden')\">閉じる</button>";
  p.classList.remove("hidden");
  markHitachiFeatureViewed(key);
  p.scrollIntoView({behavior:"smooth",block:"start"});
