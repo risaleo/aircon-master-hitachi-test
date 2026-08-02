@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.4.4.1 メーカー攻略最終デザイン版</title>
+<title>エアコン販買マスター Pro Ver.5.0.0 メーカー攻略リニューアル試作版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -595,295 +595,145 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 
-<style id="manufacturer-final-design">
-/* Ver.4.4.1: メーカー攻略内だけに限定した最終デザイン */
-#hitachi, #daikin{
-  --maker-text:#173b66;
-  --maker-muted:#5b7189;
-  --maker-line:#d7e4f0;
-  --maker-shadow:0 10px 24px rgba(18,52,92,.08);
-  --maker-shadow-sm:0 4px 12px rgba(18,52,92,.06);
-  background:
-    radial-gradient(circle at top right, rgba(90,170,255,.10), transparent 28%),
-    linear-gradient(180deg,#f5f9fd 0%,#edf4fa 100%);
-}
-#hitachi{
-  --maker-main:#1e73be;
-  --maker-main2:#74b8e8;
-  --maker-soft:#eaf6ff;
-  --maker-soft2:#dff1ff;
-  --maker-accent:#f4fbff;
+
+<style id="maker-v500-design">
+#hitachi,#daikin{
+  --maker-bg:#eef6fb;
+  --maker-card:#fff;
+  --maker-line:#d7e5ef;
+  --maker-text:#153a63;
+  --maker-muted:#5d748b;
+  --maker-main:#2378be;
+  --maker-main2:#77bde7;
+  --maker-soft:#e9f6ff;
+  --maker-shadow:0 14px 36px rgba(16,52,88,.10);
+  background:linear-gradient(180deg,#f7fbfe 0%,var(--maker-bg) 100%);
 }
 #daikin{
-  --maker-main:#007f88;
-  --maker-main2:#62c7c3;
-  --maker-soft:#e7f8f6;
-  --maker-soft2:#d8f2ef;
-  --maker-accent:#f1fbfa;
+  --maker-bg:#ecf8f7;
+  --maker-line:#cfe7e4;
+  --maker-main:#00838b;
+  --maker-main2:#63c8c2;
+  --maker-soft:#e6f8f6;
 }
-#hitachi .daikin-wrap,
-#daikin .daikin-wrap{
-  padding:18px 14px 36px;
+#hitachi .subheader,#daikin .subheader{
+  position:sticky;top:0;z-index:20;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--maker-line);
+  box-shadow:0 6px 18px rgba(22,54,88,.06);
 }
-#hitachi .subheader,
-#daikin .subheader{
-  background:linear-gradient(135deg,var(--maker-main),var(--maker-main2));
-  color:#fff;
-  box-shadow:0 6px 18px rgba(19,70,115,.18);
+#hitachi .subheader h1,#daikin .subheader h1{color:var(--maker-text)}
+#hitachi .subheader button,#daikin .subheader button{
+  background:var(--maker-soft);color:var(--maker-main);border:1px solid var(--maker-line)
 }
-#hitachi .subheader h1,
-#daikin .subheader h1{
-  color:#fff!important;
-  letter-spacing:.02em;
+.maker-hero{
+  max-width:980px;margin:18px auto 20px;padding:28px;
+  display:grid;grid-template-columns:1.35fr .65fr;gap:24px;align-items:center;
+  border-radius:30px;overflow:hidden;position:relative;
+  box-shadow:var(--maker-shadow);color:#fff;
 }
-#hitachi .subheader button,
-#daikin .subheader button{
-  background:rgba(255,255,255,.18);
-  color:#fff;
-  border:1px solid rgba(255,255,255,.35);
+.hitachi-hero{background:linear-gradient(135deg,#1d6fb4,#72bce6)}
+.daikin-hero{background:linear-gradient(135deg,#007c84,#66c9c2)}
+.maker-hero::after{
+  content:"";position:absolute;width:260px;height:260px;border-radius:50%;
+  right:-90px;top:-100px;background:rgba(255,255,255,.13)
 }
-#hitachi .daikin-note,
-#daikin .daikin-note{
-  background:linear-gradient(180deg,#fff,var(--maker-accent));
-  border:1px solid var(--maker-line);
-  border-left:6px solid var(--maker-main);
-  border-radius:18px;
-  box-shadow:var(--maker-shadow-sm);
-  color:var(--maker-text);
-  line-height:1.7;
+.maker-kicker{font-size:12px;letter-spacing:.16em;font-weight:900;opacity:.9}
+.maker-hero h2{color:#fff!important;font-size:30px;margin:8px 0 10px}
+.maker-hero p{margin:0;line-height:1.75;max-width:620px}
+.maker-hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.maker-hero-actions button{
+  border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.18);color:#fff;
+  padding:11px 16px;border-radius:14px;font-weight:900;box-shadow:none
 }
-#hitachi .series-card,
-#daikin .series-card,
-#hitachi .feature-panel,
-#daikin .feature-panel,
-#hitachi .series-panel,
-#daikin .series-panel,
-#hitachi .daikin-diagnosis,
-#daikin .daikin-diagnosis,
-#hitachi .daikin-quiz,
-#daikin .daikin-quiz{
-  background:#fff;
-  border:1px solid var(--maker-line);
-  border-radius:22px;
-  box-shadow:var(--maker-shadow);
+.maker-hero-visual{display:flex;justify-content:flex-end;align-items:center;gap:16px;position:relative;z-index:2}
+.maker-orb{
+  width:112px;height:112px;border-radius:28px;display:flex;align-items:center;justify-content:center;
+  font-size:54px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.30)
 }
-#hitachi .series-card,
-#daikin .series-card,
-#hitachi .daikin-diagnosis,
-#daikin .daikin-diagnosis,
-#hitachi .daikin-quiz,
-#daikin .daikin-quiz{
-  padding:18px;
+.maker-progress-ring{
+  width:100px;height:100px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border:10px solid rgba(255,255,255,.35);background:rgba(255,255,255,.15)
 }
-#hitachi h2,
-#daikin h2,
-#hitachi h3,
-#daikin h3{
-  color:var(--maker-text);
-  line-height:1.35;
+.maker-progress-ring span{font-size:21px;font-weight:900}.maker-progress-ring small{font-size:11px}
+.maker-section-title{margin-bottom:16px}
+.maker-section-title>span{font-size:11px;letter-spacing:.14em;font-weight:900;color:var(--maker-main)}
+.maker-section-title h2,.maker-section-title h3{margin:5px 0 6px!important;color:var(--maker-text)}
+.maker-section-title p{margin:0;color:var(--maker-muted);line-height:1.65}
+#hitachi .series-card,#daikin .series-card,
+#hitachi .feature-panel,#daikin .feature-panel,
+#hitachi .series-panel,#daikin .series-panel,
+#hitachi .daikin-diagnosis,#daikin .daikin-diagnosis,
+#hitachi .daikin-quiz,#daikin .daikin-quiz,
+.maker-quick-mode{
+  background:var(--maker-card);border:1px solid var(--maker-line);
+  border-radius:24px;box-shadow:var(--maker-shadow)
 }
-#hitachi .series-card>h2:first-child,
-#daikin .series-card>h2:first-child,
-#hitachi .series-card>h3:first-child,
-#daikin .series-card>h3:first-child,
-#hitachi .daikin-diagnosis>h2:first-child,
-#daikin .daikin-diagnosis>h2:first-child,
-#hitachi .daikin-quiz>h2:first-child,
-#daikin .daikin-quiz>h2:first-child{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-bottom:14px;
+#hitachi .series-card,#daikin .series-card,
+#hitachi .daikin-diagnosis,#daikin .daikin-diagnosis,
+#hitachi .daikin-quiz,#daikin .daikin-quiz,.maker-quick-mode{padding:20px}
+.maker-series-tabs{
+  max-width:980px;margin:0 auto 14px;padding:7px;background:rgba(255,255,255,.75);
+  border:1px solid var(--maker-line);border-radius:18px;box-shadow:0 6px 18px rgba(20,52,88,.06)
 }
-#hitachi .series-card>h2:first-child::before,
-#daikin .series-card>h2:first-child::before,
-#hitachi .series-card>h3:first-child::before,
-#daikin .series-card>h3:first-child::before,
-#hitachi .daikin-diagnosis>h2:first-child::before,
-#daikin .daikin-diagnosis>h2:first-child::before,
-#hitachi .daikin-quiz>h2:first-child::before,
-#daikin .daikin-quiz>h2:first-child::before{
-  content:"";
-  width:8px;
-  height:28px;
-  border-radius:999px;
-  background:linear-gradient(180deg,var(--maker-main),var(--maker-main2));
-  flex:0 0 8px;
+#hitachi .series-tab,#daikin .series-tab{
+  border-radius:13px;background:transparent;color:var(--maker-text);box-shadow:none
 }
-#hitachi .diagnosis-grid,
-#daikin .diagnosis-grid{
-  gap:10px;
+#hitachi .series-tab.active,#daikin .series-tab.active{
+  background:linear-gradient(135deg,var(--maker-main),var(--maker-main2));color:#fff
 }
-#hitachi .diagnosis-btn,
-#daikin .diagnosis-btn{
-  min-height:58px;
-  padding:12px 14px;
+.maker-feature-grid{gap:12px}
+#hitachi .maker-feature-grid .diagnosis-btn,#daikin .maker-feature-grid .diagnosis-btn{
+  min-height:74px;padding:14px 16px;border-radius:18px;
   background:linear-gradient(180deg,#fff,var(--maker-soft));
-  border:1px solid var(--maker-line);
-  color:var(--maker-text);
-  border-radius:16px;
-  box-shadow:var(--maker-shadow-sm);
-  font-weight:800;
-  text-align:left;
+  border:1px solid var(--maker-line);color:var(--maker-text);
+  box-shadow:0 8px 20px rgba(19,55,92,.07);font-weight:900;text-align:left
 }
-#hitachi .diagnosis-btn:active,
-#daikin .diagnosis-btn:active{
-  transform:scale(.99);
+.hitachi-series-card{
+  min-height:210px!important;border-radius:20px!important;box-shadow:0 8px 22px rgba(21,55,91,.07)
 }
-#hitachi .series-tabs,
-#daikin .series-tabs{
-  background:rgba(255,255,255,.72);
-  border:1px solid var(--maker-line);
-  border-radius:18px;
-  padding:7px;
-  gap:6px;
-  box-shadow:var(--maker-shadow-sm);
+.hitachi-series-card:hover{transform:translateY(-2px)}
+.maker-quick-mode{max-width:980px;margin:0 auto 18px}
+.maker-quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.maker-quick-grid button{
+  padding:16px;border-radius:18px;background:linear-gradient(180deg,#fff,var(--maker-soft));
+  border:1px solid var(--maker-line);color:var(--maker-text);text-align:left
 }
-#hitachi .series-tab,
-#daikin .series-tab{
-  border-radius:12px;
-  background:transparent;
-  color:var(--maker-text);
-  box-shadow:none;
+.maker-quick-grid b,.maker-quick-grid small{display:block}
+.maker-quick-grid small{margin-top:7px;color:var(--maker-muted);line-height:1.45}
+#hitachi .feature-talk,#daikin .feature-talk{
+  background:linear-gradient(180deg,#eef6ff,#e5efff);border:1px solid #cbdcf5;
+  border-left:6px solid #4b89e8;border-radius:18px;padding:15px
 }
-#hitachi .series-tab.active,
-#daikin .series-tab.active{
-  background:linear-gradient(135deg,var(--maker-main),var(--maker-main2));
-  color:#fff;
+#hitachi .feature-caution,#daikin .feature-caution{
+  background:linear-gradient(180deg,#fff9ec,#fff1d2);border:1px solid #ecd49b;
+  border-left:6px solid #e0a629;border-radius:18px;padding:15px
 }
-#hitachi .series-hero,
-#daikin .series-hero{
-  background:linear-gradient(135deg,var(--maker-soft),#fff);
-  border:1px solid var(--maker-line);
-  border-radius:20px;
-  padding:18px;
+#hitachi .diagram-box,#daikin .diagram-box{
+  border-radius:18px;border:1px solid var(--maker-line);box-shadow:0 7px 18px rgba(19,55,92,.06)
 }
-#hitachi .series-tag,
-#daikin .series-tag{
-  background:var(--maker-main);
-  color:#fff;
-  border-radius:999px;
-  padding:5px 10px;
+#hitachi .compare-table,#daikin .compare-table{
+  border-radius:16px;overflow:hidden;box-shadow:0 7px 18px rgba(19,55,92,.06)
 }
-#hitachi .feature-talk,
-#daikin .feature-talk{
-  background:linear-gradient(180deg,#eef6ff,#e5efff);
-  border:1px solid #cbdcf5;
-  border-left:6px solid #4b89e8;
-  border-radius:16px;
-  padding:14px;
-  box-shadow:var(--maker-shadow-sm);
+#hitachi .compare-table th,#daikin .compare-table th{
+  background:var(--maker-soft);color:var(--maker-text)
 }
-#hitachi .feature-caution,
-#daikin .feature-caution{
-  background:linear-gradient(180deg,#fff9ec,#fff1d2);
-  border:1px solid #ecd49b;
-  border-left:6px solid #e0a629;
-  border-radius:16px;
-  padding:14px;
-  box-shadow:var(--maker-shadow-sm);
+@media(max-width:780px){
+  .maker-hero{grid-template-columns:1fr;padding:22px;border-radius:24px}
+  .maker-hero h2{font-size:24px}
+  .maker-hero-visual{justify-content:flex-start}
+  .maker-orb{width:86px;height:86px;font-size:42px}
+  .maker-progress-ring{width:82px;height:82px;border-width:8px}
+  .maker-quick-grid{grid-template-columns:1fr 1fr}
 }
-#hitachi .diagram-box,
-#daikin .diagram-box{
-  background:linear-gradient(180deg,#fff,var(--maker-accent));
-  border:1px solid var(--maker-line);
-  border-radius:18px;
-  box-shadow:var(--maker-shadow-sm);
-}
-#hitachi .diagram-box.good,
-#daikin .diagram-box.good{
-  background:linear-gradient(180deg,var(--maker-soft),#fff);
-  border-color:var(--maker-main2);
-}
-#hitachi .diagram-title,
-#daikin .diagram-title{
-  color:var(--maker-text);
-  font-weight:900;
-}
-#hitachi .feature-steps>div,
-#daikin .feature-steps>div,
-#hitachi .flow-node,
-#daikin .flow-node{
-  background:#fff;
-  border:1px solid var(--maker-line);
-  border-radius:14px;
-  box-shadow:var(--maker-shadow-sm);
-}
-#hitachi .compare-table,
-#daikin .compare-table{
-  width:100%;
-  border-collapse:separate;
-  border-spacing:0;
-  overflow:hidden;
-  border-radius:16px;
-  box-shadow:var(--maker-shadow-sm);
-}
-#hitachi .compare-table th,
-#daikin .compare-table th{
-  background:var(--maker-soft2);
-  color:var(--maker-text);
-}
-#hitachi .compare-table td,
-#daikin .compare-table td,
-#hitachi .compare-table th,
-#daikin .compare-table th{
-  border-color:var(--maker-line);
-  line-height:1.55;
-}
-#hitachi .choice,
-#daikin .choice,
-#hitachi .next-button,
-#daikin .next-button,
-#hitachi .feature-close,
-#daikin .feature-close{
-  border-radius:14px;
-}
-#hitachi .next-button,
-#daikin .next-button,
-#hitachi .feature-close,
-#daikin .feature-close{
-  background:linear-gradient(135deg,var(--maker-main),var(--maker-main2));
-  color:#fff;
-}
-#hitachi img,
-#daikin img{
-  max-width:100%;
-  height:auto;
-  object-fit:contain;
-  object-position:center;
-}
-@media(max-width:700px){
-  #hitachi .daikin-wrap,
-  #daikin .daikin-wrap{
-    padding:12px 9px 28px;
-  }
-  #hitachi .series-card,
-  #daikin .series-card,
-  #hitachi .daikin-diagnosis,
-  #daikin .daikin-diagnosis,
-  #hitachi .daikin-quiz{
-    padding:14px;
-    border-radius:18px;
-  }
-  #hitachi .diagnosis-grid,
-  #daikin .diagnosis-grid{
-    grid-template-columns:1fr;
-  }
-  #hitachi .series-tabs,
-  #daikin .series-tabs{
-    overflow-x:auto;
-    flex-wrap:nowrap;
-  }
-  #hitachi .series-tab,
-  #daikin .series-tab{
-    min-width:max-content;
-  }
-  #hitachi .diagram-compare,
-  #daikin .diagram-compare,
-  #hitachi .feature-steps,
-  #daikin .feature-steps{
-    grid-template-columns:1fr;
-  }
+@media(max-width:520px){
+  .maker-hero{margin:10px 9px 16px;padding:18px}
+  .maker-hero-actions{display:grid;grid-template-columns:1fr 1fr}
+  .maker-quick-grid{grid-template-columns:1fr}
+  #hitachi .series-card,#daikin .series-card,
+  #hitachi .daikin-diagnosis,#daikin .daikin-diagnosis,
+  #hitachi .daikin-quiz,#daikin .daikin-quiz,.maker-quick-mode{padding:14px;border-radius:18px}
 }
 </style>
 
@@ -897,7 +747,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.4.4.1 メーカー攻略最終デザイン版</small>
+      <small>Ver.5.0.0 メーカー攻略リニューアル試作版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -1106,6 +956,21 @@ html,body{max-width:100%;overflow-x:hidden}
     <h1>日立攻略</h1>
     <span></span>
   </header>
+  <section class="maker-hero hitachi-hero">
+    <div class="maker-hero-copy">
+      <span class="maker-kicker">HITACHI MASTER GUIDE</span>
+      <h2>白くまくんを、提案力に変える。</h2>
+      <p>清潔・除湿・設置性・省エネを、お客様の困りごとから選べる攻略ページ。</p>
+      <div class="maker-hero-actions">
+        <button onclick="scrollHitachiTo('hitachiSeriesMap')">シリーズを見る</button>
+        <button onclick="scrollHitachiTo('hitachiFeatureArea')">図解を見る</button>
+      </div>
+    </div>
+    <div class="maker-hero-visual">
+      <div class="maker-orb">🐻‍❄️</div>
+      <div class="maker-progress-ring"><span id="hitachiHeroProgress">0%</span><small>理解度</small></div>
+    </div>
+  </section>
   <div class="daikin-wrap">
     <div class="daikin-note">
       2026年モデルを、図解 → シリーズ差 → 接客トークの順で学べるように整理しています。
@@ -1145,7 +1010,7 @@ html,body{max-width:100%;overflow-x:hidden}
     </div>
 
     <div id="hitachiSeriesMap" class="series-card" style="max-width:980px;margin:0 auto 18px">
-      <h2 style="margin-top:0">図でつかむ 日立のシリーズ構成</h2>
+      <div class="maker-section-title"><span>SERIES MAP</span><h2 style="margin-top:0">シリーズを一目で比較</h2><p>立ち位置・強み・提案軸をカードで確認します。</p></div>
       <div class="hitachi-series-grid">
         <div class="hitachi-series-card premium">
           <div class="hitachi-series-title">👑 Xシリーズ</div>
@@ -1182,8 +1047,8 @@ html,body{max-width:100%;overflow-x:hidden}
     </div>
 
     <div id="hitachiFeatureArea" class="series-card" style="max-width:980px;margin:0 auto 18px">
-      <h3 style="margin-top:0">図解で学ぶ日立機能</h3>
-      <div class="diagnosis-grid">
+      <div class="maker-section-title"><span>VISUAL LIBRARY</span><h3 style="margin-top:0">図解で学ぶ日立機能</h3><p>機能の仕組み・接客での一言・注意点までまとめて確認できます。</p></div>
+      <div class="diagnosis-grid maker-feature-grid">
         <button class="diagnosis-btn" onclick="showHitachiFeature('freeze')">❄️ 凍結洗浄（室内機）</button>
         <button class="diagnosis-btn" onclick="showHitachiFeature('freezeOutdoor')">🌿 凍結洗浄（室外機）</button>
         <button class="diagnosis-btn" onclick="showHitachiFeature('heatplus')">🔥 ヒートプラス</button>
@@ -1201,7 +1066,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
     <div id="hitachiFeaturePanel" class="feature-panel hidden"></div>
 
-    <div class="series-tabs">
+    <div class="series-tabs maker-series-tabs">
       <button class="series-tab active" onclick="showHitachiSeries('X',this)">Xシリーズ</button>
       <button class="series-tab" onclick="showHitachiSeries('WN',this)">WNシリーズ</button>
       <button class="series-tab" onclick="showHitachiSeries('G',this)">Gシリーズ</button>
@@ -1211,9 +1076,23 @@ html,body{max-width:100%;overflow-x:hidden}
 
     <div id="hitachiSeriesPanel" class="series-panel"></div>
 
+    <section class="maker-quick-mode">
+      <div class="maker-section-title">
+        <span>BUYING FLOOR MODE</span>
+        <h2>買い場で、すぐ使う</h2>
+        <p>お客様のお困りごとをタップすると、提案候補をすぐ確認できます。</p>
+      </div>
+      <div class="maker-quick-grid">
+        <button onclick="diagnoseHitachi('premium')"><b>🧼 掃除を楽にしたい</b><small>清潔機能の違いを確認</small></button>
+        <button onclick="diagnoseHitachi('nozima')"><b>🔇 静かさも重視</b><small>WNの優位性を確認</small></button>
+        <button onclick="diagnoseHitachi('slim')"><b>📏 設置スペースが狭い</b><small>WN・Gを比較</small></button>
+        <button onclick="diagnoseHitachi('simple')"><b>💰 価格と基本性能</b><small>D・Eを比較</small></button>
+      </div>
+    </section>
+
     <div class="daikin-diagnosis">
       <h2>お客様タイプ別シリーズ診断</h2>
-      <div class="diagnosis-grid">
+      <div class="diagnosis-grid maker-feature-grid">
         <button class="diagnosis-btn" onclick="diagnoseHitachi('premium')">👑 清潔・快適・省エネを最優先</button>
         <button class="diagnosis-btn" onclick="diagnoseHitachi('nozima')">⭐ ノジマ独自＋静音性重視</button>
         <button class="diagnosis-btn" onclick="diagnoseHitachi('slim')">📏 高さ制限・設置性重視</button>
@@ -1281,6 +1160,21 @@ html,body{max-width:100%;overflow-x:hidden}
     <h1>ダイキン攻略</h1>
     <span></span>
   </header>
+  <section class="maker-hero daikin-hero">
+    <div class="maker-hero-copy">
+      <span class="maker-kicker">DAIKIN MASTER GUIDE</span>
+      <h2>空気・除湿・気流を、伝わる提案へ。</h2>
+      <p>R・A・F・Eの違いを、機能名ではなく暮らしのメリットで学ぶ攻略ページ。</p>
+      <div class="maker-hero-actions">
+        <button onclick="document.querySelector('#daikin .series-tabs')?.scrollIntoView({behavior:'smooth'})">シリーズを見る</button>
+        <button onclick="document.querySelector('#daikinFeaturePanel')?.scrollIntoView({behavior:'smooth'})">図解を見る</button>
+      </div>
+    </div>
+    <div class="maker-hero-visual">
+      <div class="maker-orb">🌊</div>
+      <div class="maker-progress-ring static"><span>START</span><small>攻略</small></div>
+    </div>
+  </section>
   <div class="daikin-wrap">
     <div class="daikin-note">
       2026年量販モデルのR・A・F・Eを、接客で使いやすい形に整理しています。
@@ -1288,8 +1182,8 @@ html,body{max-width:100%;overflow-x:hidden}
     </div>
 
     <div class="series-card" style="max-width:980px;margin:0 auto 18px">
-      <h3 style="margin-top:0">図解で学ぶダイキン機能</h3>
-      <div class="diagnosis-grid">
+      <div class="maker-section-title"><span>VISUAL LIBRARY</span><h3 style="margin-top:0">図解で学ぶダイキン機能</h3><p>機能名だけでなく、お客様にとってのメリットまで確認できます。</p></div>
+      <div class="diagnosis-grid maker-feature-grid">
         <button class="diagnosis-btn" onclick="showDaikinFeature('premium')">❄️ プレミアム冷房</button>
         <button class="diagnosis-btn" onclick="showDaikinFeature('airflow')">🌬 風ないス運転</button>
         <button class="diagnosis-btn" onclick="showDaikinFeature('streamer')">✨ ストリーマ</button>
@@ -1302,7 +1196,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
     <div id="daikinFeaturePanel" class="feature-panel hidden"></div>
 
-    <div class="series-tabs">
+    <div class="series-tabs maker-series-tabs">
       <button class="series-tab active" onclick="showDaikinSeries('R',this)">Rシリーズ</button>
       <button class="series-tab" onclick="showDaikinSeries('A',this)">Aシリーズ</button>
       <button class="series-tab" onclick="showDaikinSeries('F',this)">Fシリーズ</button>
@@ -1313,7 +1207,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
     <div class="daikin-diagnosis">
       <h2>お客様タイプ別シリーズ診断</h2>
-      <div class="diagnosis-grid">
+      <div class="diagnosis-grid maker-feature-grid">
         <button class="diagnosis-btn" onclick="diagnoseDaikin('highest')">👑 長時間使う・快適性を最優先</button>
         <button class="diagnosis-btn" onclick="diagnoseDaikin('comfort')">😊 快適機能は欲しいが加湿は不要</button>
         <button class="diagnosis-btn" onclick="diagnoseDaikin('balance')">⚖️ 価格と快適性のバランス重視</button>
@@ -2615,7 +2509,7 @@ function updateHitachiProgressUI(){
  const percent=Math.round(done/total*100);
  const value=document.getElementById("hitachiProgressValue");
  const finish=document.getElementById("hitachiFinishText");
- if(value)value.textContent=percent+"%";
+ if(value)value.textContent=percent+"%"; const hero=document.getElementById("hitachiHeroProgress"); if(hero)hero.textContent=percent+"%";
  if(finish){
   finish.textContent=percent>=100?"🎉 日立攻略マスター：全項目修了":percent>=60?"あと少しです（"+percent+"%）":"現在 "+percent+"% 完了";
  }
