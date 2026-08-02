@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.5.0.0 メーカー攻略リニューアル試作版</title>
+<title>エアコン販買マスター Pro Ver.5.0.1 ボタン動作修正版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -737,6 +737,32 @@ html,body{max-width:100%;overflow-x:hidden}
 }
 </style>
 
+
+<style id="maker-v5001-button-fix">
+.maker-quick-grid button.selected{
+  background:linear-gradient(135deg,var(--maker-main),var(--maker-main2))!important;
+  color:#fff!important;
+  border-color:transparent!important;
+}
+.maker-quick-grid button.selected small{color:rgba(255,255,255,.85)!important}
+.maker-quick-result{
+  margin-top:14px;padding:16px;border-radius:18px;
+  background:linear-gradient(180deg,var(--maker-soft),#fff);
+  border:1px solid var(--maker-line);
+  color:var(--maker-text);
+  box-shadow:0 8px 20px rgba(19,55,92,.07);
+}
+.maker-quick-result b{font-size:18px}
+.maker-quick-result p{margin:8px 0;line-height:1.7}
+.maker-quick-result small{color:var(--maker-muted);line-height:1.5}
+.maker-hero-actions button,.maker-quick-grid button,#hitachi .diagnosis-btn,#daikin .diagnosis-btn,
+#hitachi .series-tab,#daikin .series-tab{
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:rgba(255,255,255,.18);
+  cursor:pointer;
+}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -747,7 +773,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.5.0.0 メーカー攻略リニューアル試作版</small>
+      <small>Ver.5.0.1 ボタン動作修正版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -962,8 +988,8 @@ html,body{max-width:100%;overflow-x:hidden}
       <h2>白くまくんを、提案力に変える。</h2>
       <p>清潔・除湿・設置性・省エネを、お客様の困りごとから選べる攻略ページ。</p>
       <div class="maker-hero-actions">
-        <button onclick="scrollHitachiTo('hitachiSeriesMap')">シリーズを見る</button>
-        <button onclick="scrollHitachiTo('hitachiFeatureArea')">図解を見る</button>
+        <button type="button" onclick="openHitachiSeries()">シリーズを見る</button>
+        <button type="button" onclick="openHitachiFeatures()">図解を見る</button>
       </div>
     </div>
     <div class="maker-hero-visual">
@@ -1083,11 +1109,12 @@ html,body{max-width:100%;overflow-x:hidden}
         <p>お客様のお困りごとをタップすると、提案候補をすぐ確認できます。</p>
       </div>
       <div class="maker-quick-grid">
-        <button onclick="diagnoseHitachi('premium')"><b>🧼 掃除を楽にしたい</b><small>清潔機能の違いを確認</small></button>
-        <button onclick="diagnoseHitachi('nozima')"><b>🔇 静かさも重視</b><small>WNの優位性を確認</small></button>
-        <button onclick="diagnoseHitachi('slim')"><b>📏 設置スペースが狭い</b><small>WN・Gを比較</small></button>
-        <button onclick="diagnoseHitachi('simple')"><b>💰 価格と基本性能</b><small>D・Eを比較</small></button>
+        <button type="button" onclick="quickDiagnoseHitachi('premium',this)"><b>🧼 掃除を楽にしたい</b><small>清潔機能の違いを確認</small></button>
+        <button type="button" onclick="quickDiagnoseHitachi('nozima',this)"><b>🔇 静かさも重視</b><small>WNの優位性を確認</small></button>
+        <button type="button" onclick="quickDiagnoseHitachi('slim',this)"><b>📏 設置スペースが狭い</b><small>WN・Gを比較</small></button>
+        <button type="button" onclick="quickDiagnoseHitachi('simple',this)"><b>💰 価格と基本性能</b><small>D・Eを比較</small></button>
       </div>
+      <div id="hitachiQuickResult" class="maker-quick-result hidden" aria-live="polite"></div>
     </section>
 
     <div class="daikin-diagnosis">
@@ -1166,8 +1193,8 @@ html,body{max-width:100%;overflow-x:hidden}
       <h2>空気・除湿・気流を、伝わる提案へ。</h2>
       <p>R・A・F・Eの違いを、機能名ではなく暮らしのメリットで学ぶ攻略ページ。</p>
       <div class="maker-hero-actions">
-        <button onclick="document.querySelector('#daikin .series-tabs')?.scrollIntoView({behavior:'smooth'})">シリーズを見る</button>
-        <button onclick="document.querySelector('#daikinFeaturePanel')?.scrollIntoView({behavior:'smooth'})">図解を見る</button>
+        <button type="button" onclick="openDaikinSeries()">シリーズを見る</button>
+        <button type="button" onclick="openDaikinFeatures()">図解を見る</button>
       </div>
     </div>
     <div class="maker-hero-visual">
@@ -1181,7 +1208,7 @@ html,body{max-width:100%;overflow-x:hidden}
       搭載機能は能力帯・型番で異なる場合があるため、最終案内は該当型番のカタログで確認してください。
     </div>
 
-    <div class="series-card" style="max-width:980px;margin:0 auto 18px">
+    <div id="daikinFeatureArea" class="series-card" style="max-width:980px;margin:0 auto 18px">
       <div class="maker-section-title"><span>VISUAL LIBRARY</span><h3 style="margin-top:0">図解で学ぶダイキン機能</h3><p>機能名だけでなく、お客様にとってのメリットまで確認できます。</p></div>
       <div class="diagnosis-grid maker-feature-grid">
         <button class="diagnosis-btn" onclick="showDaikinFeature('premium')">❄️ プレミアム冷房</button>
@@ -1878,7 +1905,7 @@ function diagnoseDaikin(type){
  }[type];
  const box=document.getElementById("daikinDiagnosisResult");
  box.innerHTML=result+"<br><small>最終判断は部屋条件・使用時間・予算・該当型番の仕様で行います。</small>";
- box.classList.remove("hidden")
+ box.classList.remove("hidden"); safeScrollToElement(box)
 }
 
 function renderDaikinQuiz(){
@@ -2514,6 +2541,63 @@ function updateHitachiProgressUI(){
   finish.textContent=percent>=100?"🎉 日立攻略マスター：全項目修了":percent>=60?"あと少しです（"+percent+"%）":"現在 "+percent+"% 完了";
  }
 }
+
+function safeScrollToElement(el){
+ if(!el)return;
+ requestAnimationFrame(()=>el.scrollIntoView({behavior:"smooth",block:"start"}));
+}
+function openHitachiSeries(){
+ const area=document.getElementById("hitachiSeriesMap")||document.querySelector("#hitachi .maker-series-tabs");
+ safeScrollToElement(area);
+ const first=document.querySelector("#hitachi .series-tab");
+ if(first && !document.getElementById("hitachiSeriesPanel")?.innerHTML.trim()){
+  first.click();
+ }
+}
+function openHitachiFeatures(){
+ const area=document.getElementById("hitachiFeatureArea");
+ safeScrollToElement(area);
+}
+function openDaikinSeries(){
+ const area=document.querySelector("#daikin .maker-series-tabs")||document.querySelector("#daikin .series-tabs");
+ safeScrollToElement(area);
+ const first=document.querySelector("#daikin .series-tab");
+ if(first && !document.getElementById("daikinSeriesPanel")?.innerHTML.trim()){
+  first.click();
+ }
+}
+function openDaikinFeatures(){
+ const area=document.getElementById("daikinFeatureArea")||document.getElementById("daikinFeaturePanel")||document.querySelector("#daikin .diagnosis-grid");
+ safeScrollToElement(area);
+}
+function quickDiagnoseHitachi(type,button){
+ const data={
+  premium:{
+   title:"おすすめ候補：Xシリーズ",
+   text:"清潔・快適・省エネを総合比較します。掃除の手間を減らしたい理由や、暖房・除湿の使用頻度まで確認します。"
+  },
+  nozima:{
+   title:"おすすめ候補：WNシリーズ",
+   text:"Wシリーズの充実機能に加え、Xと同じウェーブファンを採用した点を提案理由として確認します。"
+  },
+  slim:{
+   title:"おすすめ候補：WN・Gシリーズ",
+   text:"WNは高さ24.8cm、Gは奥行き25cmが選定軸です。設置場所の高さ・奥行き・必要据付寸法を確認します。"
+  },
+  simple:{
+   title:"おすすめ候補：D・Eシリーズ",
+   text:"基本性能と価格を重視する場合の候補です。Dのカビ対策と、Eの2027年度省エネ基準達成を比較します。"
+  }
+ }[type];
+ const box=document.getElementById("hitachiQuickResult");
+ if(!box||!data)return;
+ document.querySelectorAll(".maker-quick-grid button").forEach(b=>b.classList.remove("selected"));
+ if(button)button.classList.add("selected");
+ box.innerHTML="<b>"+data.title+"</b><p>"+data.text+"</p><small>最終判断は部屋条件・使用時間・予算・該当型番の仕様で行います。</small>";
+ box.classList.remove("hidden");
+ safeScrollToElement(box);
+}
+
 function scrollHitachiTo(id){
  const el=document.getElementById(id);
  if(el)el.scrollIntoView({behavior:"smooth",block:"start"});
