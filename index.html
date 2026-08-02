@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.4.3.4 WN初期設定統合版</title>
+<title>エアコン販買マスター Pro Ver.4.3.6 見やすさ強化版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -589,6 +589,106 @@ html,body{max-width:100%;overflow-x:hidden}
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="エアコン販買マスター">
+
+<style id="chatgpt-visual-refresh">
+:root{
+  --bg-soft:#f5f8fc;
+  --card-soft:#ffffff;
+  --line-soft:#d7e2f0;
+  --shadow-soft:0 10px 24px rgba(12,42,92,.08);
+  --shadow-mini:0 4px 12px rgba(12,42,92,.06);
+  --accent-soft:#eaf2ff;
+  --accent-warm:#fff7e8;
+  --accent-mint:#edf9f3;
+  --text-main:#17365f;
+}
+body{
+  background:linear-gradient(180deg,#eef4fb 0%,#f8fbff 100%) !important;
+  color:var(--text-main) !important;
+}
+main, .app, .container, .content{
+  background:transparent !important;
+}
+section, article{
+  scroll-margin-top:24px;
+}
+button{
+  box-shadow:var(--shadow-mini);
+  transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+button:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.02);
+}
+button:active{
+  transform:translateY(0);
+}
+[class*="card"], [class*="panel"], [class*="box"], [class*="sheet"], [class*="section"], [class*="guide"]{
+  box-shadow:var(--shadow-soft);
+}
+[class*="card"], [class*="panel"], [class*="box"]{
+  border-radius:22px !important;
+  border:1px solid var(--line-soft) !important;
+}
+h1,h2,h3,h4{
+  letter-spacing:.01em;
+  line-height:1.35;
+}
+p, li, td, th{
+  line-height:1.7 !important;
+}
+ul, ol{
+  padding-left:1.2em;
+}
+table{
+  border-collapse:separate !important;
+  border-spacing:0;
+  overflow:hidden;
+  border-radius:16px !important;
+}
+th{
+  background:#eef4fb !important;
+}
+td, th{
+  border-color:#d7e2f0 !important;
+}
+img{
+  border-radius:16px;
+}
+[class*="summary"], [class*="review"]{
+  background:linear-gradient(180deg,#f6f9ff 0%,#eef4ff 100%) !important;
+}
+[class*="note"], [class*="attention"], [class*="warning"]{
+  background:linear-gradient(180deg,#fffaf0 0%,#fff5df 100%) !important;
+}
+[class*="talk"], [class*="speech"], [class*="example"]{
+  background:linear-gradient(180deg,#eef6ff 0%,#e6f0ff 100%) !important;
+}
+[class*="hero"], [class*="head"]{
+  position:relative;
+}
+[class*="hero"]::after, [class*="head"]::after{
+  content:"";
+  display:block;
+  width:56px;
+  height:4px;
+  margin-top:10px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#2b77ff,#69a7ff);
+}
+[class*="chip"], [class*="tag"]{
+  border-radius:999px !important;
+  padding:.28em .72em !important;
+  box-shadow:none !important;
+}
+[class*="accordion"] button, [class*="toggle"] button, .faq button{
+  border-radius:16px !important;
+}
+.modal-content, [role="dialog"] > div, [class*="modal"] > div{
+  box-shadow:0 18px 42px rgba(15,36,74,.18) !important;
+}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -599,7 +699,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.4.3.4 WN初期設定統合版</small>
+      <small>Ver.4.3.6 見やすさ強化版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -1894,7 +1994,7 @@ function showDaikinFeature(key){
  const f=DAIKIN_FEATURES[key];
  const panel=document.getElementById("daikinFeaturePanel");
  panel.innerHTML="<h2>"+f.title+"</h2><p class='feature-lead'>"+f.lead+"</p>"+f.html+
-  "<div class='feature-talk'><b>売場での説明例</b><br>"+f.talk+"</div>"+
+  "<div class='feature-talk'><b>買い場での説明例</b><br>"+f.talk+"</div>"+
   "<div class='feature-caution'><b>案内時の注意</b><br>"+f.caution+"</div>"+
   "<button class='feature-close' onclick=\"document.getElementById('daikinFeaturePanel').classList.add('hidden')\">閉じる</button>";
  panel.classList.remove("hidden");
@@ -2276,7 +2376,7 @@ const HITACHI_FEATURES={
 function showHitachiFeature(key){
  const f=HITACHI_FEATURES[key],p=document.getElementById("hitachiFeaturePanel");
  if(!f)return;
- p.innerHTML="<h2>"+f.title+"</h2><p class='feature-lead'>"+f.lead+"</p>"+f.html+"<div class='feature-talk'><b>売場での説明例</b><br>"+f.talk+"</div><div class='feature-caution'><b>案内時の注意</b><br>"+f.caution+"</div><div class='feature-caution'><b>30秒復習</b><br>"+f.lead+"</div><button class='feature-close' onclick=\"document.getElementById('hitachiFeaturePanel').classList.add('hidden')\">閉じる</button>";
+ p.innerHTML="<h2>"+f.title+"</h2><p class='feature-lead'>"+f.lead+"</p>"+f.html+"<div class='feature-talk'><b>買い場での説明例</b><br>"+f.talk+"</div><div class='feature-caution'><b>案内時の注意</b><br>"+f.caution+"</div><div class='feature-caution'><b>30秒復習</b><br>"+f.lead+"</div><button class='feature-close' onclick=\"document.getElementById('hitachiFeaturePanel').classList.add('hidden')\">閉じる</button>";
  p.classList.remove("hidden");
  markHitachiFeatureViewed(key);
  p.scrollIntoView({behavior:"smooth",block:"start"});
