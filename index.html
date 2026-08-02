@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.5.0.2 ダイキン理解度表示版</title>
+<title>エアコン販買マスター Pro Ver.5.0.3 攻略状況・図解改善版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -763,6 +763,155 @@ html,body{max-width:100%;overflow-x:hidden}
 }
 </style>
 
+
+<style id="maker-v5003-refine">
+.maker-series-status{
+  min-width:145px;
+  padding:14px;
+  border-radius:22px;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.34);
+}
+.maker-series-status>small{
+  display:block;
+  margin-bottom:9px;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.08em;
+  color:#fff;
+}
+.maker-status-list{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+}
+.maker-status-list span{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:31px;
+  padding:4px 6px;
+  border-radius:10px;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.28);
+  color:#fff;
+  font-size:12px;
+  font-weight:900;
+}
+.maker-status-list span.done{
+  background:#fff;
+  color:var(--maker-main);
+}
+.maker-status-list span.done::after{
+  content:"✓";
+  margin-left:4px;
+}
+.compressor-guide{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.compressor-card{
+  padding:18px;
+  border-radius:20px;
+  border:1px solid #d6e3ef;
+  box-shadow:0 8px 20px rgba(17,52,89,.07);
+}
+.compressor-card.conventional{
+  background:linear-gradient(180deg,#fff,#fff7f3);
+}
+.compressor-card.swing{
+  background:linear-gradient(180deg,#eef8ff,#e1f2ff);
+  border-color:#9fd0eb;
+}
+.compressor-label{
+  margin-bottom:14px;
+  font-size:18px;
+  font-weight:900;
+  color:#173a63;
+}
+.compressor-machine{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:10px;
+  align-items:center;
+}
+.compressor-piece{
+  min-height:86px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:5px solid #74bce6;
+  border-radius:50%;
+  background:#fff;
+  font-weight:900;
+}
+.compressor-contact{
+  color:#b74a37;
+  text-align:center;
+  line-height:1.35;
+  font-size:13px;
+}
+.compressor-risk,.compressor-benefits{
+  display:grid;
+  gap:8px;
+  margin-top:14px;
+}
+.compressor-risk span{
+  padding:9px 11px;
+  border-radius:12px;
+  background:#fff0e9;
+  color:#863c2c;
+  font-weight:800;
+}
+.compressor-down{
+  text-align:center;
+  font-size:36px;
+  font-weight:900;
+  color:var(--maker-main);
+}
+.compressor-unit{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  min-height:130px;
+}
+.compressor-rotor{
+  width:122px;
+  height:122px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:14px solid #73bde7;
+  border-radius:50%;
+  background:#fff;
+  color:#173a63;
+  font-weight:900;
+}
+.compressor-motion{
+  font-size:42px;
+  color:#2478bd;
+}
+.compressor-benefits{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.compressor-benefits span{
+  padding:10px 12px;
+  border-radius:12px;
+  background:#fff;
+  color:#17638e;
+  font-weight:900;
+}
+@media(max-width:520px){
+ .maker-series-status{min-width:0;width:100%}
+ .maker-status-list{grid-template-columns:repeat(5,1fr)}
+ #daikin .maker-status-list{grid-template-columns:repeat(4,1fr)}
+ .compressor-benefits{grid-template-columns:1fr}
+ .compressor-piece{min-height:72px;border-width:4px;font-size:13px}
+}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -773,7 +922,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.5.0.2 ダイキン理解度表示版</small>
+      <small>Ver.5.0.3 攻略状況・図解改善版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -993,7 +1142,12 @@ html,body{max-width:100%;overflow-x:hidden}
       </div>
     </div>
     <div class="maker-hero-visual">
-      <div class="maker-orb">🐻‍❄️</div>
+      <div class="maker-series-status" aria-label="日立シリーズ攻略状況">
+        <small>シリーズ攻略</small>
+        <div id="hitachiSeriesStatus" class="maker-status-list">
+          <span data-series="X">X</span><span data-series="WN">WN</span><span data-series="G">G</span><span data-series="D">D</span><span data-series="E">E</span>
+        </div>
+      </div>
       <div class="maker-progress-ring"><span id="hitachiHeroProgress">0%</span><small>理解度</small></div>
     </div>
   </section>
@@ -1198,7 +1352,12 @@ html,body{max-width:100%;overflow-x:hidden}
       </div>
     </div>
     <div class="maker-hero-visual">
-      <div class="maker-orb">🌊</div>
+      <div class="maker-series-status" aria-label="ダイキンシリーズ攻略状況">
+        <small>シリーズ攻略</small>
+        <div id="daikinSeriesStatus" class="maker-status-list">
+          <span data-series="R">R</span><span data-series="A">A</span><span data-series="F">F</span><span data-series="E">E</span>
+        </div>
+      </div>
       <div class="maker-progress-ring"><span id="daikinHeroProgress">0%</span><small>理解度</small></div>
     </div>
   </section>
@@ -2024,23 +2183,38 @@ const DAIKIN_FEATURES={
  },
  compressor:{
   title:"スイングコンプレッサー",
-  lead:"圧縮機内部の一体構造により、冷媒漏れや摩擦を抑えることを狙ったダイキン独自のコンプレッサー技術です。",
+  lead:"圧縮機内部で冷媒を圧縮する主要部分を一体化し、部品同士が接触する箇所を減らしたダイキン独自の構造です。",
   html:`
-   <div class="diagram-compare">
-    <div class="diagram-box">
-     <div class="diagram-title">一般的なイメージ</div>
-     <div class="compressor-vis"><div class="comp-part">部品A</div><div class="comp-arrow">⇄</div><div class="comp-part">部品B</div></div>
-     <p>複数部品の接触部で摩擦や冷媒漏れが発生し得る。</p>
+   <div class="compressor-guide">
+    <div class="compressor-card conventional">
+     <div class="compressor-label">一般的な構造のイメージ</div>
+     <div class="compressor-machine">
+      <div class="compressor-piece">回転部</div>
+      <div class="compressor-contact">接触<br><b>こすれる</b></div>
+      <div class="compressor-piece">羽根部</div>
+     </div>
+     <div class="compressor-risk">
+      <span>⚡ 摩擦が生じる箇所</span>
+      <span>💨 すき間から冷媒が漏れる可能性</span>
+     </div>
     </div>
-    <div class="diagram-arrow">→</div>
-    <div class="diagram-box good">
-     <div class="diagram-title">スイングコンプレッサー</div>
-     <div class="compressor-vis"><div class="comp-part">一体化</div><div class="comp-arrow">⟳</div></div>
-     <p>一体構造で摩擦・冷媒漏れを抑え、安定運転を支える。</p>
+    <div class="compressor-down">↓</div>
+    <div class="compressor-card swing">
+     <div class="compressor-label">スイングコンプレッサー</div>
+     <div class="compressor-unit">
+      <div class="compressor-rotor">一体構造</div>
+      <div class="compressor-motion">↻</div>
+     </div>
+     <div class="compressor-benefits">
+      <span>✓ 接触箇所を減らす</span>
+      <span>✓ 摩擦を抑える</span>
+      <span>✓ 冷媒漏れを抑える</span>
+      <span>✓ 安定運転を支える</span>
+     </div>
     </div>
    </div>`,
-  talk:"「心臓部のコンプレッサーを一体構造にして、摩擦や冷媒漏れを抑える設計です。細かな能力制御や長期使用の安心感を支えます。」",
-  caution:"耐久性を『絶対に壊れない』と表現せず、構造上の特徴として説明します。"
+  talk:"「エアコンの心臓部であるコンプレッサーの主要部分を一体化しています。こすれる箇所やすき間を減らし、摩擦や冷媒漏れを抑えて安定運転を支える構造です。」",
+  caution:"構造上の特徴を説明する機能です。『故障しない』『永久に性能が落ちない』とは案内しません。"
  },
  patrol:{
   title:"室温パトロール",
@@ -2540,6 +2714,12 @@ function updateHitachiProgressUI(){
  const value=document.getElementById("hitachiProgressValue");
  const finish=document.getElementById("hitachiFinishText");
  if(value)value.textContent=percent+"%"; const hero=document.getElementById("hitachiHeroProgress"); if(hero)hero.textContent=percent+"%";
+ const status=document.getElementById("hitachiSeriesStatus");
+ if(status){
+  status.querySelectorAll("[data-series]").forEach(item=>{
+   item.classList.toggle("done",p.series.includes(item.dataset.series));
+  });
+ }
  if(finish){
   finish.textContent=percent>=100?"🎉 日立攻略マスター：全項目修了":percent>=60?"あと少しです（"+percent+"%）":"現在 "+percent+"% 完了";
  }
@@ -2585,6 +2765,12 @@ function updateDaikinProgressUI(){
  const percent=Math.round(done/total*100);
  const el=document.getElementById("daikinHeroProgress");
  if(el)el.textContent=percent+"%";
+ const status=document.getElementById("daikinSeriesStatus");
+ if(status){
+  status.querySelectorAll("[data-series]").forEach(item=>{
+   item.classList.toggle("done",p.series.includes(item.dataset.series));
+  });
+ }
 }
 setTimeout(updateDaikinProgressUI,0);
 
