@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.4.3.7 デザイン強化版</title>
+<title>エアコン販買マスター Pro Ver.4.3.8 トップ表示修正版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -591,65 +591,40 @@ html,body{max-width:100%;overflow-x:hidden}
 <meta name="apple-mobile-web-app-title" content="エアコン販買マスター">
 
 
+
+
+
 <style id="chatgpt-visual-refresh">
 :root{
   --bg1:#eef5ff;
   --bg2:#f8fbff;
-  --card:#ffffff;
   --line:#d8e5f4;
   --text:#183a66;
   --muted:#58708f;
   --brand:#1f69e1;
   --brand2:#6aa7ff;
-  --warm1:#fffaf0;
-  --warm2:#fff2d8;
-  --blue1:#f3f8ff;
-  --blue2:#e6f0ff;
-  --mint1:#eefaf3;
-  --mint2:#dff4e8;
-  --shadow:0 14px 34px rgba(13,41,87,.09);
-  --shadow-sm:0 6px 16px rgba(13,41,87,.08);
-}
-html{
-  scroll-behavior:smooth;
+  --shadow:0 10px 24px rgba(13,41,87,.08);
+  --shadow-sm:0 4px 12px rgba(13,41,87,.07);
 }
 body{
   background:
-    radial-gradient(circle at top left, rgba(111,168,255,.15), transparent 28%),
-    radial-gradient(circle at top right, rgba(90,183,140,.10), transparent 26%),
+    radial-gradient(circle at top left, rgba(111,168,255,.12), transparent 28%),
+    radial-gradient(circle at top right, rgba(90,183,140,.08), transparent 26%),
     linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 100%) !important;
   color:var(--text) !important;
 }
-main, .app, .container, .content{
-  background:transparent !important;
-}
 h1,h2,h3,h4{
   color:var(--text) !important;
-  line-height:1.35 !important;
   letter-spacing:.01em;
 }
 p, li, td, th{
-  line-height:1.72 !important;
-}
-small, .subtext, .muted{
-  color:var(--muted) !important;
-}
-button{
-  border-radius:18px !important;
-  box-shadow:var(--shadow-sm);
-  transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
-}
-button:hover{transform:translateY(-1px); filter:brightness(1.02);}
-button:active{transform:translateY(0);}
-img{
-  border-radius:18px;
+  line-height:1.65 !important;
 }
 table{
   border-collapse:separate !important;
   border-spacing:0;
   overflow:hidden;
-  border-radius:18px !important;
-  box-shadow:var(--shadow-sm);
+  border-radius:16px !important;
 }
 th{
   background:#edf4fd !important;
@@ -658,55 +633,26 @@ th{
 td, th{
   border-color:var(--line) !important;
 }
-[class*="card"], [class*="panel"], [class*="box"], [class*="sheet"], [class*="section"], [class*="guide"], .modal-content, [role="dialog"] > div, [class*="modal"] > div{
-  background:var(--card) !important;
-  border:1px solid var(--line) !important;
+button{
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+button:hover{transform:translateY(-1px);}
+img{border-radius:16px;}
+/* safer, homepage-focused enhancement only */
+.home-card, .menu-card, .feature-card, .quick-card, .dashboard-card, .info-card{
   border-radius:24px !important;
   box-shadow:var(--shadow) !important;
+  border:1px solid var(--line) !important;
+  background:#fff !important;
 }
-[class*="summary"], [class*="review"]{
-  background:linear-gradient(180deg,var(--blue1),var(--blue2)) !important;
-  border:1px solid #cfe0fb !important;
-}
-[class*="note"], [class*="attention"], [class*="warning"]{
-  background:linear-gradient(180deg,var(--warm1),var(--warm2)) !important;
-  border:1px solid #f0d497 !important;
-}
-[class*="talk"], [class*="speech"], [class*="example"]{
-  background:linear-gradient(180deg,#eff6ff,#e5f0ff) !important;
-  border:1px solid #cddffd !important;
-}
-[class*="point"], [class*="tips"]{
-  background:linear-gradient(180deg,var(--mint1),var(--mint2)) !important;
-}
-[class*="hero"], [class*="head"], .page-title{
-  position:relative;
-  padding-bottom:10px;
-}
-[class*="hero"]::after, [class*="head"]::after, .page-title::after{
+.page-title::after, .section-title::after{
   content:"";
   display:block;
-  width:64px;
+  width:60px;
   height:5px;
-  margin-top:10px;
+  margin-top:8px;
   border-radius:999px;
   background:linear-gradient(90deg,var(--brand),var(--brand2));
-}
-[class*="chip"], [class*="tag"]{
-  display:inline-flex;
-  align-items:center;
-  gap:.35em;
-  border-radius:999px !important;
-  background:#f3f8ff !important;
-  border:1px solid #d6e4fb !important;
-  padding:.32em .76em !important;
-}
-nav button, .menu button, [class*="tab"] button{
-  border-radius:20px !important;
-}
-.accent-frame{
-  border-left:6px solid var(--brand);
-  padding-left:14px;
 }
 </style>
 
@@ -720,7 +666,7 @@ nav button, .menu button, [class*="tab"] button{
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.4.3.7 デザイン強化版</small>
+      <small>Ver.4.3.8 トップ表示修正版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
