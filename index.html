@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.5.1.3 図解文字くっきり表示版</title>
+<title>エアコン販買マスター Pro Ver.5.1.4 iPad横スライド図解版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -985,6 +985,75 @@ html,body{max-width:100%;overflow-x:hidden}
 @media(max-width:700px){.visual-grid{grid-template-columns:1fr!important}.visual-card img{width:100%!important;height:auto!important}.visual-card h3{font-size:18px!important}.visual-card p{display:block!important;-webkit-line-clamp:unset!important;overflow:visible!important;font-size:14px!important}.image-modal-inner{width:98vw!important;max-width:98vw!important;overflow:auto!important}.image-modal img,#modalImage{min-width:900px!important}}
 </style>
 
+
+<style id="v514-ipad-horizontal-library">
+@media(min-width:768px) and (max-width:1366px){
+  .visual-library{padding:18px 16px 28px!important}
+  .visual-grid{
+    display:flex!important;
+    grid-template-columns:none!important;
+    gap:16px!important;
+    width:100%!important;
+    max-width:none!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:16px;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior-x:contain;
+    padding:4px 16px 18px!important;
+    margin:0 -16px!important;
+  }
+  .visual-grid::after{content:"";flex:0 0 1px}
+  .visual-card{
+    flex:0 0 min(82vw,760px)!important;
+    width:min(82vw,760px)!important;
+    max-width:min(82vw,760px)!important;
+    scroll-snap-align:center;
+    scroll-snap-stop:always;
+    border-radius:22px!important;
+  }
+  .visual-card img{
+    width:100%!important;
+    height:auto!important;
+    max-height:62vh!important;
+    object-fit:contain!important;
+    background:#fff!important;
+  }
+  .visual-card-body{padding:18px!important}
+  .visual-card h3{font-size:23px!important}
+  .visual-card p{font-size:17px!important;line-height:1.7!important}
+  .visual-card button{min-height:56px!important;font-size:17px!important}
+  .visual-intro::after{
+    content:"← 横にスワイプして図解を切り替えられます →";
+    display:block;
+    margin-top:8px;
+    color:#116fe8;
+    font-weight:900;
+  }
+  .visual-controls{
+    position:sticky;
+    top:84px;
+    z-index:8;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(12px);
+    border-radius:16px;
+    padding:10px;
+    box-shadow:0 6px 18px rgba(14,48,82,.08);
+  }
+}
+@media(max-width:700px){
+  .visual-grid{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    overflow:visible!important;
+    padding:0!important;
+    margin:0!important;
+  }
+  .visual-card{width:100%!important;max-width:100%!important}
+}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -995,7 +1064,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.5.1.3 図解文字くっきり表示版</small>
+      <small>Ver.5.1.4 iPad横スライド図解版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
