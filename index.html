@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.5.2.0 ダイキンFNシリーズ追加版</title>
+<title>エアコン販買マスター Pro Ver.5.3.0 機能整理・FN強調版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1101,6 +1101,48 @@ html,body{max-width:100%;overflow-x:hidden}
 }
 </style>
 
+
+<style id="v530-cleanup-fn">
+.fn-original-hero{
+ margin:16px 0 18px;padding:22px;border-radius:24px;
+ background:linear-gradient(135deg,#fff7df,#fff);
+ border:2px solid #f1c75b;box-shadow:0 12px 28px rgba(151,103,0,.13)
+}
+.fn-original-badge{
+ display:inline-flex;padding:7px 12px;border-radius:999px;
+ background:#ef9b16;color:#fff;font-size:13px;font-weight:900
+}
+.fn-original-hero h2{margin:12px 0 8px!important;font-size:28px!important;color:#684600!important}
+.fn-original-lead{font-size:17px;line-height:1.75;color:#5b4930}
+.fn-compare-visual{
+ display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin:18px 0
+}
+.fn-compare-card{
+ min-height:145px;padding:16px;border-radius:18px;background:#fff;border:1px solid #dfd6c2;
+ display:flex;flex-direction:column;justify-content:center;text-align:center
+}
+.fn-compare-card.original{background:#fff1c9;border:2px solid #ef9b16}
+.fn-compare-card span{font-size:13px;font-weight:900;color:#75634a}
+.fn-compare-card b{display:block;margin:9px 0;font-size:19px;color:#4f3a13}
+.fn-compare-card small{color:#776b58}
+.fn-plus{font-size:34px;font-weight:900;color:#e59300}
+.fn-memory-card{
+ display:grid;gap:5px;padding:15px;border-radius:16px;background:#0b8790;color:#fff;text-align:center
+}
+.fn-memory-card span{font-size:12px;font-weight:900;letter-spacing:.08em}
+.fn-memory-card strong{font-size:21px}
+.fn-talk-card,.fn-warning-card{margin-top:12px;padding:15px;border-radius:16px}
+.fn-talk-card{background:#eaf4ff;border-left:6px solid #438ad4}
+.fn-warning-card{background:#fff2df;border-left:6px solid #e49b28}
+.fn-talk-card p,.fn-warning-card p{margin:6px 0 0;line-height:1.7}
+@media(max-width:700px){
+ .fn-compare-visual{grid-template-columns:1fr}
+ .fn-plus{transform:rotate(90deg);text-align:center}
+ .fn-original-hero h2{font-size:23px!important}
+ .fn-memory-card strong{font-size:17px}
+}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -1111,7 +1153,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.5.2.0 ダイキンFNシリーズ追加版</small>
+      <small>Ver.5.3.0 機能整理・FN強調版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -1195,9 +1237,6 @@ html,body{max-width:100%;overflow-x:hidden}
       <button class="utility-card" onclick="showHistory()">
         <span class="utility-icon orange">📋</span><b>学習記録</b><small>学習の履歴と<br>結果を確認</small><em>›</em>
       </button>
-      <button class="utility-card" onclick="openFlowMenu()">
-        <span class="utility-icon purple">🎓</span><b>接客フロー</b><small>お客様対応の<br>流れを確認</small><em>›</em>
-      </button>
       <button class="utility-card" onclick="openDaikin()">
         <span class="utility-icon teal">📗</span><b>ダイキン攻略</b><small>特徴・機能・<br>比較ポイント</small><em>›</em>
       </button>
@@ -1243,7 +1282,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 <section id="sales" class="page hidden"><header class="subheader"><button onclick="show('home')">‹</button><h1>販買モード</h1><button onclick="show('home')">終了</button></header><div class="sales-content"><div id="salesStepper" class="sales-stepper"></div><div class="sales-layout"><div id="salesCustomer" class="sales-customer-card"></div><div class="sales-question-card"><h2 id="salesQuestion"></h2><div id="salesChoices" class="choice-list"></div><div id="salesFeedback" class="answer-result hidden"></div><button id="salesNextButton" class="next-button hidden" type="button" onclick="nextSalesStep()">解説を確認して次へ</button></div></div></div></section>
 
-<section id="mission" class="page hidden"><header class="subheader"><button onclick="show('home')">‹</button><h1>今日のミッション</h1><span></span></header><div class="result-content"><div class="result-card"><span>今日の目標</span><strong id="missionDetail">0 / 3</strong><p>販買モードを3件実施する</p></div><div class="progress"><span id="missionBar"></span></div><button class="next-button" onclick="startSales()">販買モードを始める</button></div></section>
+<section id="mission" class="page hidden"><header class="subheader"><button onclick="show('home')">‹</button><h1>今日のミッション</h1><span></span></header><div class="result-content"><div class="result-card"><span>今日の目標</span><strong id="missionDetail">0 / 3</strong><p>販買モードを3件実施する</p></div><div class="progress"><span id="missionBar"></span></div><button class="next-button" onclick="openRank('quiz')">今日の問題を始める</button></div></section>
 
 <section id="result" class="page hidden"><header class="subheader"><button onclick="show('home')">‹</button><h1>結果</h1><span></span></header><div class="result-content"><div class="result-card"><span>今回の成績</span><strong id="resultScore"></strong><p id="resultMessage"></p></div><button class="next-button" onclick="show('home')">ホームへ戻る</button></div></section>
 
@@ -1730,11 +1769,6 @@ html,body{max-width:100%;overflow-x:hidden}
         <p>練習問題や図解で、知識の復習に使います。</p>
       </article>
       <article class="help-card">
-        <span>🎓</span>
-        <h3>接客フロー</h3>
-        <p>便利機能の「接客フロー」から、お客様対応の流れを確認します。</p>
-      </article>
-      <article class="help-card">
         <span>🧮</span>
         <h3>工事料金問題</h3>
         <p>追加工事や料金の知識を、問題形式で学習します。</p>
@@ -1898,15 +1932,25 @@ function awardExp(amount){
  addDailyExp(earned);
  return next;
 }
-function missionKey(){return"aircon_v2130_mission_"+new Date().toISOString().slice(0,10)}
-function dailyMission(){
- const day=new Date().getDate()%3;
- if(day===0)return{type:"sales",goal:3,title:"販買モードを3件実施する"};
- if(day===1)return{type:"quiz",goal:10,title:"練習問題を10問回答する"};
- return{type:"price",goal:5,title:"工事料金を5問回答する"}
+function missionLocalDateKey(date=new Date()){
+ return date.getFullYear()+"-"+String(date.getMonth()+1).padStart(2,"0")+"-"+String(date.getDate()).padStart(2,"0");
 }
-function missionCount(){const m=dailyMission();return Number(localStorage.getItem(missionKey()+"_"+m.type)||0)}
-function addMission(type,amount=1){const m=dailyMission();if(m.type!==type)return;localStorage.setItem(missionKey()+"_"+m.type,String(missionCount()+amount))}
+function missionKey(){return"aircon_v530_daily_mission_"+missionLocalDateKey()}
+function dailyMission(){
+ return{type:"quiz",goal:10,title:"今日の問題を10問回答する"};
+}
+function missionCount(){
+ const m=dailyMission();
+ const value=Number(localStorage.getItem(missionKey()+"_"+m.type)||0);
+ return Number.isFinite(value)?Math.max(0,value):0;
+}
+function addMission(type,amount=1){
+ const m=dailyMission();
+ if(m.type!==type)return;
+ const next=Math.min(m.goal,missionCount()+Math.max(0,Number(amount)||0));
+ localStorage.setItem(missionKey()+"_"+m.type,String(next));
+ updateHome();
+}
 
 const DAILY_EXP_KEY="aircon_master_daily_exp_v388";
 function localDateKey(date=new Date()){
@@ -2293,8 +2337,23 @@ function showDaikinSeries(key,button){
  document.querySelectorAll("#daikin .series-tab").forEach(b=>b.classList.remove("active"));
  if(button)button.classList.add("active");
  const s=DAIKIN_SERIES[key];
+ const fnOriginal=key==="FN"?
+  '<section class="fn-original-hero">'+
+   '<div class="fn-original-badge">⭐ ノジマオリジナル機能</div>'+
+   '<h2>防カビ加工ドレンパン</h2>'+
+   '<p class="fn-original-lead">FNシリーズで最初に覚える違いです。<b>Fシリーズの快適機能に、ノジマオリジナルの清潔仕様を追加</b>しています。</p>'+
+   '<div class="fn-compare-visual">'+
+    '<div class="fn-compare-card"><span>Fシリーズ</span><b>快適機能・除湿・清潔機能</b><small>ベースとなる機能</small></div>'+
+    '<div class="fn-plus">＋</div>'+
+    '<div class="fn-compare-card original"><span>FNシリーズだけの追加価値</span><b>防カビ加工ドレンパン</b><small>カビの発生を抑える加工</small></div>'+
+   '</div>'+
+   '<div class="fn-memory-card"><span>30秒で覚える</span><strong>FN ＝ Fシリーズ ＋ 防カビ加工ドレンパン</strong></div>'+
+   '<div class="fn-talk-card"><b>🛍️ 買い場での一言</b><p>「FNはFシリーズをベースに、ノジマだけの防カビ加工ドレンパンを追加したオリジナルモデルです。」</p></div>'+
+   '<div class="fn-warning-card"><b>⚠️ 注意</b><p>防カビ加工はカビの発生を抑えるための加工です。カビが発生しないことを保証するものではなく、定期的なお手入れは必要です。</p></div>'+
+  '</section>':"";
  document.getElementById("daikinSeriesPanel").innerHTML=
   '<div class="series-hero"><span class="series-tag">'+s.tag+'</span><h2>'+s.title+'</h2><p>'+s.summary+'</p></div>'+
+  fnOriginal+
   '<div class="series-grid">'+
    '<div class="series-card"><h3>おすすめのお客様</h3><ul>'+s.suitable.map(x=>"<li>"+x+"</li>").join("")+'</ul></div>'+
    '<div class="series-card"><h3>主な提案ポイント</h3><ul>'+s.features.map(x=>"<li>"+x+"</li>").join("")+'</ul></div>'+
