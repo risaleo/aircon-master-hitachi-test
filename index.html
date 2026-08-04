@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.5.1.6 工事料金問題表記版</title>
+<title>エアコン販買マスター Pro Ver.5.2.0 ダイキンFNシリーズ追加版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1084,6 +1084,23 @@ html,body{max-width:100%;overflow-x:hidden}
 }
 </style>
 
+
+<style id="v520-daikin-fn">
+#daikin .fn-tab{position:relative;line-height:1.15}
+#daikin .fn-tab small{
+ display:block;margin-top:4px;font-size:9px;font-weight:900;opacity:.82;white-space:nowrap
+}
+#daikin .fn-tab::after{
+ content:"ORIGINAL";position:absolute;top:-7px;right:-4px;padding:2px 5px;border-radius:999px;
+ background:#ff9f1c;color:#fff;font-size:8px;font-weight:900;letter-spacing:.04em
+}
+#daikin .fn-tab.active::after{background:#fff;color:#d96d00}
+#daikinSeriesStatus [data-series="FN"]{font-size:10px}
+@media(max-width:700px){
+ #daikin .fn-tab small{font-size:8px}
+}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -1094,7 +1111,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.5.1.6 工事料金問題表記版</small>
+      <small>Ver.5.2.0 ダイキンFNシリーズ追加版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -1537,7 +1554,7 @@ html,body{max-width:100%;overflow-x:hidden}
       <div class="maker-series-status" aria-label="ダイキンシリーズ攻略状況">
         <small>シリーズ攻略</small>
         <div id="daikinSeriesStatus" class="maker-status-list">
-          <span data-series="R">R</span><span data-series="A">A</span><span data-series="F">F</span><span data-series="E">E</span>
+          <span data-series="R">R</span><span data-series="A">A</span><span data-series="F">F</span><span data-series="FN">FN</span><span data-series="E">E</span>
         </div>
       </div>
       <div class="maker-progress-ring"><span id="daikinHeroProgress">0%</span><small>理解度</small></div>
@@ -1568,6 +1585,7 @@ html,body{max-width:100%;overflow-x:hidden}
       <button class="series-tab active" onclick="showDaikinSeries('R',this)">Rシリーズ</button>
       <button class="series-tab" onclick="showDaikinSeries('A',this)">Aシリーズ</button>
       <button class="series-tab" onclick="showDaikinSeries('F',this)">Fシリーズ</button>
+      <button class="series-tab fn-tab" onclick="showDaikinSeries('FN',this)">FNシリーズ<small>ノジマオリジナル</small></button>
       <button class="series-tab" onclick="showDaikinSeries('E',this)">Eシリーズ</button>
     </div>
 
@@ -1579,6 +1597,7 @@ html,body{max-width:100%;overflow-x:hidden}
         <button class="diagnosis-btn" onclick="diagnoseDaikin('highest')">👑 長時間使う・快適性を最優先</button>
         <button class="diagnosis-btn" onclick="diagnoseDaikin('comfort')">😊 快適機能は欲しいが加湿は不要</button>
         <button class="diagnosis-btn" onclick="diagnoseDaikin('balance')">⚖️ 価格と快適性のバランス重視</button>
+        <button class="diagnosis-btn" onclick="diagnoseDaikin('original')">⭐ Fの快適機能＋清潔性重視</button>
         <button class="diagnosis-btn" onclick="diagnoseDaikin('simple')">💰 シンプル・価格重視</button>
       </div>
       <div id="daikinDiagnosisResult" class="diagnosis-result hidden"></div>
@@ -2230,6 +2249,15 @@ const DAIKIN_SERIES={
   talk:"「シンプル機より快適性を上げたいけれど、最上位までは必要ない方にちょうど良いシリーズです。特にリビングで、気流や除湿も大切にしたい方に比較していただきやすいです。」",
   caution:"『コスパが一番』と決めつけず、使用時間と上位機との年間消費電力量差を確認します。"
  },
+ FN:{
+  title:"FNシリーズ",
+  tag:"ノジマオリジナル／Fシリーズベース",
+  summary:"Fシリーズの快適機能をベースに、ノジマオリジナルの防カビ加工ドレンパンを加えたモデル。価格と快適性のバランスに加え、清潔性も重視するお客様へ提案しやすい。",
+  suitable:["Fシリーズの機能を検討している","清潔性も重視したい","プレミアム冷房やさらら除湿を使いたい","ノジマオリジナルの付加価値を比較したい"],
+  features:["Fシリーズをベースにした快適機能","プレミアム冷房・PIT制御","さらら除湿（ハイブリッド方式）","水内部クリーン・ストリーマ","ノジマオリジナルの防カビ加工ドレンパン"],
+  talk:"「FNシリーズはFシリーズの快適機能をベースに、ノジマオリジナルの防カビ加工ドレンパンを追加したモデルです。快適性に加えて、清潔性も比較したい方におすすめしやすいです。」",
+  caution:"防カビ加工はカビの発生を抑えるための加工で、発生しないことを保証するものではありません。定期的なお手入れは必要です。搭載内容は該当型番で確認します。"
+ },
  E:{
   title:"Eシリーズ",
   tag:"コンパクト・スタンダード",
@@ -2245,6 +2273,7 @@ const DAIKIN_QUIZ=[
  {q:"リビングで長時間使用。加湿も含めて快適性を最優先するお客様に、最初に比較したいシリーズは？",choices:["Rシリーズ","Aシリーズ","Fシリーズ","Eシリーズ"],answer:0,ex:"無給水加湿を含む最上位の快適機能を重視する場合は、まずRを比較します。"},
  {q:"加湿は不要だが、リビングで自動運転や気流などの快適性を重視するお客様は？",choices:["Aシリーズ","Rシリーズだけ","Eシリーズ","価格だけでFシリーズ"],answer:0,ex:"加湿不要で高機能を求める場合、Aが有力です。Rとの機能差と価格差を型番で比較します。"},
  {q:"価格と快適機能のバランスを重視し、除湿や気流も比較したいお客様は？",choices:["Fシリーズ","Eシリーズだけ","Rシリーズだけ","シリーズでは判断できないので説明不要"],answer:0,ex:"Fは快適気流・除湿・清潔機能を含めて、バランス提案しやすいシリーズです。"},
+ {q:"FNシリーズのノジマオリジナル仕様として適切なのは？",choices:["防カビ加工ドレンパン","無給水加湿","プレミアム冷房のみ","室温パトロールのみ"],answer:0,ex:"FNはFシリーズをベースに、ノジマオリジナルの防カビ加工ドレンパンを加えたモデルです。防カビ加工はカビが発生しないことを保証するものではありません。"},
  {q:"寝室用で、設置スペースが狭く、基本機能と価格を重視するお客様は？",choices:["Eシリーズ","Rシリーズ","Aシリーズ","必ずFシリーズ"],answer:0,ex:"コンパクト設計と基本機能を重視する場合、Eが比較しやすいです。"},
  {q:"Eシリーズを検討中のリビング長時間使用のお客様。最も適切な対応は？",choices:["F・A・Rとの電気代や快適性も比較してもらう","Eで十分と即断する","必ずRへ変更する","価格だけ説明する"],answer:0,ex:"使い方に応じて上位シリーズとの価格差・快適性・省エネ性を比較します。"}
 ];
@@ -2272,11 +2301,12 @@ function showDaikinSeries(key,button){
    '<div class="series-card"><h3>🗣️ 接客トーク例</h3><p>'+s.talk+'</p></div>'+
    '<div class="series-card"><h3>⚠️ 注意点</h3><p>'+s.caution+'</p></div>'+
   '</div>'+
-  '<div class="series-card" style="margin-top:14px"><h3>R・A・F・Eの位置づけ</h3>'+
+  '<div class="series-card" style="margin-top:14px"><h3>R・A・F・FN・Eの位置づけ</h3>'+
   '<table class="compare-table"><tr><th>シリーズ</th><th>提案の軸</th><th>向きやすい使い方</th></tr>'+
   '<tr><td>R</td><td>加湿を含む最上位の快適性</td><td>長時間使うリビング・全部入り重視</td></tr>'+
   '<tr><td>A</td><td>加湿なしの高機能</td><td>快適性重視・Rより価格を抑えたい</td></tr>'+
   '<tr><td>F</td><td>価格と快適機能のバランス</td><td>除湿・気流も重視するリビング</td></tr>'+
+  '<tr><td>FN</td><td>Fベース＋ノジマオリジナル</td><td>快適性と防カビ加工ドレンパンを重視</td></tr>'+
   '<tr><td>E</td><td>コンパクト・基本機能</td><td>寝室・子ども部屋・価格重視</td></tr></table></div>'
 }
 
@@ -2285,6 +2315,7 @@ function diagnoseDaikin(type){
   highest:"<b>おすすめ候補：Rシリーズ</b><br>無給水加湿を含む快適性を最優先。ただし加湿が不要ならAも比較します。",
   comfort:"<b>おすすめ候補：Aシリーズ</b><br>加湿は不要でも、自動運転・気流・快適性を重視する方に比較しやすいです。",
   balance:"<b>おすすめ候補：Fシリーズ</b><br>快適気流・除湿・清潔機能と価格のバランスを確認します。",
+  original:"<b>おすすめ候補：FNシリーズ</b><br>Fシリーズの快適機能に加え、ノジマオリジナルの防カビ加工ドレンパンを比較します。",
   simple:"<b>おすすめ候補：Eシリーズ</b><br>寝室など使用時間が短く、コンパクト性と基本機能を重視する方に向きます。"
  }[type];
  const box=document.getElementById("daikinDiagnosisResult");
@@ -2982,8 +3013,8 @@ function markDaikinQuizFinished(){
 }
 function updateDaikinProgressUI(){
  const p=getDaikinProgress();
- const total=4+5+1;
- const done=Math.min(p.series.length,4)+Math.min(p.features.length,5)+(p.quiz?1:0);
+ const total=5+5+1;
+ const done=Math.min(p.series.length,5)+Math.min(p.features.length,5)+(p.quiz?1:0);
  const percent=Math.round(done/total*100);
  const el=document.getElementById("daikinHeroProgress");
  if(el)el.textContent=percent+"%";
