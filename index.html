@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.5.3.0 機能整理・FN強調版</title>
+<title>エアコン販買マスター Pro Ver.5.3.1 FNオリジナル2機能版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1143,6 +1143,13 @@ html,body{max-width:100%;overflow-x:hidden}
 }
 </style>
 
+
+<style id="v531-fn-two-originals">
+.fn-original-stack{display:grid;grid-template-columns:1fr;gap:10px}
+.fn-original-stack .fn-compare-card{min-height:118px}
+@media(min-width:900px){.fn-original-stack{grid-template-columns:1fr 1fr}}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -1153,7 +1160,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.5.3.0 機能整理・FN強調版</small>
+      <small>Ver.5.3.1 FNオリジナル2機能版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -2296,10 +2303,10 @@ const DAIKIN_SERIES={
  FN:{
   title:"FNシリーズ",
   tag:"ノジマオリジナル／Fシリーズベース",
-  summary:"Fシリーズの快適機能をベースに、ノジマオリジナルの防カビ加工ドレンパンを加えたモデル。価格と快適性のバランスに加え、清潔性も重視するお客様へ提案しやすい。",
+  summary:"Fシリーズの快適機能をベースに、ノジマオリジナルの清潔ドレンパンと静電気防止パネルを加えたモデル。価格と快適性のバランスに加え、清潔性も重視するお客様へ提案しやすい。",
   suitable:["Fシリーズの機能を検討している","清潔性も重視したい","プレミアム冷房やさらら除湿を使いたい","ノジマオリジナルの付加価値を比較したい"],
-  features:["Fシリーズをベースにした快適機能","プレミアム冷房・PIT制御","さらら除湿（ハイブリッド方式）","水内部クリーン・ストリーマ","ノジマオリジナルの防カビ加工ドレンパン"],
-  talk:"「FNシリーズはFシリーズの快適機能をベースに、ノジマオリジナルの防カビ加工ドレンパンを追加したモデルです。快適性に加えて、清潔性も比較したい方におすすめしやすいです。」",
+  features:["Fシリーズをベースにした快適機能","プレミアム冷房・PIT制御","さらら除湿（ハイブリッド方式）","水内部クリーン・ストリーマ","ノジマオリジナルの清潔ドレンパンと静電気防止パネル"],
+  talk:"「FNシリーズはFシリーズの快適機能をベースに、ノジマオリジナルの清潔ドレンパンと静電気防止パネルを追加したモデルです。快適性に加えて、清潔性も比較したい方におすすめしやすいです。」",
   caution:"防カビ加工はカビの発生を抑えるための加工で、発生しないことを保証するものではありません。定期的なお手入れは必要です。搭載内容は該当型番で確認します。"
  },
  E:{
@@ -2317,7 +2324,7 @@ const DAIKIN_QUIZ=[
  {q:"リビングで長時間使用。加湿も含めて快適性を最優先するお客様に、最初に比較したいシリーズは？",choices:["Rシリーズ","Aシリーズ","Fシリーズ","Eシリーズ"],answer:0,ex:"無給水加湿を含む最上位の快適機能を重視する場合は、まずRを比較します。"},
  {q:"加湿は不要だが、リビングで自動運転や気流などの快適性を重視するお客様は？",choices:["Aシリーズ","Rシリーズだけ","Eシリーズ","価格だけでFシリーズ"],answer:0,ex:"加湿不要で高機能を求める場合、Aが有力です。Rとの機能差と価格差を型番で比較します。"},
  {q:"価格と快適機能のバランスを重視し、除湿や気流も比較したいお客様は？",choices:["Fシリーズ","Eシリーズだけ","Rシリーズだけ","シリーズでは判断できないので説明不要"],answer:0,ex:"Fは快適気流・除湿・清潔機能を含めて、バランス提案しやすいシリーズです。"},
- {q:"FNシリーズのノジマオリジナル仕様として適切なのは？",choices:["防カビ加工ドレンパン","無給水加湿","プレミアム冷房のみ","室温パトロールのみ"],answer:0,ex:"FNはFシリーズをベースに、ノジマオリジナルの防カビ加工ドレンパンを加えたモデルです。防カビ加工はカビが発生しないことを保証するものではありません。"},
+ {q:"FNシリーズのノジマオリジナル仕様の組み合わせとして適切なのは？",choices:["清潔ドレンパンと静電気防止パネル","無給水加湿と換気","プレミアム冷房とPIT制御","室温パトロールと水内部クリーン"],answer:0,ex:"FNはFシリーズをベースに、ノジマオリジナルの清潔ドレンパンと静電気防止パネルを加えたモデルです。防カビ加工はカビが発生しないことを保証するものではありません。"},
  {q:"寝室用で、設置スペースが狭く、基本機能と価格を重視するお客様は？",choices:["Eシリーズ","Rシリーズ","Aシリーズ","必ずFシリーズ"],answer:0,ex:"コンパクト設計と基本機能を重視する場合、Eが比較しやすいです。"},
  {q:"Eシリーズを検討中のリビング長時間使用のお客様。最も適切な対応は？",choices:["F・A・Rとの電気代や快適性も比較してもらう","Eで十分と即断する","必ずRへ変更する","価格だけ説明する"],answer:0,ex:"使い方に応じて上位シリーズとの価格差・快適性・省エネ性を比較します。"}
 ];
@@ -2340,15 +2347,15 @@ function showDaikinSeries(key,button){
  const fnOriginal=key==="FN"?
   '<section class="fn-original-hero">'+
    '<div class="fn-original-badge">⭐ ノジマオリジナル機能</div>'+
-   '<h2>防カビ加工ドレンパン</h2>'+
+   '<h2>清潔ドレンパン</h2>'+
    '<p class="fn-original-lead">FNシリーズで最初に覚える違いです。<b>Fシリーズの快適機能に、ノジマオリジナルの清潔仕様を追加</b>しています。</p>'+
    '<div class="fn-compare-visual">'+
     '<div class="fn-compare-card"><span>Fシリーズ</span><b>快適機能・除湿・清潔機能</b><small>ベースとなる機能</small></div>'+
     '<div class="fn-plus">＋</div>'+
-    '<div class="fn-compare-card original"><span>FNシリーズだけの追加価値</span><b>防カビ加工ドレンパン</b><small>カビの発生を抑える加工</small></div>'+
+    '<div class="fn-original-stack"><div class="fn-compare-card original"><span>ノジマオリジナル①</span><b>清潔ドレンパン</b><small>銅プレートでドレン水中のカビや菌の発生を抑える</small></div><div class="fn-compare-card original"><span>ノジマオリジナル②</span><b>静電気防止パネル</b><small>室内機パネル裏面にホコリが付きにくいよう配慮</small></div></div>'+
    '</div>'+
-   '<div class="fn-memory-card"><span>30秒で覚える</span><strong>FN ＝ Fシリーズ ＋ 防カビ加工ドレンパン</strong></div>'+
-   '<div class="fn-talk-card"><b>🛍️ 買い場での一言</b><p>「FNはFシリーズをベースに、ノジマだけの防カビ加工ドレンパンを追加したオリジナルモデルです。」</p></div>'+
+   '<div class="fn-memory-card"><span>30秒で覚える</span><strong>FN ＝ Fシリーズ ＋ 清潔ドレンパン ＋ 静電気防止パネル</strong></div>'+
+   '<div class="fn-talk-card"><b>🛍️ 買い場での一言</b><p>「FNはFシリーズをベースに、ノジマオリジナルの清潔ドレンパンと静電気防止パネルを追加したモデルです。」</p></div>'+
    '<div class="fn-warning-card"><b>⚠️ 注意</b><p>防カビ加工はカビの発生を抑えるための加工です。カビが発生しないことを保証するものではなく、定期的なお手入れは必要です。</p></div>'+
   '</section>':"";
  document.getElementById("daikinSeriesPanel").innerHTML=
@@ -2365,7 +2372,7 @@ function showDaikinSeries(key,button){
   '<tr><td>R</td><td>加湿を含む最上位の快適性</td><td>長時間使うリビング・全部入り重視</td></tr>'+
   '<tr><td>A</td><td>加湿なしの高機能</td><td>快適性重視・Rより価格を抑えたい</td></tr>'+
   '<tr><td>F</td><td>価格と快適機能のバランス</td><td>除湿・気流も重視するリビング</td></tr>'+
-  '<tr><td>FN</td><td>Fベース＋ノジマオリジナル</td><td>快適性と防カビ加工ドレンパンを重視</td></tr>'+
+  '<tr><td>FN</td><td>Fベース＋ノジマオリジナル</td><td>快適性と清潔ドレンパンを重視</td></tr>'+
   '<tr><td>E</td><td>コンパクト・基本機能</td><td>寝室・子ども部屋・価格重視</td></tr></table></div>'
 }
 
@@ -2374,7 +2381,7 @@ function diagnoseDaikin(type){
   highest:"<b>おすすめ候補：Rシリーズ</b><br>無給水加湿を含む快適性を最優先。ただし加湿が不要ならAも比較します。",
   comfort:"<b>おすすめ候補：Aシリーズ</b><br>加湿は不要でも、自動運転・気流・快適性を重視する方に比較しやすいです。",
   balance:"<b>おすすめ候補：Fシリーズ</b><br>快適気流・除湿・清潔機能と価格のバランスを確認します。",
-  original:"<b>おすすめ候補：FNシリーズ</b><br>Fシリーズの快適機能に加え、ノジマオリジナルの防カビ加工ドレンパンを比較します。",
+  original:"<b>おすすめ候補：FNシリーズ</b><br>Fシリーズの快適機能に加え、ノジマオリジナルの清潔ドレンパンと静電気防止パネルを比較します。",
   simple:"<b>おすすめ候補：Eシリーズ</b><br>寝室など使用時間が短く、コンパクト性と基本機能を重視する方に向きます。"
  }[type];
  const box=document.getElementById("daikinDiagnosisResult");
