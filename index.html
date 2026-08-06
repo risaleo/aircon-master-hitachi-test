@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.5.3.2 カビバスター記載修正版</title>
+<title>エアコン販買マスター Pro Ver.5.3.3 無線LAN案内統合版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1150,6 +1150,22 @@ html,body{max-width:100%;overflow-x:hidden}
 @media(min-width:900px){.fn-original-stack{grid-template-columns:1fr 1fr}}
 </style>
 
+
+<style id="v533-hitachi-wifi">
+.hitachi-wifi-card{grid-column:1/-1}
+.wifi-series-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.wifi-series-box{padding:16px;border-radius:16px;text-align:center}
+.wifi-series-box.built-in{background:#e8f4ff;border:2px solid #66a8df}
+.wifi-series-box.adapter{background:#fff3dc;border:2px solid #e2aa3f}
+.wifi-series-label{display:block;font-size:13px;font-weight:900;margin-bottom:8px}
+.wifi-series-box strong{display:block;font-size:21px;color:#173a63}
+.wifi-series-box small{display:block;margin-top:6px;color:#61758a}
+@media(max-width:700px){
+ .wifi-series-grid{grid-template-columns:1fr}
+ .wifi-series-box strong{font-size:19px}
+}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -1160,7 +1176,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.5.3.2 カビバスター記載修正版</small>
+      <small>Ver.5.3.3 無線LAN案内統合版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -1538,8 +1554,24 @@ html,body{max-width:100%;overflow-x:hidden}
     <article class="setting-info-card state-manual-card"><div class="setting-card-head"><span class="setting-icon">💧</span><div><h3>カラッと除湿</h3><span class="setting-state state-manual">手動選択</span></div></div><p><b>主な搭載：</b>X・WN</p><div class="setting-point"><b>確認</b><span>冷えすぎを抑えながら除湿したい場面で、お客様が選択して使います。</span></div><div class="setting-talk"><b>買い場での一言</b><span>「梅雨時など、必要なときに除湿運転を選びます。」</span></div></article>
     <article class="setting-info-card state-auto-card"><div class="setting-card-head"><span class="setting-icon">🩺</span><div><h3>シーズン前自動点検</h3><span class="setting-state state-auto">設定済み</span></div></div><p><b>主な搭載：</b>X・WN・G・D・E</p><div class="setting-point"><b>確認</b><span>故障予知ではなく、その時点の運転状態を自動確認する機能です。</span></div><div class="setting-talk"><b>買い場での一言</b><span>「本格使用前に、エアコンが運転状態を確認します。」</span></div></article>
     <article class="setting-info-card state-auto-card"><div class="setting-card-head"><span class="setting-icon">🌬️</span><div><h3>内部送風乾燥</h3><span class="setting-state state-auto">設定済み</span></div></div><p><b>主な搭載：</b>X・WN・G・D・E</p><div class="setting-point"><b>確認</b><span>冷房・除湿停止後、送風で内部の水分を乾かす補助をします。</span></div><div class="setting-talk"><b>買い場での一言</b><span>「停止後に内部を乾かし、清潔維持を支えます。」</span></div></article>
-    <article class="setting-info-card state-connect-card"><div class="setting-card-head"><span class="setting-icon">📶</span><div><h3>白くまくんアプリ<br>無線LAN内蔵モデル</h3><span class="setting-state state-connect">初回接続が必要</span></div></div><p><b>対象：</b>無線LAN内蔵の対象型番</p><div class="setting-point"><b>確認</b><span>別売アダプターは不要です。ご家庭のWi‑Fi環境とアプリ登録が必要です。</span></div><div class="setting-talk"><b>買い場での一言</b><span>「無線LAN内蔵モデルは、Wi‑Fiとアプリを登録するとスマホ操作が使えます。」</span></div></article>
-    <article class="setting-info-card state-check-card"><div class="setting-card-head"><span class="setting-icon">🔌</span><div><h3>白くまくんアプリ<br>別売アダプター対応モデル</h3><span class="setting-state state-check">別売品・型番確認</span></div></div><p><b>対象：</b>別売無線LANアダプター対応の対象型番</p><div class="setting-point"><b>確認</b><span>対応する別売アダプターの型番、取付可否、Wi‑Fi環境、アプリ登録を確認します。</span></div><div class="setting-talk"><b>買い場での一言</b><span>「こちらはスマホ操作に対応できますが、対応する別売アダプターが必要です。」</span></div></article>
+    <article class="setting-info-card state-connect-card hitachi-wifi-card">
+      <div class="setting-card-head"><span class="setting-icon">📱</span><div><h3>白くまくんアプリ・無線LAN機能</h3><span class="setting-state state-connect">初回接続が必要</span></div></div>
+      <p>スマートフォンから運転操作や運転状態の確認を行う機能です。ご家庭の2.4GHz対応Wi‑Fi環境とアプリ登録が必要です。</p>
+      <div class="wifi-series-grid">
+        <div class="wifi-series-box built-in">
+          <span class="wifi-series-label">📶 無線LAN内蔵</span>
+          <strong>X・WN・Gシリーズ</strong>
+          <small>別売アダプター不要</small>
+        </div>
+        <div class="wifi-series-box adapter">
+          <span class="wifi-series-label">🔌 別売アダプターが必要</span>
+          <strong>D・Eシリーズ</strong>
+          <small>SP-WL4対応</small>
+        </div>
+      </div>
+      <div class="setting-point"><b>確認</b><span>シリーズ区分を確認したうえで、能力帯による型番差や対応アダプターを該当型番の仕様表で最終確認します。</span></div>
+      <div class="setting-talk"><b>買い場での一言</b><span>「X・WN・Gは無線LAN内蔵、D・Eは別売アダプターを取り付けることで白くまくんアプリを利用できます。」</span></div>
+    </article>
   </div>
   <div class="feature-caution"><b>重要</b><br>「機能を搭載していること」と「購入直後から有効であること」は別です。能力帯・型番・取扱説明書で最終確認してください。</div>
 </div>
