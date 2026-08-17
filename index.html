@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.1.1 東芝SHARP 表示修正・図解ライブラリ追加版</title>
+<title>エアコン販買マスター Pro Ver.6.1.2 東芝SHARP 図解ライブラリ統合版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1234,7 +1234,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.1.1 東芝SHARP 表示修正・図解ライブラリ追加版</small>
+      <small>Ver.6.1.2 東芝SHARP 図解ライブラリ統合版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -1689,7 +1689,7 @@ html,body{max-width:100%;overflow-x:hidden}
       <p>V-DR・V-DZ・V-DX・V-X・V-Mを、シリーズ差 → 機能 → 初期設定 → 買い場トークの順で学ぶ攻略ページ。</p>
       <div class="maker-hero-actions">
         <button type="button" onclick="openToshibaSeries()">シリーズを見る</button>
-        <button type="button" onclick="scrollMakerTo('toshibaVisualLibrary')">図解を見る</button>
+        <button type="button" onclick="openVisualLibraryFilter('toshiba')">図解を見る</button>
       </div>
     </div>
     <div class="maker-hero-visual">
@@ -1748,17 +1748,6 @@ html,body{max-width:100%;overflow-x:hidden}
         <div><b>💰 V-M</b><span>シンプル：基本機能中心／プラズマ空清なし</span></div>
       </div>
     </div>
-
-    <section id="toshibaVisualLibrary" class="maker-visual-library">
-<div class="maker-section-title"><span>VISUAL LIBRARY</span><h2>東芝 図解ライブラリ</h2><p>仕組みとシリーズ差を図で確認できます。</p></div>
-<div class="visual-card-grid">
-<article class="visual-card"><div class="diagram"><div class="box">室内機</div><div class="arrow">))) ➜</div><div class="box">人を追尾</div></div><h3>📡 レーダー風あて／風よけ</h3><p><b>V-DRのみ。</b>高性能レーダーで人の動きを探知。風あては追尾、風よけは直接冷風をあてにくくします。</p></article>
-<article class="visual-card"><div class="diagram"><div class="box">通常風 ➜</div><div class="box">無風感 ≋</div></div><h3>🫧 無風感空調</h3><p>V-DR・V-DZ・V-DX。風をゼロにするのではなく、風あたりをやわらげます。</p></article>
-<article class="visual-card"><div class="diagram"><div class="box">微粒子</div><div class="arrow">⚡</div><div class="box">集じん</div></div><h3>⚡ プラズマ空清</h3><p>V-DR・V-DZ・V-DX・V-Xに搭載。V-Mは非搭載です。</p></article>
-<article class="visual-card"><div class="diagram"><div class="box">冷房洗浄</div><div class="arrow">＋UV＋</div><div class="box">乾燥</div></div><h3>🧼 UVプレミアムクリーン除菌</h3><p>V-DR・V-DZ・V-DX。V-XはUV照射なしの「プレミアムクリーン」です。</p></article>
-<article class="visual-card"><div class="diagram"><div class="box">フィルター</div><div class="arrow">↔</div><div class="box">楽ダストボックス</div></div><h3>🧹 フィルター自動お掃除</h3><p>V-DR・V-DZ・V-DX。自動お掃除でも完全メンテナンスフリーではありません。</p></article>
-<article class="visual-card"><div class="diagram"><div class="big">📱</div><div class="arrow">)))</div><div class="big">❄️</div></div><h3>📱 IoLIFE</h3><p>V-DR・V-DZ・V-DX・V-X。利用には2.4GHz Wi‑Fiへの接続と機器登録が必要です。</p></article>
-</div></section>
 <div id="toshibaFeatureArea" class="series-card" style="max-width:980px;margin:0 auto 18px">
       <div class="maker-section-title"><span>VISUAL LIBRARY</span><h2>東芝の重要機能</h2><p>機能名だけでなく、シリーズ差と接客での使い方まで確認します。</p></div>
       <div class="diagnosis-grid maker-feature-grid">
@@ -1849,7 +1838,7 @@ html,body{max-width:100%;overflow-x:hidden}
       <p>2026年の主要4シリーズ R・V・E・DGを、シリーズ差 → 機能 → 初期設定 → 買い場トークの順で学びます。</p>
       <div class="maker-hero-actions">
         <button type="button" onclick="openSharpSeries()">シリーズを見る</button>
-        <button type="button" onclick="scrollMakerTo('sharpVisualLibrary')">図解を見る</button>
+        <button type="button" onclick="openVisualLibraryFilter('sharp')">図解を見る</button>
       </div>
     </div>
     <div class="maker-hero-visual">
@@ -1907,17 +1896,6 @@ html,body{max-width:100%;overflow-x:hidden}
         <div><b>📏 DG</b><span>奥行230mmシンプル：PC7000＋やさしい気流</span></div>
       </div>
     </div>
-
-    <section id="sharpVisualLibrary" class="maker-visual-library">
-<div class="maker-section-title"><span>VISUAL LIBRARY</span><h2>SHARP 図解ライブラリ</h2><p>清潔・除湿・気流の違いを図で確認できます。</p></div>
-<div class="visual-card-grid">
-<article class="visual-card"><div class="diagram"><div class="big">✣</div><div class="arrow">→</div><div class="box">速乾＋ホコリ抑制</div></div><h3>🌀 防カビカラッとファン</h3><p><b>Rのみ。</b>ファン表面の水分を薄く広げて乾かしやすくし、ホコリ付着も抑えます。</p></article>
-<article class="visual-card"><div class="diagram"><div class="box">熱交換器<br>氷点下</div><div class="arrow">→</div><div class="box">除湿</div></div><h3>🧊 氷結ドライ</h3><p><b>R・V・E。</b>再熱除湿ではありません。室温低下があります。</p></article>
-<article class="visual-card"><div class="diagram"><div class="box">温度</div><div class="box">湿度</div><div class="box">気流</div></div><h3>💧 匠の冷房</h3><p>R・V・E。温度だけでなく湿度もコントロールして快適性を高めます。</p></article>
-<article class="visual-card"><div class="diagram"><div class="box">フィルター</div><div class="arrow">↻</div><div class="box">ダストボックス</div></div><h3>🧹 フィルター自動お掃除</h3><p><b>Vのみ。</b>ダストボックスは6カ月に1回を目安に確認します。</p></article>
-<article class="visual-card"><div class="diagram"><div class="box">天井</div><div class="arrow">➜➜➜</div><div class="big">🙂</div></div><h3>🌬 コアンダ気流</h3><p>体に直接あたりにくくしながら、風を遠くへ届ける考え方です。</p></article>
-<article class="visual-card"><div class="diagram"><div class="box">R/V/E<br>25000</div><div class="arrow">≠</div><div class="box">DG<br>7000</div></div><h3>✨ プラズマクラスター</h3><p>主要4シリーズでも濃度区分が異なります。</p></article>
-</div></section>
 <div id="sharpFeatureArea" class="series-card" style="max-width:980px;margin:0 auto 18px">
       <div class="maker-section-title"><span>VISUAL LIBRARY</span><h2>SHARPの重要機能</h2><p>搭載シリーズと、販売時に間違えやすいポイントを確認します。</p></div>
       <div class="diagnosis-grid maker-feature-grid">
@@ -2110,6 +2088,8 @@ html,body{max-width:100%;overflow-x:hidden}
         <button class="visual-tab active" type="button" data-filter="all">すべて</button>
         <button class="visual-tab" type="button" data-filter="daikin">ダイキン</button>
         <button class="visual-tab" type="button" data-filter="hitachi">日立</button>
+        <button class="visual-tab" type="button" data-filter="toshiba">東芝</button>
+        <button class="visual-tab" type="button" data-filter="sharp">SHARP</button>
         <button class="visual-tab" type="button" data-filter="construction">工事・電源</button>
       </div>
       <div id="visualCount" class="visual-count"></div>
@@ -2196,7 +2176,7 @@ html,body{max-width:100%;overflow-x:hidden}
       <article class="help-card">
         <span>📘</span>
         <h3>図解ライブラリ</h3>
-        <p>ダイキン機能や工事内容を、図で確認できます。</p>
+        <p>ダイキン・日立・東芝・SHARPの機能や工事内容を、図で確認できます。</p>
       </article>
       <article class="help-card">
         <span>⚙️</span>
@@ -3056,6 +3036,20 @@ const VISUAL_LIBRARY=[
  {category:"hitachi",file:"hitachi-sleep-watch-illustrated.png?v=415",title:"みはっておやすみ",desc:"睡眠中の温度・湿度を見張り、寝苦しさや冷えすぎに配慮する運転を図解。"},
  {category:"hitachi",file:"hitachi-swing-illustrated.png?v=415",title:"上下左右スイング",desc:"上下・左右の羽根を動かし、部屋全体へ気流を届ける仕組みを図解。"},
  {category:"hitachi",file:"hitachi-wave-fan-illustrated.png?v=414",title:"WN ウェーブファン",desc:"Xシリーズと同じファン採用、静音性向上、案内時の注意を図解。"},
+ {category:"toshiba",file:"toshiba-radar-illustrated.png?v=612",title:"レーダー風あて／風よけ",desc:"V-DR専用。人の動きを探知し、風を届ける・避ける仕組みを図解。"},
+ {category:"toshiba",file:"toshiba-mufukan-illustrated.png?v=612",title:"無風感空調",desc:"V-DR・V-DZ・V-DX。風あたりをやわらげる仕組みを図解。"},
+ {category:"toshiba",file:"toshiba-plasma-illustrated.png?v=612",title:"プラズマ空清",desc:"電気集じん方式と搭載シリーズの違いを図解。"},
+ {category:"toshiba",file:"toshiba-uvclean-illustrated.png?v=612",title:"UVプレミアムクリーン除菌",desc:"洗浄・UV・乾燥と、V-Xの違いを図解。"},
+ {category:"toshiba",file:"toshiba-filter-illustrated.png?v=612",title:"フィルター自動お掃除（東芝）",desc:"自動掃除から楽ダストボックスまでを図解。"},
+ {category:"toshiba",file:"toshiba-iolife-illustrated.png?v=612",title:"IoLIFE",desc:"Wi-Fi接続・機器登録・スマホ操作の流れを図解。"},
+ {category:"toshiba",file:"toshiba-series-illustrated.png?v=612",title:"東芝5シリーズ比較",desc:"V-DR・V-DZ・V-DX・V-X・V-Mの位置づけを図解。"},
+ {category:"sharp",file:"sharp-dryfan-illustrated.png?v=612",title:"防カビカラッとファン",desc:"Rシリーズのファン清潔機能を図解。"},
+ {category:"sharp",file:"sharp-hyoketsu-illustrated.png?v=612",title:"氷結ドライ",desc:"熱交換器を氷点下まで下げる除湿の流れを図解。"},
+ {category:"sharp",file:"sharp-takumi-illustrated.png?v=612",title:"匠の冷房",desc:"温度・湿度・気流を見ながら快適性を高める考え方を図解。"},
+ {category:"sharp",file:"sharp-filter-illustrated.png?v=612",title:"フィルター自動お掃除（SHARP）",desc:"Vシリーズの自動お掃除と定期確認を図解。"},
+ {category:"sharp",file:"sharp-coanda-illustrated.png?v=612",title:"コアンダ気流",desc:"直接風を抑えながら届ける気流を図解。"},
+ {category:"sharp",file:"sharp-plasma-illustrated.png?v=612",title:"プラズマクラスター",desc:"R・V・Eの25000とDGの7000を比較。"},
+ {category:"sharp",file:"sharp-series-illustrated.png?v=612",title:"SHARP 4シリーズ比較",desc:"R・V・E・DGの位置づけを図解。"},
  {category:"construction",file:"construction-voltage.png",title:"100V・200V",desc:"コンセント・電圧・分電盤をセットで確認。"},
  {category:"construction",file:"construction-dedicated.png",title:"専用回路",desc:"分電盤からエアコンまで他機器と共用しない回路。"},
  {category:"construction",file:"construction-board.png",title:"分電盤",desc:"主幹・分岐・単相2線/3線・空き回路・専用回路を総合確認。"},
@@ -3087,6 +3081,20 @@ const VISUAL_GUIDE={
  "みはっておやすみ":{review:"睡眠中の温度・湿度変化を見張り、寝苦しさや冷えすぎを抑えるよう自動調整する機能。",talk:"睡眠中のお部屋をやさしく見守るので、朝まで快適に眠りたい方に向いています。"},
  "上下左右スイング":{review:"上下・左右の羽根を自動で動かし、部屋全体へムラを抑えた気流を届ける機能。",talk:"お部屋のすみずみまで風を届けやすく、家族みんなが快適に過ごしやすいです。"},
  "WN ウェーブファン":{review:"上位Xシリーズと同じウェーブファンを採用し、静音性を高めたノジマオリジナル仕様。",talk:"WNは上位Xと同じウェーブファン搭載で、清潔機能に加えて静かさも魅力です。"},
+ "レーダー風あて／風よけ":{review:"V-DRのみ。高性能レーダーで人の動きを探知し、風あては追尾、風よけは直接冷風をあてにくくする。",talk:"家事で動く方には風あて、ソファで直風が苦手な方には風よけ、と使い分けできます。"},
+ "無風感空調":{review:"V-DR・V-DZ・V-DX。風をゼロにするのではなく、風あたりをやわらげる気流機能。",talk:"冷房の風が苦手な方には、東芝の無風感空調が分かりやすい提案ポイントです。"},
+ "プラズマ空清":{review:"V-DR・V-DZ・V-DX・V-Xに搭載する電気集じん方式の空清機能。V-Mは非搭載。",talk:"空清重視ならV-X以上を比較し、無風感まで必要ならV-DX以上へ絞れます。"},
+ "UVプレミアムクリーン除菌":{review:"V-DR・V-DZ・V-DXに搭載。V-XはUV照射なしのプレミアムクリーン。",talk:"内部清潔を重視する場合は、UVまで入るシリーズかどうかを比較できます。"},
+ "フィルター自動お掃除（東芝）":{review:"V-DR・V-DZ・V-DX。フィルターのホコリを自動除去して楽ダストボックスへ集める。",talk:"掃除の手間を減らしたい方はV-DX以上が比較候補です。"},
+ "IoLIFE":{review:"V-DR・V-DZ・V-DX・V-Xは無線LAN内蔵。アプリ利用にはWi-Fi接続と機器登録が必要。",talk:"外出先から確認や操作をしたい方にはIoLIFE対応シリーズを案内できます。"},
+ "東芝5シリーズ比較":{review:"V-DRは最上位、V-DZ/V-DXは無風感＋空清＋自動掃除、V-Xは空清スタンダード、V-Mはシンプル。",talk:"空清・無風感・レーダー・自動お掃除のどこまで必要かで絞り込みます。"},
+ "防カビカラッとファン":{review:"Rシリーズのみ。ファン表面の水分を広げて速乾し、ホコリ付着も抑えてカビ菌増殖の原因に対策する。",talk:"ファンの清潔性を重視するなら、Rシリーズを選ぶ大きな理由になります。"},
+ "氷結ドライ":{review:"R・V・E。熱交換器を氷点下まで下げて除湿量を確保しやすくする。再熱除湿ではない。",talk:"梅雨時など、室温が低めでもしっかり除湿したい方に説明しやすい機能です。"},
+ "匠の冷房":{review:"R・V・E。設定温度到達後も温度だけでなく湿度までコントロールする快適冷房。",talk:"同じ設定温度でも蒸し暑さが気になる方へ、湿度まで見る冷房として案内できます。"},
+ "フィルター自動お掃除（SHARP）":{review:"Vシリーズ。トルネードブラシでホコリを除去し、ダストボックスへ集める。",talk:"高さ249mmと自動お掃除の両方が欲しいならVが分かりやすい候補です。"},
+ "コアンダ気流":{review:"体に直接あたりにくいように気流を天井方向へ沿わせる。シリーズにより名称・内容が異なる。",talk:"エアコンの風が苦手な方には、直接風を抑える気流として説明できます。"},
+ "プラズマクラスター":{review:"主要4シリーズではR・V・Eが25000、DGが7000。濃度区分が異なる。",talk:"同じプラズマクラスター搭載でも、シリーズによって濃度区分が違います。"},
+ "SHARP 4シリーズ比較":{review:"Rは清潔・省エネ、Vは高さ249mm＋自動掃除、Eは高さ249mmバランス、DGは奥行230mmシンプル。",talk:"清潔性・自動掃除・設置寸法のどれを優先するかで4シリーズから絞れます。"},
  "100V・200V":{review:"コンセント形状だけで断定せず、電圧・分電盤・専用回路をセットで確認する。",talk:"設置予定場所のコンセントと分電盤のお写真があると、より正確に確認できます。"},
  "専用回路":{review:"分電盤からエアコンまで、他の機器と共用せず単独で配線された回路。",talk:"安全に設置するため、エアコン専用の回路があるか確認します。"},
  "分電盤":{review:"主幹容量、空き回路、単相2線・3線、100V・200V、専用回路の有無を確認する。",talk:"ブレーカー容量だけで判断せず、分電盤全体のお写真で確認します。"},
@@ -3096,6 +3104,15 @@ const VISUAL_GUIDE={
 };
 
 let visualFilter="all";
+function openVisualLibraryFilter(category){
+ show("visualLibrary");
+ visualFilter=category||"all";
+ document.querySelectorAll(".visual-tab").forEach(btn=>btn.classList.toggle("active",btn.dataset.filter===visualFilter));
+ const search=document.getElementById("visualSearch"); if(search) search.value="";
+ setupVisualControls();
+ renderVisualLibrary();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
 function renderVisualLibrary(){
  const box=document.getElementById("visualGrid");
  const search=(document.getElementById("visualSearch")?.value||"").trim().toLowerCase();
