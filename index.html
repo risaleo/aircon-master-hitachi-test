@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.1.0 東芝SHARP ダイキン日立同仕様版</title>
+<title>エアコン販買マスター Pro Ver.6.1.1 東芝SHARP 表示修正・図解ライブラリ追加版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1206,6 +1206,24 @@ html,body{max-width:100%;overflow-x:hidden}
 @media(max-width:700px){.maker-position-ladder>div{grid-template-columns:1fr;gap:4px}}
 </style>
 
+
+<style id="v611-fix">
+.maker-status-list{display:flex;gap:10px;flex-wrap:wrap}
+.maker-status-list span{display:flex!important;align-items:center;justify-content:center;min-width:72px;height:56px;padding:0 10px;border-radius:14px;background:rgba(255,255,255,.20)!important;border:2px solid rgba(255,255,255,.55)!important;color:#fff!important;font-weight:900!important;font-size:15px!important;opacity:1!important;visibility:visible!important;text-shadow:0 1px 2px rgba(0,0,0,.18)}
+.maker-status-list span.done{background:#fff!important;color:#173b61!important;border-color:#fff!important;text-shadow:none!important}
+.maker-visual-library{max-width:980px;margin:0 auto 18px;padding:20px;border:1px solid #d8e5ef;border-radius:24px;background:#fff}
+.visual-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.visual-card{border:1px solid #dbe7ef;border-radius:20px;padding:14px;background:linear-gradient(180deg,#fff,#f8fbfd);box-shadow:0 8px 18px rgba(28,64,95,.06)}
+.visual-card h3{margin:12px 0 7px;color:#123d68;font-size:18px}
+.visual-card p{margin:0;line-height:1.7;color:#425d75}
+.diagram{height:145px;border-radius:16px;background:linear-gradient(135deg,#edf7ff,#f7f1ff);position:relative;overflow:hidden;border:1px solid #d8e7f2;padding:14px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.diagram .box{padding:12px 14px;background:#fff;border-radius:12px;border:2px solid #a7c8dd;font-weight:800;color:#17476d;text-align:center}
+.diagram .arrow{font-size:28px;font-weight:900;color:#4786b8}
+.diagram .big{font-size:38px}
+@media(max-width:900px){.visual-card-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.visual-card-grid{grid-template-columns:1fr}.maker-status-list span{min-width:62px;height:50px;font-size:14px!important}}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -1216,7 +1234,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.1.0 東芝SHARP ダイキン日立同仕様版</small>
+      <small>Ver.6.1.1 東芝SHARP 表示修正・図解ライブラリ追加版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -1671,7 +1689,7 @@ html,body{max-width:100%;overflow-x:hidden}
       <p>V-DR・V-DZ・V-DX・V-X・V-Mを、シリーズ差 → 機能 → 初期設定 → 買い場トークの順で学ぶ攻略ページ。</p>
       <div class="maker-hero-actions">
         <button type="button" onclick="openToshibaSeries()">シリーズを見る</button>
-        <button type="button" onclick="openToshibaFeatures()">図解を見る</button>
+        <button type="button" onclick="scrollMakerTo('toshibaVisualLibrary')">図解を見る</button>
       </div>
     </div>
     <div class="maker-hero-visual">
@@ -1731,7 +1749,17 @@ html,body{max-width:100%;overflow-x:hidden}
       </div>
     </div>
 
-    <div id="toshibaFeatureArea" class="series-card" style="max-width:980px;margin:0 auto 18px">
+    <section id="toshibaVisualLibrary" class="maker-visual-library">
+<div class="maker-section-title"><span>VISUAL LIBRARY</span><h2>東芝 図解ライブラリ</h2><p>仕組みとシリーズ差を図で確認できます。</p></div>
+<div class="visual-card-grid">
+<article class="visual-card"><div class="diagram"><div class="box">室内機</div><div class="arrow">))) ➜</div><div class="box">人を追尾</div></div><h3>📡 レーダー風あて／風よけ</h3><p><b>V-DRのみ。</b>高性能レーダーで人の動きを探知。風あては追尾、風よけは直接冷風をあてにくくします。</p></article>
+<article class="visual-card"><div class="diagram"><div class="box">通常風 ➜</div><div class="box">無風感 ≋</div></div><h3>🫧 無風感空調</h3><p>V-DR・V-DZ・V-DX。風をゼロにするのではなく、風あたりをやわらげます。</p></article>
+<article class="visual-card"><div class="diagram"><div class="box">微粒子</div><div class="arrow">⚡</div><div class="box">集じん</div></div><h3>⚡ プラズマ空清</h3><p>V-DR・V-DZ・V-DX・V-Xに搭載。V-Mは非搭載です。</p></article>
+<article class="visual-card"><div class="diagram"><div class="box">冷房洗浄</div><div class="arrow">＋UV＋</div><div class="box">乾燥</div></div><h3>🧼 UVプレミアムクリーン除菌</h3><p>V-DR・V-DZ・V-DX。V-XはUV照射なしの「プレミアムクリーン」です。</p></article>
+<article class="visual-card"><div class="diagram"><div class="box">フィルター</div><div class="arrow">↔</div><div class="box">楽ダストボックス</div></div><h3>🧹 フィルター自動お掃除</h3><p>V-DR・V-DZ・V-DX。自動お掃除でも完全メンテナンスフリーではありません。</p></article>
+<article class="visual-card"><div class="diagram"><div class="big">📱</div><div class="arrow">)))</div><div class="big">❄️</div></div><h3>📱 IoLIFE</h3><p>V-DR・V-DZ・V-DX・V-X。利用には2.4GHz Wi‑Fiへの接続と機器登録が必要です。</p></article>
+</div></section>
+<div id="toshibaFeatureArea" class="series-card" style="max-width:980px;margin:0 auto 18px">
       <div class="maker-section-title"><span>VISUAL LIBRARY</span><h2>東芝の重要機能</h2><p>機能名だけでなく、シリーズ差と接客での使い方まで確認します。</p></div>
       <div class="diagnosis-grid maker-feature-grid">
         <button class="diagnosis-btn" onclick="showToshibaFeature('plasma')">⚡ プラズマ空清</button>
@@ -1821,7 +1849,7 @@ html,body{max-width:100%;overflow-x:hidden}
       <p>2026年の主要4シリーズ R・V・E・DGを、シリーズ差 → 機能 → 初期設定 → 買い場トークの順で学びます。</p>
       <div class="maker-hero-actions">
         <button type="button" onclick="openSharpSeries()">シリーズを見る</button>
-        <button type="button" onclick="openSharpFeatures()">図解を見る</button>
+        <button type="button" onclick="scrollMakerTo('sharpVisualLibrary')">図解を見る</button>
       </div>
     </div>
     <div class="maker-hero-visual">
@@ -1880,7 +1908,17 @@ html,body{max-width:100%;overflow-x:hidden}
       </div>
     </div>
 
-    <div id="sharpFeatureArea" class="series-card" style="max-width:980px;margin:0 auto 18px">
+    <section id="sharpVisualLibrary" class="maker-visual-library">
+<div class="maker-section-title"><span>VISUAL LIBRARY</span><h2>SHARP 図解ライブラリ</h2><p>清潔・除湿・気流の違いを図で確認できます。</p></div>
+<div class="visual-card-grid">
+<article class="visual-card"><div class="diagram"><div class="big">✣</div><div class="arrow">→</div><div class="box">速乾＋ホコリ抑制</div></div><h3>🌀 防カビカラッとファン</h3><p><b>Rのみ。</b>ファン表面の水分を薄く広げて乾かしやすくし、ホコリ付着も抑えます。</p></article>
+<article class="visual-card"><div class="diagram"><div class="box">熱交換器<br>氷点下</div><div class="arrow">→</div><div class="box">除湿</div></div><h3>🧊 氷結ドライ</h3><p><b>R・V・E。</b>再熱除湿ではありません。室温低下があります。</p></article>
+<article class="visual-card"><div class="diagram"><div class="box">温度</div><div class="box">湿度</div><div class="box">気流</div></div><h3>💧 匠の冷房</h3><p>R・V・E。温度だけでなく湿度もコントロールして快適性を高めます。</p></article>
+<article class="visual-card"><div class="diagram"><div class="box">フィルター</div><div class="arrow">↻</div><div class="box">ダストボックス</div></div><h3>🧹 フィルター自動お掃除</h3><p><b>Vのみ。</b>ダストボックスは6カ月に1回を目安に確認します。</p></article>
+<article class="visual-card"><div class="diagram"><div class="box">天井</div><div class="arrow">➜➜➜</div><div class="big">🙂</div></div><h3>🌬 コアンダ気流</h3><p>体に直接あたりにくくしながら、風を遠くへ届ける考え方です。</p></article>
+<article class="visual-card"><div class="diagram"><div class="box">R/V/E<br>25000</div><div class="arrow">≠</div><div class="box">DG<br>7000</div></div><h3>✨ プラズマクラスター</h3><p>主要4シリーズでも濃度区分が異なります。</p></article>
+</div></section>
+<div id="sharpFeatureArea" class="series-card" style="max-width:980px;margin:0 auto 18px">
       <div class="maker-section-title"><span>VISUAL LIBRARY</span><h2>SHARPの重要機能</h2><p>搭載シリーズと、販売時に間違えやすいポイントを確認します。</p></div>
       <div class="diagnosis-grid maker-feature-grid">
         <button class="diagnosis-btn" onclick="showSharpFeature('plasma')">✨ プラズマクラスター</button>
