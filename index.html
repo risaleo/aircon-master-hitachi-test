@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.5.3.5 日立X・G解説修正版</title>
+<title>エアコン販買マスター Pro Ver.6.0.0 東芝・SHARP攻略追加版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1177,6 +1177,26 @@ html,body{max-width:100%;overflow-x:hidden}
 @media(max-width:700px){.hitachi-x-extra{grid-template-columns:1fr}}
 </style>
 
+
+<style id="v600-toshiba-sharp">
+.toshiba-hero{background:linear-gradient(135deg,#6a3ca3,#a56bd8 52%,#d4b6ef)}
+.sharp-hero{background:linear-gradient(135deg,#d73b42,#ef6d73 50%,#ffb7b9)}
+#toshiba .maker-series-tabs,#sharp .maker-series-tabs{max-width:980px;margin:18px auto;display:flex;gap:8px;overflow-x:auto;padding:4px}
+#toshiba .series-tab,#sharp .series-tab{min-width:110px}
+.maker-feature-area{max-width:980px;margin:18px auto;padding:20px;border-radius:24px;background:#fff;border:1px solid #d7e3ec}
+.maker-feature-area>h2{margin:0 0 14px;color:#123a64}
+.maker-feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.maker-feature-card{padding:17px;border:1px solid #dbe6ee;border-radius:18px;background:linear-gradient(180deg,#fff,#f7fbff)}
+.maker-feature-card>span{font-size:34px}.maker-feature-card h3{margin:8px 0 6px;color:#143b64}.maker-feature-card p{margin:0;line-height:1.65;color:#445f77}
+.maker-finish-card{max-width:980px;margin:18px auto}
+#toshibaSeriesPanel,#sharpSeriesPanel{max-width:980px;margin:0 auto}
+.maker-onepoint{padding:14px 16px;margin:12px 0;border-radius:16px;background:#edf7ff;border-left:6px solid #438ad4}
+.maker-talk{padding:14px 16px;margin-top:12px;border-radius:16px;background:#eaf4ff;border-left:6px solid #438ad4}
+.maker-caution{padding:14px 16px;margin-top:12px;border-radius:16px;background:#fff4dc;border-left:6px solid #e2a627}
+@media(max-width:900px){.maker-feature-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.maker-feature-grid{grid-template-columns:1fr}}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -1187,7 +1207,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.5.3.5 日立X・G解説修正版</small>
+      <small>Ver.6.0.0 東芝・SHARP攻略追加版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -1276,6 +1296,12 @@ html,body{max-width:100%;overflow-x:hidden}
       </button>
       <button class="utility-card" onclick="openHitachi()">
         <span class="utility-icon blue">🐻‍❄️</span><b>日立攻略</b><small>清潔・除湿・<br>WNシリーズ</small><em>›</em>
+      </button>
+      <button class="utility-card" onclick="openToshiba()">
+        <span class="utility-icon purple">🌬️</span><b>東芝攻略</b><small>プラズマ空清・<br>無風感空調</small><em>›</em>
+      </button>
+      <button class="utility-card" onclick="openSharp()">
+        <span class="utility-icon red">✨</span><b>SHARP攻略</b><small>プラズマクラスター・<br>清潔気流</small><em>›</em>
       </button>
       <button class="utility-card" onclick="showCases()">
         <span class="utility-icon gold">👤</span><b>お客様カルテ</b><small>接客ケースを<br>選んで練習</small><em>›</em>
@@ -1619,6 +1645,118 @@ html,body{max-width:100%;overflow-x:hidden}
       <div id="hitachiQuizFeedback" class="answer-result hidden"></div>
       <button id="hitachiQuizNext" class="next-button hidden" onclick="nextHitachiQuiz()">次の問題</button>
     </div>
+  </div>
+</section>
+
+
+<section id="toshiba" class="page hidden">
+  <header class="subheader">
+    <button onclick="show('home')">‹</button><h1>東芝攻略</h1><span></span>
+  </header>
+  <section class="maker-hero toshiba-hero">
+    <div class="maker-hero-copy">
+      <span class="maker-kicker">TOSHIBA MASTER GUIDE</span>
+      <h2>空清・無風感・清潔を、提案力に変える。</h2>
+      <p>2026年モデルを、シリーズ差 → 機能 → 買い場トークの順で学ぶ攻略ページ。</p>
+      <div class="maker-hero-actions">
+        <button type="button" onclick="openToshibaSeries()">シリーズを見る</button>
+        <button type="button" onclick="openToshibaFeatures()">機能を見る</button>
+      </div>
+    </div>
+    <div class="maker-hero-progress">
+      <div class="maker-symbol">🌬️</div>
+      <div class="maker-progress-ring"><strong id="toshibaPercent">0%</strong><span>理解度</span></div>
+    </div>
+  </section>
+
+  <div class="maker-series-tabs">
+    <button class="series-tab active" onclick="showToshibaSeries('VDR',this)">V-DR</button>
+    <button class="series-tab" onclick="showToshibaSeries('VDZ',this)">V-DZ</button>
+    <button class="series-tab" onclick="showToshibaSeries('VDX',this)">V-DX</button>
+    <button class="series-tab" onclick="showToshibaSeries('VX',this)">V-X</button>
+    <button class="series-tab" onclick="showToshibaSeries('VM',this)">V-M</button>
+  </div>
+
+  <div id="toshibaSeriesPanel"></div>
+
+  <section id="toshibaFeatureArea" class="maker-feature-area">
+    <h2>東芝の重要機能</h2>
+    <div class="maker-feature-grid">
+      <article class="maker-feature-card"><span>⚡</span><h3>プラズマ空清</h3><p>電気集じん方式で微粒子を帯電させて捕集。V-DR・V-DZ・V-DX・V-Xに搭載。</p></article>
+      <article class="maker-feature-card"><span>🫧</span><h3>無風感空調</h3><p>風あたりをやわらげる東芝の代表機能。V-DR・V-DZ・V-DXで冷房・空清・除湿・暖房に対応。</p></article>
+      <article class="maker-feature-card"><span>🧼</span><h3>UVプレミアムクリーン除菌</h3><p>冷房洗浄・プラズマ空清・乾燥にUV照射を組み合わせて熱交換器の清潔を支える。</p></article>
+      <article class="maker-feature-card"><span>🧹</span><h3>楽ダストボックス</h3><p>フィルター自動お掃除で集めたホコリを捨てやすくしたお手入れ機能。</p></article>
+      <article class="maker-feature-card"><span>📱</span><h3>IoLIFE</h3><p>無線LAN内蔵モデルではスマホ操作やウィークリータイマーなどに対応。</p></article>
+      <article class="maker-feature-card"><span>💨</span><h3>マジック洗浄熱交換器</h3><p>特殊コーティングで汚れを浮かせ、冷房・除湿時の結露水で洗い流しやすくする。</p></article>
+    </div>
+  </section>
+
+  <div class="series-card maker-finish-card">
+    <div class="hitachi-finish-icon">🏅</div>
+    <div><h2>東芝攻略 修了チェック</h2><p>シリーズ5種・重要機能・ミニテストを確認すると進捗が更新されます。</p><strong id="toshibaFinishText">学習を始めましょう</strong></div>
+  </div>
+
+  <div id="toshibaQuizArea" class="daikin-quiz">
+    <h2>東芝シリーズ提案ミニテスト</h2>
+    <div id="toshibaQuizQuestion" class="question-card"></div>
+    <div id="toshibaQuizChoices" class="choice-list"></div>
+    <div id="toshibaQuizFeedback" class="answer-result hidden"></div>
+    <button id="toshibaQuizNext" class="next-button hidden" onclick="nextToshibaQuiz()">次の問題</button>
+  </div>
+</section>
+
+<section id="sharp" class="page hidden">
+  <header class="subheader">
+    <button onclick="show('home')">‹</button><h1>SHARP攻略</h1><span></span>
+  </header>
+  <section class="maker-hero sharp-hero">
+    <div class="maker-hero-copy">
+      <span class="maker-kicker">SHARP MASTER GUIDE</span>
+      <h2>空気・気流・清潔を、伝わる提案へ。</h2>
+      <p>2026年 R・V・E・DG の違いを、お客様の使い方から選べる攻略ページ。</p>
+      <div class="maker-hero-actions">
+        <button type="button" onclick="openSharpSeries()">シリーズを見る</button>
+        <button type="button" onclick="openSharpFeatures()">機能を見る</button>
+      </div>
+    </div>
+    <div class="maker-hero-progress">
+      <div class="maker-symbol">✨</div>
+      <div class="maker-progress-ring"><strong id="sharpPercent">0%</strong><span>理解度</span></div>
+    </div>
+  </section>
+
+  <div class="maker-series-tabs">
+    <button class="series-tab active" onclick="showSharpSeries('R',this)">Rシリーズ</button>
+    <button class="series-tab" onclick="showSharpSeries('V',this)">Vシリーズ</button>
+    <button class="series-tab" onclick="showSharpSeries('E',this)">Eシリーズ</button>
+    <button class="series-tab" onclick="showSharpSeries('DG',this)">DGシリーズ</button>
+  </div>
+
+  <div id="sharpSeriesPanel"></div>
+
+  <section id="sharpFeatureArea" class="maker-feature-area">
+    <h2>SHARPの重要機能</h2>
+    <div class="maker-feature-grid">
+      <article class="maker-feature-card"><span>✨</span><h3>プラズマクラスター</h3><p>R・V・Eは25000、DGは7000。冷暖房を使わない時も送風運転で活用できる。</p></article>
+      <article class="maker-feature-card"><span>🌀</span><h3>防カビカラッとファン</h3><p>Rシリーズの2026年新ポイント。ファンの結露を広げて速乾し、カビ菌増殖の原因となる湿度とホコリに対策。</p></article>
+      <article class="maker-feature-card"><span>🌬️</span><h3>コアンダロング気流</h3><p>V・Eなどで、冷風を天井方向へ送り体に直接あたりにくくしながら遠くまで届ける。</p></article>
+      <article class="maker-feature-card"><span>💧</span><h3>匠の冷房</h3><p>温度だけでなく湿度と気流も制御し、設定温度到達後の蒸し暑さを抑えやすくする。</p></article>
+      <article class="maker-feature-card"><span>📱</span><h3>COCORO AIR / HOME</h3><p>R・V・Eは無線LAN内蔵。生活パターンや気象情報を活用したAI制御、スマホ操作に対応。</p></article>
+      <article class="maker-feature-card"><span>🛏️</span><h3>すこやかシャワー気流</h3><p>DGシリーズで、体に直接あたる風を抑え、就寝時の冷えすぎを抑える。</p></article>
+    </div>
+  </section>
+
+  <div class="series-card maker-finish-card">
+    <div class="hitachi-finish-icon">🏅</div>
+    <div><h2>SHARP攻略 修了チェック</h2><p>シリーズ4種・重要機能・ミニテストを確認すると進捗が更新されます。</p><strong id="sharpFinishText">学習を始めましょう</strong></div>
+  </div>
+
+  <div id="sharpQuizArea" class="daikin-quiz">
+    <h2>SHARPシリーズ提案ミニテスト</h2>
+    <div id="sharpQuizQuestion" class="question-card"></div>
+    <div id="sharpQuizChoices" class="choice-list"></div>
+    <div id="sharpQuizFeedback" class="answer-result hidden"></div>
+    <button id="sharpQuizNext" class="next-button hidden" onclick="nextSharpQuiz()">次の問題</button>
   </div>
 </section>
 
@@ -2898,6 +3036,135 @@ function importLearningData(){
  }catch(e){alert("引き継ぎコードを読み取れませんでした。コード全体をコピーして、もう一度お試しください。");console.error(e)}
 }
 
+
+
+const TOSHIBA_SERIES={
+ VDR:{title:"V-DRシリーズ",tag:"プレミアム／大清快",summary:"プラズマ空清、無風感空調、セパレート無風感ルーバー、空清みはり、レーダー風あて・風よけなどを備えた上位シリーズ。",suitable:["空気清浄をしっかり使いたい","冷風・温風が直接当たるのが苦手","長時間使うリビング","フィルター掃除の手間も減らしたい"],features:["プラズマ空清＋空清みはり","無風感空調＋セパレート無風感ルーバー","レーダー風あて／風よけ","フィルター自動お掃除＋楽ダストボックス","UVプレミアムクリーン除菌","無線LAN内蔵・IoLIFE"],talk:"「V-DRは東芝の空気清浄と無風感をしっかり使いたい方に向く上位モデルです。風を避けたい人と当たりたい人を分けて調整しやすいのも特徴です。」",caution:"無風感は『風がゼロ』ではなく、風あたりをやわらげる機能です。空清の適用床面積や各運転条件も確認して案内します。"},
+ VDZ:{title:"V-DZシリーズ",tag:"高さ250mm／高機能",summary:"高さ250mmのコンパクト設計に、プラズマ空清・無風感空調・フィルター自動お掃除まで備えた高機能モデル。",suitable:["設置高さを抑えたい","空清と無風感の両方が欲しい","自動お掃除も欲しい","省エネ性も比較したい"],features:["高さ250mm","プラズマ空清","無風感空調","フィルター自動お掃除＋楽ダストボックス","UVプレミアムクリーン除菌","無線LAN内蔵・IoLIFE"],talk:"「V-DZは高さを抑えながら、空清・無風感・自動お掃除までまとめて欲しい方に比較しやすいモデルです。」",caution:"コンパクトでも必要な据付スペースは別にあります。設置場所の寸法は必ず確認します。"},
+ VDX:{title:"V-DXシリーズ",tag:"無風感＋空清",summary:"プラズマ空清と無風感空調、フィルター自動お掃除を備え、価格と高機能のバランスを取りやすいシリーズ。",suitable:["風あたりが苦手","空気清浄も重視","自動お掃除が欲しい","上位機との価格差も比較したい"],features:["プラズマ空清","無風感空調","フィルター自動お掃除＋楽ダストボックス","UVプレミアムクリーン除菌","AI快適学習運転","無線LAN内蔵・IoLIFE"],talk:"「V-DXは東芝らしいプラズマ空清と無風感を押さえながら、上位V-DRより機能を絞って選びやすいモデルです。」",caution:"V-DRのセパレート無風感ルーバーやレーダー機能との違いを分けて説明します。"},
+ VX:{title:"V-Xシリーズ",tag:"プラズマ空清スタンダード",summary:"奥行230mmのコンパクト設計で、プラズマ空清を搭載したスタンダードモデル。",suitable:["空気清浄は欲しい","奥行きを抑えたい","自動お掃除は不要","価格を抑えながら東芝の空清を選びたい"],features:["奥行230mm","プラズマ空清","プレミアムクリーン","マジック洗浄熱交換器","無線LAN内蔵・IoLIFE","フィルター自動お掃除は非搭載"],talk:"「V-Xはコンパクトな本体で、東芝のプラズマ空清をしっかり使いたい方に向くスタンダードモデルです。」",caution:"V-Xは無風感空調・フィルター自動お掃除・UVプレミアムクリーン除菌は非搭載です。"},
+ VM:{title:"V-Mシリーズ",tag:"シンプル",summary:"基本的な冷暖房・清潔機能を中心にしたシンプルモデル。プラズマ空清を前提に提案しないことが重要。",suitable:["価格重視","寝室や個室","空清機能を必須にしない","シンプル操作を重視"],features:["セルフクリーン","マジック洗浄熱交換器","基本的な除湿・気流機能","プラズマ空清は非搭載"],talk:"「V-Mは価格と基本機能を重視する方向けです。空気清浄を重視する場合はV-X以上と比較します。」",caution:"V-Mにプラズマ空清を案内しないこと。空清重視のお客様にはシリーズ選定を変えます。"}
+};
+
+const TOSHIBA_QUIZ=[
+ {q:"風あたりを抑えながら、空清も重視するお客様に東芝らしい提案をするなら？",choices:["V-DRの無風感空調＋プラズマ空清","V-Mのプラズマ空清","V-Xのセパレート無風感ルーバー","V-Mのフィルター自動お掃除"],answer:0,ex:"V-DRはプラズマ空清と無風感空調を搭載。上位ならセパレート無風感ルーバーも提案ポイントです。"},
+ {q:"V-Mシリーズの説明として適切なのは？",choices:["プラズマ空清を搭載する空清重視モデル","無風感空調を搭載する上位モデル","基本機能中心で、プラズマ空清は非搭載","フィルター自動お掃除搭載モデル"],answer:2,ex:"V-Mはプラズマ空清非搭載。空清重視のお客様にはV-X以上を比較します。"},
+ {q:"高さを抑えつつ、プラズマ空清・無風感・自動お掃除まで欲しい場合は？",choices:["V-DZ","V-M","V-X","E-C5S"],answer:0,ex:"V-DZは高さ250mmで、空清・無風感・自動お掃除を備える高機能モデルです。"},
+ {q:"V-Xシリーズで間違って案内しやすい機能は？",choices:["プラズマ空清","IoLIFE","無風感空調","マジック洗浄熱交換器"],answer:2,ex:"V-Xはプラズマ空清搭載ですが、無風感空調は非搭載です。"},
+ {q:"プラズマ空清の説明として適切なのは？",choices:["電気集じん方式で微粒子を帯電させて捕集する","送風ファンを自動でブラシ掃除する","室外機だけを洗浄する","加湿水を使って空気を洗う"],answer:0,ex:"東芝のプラズマ空清は電気集じん方式。空清機能と内部清潔機能は分けて説明します。"}
+];
+
+const SHARP_SERIES={
+ R:{title:"Rシリーズ",tag:"2026フラッグシップ",summary:"2027年度省エネ基準達成、防カビカラッとファン、プラズマクラスター25000、無線LAN内蔵を備える2026年フラッグシップ。",suitable:["長時間使うリビング","清潔性と省エネを重視","ファンのカビ対策を重視","空清・AI機能も使いたい"],features:["防カビカラッとファン","プラズマクラスター25000","2027年度省エネ基準達成","コアンダロング気流","無線LAN内蔵・COCORO HOME","2.2/2.5kWは高さ249mm"],talk:"「Rは2026年の最上位で、ファンの清潔性・省エネ・空気浄化までまとめて重視したい方に向くモデルです。」",caution:"防カビカラッとファンは、すでに発生したカビを取る機能ではありません。設置寸法は能力帯で本体サイズが異なるため確認します。"},
+ V:{title:"Vシリーズ",tag:"ハイグレード",summary:"高さ249mmのコンパクト設計に、フィルター自動お掃除、プラズマクラスター25000、匠の冷房、無線LANを備えたハイグレードモデル。",suitable:["高さを抑えたい","自動お掃除が欲しい","空気浄化を重視","冷房時の湿度も気になる"],features:["高さ249mm","フィルター自動お掃除","プラズマクラスター25000","匠の冷房","コアンダロング気流","無線LAN内蔵"],talk:"「Vは高さを抑えながら、自動お掃除・プラズマクラスター・快適冷房まで揃えたい方に向きます。」",caution:"Rの防カビカラッとファンや省エネ性能との差を分けて説明します。"},
+ E:{title:"Eシリーズ",tag:"高さコンパクトスタンダード",summary:"高さ249mmのコンパクト設計で、プラズマクラスター25000、匠の冷房、コアンダロング気流、無線LANを備えたスタンダード。",suitable:["高さを抑えたい","空清を重視","自動お掃除は不要","価格とのバランスを重視"],features:["高さ249mm","プラズマクラスター25000","匠の冷房","コアンダロング気流","無線LAN内蔵","フィルター自動お掃除は非搭載"],talk:"「Eは自動お掃除を省きつつ、プラズマクラスター25000や快適冷房を残したバランス型です。」",caution:"Vとの大きな違いはフィルター自動お掃除。お手入れ希望を先に確認します。"},
+ DG:{title:"DGシリーズ",tag:"奥行きコンパクトシンプル",summary:"奥行230mmのコンパクト設計。プラズマクラスター7000とすこやかシャワー気流を備えたシンプルモデル。",suitable:["奥行きを抑えたい","寝室・個室","シンプル機能を重視","風が直接当たるのが苦手"],features:["奥行230mm","プラズマクラスター7000","すこやかシャワー気流","コアンダ気流制御","結露水洗浄熱交換器"],talk:"「DGは奥行きを抑えたい寝室や個室に向き、プラズマクラスターとやさしい気流をシンプルに使えるモデルです。」",caution:"R・V・Eのプラズマクラスター25000とは濃度区分が異なり、無線LAN内蔵モデルとして案内しません。"}
+};
+
+const SHARP_QUIZ=[
+ {q:"2026年SHARPのフラッグシップで、防カビカラッとファンを搭載するのは？",choices:["Rシリーズ","Vシリーズ","Eシリーズ","DGシリーズ"],answer:0,ex:"Rシリーズの2026年新ポイントが防カビカラッとファンです。"},
+ {q:"フィルター自動お掃除が欲しく、高さも抑えたい場合の候補は？",choices:["Vシリーズ","DGシリーズ","Eシリーズ","DGとEのみ"],answer:0,ex:"Vシリーズは高さ249mmでフィルター自動お掃除を搭載しています。"},
+ {q:"EシリーズとVシリーズの違いとして分かりやすいのは？",choices:["Eはプラズマクラスター非搭載","Vはフィルター自動お掃除搭載、Eは非搭載","Eだけ無線LAN内蔵","Vは冷房機能がない"],answer:1,ex:"両方ともプラズマクラスター25000や無線LANを備えますが、Vはフィルター自動お掃除を搭載します。"},
+ {q:"DGシリーズのプラズマクラスターは？",choices:["NEXT","25000","7000","非搭載"],answer:2,ex:"2026年DGシリーズはプラズマクラスター7000です。"},
+ {q:"匠の冷房の説明として適切なのは？",choices:["温度だけでなく湿度・気流も制御して快適性を高める","ファンをブラシで自動掃除する","室外機だけを洗浄する","加湿して湿度を上げる"],answer:0,ex:"匠の冷房は温度・湿度・気流をコントロールする快適冷房です。"}
+];
+
+const TOSHIBA_PROGRESS_KEY="aircon_toshiba_progress_v600";
+const SHARP_PROGRESS_KEY="aircon_sharp_progress_v600";
+
+function getMakerProgress(key){
+ try{const p=JSON.parse(localStorage.getItem(key)||"{}");return {series:Array.isArray(p.series)?p.series:[],features:!!p.features,quiz:!!p.quiz};}
+ catch(e){return {series:[],features:false,quiz:false};}
+}
+function saveMakerProgress(key,p){localStorage.setItem(key,JSON.stringify(p));}
+
+function renderMakerSeries(panelId,s,key){
+ document.getElementById(panelId).innerHTML=
+  '<div class="series-hero"><span class="series-tag">'+s.tag+'</span><h2>'+s.title+'</h2><p>'+s.summary+'</p></div>'+
+  '<div class="series-grid">'+
+   '<div class="series-card"><h3>おすすめのお客様</h3><ul>'+s.suitable.map(x=>"<li>"+x+"</li>").join("")+'</ul></div>'+
+   '<div class="series-card"><h3>主な提案ポイント</h3><ul>'+s.features.map(x=>"<li>"+x+"</li>").join("")+'</ul></div>'+
+   '<div class="series-card"><h3>🛍️ 買い場トーク例</h3><p>'+s.talk+'</p></div>'+
+   '<div class="series-card"><h3>⚠️ 注意点</h3><p>'+s.caution+'</p></div>'+
+  '</div>'+
+  '<div class="maker-onepoint"><b>📝 30秒復習</b><br>'+s.summary+'</div>';
+}
+
+function openToshiba(){
+ show("toshiba");
+ const first=document.querySelector("#toshiba .series-tab");
+ showToshibaSeries("VDR",first);
+ toshibaQuizIndex=0;toshibaQuizScore=0;renderToshibaQuiz();updateToshibaProgress();
+}
+function showToshibaSeries(key,button){
+ document.querySelectorAll("#toshiba .series-tab").forEach(b=>b.classList.remove("active"));
+ if(button)button.classList.add("active");
+ const p=getMakerProgress(TOSHIBA_PROGRESS_KEY);
+ if(!p.series.includes(key)){p.series.push(key);saveMakerProgress(TOSHIBA_PROGRESS_KEY,p);}
+ renderMakerSeries("toshibaSeriesPanel",TOSHIBA_SERIES[key],key);
+ updateToshibaProgress();
+}
+function openToshibaSeries(){document.querySelector("#toshiba .maker-series-tabs")?.scrollIntoView({behavior:"smooth",block:"start"});}
+function openToshibaFeatures(){const p=getMakerProgress(TOSHIBA_PROGRESS_KEY);p.features=true;saveMakerProgress(TOSHIBA_PROGRESS_KEY,p);document.getElementById("toshibaFeatureArea")?.scrollIntoView({behavior:"smooth",block:"start"});updateToshibaProgress();}
+function updateToshibaProgress(){
+ const p=getMakerProgress(TOSHIBA_PROGRESS_KEY),done=Math.min(p.series.length,5)+(p.features?1:0)+(p.quiz?1:0),pct=Math.round(done/7*100);
+ const a=document.getElementById("toshibaPercent"),b=document.getElementById("toshibaFinishText");if(a)a.textContent=pct+"%";if(b)b.textContent=pct>=100?"🎉 東芝攻略マスター：全項目修了":"現在 "+pct+"% 完了";
+}
+
+let toshibaQuizIndex=0,toshibaQuizAnswered=false,toshibaQuizScore=0;
+function renderToshibaQuiz(){
+ const q=TOSHIBA_QUIZ[toshibaQuizIndex],qEl=document.getElementById("toshibaQuizQuestion"),cEl=document.getElementById("toshibaQuizChoices"),fEl=document.getElementById("toshibaQuizFeedback"),nEl=document.getElementById("toshibaQuizNext");
+ if(!qEl)return;
+ toshibaQuizAnswered=false;qEl.innerHTML="<b>Q"+(toshibaQuizIndex+1)+"</b> "+q.q;cEl.innerHTML="";
+ q.choices.forEach((c,i)=>{const b=document.createElement("button");b.className="choice";b.textContent=(i+1)+"　"+c;b.onclick=()=>answerToshibaQuiz(i,b);cEl.appendChild(b);});
+ fEl.classList.add("hidden");nEl.classList.add("hidden");
+}
+function answerToshibaQuiz(i,b){
+ if(toshibaQuizAnswered)return;toshibaQuizAnswered=true;const q=TOSHIBA_QUIZ[toshibaQuizIndex];
+ document.querySelectorAll("#toshibaQuizChoices .choice").forEach((el,idx)=>{if(idx===q.answer)el.classList.add("correct");else if(idx===i)el.classList.add("wrong");});
+ const f=document.getElementById("toshibaQuizFeedback");f.innerHTML=(i===q.answer?"⭕ 正解":"❌ 不正解")+"<br>"+q.ex;f.classList.remove("hidden");if(i===q.answer)toshibaQuizScore++;document.getElementById("toshibaQuizNext").classList.remove("hidden");
+}
+function nextToshibaQuiz(){
+ if(toshibaQuizIndex<TOSHIBA_QUIZ.length-1){toshibaQuizIndex++;renderToshibaQuiz();}else{const p=getMakerProgress(TOSHIBA_PROGRESS_KEY);p.quiz=true;saveMakerProgress(TOSHIBA_PROGRESS_KEY,p);document.getElementById("toshibaQuizFeedback").innerHTML="🏁 "+TOSHIBA_QUIZ.length+"問終了　"+toshibaQuizScore+"/"+TOSHIBA_QUIZ.length+"問正解";document.getElementById("toshibaQuizNext").classList.add("hidden");updateToshibaProgress();}
+}
+
+function openSharp(){
+ show("sharp");
+ const first=document.querySelector("#sharp .series-tab");
+ showSharpSeries("R",first);
+ sharpQuizIndex=0;sharpQuizScore=0;renderSharpQuiz();updateSharpProgress();
+}
+function showSharpSeries(key,button){
+ document.querySelectorAll("#sharp .series-tab").forEach(b=>b.classList.remove("active"));
+ if(button)button.classList.add("active");
+ const p=getMakerProgress(SHARP_PROGRESS_KEY);
+ if(!p.series.includes(key)){p.series.push(key);saveMakerProgress(SHARP_PROGRESS_KEY,p);}
+ renderMakerSeries("sharpSeriesPanel",SHARP_SERIES[key],key);
+ updateSharpProgress();
+}
+function openSharpSeries(){document.querySelector("#sharp .maker-series-tabs")?.scrollIntoView({behavior:"smooth",block:"start"});}
+function openSharpFeatures(){const p=getMakerProgress(SHARP_PROGRESS_KEY);p.features=true;saveMakerProgress(SHARP_PROGRESS_KEY,p);document.getElementById("sharpFeatureArea")?.scrollIntoView({behavior:"smooth",block:"start"});updateSharpProgress();}
+function updateSharpProgress(){
+ const p=getMakerProgress(SHARP_PROGRESS_KEY),done=Math.min(p.series.length,4)+(p.features?1:0)+(p.quiz?1:0),pct=Math.round(done/6*100);
+ const a=document.getElementById("sharpPercent"),b=document.getElementById("sharpFinishText");if(a)a.textContent=pct+"%";if(b)b.textContent=pct>=100?"🎉 SHARP攻略マスター：全項目修了":"現在 "+pct+"% 完了";
+}
+
+let sharpQuizIndex=0,sharpQuizAnswered=false,sharpQuizScore=0;
+function renderSharpQuiz(){
+ const q=SHARP_QUIZ[sharpQuizIndex],qEl=document.getElementById("sharpQuizQuestion"),cEl=document.getElementById("sharpQuizChoices"),fEl=document.getElementById("sharpQuizFeedback"),nEl=document.getElementById("sharpQuizNext");
+ if(!qEl)return;
+ sharpQuizAnswered=false;qEl.innerHTML="<b>Q"+(sharpQuizIndex+1)+"</b> "+q.q;cEl.innerHTML="";
+ q.choices.forEach((c,i)=>{const b=document.createElement("button");b.className="choice";b.textContent=(i+1)+"　"+c;b.onclick=()=>answerSharpQuiz(i,b);cEl.appendChild(b);});
+ fEl.classList.add("hidden");nEl.classList.add("hidden");
+}
+function answerSharpQuiz(i,b){
+ if(sharpQuizAnswered)return;sharpQuizAnswered=true;const q=SHARP_QUIZ[sharpQuizIndex];
+ document.querySelectorAll("#sharpQuizChoices .choice").forEach((el,idx)=>{if(idx===q.answer)el.classList.add("correct");else if(idx===i)el.classList.add("wrong");});
+ const f=document.getElementById("sharpQuizFeedback");f.innerHTML=(i===q.answer?"⭕ 正解":"❌ 不正解")+"<br>"+q.ex;f.classList.remove("hidden");if(i===q.answer)sharpQuizScore++;document.getElementById("sharpQuizNext").classList.remove("hidden");
+}
+function nextSharpQuiz(){
+ if(sharpQuizIndex<SHARP_QUIZ.length-1){sharpQuizIndex++;renderSharpQuiz();}else{const p=getMakerProgress(SHARP_PROGRESS_KEY);p.quiz=true;saveMakerProgress(SHARP_PROGRESS_KEY,p);document.getElementById("sharpQuizFeedback").innerHTML="🏁 "+SHARP_QUIZ.length+"問終了　"+sharpQuizScore+"/"+SHARP_QUIZ.length+"問正解";document.getElementById("sharpQuizNext").classList.add("hidden");updateSharpProgress();}
+}
 
 const HITACHI_SERIES={
  X:{title:"Xシリーズ",tag:"プレミアム",summary:"日立の清潔・空気清浄・センサー・除湿・暖房快適機能を幅広く搭載した上位シリーズ。『上位だから』ではなく、下位シリーズにない機能が暮らしにどう役立つかで提案します。",suitable:["長時間使うリビングで省エネと快適性を重視","熱交換器・ファン・排水まわりまで清潔性を重視","空気清浄や人感センサーも活用したい","再熱除湿や暖房快適機能まで妥協したくない"],features:["凍結洗浄ヒートプラス＋室外機凍結洗浄で熱交換器を清潔に保つ","ファンお掃除ロボに加え、Xは排水トレーまで清潔対象が広い","Premiumプラズマ空清・人感センサーなど下位シリーズにない機能を搭載","LAB制御で設定温度到達後の安定運転を低出力で継続","凍結脱臭クリーナーでニオイ成分などを霜に取り込み、溶かして排出","カラッと除湿や暖房快適機能を含め、長時間使用時の満足度を比較"],talk:"「Xは清潔機能の対象範囲が広く、空気清浄・センサー・再熱除湿・暖房快適機能に加え、LAB制御や凍結脱臭クリーナーまで備えた日立のプレミアムモデルです。」",caution:"必要のない機能まで『上位だから安心』とまとめず、空清・センサー・排水トレー洗浄・暖房機能など、お客様が使う機能と価格差を一つずつ照合します。LAB制御や凍結脱臭クリーナーの作動条件は運転状況で異なります。凍結脱臭クリーナーはすべてのニオイや有害物質を除去する機能ではなく、室温・湿度が変動する場合があります。"},
