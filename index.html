@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.2.6 SHARP初期設定バグ修正版</title>
+<title>エアコン販買マスター Pro Ver.6.2.7 SHARP初期設定完全作り直し版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1364,6 +1364,13 @@ html,body{max-width:100%;overflow-x:hidden}
   margin:0 auto 12px!important;
 }
 </style>
+<style id="v627-sharp-settings-clean">
+#visualGrid .visual-card img[src*="sharp-settings-illustrated"]{
+ width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;
+ aspect-ratio:auto!important;object-fit:contain!important;object-position:center top!important;
+ background:#fff!important;display:block!important;margin:0 auto 12px!important;
+}
+</style>
 </head>
 <body>
 <div class="app">
@@ -1374,7 +1381,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.2.6 SHARP初期設定バグ修正版</small>
+      <small>Ver.6.2.7 SHARP初期設定完全作り直し版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -3217,7 +3224,7 @@ const VISUAL_LIBRARY=[
  {category:"sharp",file:"sharp-plasma-illustrated.png?v=624",title:"プラズマクラスター",desc:"R・V・Eの25000とDGの7000を比較。"},
  {category:"sharp",file:"sharp-series-illustrated.png?v=624",title:"SHARP 4シリーズ比較",desc:"R・V・E・DGの位置づけを図解。"},
  {category:"toshiba",file:"toshiba-settings-illustrated.png?v=617",title:"東芝 初期設定",desc:"手動選択・自動・IoLIFE接続設定を整理。"},
- {category:"sharp",file:"sharp-settings-illustrated.png?v=626",title:"SHARP 初期設定",desc:"設定が必要な機能・自動機能・アプリ接続を整理。"},
+ {category:"sharp",file:"sharp-settings-illustrated.png?v=627",title:"SHARP 初期設定",desc:"設定が必要な機能・自動機能・アプリ接続を整理。"},
  {category:"mitsubishi",file:"mitsubishi-moveeye-illustrated.png?v=623",title:"ムーブアイ",desc:"赤外線センサーで体感温度を見て快適に。"},
  {category:"mitsubishi",file:"mitsubishi-hybrid-illustrated.png?v=623",title:"ハイブリッド運転",desc:"冷房と送風を自動で切り替える。"},
  {category:"mitsubishi",file:"mitsubishi-two-point-illustrated.png?v=623",title:"2か所同時空調",desc:"離れた2人へ2つの気流を届ける。"},
