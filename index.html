@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.3.0 SHARP豪華図解完成版</title>
+<title>エアコン販買マスター Pro Ver.6.3.1 SHARP豪華図解・表示修正版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1294,7 +1294,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <style id="v630-sharp-lux-final">
-/* Ver.6.3.0 SHARP豪華図解完成版：iPad/iPhone見切れ対策 */
+/* Ver.6.3.1 SHARP豪華図解・表示修正版：iPad/iPhone見切れ対策 */
 #visualGrid .visual-card[data-cat="sharp"]{
   overflow:hidden!important;
   padding:10px!important;
@@ -1339,6 +1339,14 @@ html,body{max-width:100%;overflow-x:hidden}
 }
 </style>
 
+
+<style id="v631-sharp-lux-only">
+#visualGrid .visual-card[data-cat="sharp"]{padding:10px!important;border-radius:24px!important;background:linear-gradient(180deg,#ffffff,#f6fbff)!important;box-shadow:0 10px 28px rgba(12,80,150,.12)!important}
+#visualGrid .visual-card[data-cat="sharp"] img{width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;border-radius:18px!important;display:block!important;background:#fff!important}
+#visualGrid .visual-card[data-cat="sharp"] h3{font-size:clamp(22px,4.8vw,34px)!important;margin-top:14px!important}
+#visualGrid .visual-card[data-cat="sharp"] p{font-size:clamp(16px,3.8vw,22px)!important;line-height:1.6!important}
+@media(max-width:700px){#visualGrid .visual-card[data-cat="sharp"]{padding:8px!important} #visualGrid .visual-card[data-cat="sharp"] img{border-radius:14px!important}}
+</style>
 </head>
 <body>
 <div class="app">
@@ -1349,7 +1357,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.3.0 SHARP豪華図解完成版</small>
+      <small>Ver.6.3.1 SHARP豪華図解・表示修正版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -3184,23 +3192,16 @@ const VISUAL_LIBRARY=[
  {category:"toshiba",file:"toshiba-filter-illustrated.png?v=617",title:"フィルター自動お掃除（東芝）",desc:"自動掃除から楽ダストボックスまでを図解。"},
  {category:"toshiba",file:"toshiba-iolife-illustrated.png?v=617",title:"IoLIFE",desc:"Wi-Fi接続・機器登録・スマホ操作の流れを図解。"},
  {category:"toshiba",file:"toshiba-series-illustrated.png?v=617",title:"東芝5シリーズ比較",desc:"V-DR・V-DZ・V-DX・V-X・V-Mの位置づけを図解。"},
- {category:"sharp",file:"sharp-dryfan-illustrated.png?v=630",title:"防カビカラッとファン",desc:"Rシリーズのファン清潔機能を図解。"},
- {category:"sharp",file:"sharp-hyoketsu-illustrated.png?v=630",title:"氷結ドライ",desc:"熱交換器を氷点下まで下げる除湿の流れを図解。"},
- {category:"sharp",file:"sharp-takumi-illustrated.png?v=630",title:"匠の冷房",desc:"温度・湿度・気流を見ながら快適性を高める考え方を図解。"},
- {category:"sharp",file:"sharp-filter-illustrated.png?v=630",title:"フィルター自動お掃除（SHARP）",desc:"Vシリーズの自動お掃除と定期確認を図解。"},
- {category:"sharp",file:"sharp-coanda-illustrated.png?v=630",title:"コアンダ気流",desc:"直接風を抑えながら届ける気流を図解。"},
- {category:"sharp",file:"sharp-plasma-illustrated.png?v=630",title:"プラズマクラスター",desc:"R・V・Eの25000とDGの7000を比較。"},
- {category:"sharp",file:"sharp-series-illustrated.png?v=630",title:"SHARP 4シリーズ比較",desc:"R・V・E・DGの位置づけを図解。"},
  {category:"toshiba",file:"toshiba-settings-illustrated.png?v=617",title:"東芝 初期設定",desc:"手動選択・自動・IoLIFE接続設定を整理。"},
- {category:"sharp",file:"sharp-lux-overview.png?v=630",title:"SHARP 豪華図解・総合ガイド",desc:"清潔・快適・省エネ・お手入れを大きな1枚で確認。"},
- {category:"sharp",file:"sharp-lux-plasma.png?v=630",title:"プラズマクラスター空気清浄・豪華版",desc:"空気清浄のイメージと接客ポイントを大きく見やすく図解。"},
- {category:"sharp",file:"sharp-lux-filter.png?v=630",title:"フィルター自動お掃除・豪華版",desc:"ブラシ清掃からダスト回収までを写真風図解で確認。"},
- {category:"sharp",file:"sharp-lux-cocoro.png?v=630",title:"COCORO AIR スマート連携",desc:"Wi-Fi接続・アプリ登録・外出先操作の流れを図解。"},
- {category:"sharp",file:"sharp-lux-airflow-dry.png?v=630",title:"快適気流・除湿",desc:"冷えすぎを抑えながら快適に使うイメージを図解。"},
- {category:"sharp",file:"sharp-lux-sleep.png?v=630",title:"おやすみ快適・やさしい冷房",desc:"寝室でのやさしい気流と快適性を視覚的に案内。"},
- {category:"sharp",file:"sharp-lux-clean-care.png?v=630",title:"内部清潔・防カビケア",desc:"運転後の内部ケアと清潔維持の考え方を図解。"},
- {category:"sharp",file:"sharp-lux-eco.png?v=630",title:"省エネ・節電サポート",desc:"快適性と省エネを両立するイメージを図解。"},
- {category:"sharp",file:"sharp-settings-illustrated.png?v=630",title:"SHARP 初期設定",desc:"設定が必要な機能・自動機能・アプリ接続を整理。"},
+ {category:"sharp",file:"sharp-lux-overview.png?v=631",title:"SHARP 豪華図解・総合ガイド",desc:"清潔・快適・省エネ・お手入れを大きな1枚で確認。"},
+ {category:"sharp",file:"sharp-lux-plasma.png?v=631",title:"プラズマクラスター空気清浄・豪華版",desc:"空気清浄のイメージと接客ポイントを大きく見やすく図解。"},
+ {category:"sharp",file:"sharp-lux-filter.png?v=631",title:"フィルター自動お掃除・豪華版",desc:"ブラシ清掃からダスト回収までを写真風図解で確認。"},
+ {category:"sharp",file:"sharp-lux-cocoro.png?v=631",title:"COCORO AIR スマート連携",desc:"Wi-Fi接続・アプリ登録・外出先操作の流れを図解。"},
+ {category:"sharp",file:"sharp-lux-airflow-dry.png?v=631",title:"快適気流・除湿",desc:"冷えすぎを抑えながら快適に使うイメージを図解。"},
+ {category:"sharp",file:"sharp-lux-sleep.png?v=631",title:"おやすみ快適・やさしい冷房",desc:"寝室でのやさしい気流と快適性を視覚的に案内。"},
+ {category:"sharp",file:"sharp-lux-clean-care.png?v=631",title:"内部清潔・防カビケア",desc:"運転後の内部ケアと清潔維持の考え方を図解。"},
+ {category:"sharp",file:"sharp-lux-eco.png?v=631",title:"省エネ・節電サポート",desc:"快適性と省エネを両立するイメージを図解。"},
+ {category:"sharp",file:"sharp-settings-illustrated.png?v=631",title:"SHARP 初期設定",desc:"設定が必要な機能・自動機能・アプリ接続を整理。"},
  {category:"mitsubishi",file:"mitsubishi-moveeye-illustrated.png?v=620",title:"ムーブアイ",desc:"赤外線センサーで体感温度を見て快適に。"},
  {category:"mitsubishi",file:"mitsubishi-hybrid-illustrated.png?v=620",title:"ハイブリッド運転",desc:"冷房と送風を自動で切り替える。"},
  {category:"mitsubishi",file:"mitsubishi-two-point-illustrated.png?v=620",title:"2か所同時空調",desc:"離れた2人へ2つの気流を届ける。"},
