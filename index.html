@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.3.2 図解ライブラリ高速化版</title>
+<title>エアコン販買マスター Pro Ver.6.3.3 図解ライブラリ超高速・段階表示版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1294,7 +1294,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <style id="v630-sharp-lux-final">
-/* Ver.6.3.2 図解ライブラリ高速化版：iPad/iPhone見切れ対策 */
+/* Ver.6.3.3 図解ライブラリ超高速・段階表示版：iPad/iPhone見切れ対策 */
 #visualGrid .visual-card[data-cat="sharp"]{
   overflow:hidden!important;
   padding:10px!important;
@@ -1353,6 +1353,14 @@ html,body{max-width:100%;overflow-x:hidden}
 #visualGrid .visual-card img{background:#fff}
 </style>
 
+
+<style id="v633-progressive-visuals">
+.visual-load-sentinel{display:flex;align-items:center;justify-content:center;min-height:64px;margin:10px 0 24px;color:#5e6d78;font-weight:700;font-size:14px}
+.visual-load-sentinel::before{content:"";width:18px;height:18px;margin-right:10px;border:3px solid #d9e5ee;border-top-color:#2d7ef7;border-radius:50%;animation:v633spin .8s linear infinite}
+.visual-load-sentinel.done{display:none}
+@keyframes v633spin{to{transform:rotate(360deg)}}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -1363,7 +1371,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.3.2 図解ライブラリ高速化版</small>
+      <small>Ver.6.3.3 図解ライブラリ超高速・段階表示版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -3268,7 +3276,7 @@ const VISUAL_GUIDE={
 };
 
 
-const VISUAL_OPTIMIZED_VERSION="632";
+const VISUAL_OPTIMIZED_VERSION="633";
 function splitAsset(src){const parts=src.split("?");return {path:parts[0],query:parts[1]||""};}
 function visualThumbSrc(src){const a=splitAsset(src);const dot=a.path.lastIndexOf(".");if(dot<0) return src;return a.path.slice(0,dot)+"-thumb.webp?v="+VISUAL_OPTIMIZED_VERSION;}
 function visualViewSrc(src){const a=splitAsset(src);const dot=a.path.lastIndexOf(".");if(dot<0) return src;return a.path.slice(0,dot)+"-view.webp?v="+VISUAL_OPTIMIZED_VERSION;}
@@ -3283,7 +3291,25 @@ function openVisualLibraryFilter(category){
  renderVisualLibrary();
  window.scrollTo({top:0,behavior:"smooth"});
 }
+let visualRenderToken=0;
+let visualObserver=null;
+const VISUAL_BATCH_SIZE=6;
+function buildVisualCard(v){
+ const card=document.createElement("div");card.className="visual-card";card.dataset.cat=v.category;
+ const thumbSrc=visualThumbSrc(v.file);
+ const viewSrc=visualViewSrc(v.file);
+ card.innerHTML='<img alt="'+v.title+'" loading="lazy" decoding="async" fetchpriority="low"><div class="visual-card-body"><h3>'+v.title+'</h3><p>'+v.desc+'</p><button type="button">大きく見る</button></div>';
+ const img=card.querySelector("img");
+ img.src=thumbSrc; img.dataset.full=viewSrc;
+ const open=()=>openImageModal(viewSrc,v.title);
+ card.querySelector("button").onclick=open;
+ img.onclick=open;
+ card.addEventListener("pointerdown",()=>{const pre=new Image();pre.decoding="async";pre.src=viewSrc;},{once:true,passive:true});
+ card.onclick=(e)=>{if(e.target.tagName!=="BUTTON" && e.target.tagName!=="IMG") open();};
+ return card;
+}
 function renderVisualLibrary(){
+ const token=++visualRenderToken;
  const box=document.getElementById("visualGrid");
  const search=(document.getElementById("visualSearch")?.value||"").trim().toLowerCase();
  const items=VISUAL_LIBRARY.filter(v=>{
@@ -3291,23 +3317,27 @@ function renderVisualLibrary(){
   const text=(v.title+" "+v.desc).toLowerCase();
   return categoryOK && (!search||text.includes(search));
  });
+ if(visualObserver){visualObserver.disconnect();visualObserver=null;}
  box.innerHTML="";
- items.forEach(v=>{
-  const card=document.createElement("div");card.className="visual-card";card.dataset.cat=v.category;
-  const thumbSrc=visualThumbSrc(v.file);
-  const viewSrc=visualViewSrc(v.file);
-  card.innerHTML='<img alt="'+v.title+'" loading="lazy" decoding="async" fetchpriority="low"><div class="visual-card-body"><h3>'+v.title+'</h3><p>'+v.desc+'</p><button type="button">大きく見る</button></div>';
-  const img=card.querySelector("img");
-  img.src=thumbSrc;
-  img.dataset.full=viewSrc;
-  card.querySelector("button").onclick=()=>openImageModal(viewSrc,v.title);
-  img.onclick=()=>openImageModal(viewSrc,v.title);
-  card.onclick=(e)=>{if(e.target.tagName!=="BUTTON" && e.target.tagName!=="IMG") openImageModal(viewSrc,v.title);};
-  box.appendChild(card);
- });
- if(!items.length) box.innerHTML='<div class="visual-empty">該当する図解がありません。</div>';
  const count=document.getElementById("visualCount");
  if(count) count.textContent=items.length+"件を表示";
+ if(!items.length){box.innerHTML='<div class="visual-empty">該当する図解がありません。</div>';return;}
+ let cursor=0;
+ const sentinel=document.createElement("div");sentinel.className="visual-load-sentinel";sentinel.textContent="図解を読み込み中";
+ const addBatch=()=>{
+  if(token!==visualRenderToken)return;
+  const frag=document.createDocumentFragment();
+  const end=Math.min(cursor+VISUAL_BATCH_SIZE,items.length);
+  for(;cursor<end;cursor++) frag.appendChild(buildVisualCard(items[cursor]));
+  box.insertBefore(frag,sentinel);
+  if(cursor>=items.length){sentinel.classList.add("done");if(visualObserver)visualObserver.disconnect();}
+ };
+ box.appendChild(sentinel);
+ addBatch();
+ if(cursor<items.length){
+  visualObserver=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting))addBatch();},{rootMargin:"700px 0px"});
+  visualObserver.observe(sentinel);
+ }
 }
 function setupVisualControls(){
  const search=document.getElementById("visualSearch");
