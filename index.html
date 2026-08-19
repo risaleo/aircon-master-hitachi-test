@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.3.1 SHARP豪華図解・表示修正版</title>
+<title>エアコン販買マスター Pro Ver.6.3.2 図解ライブラリ高速化版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1294,7 +1294,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <style id="v630-sharp-lux-final">
-/* Ver.6.3.1 SHARP豪華図解・表示修正版：iPad/iPhone見切れ対策 */
+/* Ver.6.3.2 図解ライブラリ高速化版：iPad/iPhone見切れ対策 */
 #visualGrid .visual-card[data-cat="sharp"]{
   overflow:hidden!important;
   padding:10px!important;
@@ -1347,6 +1347,12 @@ html,body{max-width:100%;overflow-x:hidden}
 #visualGrid .visual-card[data-cat="sharp"] p{font-size:clamp(16px,3.8vw,22px)!important;line-height:1.6!important}
 @media(max-width:700px){#visualGrid .visual-card[data-cat="sharp"]{padding:8px!important} #visualGrid .visual-card[data-cat="sharp"] img{border-radius:14px!important}}
 </style>
+
+<style id="v632-visual-fast">
+#visualGrid .visual-card{content-visibility:auto;contain-intrinsic-size:920px 1200px}
+#visualGrid .visual-card img{background:#fff}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -1357,7 +1363,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.3.1 SHARP豪華図解・表示修正版</small>
+      <small>Ver.6.3.2 図解ライブラリ高速化版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -3261,6 +3267,12 @@ const VISUAL_GUIDE={
  "マルチエアコン":{review:"室外機1台に複数の室内機を接続する方式。組み合わせ、合計能力、配管、電源確認が必要。",talk:"室外機を1台にまとめられますが、交換時は現在の室内外機の型番確認が重要です。"}
 };
 
+
+const VISUAL_OPTIMIZED_VERSION="632";
+function splitAsset(src){const parts=src.split("?");return {path:parts[0],query:parts[1]||""};}
+function visualThumbSrc(src){const a=splitAsset(src);const dot=a.path.lastIndexOf(".");if(dot<0) return src;return a.path.slice(0,dot)+"-thumb.webp?v="+VISUAL_OPTIMIZED_VERSION;}
+function visualViewSrc(src){const a=splitAsset(src);const dot=a.path.lastIndexOf(".");if(dot<0) return src;return a.path.slice(0,dot)+"-view.webp?v="+VISUAL_OPTIMIZED_VERSION;}
+
 let visualFilter="all";
 function openVisualLibraryFilter(category){
  show("visualLibrary");
@@ -3282,10 +3294,15 @@ function renderVisualLibrary(){
  box.innerHTML="";
  items.forEach(v=>{
   const card=document.createElement("div");card.className="visual-card";card.dataset.cat=v.category;
-  card.innerHTML='<img src="'+v.file+'" alt="'+v.title+'"><div class="visual-card-body"><h3>'+v.title+'</h3><p>'+v.desc+'</p><button type="button">大きく見る</button></div>';
-  card.querySelector("button").onclick=()=>openImageModal(v.file,v.title);
-  card.querySelector("img").onclick=()=>openImageModal(v.file,v.title);
-  card.onclick=(e)=>{if(e.target.tagName!=="BUTTON" && e.target.tagName!=="IMG") openImageModal(v.file,v.title);};
+  const thumbSrc=visualThumbSrc(v.file);
+  const viewSrc=visualViewSrc(v.file);
+  card.innerHTML='<img alt="'+v.title+'" loading="lazy" decoding="async" fetchpriority="low"><div class="visual-card-body"><h3>'+v.title+'</h3><p>'+v.desc+'</p><button type="button">大きく見る</button></div>';
+  const img=card.querySelector("img");
+  img.src=thumbSrc;
+  img.dataset.full=viewSrc;
+  card.querySelector("button").onclick=()=>openImageModal(viewSrc,v.title);
+  img.onclick=()=>openImageModal(viewSrc,v.title);
+  card.onclick=(e)=>{if(e.target.tagName!=="BUTTON" && e.target.tagName!=="IMG") openImageModal(viewSrc,v.title);};
   box.appendChild(card);
  });
  if(!items.length) box.innerHTML='<div class="visual-empty">該当する図解がありません。</div>';
@@ -3341,7 +3358,7 @@ function openImageModal(src,title){
  const modal=document.getElementById("imageModal");
  const img=document.getElementById("modalImage");
  const guide=VISUAL_GUIDE[title]||{review:"図解の要点を確認し、搭載条件や設置条件は型番・現場ごとに確認します。",talk:"この図を使いながら、お客様の使い方や設置状況に合わせてご説明します。"};
- img.src=src;img.alt=title;
+ img.loading="eager"; img.decoding="async"; img.src=""; img.src=src; img.alt=title;
  document.getElementById("modalTitle").textContent=title;
  document.getElementById("modalDetail").innerHTML=renderVisualDetail(title);
  document.getElementById("modalReview").textContent=guide.review;
