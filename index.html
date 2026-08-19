@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.5.0 ゼネラル豪華図解追加版</title>
+<title>エアコン販買マスター Pro Ver.6.5.1 ゼネラル豪華図解完成版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1294,7 +1294,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <style id="v630-sharp-lux-final">
-/* Ver.6.5.0 ゼネラル豪華図解追加版：iPad/iPhone見切れ対策 */
+/* Ver.6.5.1 ゼネラル豪華図解完成版：iPad/iPhone見切れ対策 */
 #visualGrid .visual-card[data-cat="sharp"]{
   overflow:hidden!important;
   padding:10px!important;
@@ -1399,6 +1399,29 @@ html,body{max-width:100%;overflow-x:hidden}
 }
 </style>
 
+
+<style id="v651-general-final">
+#visualGrid .visual-card[data-cat="general"]{
+  min-height:0!important;height:auto!important;padding:8px!important;overflow:hidden!important;
+  border-radius:22px!important;background:linear-gradient(180deg,#fff,#f7fbf8)!important;
+  box-shadow:0 10px 24px rgba(20,90,60,.10)!important;
+}
+#visualGrid .visual-card[data-cat="general"] img{
+  display:block!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;
+  object-fit:contain!important;object-position:center top!important;margin:0!important;padding:0!important;
+  border-radius:16px!important;background:#fff!important;
+}
+#visualGrid .visual-card[data-cat="general"] .visual-card-body{
+  padding:12px 6px 6px!important;margin:0!important;border-top:0!important;
+}
+#visualGrid .visual-card[data-cat="general"] h3{margin:0 0 6px!important;}
+#visualGrid .visual-card[data-cat="general"] p{margin:0 0 8px!important;}
+@media(max-width:700px){
+ #visualGrid .visual-card[data-cat="general"]{padding:6px!important;border-radius:18px!important}
+ #visualGrid .visual-card[data-cat="general"] .visual-card-body{padding:10px 5px 5px!important}
+}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -1409,7 +1432,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.5.0 ゼネラル豪華図解追加版</small>
+      <small>Ver.6.5.1 ゼネラル豪華図解完成版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -3261,13 +3284,13 @@ const VISUAL_LIBRARY=[
  {category:"mitsubishi",file:"mitsubishi-puremist-illustrated.png?v=640",title:"ピュアミスト",desc:"ナノレベルの微細ミストによる空気ケアを豪華図解。"},
  {category:"mitsubishi",file:"mitsubishi-series-illustrated.png?v=640",title:"三菱シリーズ比較",desc:"FZ・Z・X・R・Sの違いと選び方を大型比較表で整理。"},
  {category:"mitsubishi",file:"mitsubishi-settings-illustrated.png?v=640",title:"三菱 初期設定",desc:"最初に確認したい設定を5ステップで見やすく整理。"},
- {category:"general",file:"general-lux-overview.png?v=650",title:"ゼネラル 豪華図解・総合ガイド",desc:"さらさら冷房・気流・清潔・省エネ・シリーズ比較を一気に確認。"},
- {category:"general",file:"general-sarasara.png?v=650",title:"さらさら冷房",desc:"再熱除湿で冷えすぎを抑えながら、湿度をしっかりコントロール。"},
- {category:"general",file:"general-airflow.png?v=650",title:"ノクリア独自の気流制御",desc:"広いお部屋へムラを抑えて届ける気流の考え方を図解。"},
- {category:"general",file:"general-clean.png?v=650",title:"熱交換器・内部クリーン",desc:"熱交換器や内部の清潔維持をサポートする機能を整理。"},
- {category:"general",file:"general-eco.png?v=650",title:"省エネ・センサー運転",desc:"人やお部屋の状態を見ながらムダを抑える運転を図解。"},
- {category:"general",file:"general-series.png?v=650",title:"ノクリア シリーズ比較",desc:"快適・清潔・省エネ・設置性からシリーズを比較。"},
- {category:"general",file:"general-settings.png?v=650",title:"ゼネラル 初期設定",desc:"時刻・運転モード・風向・タイマー・内部クリーンを整理。"},
+ {category:"general",file:"general-lux-overview.png?v=651",title:"ゼネラル 豪華図解・総合ガイド",desc:"さらさら冷房・気流・清潔・省エネ・シリーズ比較を一気に確認。"},
+ {category:"general",file:"general-sarasara.png?v=651",title:"さらさら冷房",desc:"再熱除湿で冷えすぎを抑えながら、湿度をしっかりコントロール。"},
+ {category:"general",file:"general-airflow.png?v=651",title:"ノクリア独自の気流制御",desc:"広いお部屋へムラを抑えて届ける気流の考え方を図解。"},
+ {category:"general",file:"general-clean.png?v=651",title:"熱交換器・内部クリーン",desc:"熱交換器や内部の清潔維持をサポートする機能を整理。"},
+ {category:"general",file:"general-eco.png?v=651",title:"省エネ・センサー運転",desc:"人やお部屋の状態を見ながらムダを抑える運転を図解。"},
+ {category:"general",file:"general-series.png?v=651",title:"ノクリア シリーズ比較",desc:"快適・清潔・省エネ・設置性からシリーズを比較。"},
+ {category:"general",file:"general-settings.png?v=651",title:"ゼネラル 初期設定",desc:"時刻・運転モード・風向・タイマー・内部クリーンを整理。"},
  {category:"construction",file:"construction-voltage.png",title:"100V・200V",desc:"コンセント・電圧・分電盤をセットで確認。"},
  {category:"construction",file:"construction-dedicated.png",title:"専用回路",desc:"分電盤からエアコンまで他機器と共用しない回路。"},
  {category:"construction",file:"construction-board.png",title:"分電盤",desc:"主幹・分岐・単相2線/3線・空き回路・専用回路を総合確認。"},
@@ -3322,7 +3345,7 @@ const VISUAL_GUIDE={
 };
 
 
-const VISUAL_OPTIMIZED_VERSION="650";
+const VISUAL_OPTIMIZED_VERSION="651";
 function splitAsset(src){const parts=src.split("?");return {path:parts[0],query:parts[1]||""};}
 function visualThumbSrc(src){const a=splitAsset(src);const dot=a.path.lastIndexOf(".");if(dot<0) return src;return a.path.slice(0,dot)+"-thumb.webp?v="+VISUAL_OPTIMIZED_VERSION;}
 function visualViewSrc(src){const a=splitAsset(src);const dot=a.path.lastIndexOf(".");if(dot<0) return src;return a.path.slice(0,dot)+"-view.webp?v="+VISUAL_OPTIMIZED_VERSION;}
