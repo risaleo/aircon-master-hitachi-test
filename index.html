@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.5.1 ゼネラル豪華図解完成版</title>
+<title>エアコン販買マスター Pro Ver.6.6.0 三菱・ゼネラル攻略追加版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1294,7 +1294,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <style id="v630-sharp-lux-final">
-/* Ver.6.5.1 ゼネラル豪華図解完成版：iPad/iPhone見切れ対策 */
+/* Ver.6.6.0 三菱・ゼネラル攻略追加版：iPad/iPhone見切れ対策 */
 #visualGrid .visual-card[data-cat="sharp"]{
   overflow:hidden!important;
   padding:10px!important;
@@ -1422,6 +1422,18 @@ html,body{max-width:100%;overflow-x:hidden}
 }
 </style>
 
+
+<style id="v652-modal-no-flash">
+#imageModal,#imageModal .image-modal-inner,#modalImage{animation:none!important;transition:none!important}
+#modalImage{opacity:1!important;visibility:visible!important;background:#fff!important}
+</style>
+
+
+<style id="v660-maker-master">
+#general .maker-status-list,#mitsubishi .maker-status-list{display:flex;flex-wrap:wrap;gap:6px}
+#general .maker-status-list span,#mitsubishi .maker-status-list span{min-width:42px;text-align:center}
+@media(max-width:700px){#general .hitachi-flow-row,#mitsubishi .hitachi-flow-row{grid-template-columns:1fr!important}#general .hitachi-flow-row i,#mitsubishi .hitachi-flow-row i{transform:rotate(90deg)}}
+</style>
 </head>
 <body>
 <div class="app">
@@ -1432,7 +1444,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.5.1 ゼネラル豪華図解完成版</small>
+      <small>Ver.6.6.0 三菱・ゼネラル攻略追加版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -1527,6 +1539,12 @@ html,body{max-width:100%;overflow-x:hidden}
       </button>
       <button class="utility-card" onclick="openSharp()">
         <span class="utility-icon red">✨</span><b>SHARP攻略</b><small>プラズマクラスター・<br>清潔気流</small><em>›</em>
+      </button>
+      <button class="utility-card" onclick="openMitsubishi()">
+        <span class="utility-icon red">🔺</span><b>三菱攻略</b><small>ムーブアイ・<br>快適気流</small><em>›</em>
+      </button>
+      <button class="utility-card" onclick="openGeneral()">
+        <span class="utility-icon green">🍃</span><b>ゼネラル攻略</b><small>気流・清潔・<br>Lシリーズ</small><em>›</em>
       </button>
       <button class="utility-card" onclick="showCases()">
         <span class="utility-icon gold">👤</span><b>お客様カルテ</b><small>接客ケースを<br>選んで練習</small><em>›</em>
@@ -2170,30 +2188,78 @@ html,body{max-width:100%;overflow-x:hidden}
 </section>
 
 <section id="mitsubishi" class="page hidden">
-<header class="subheader"><button onclick="show('home')">‹</button><h1>三菱攻略</h1><span></span></header>
-<div class="daikin-wrap">
-<section class="maker-hero" style="background:linear-gradient(135deg,#b71c1c,#ef5350);color:#fff">
-<div class="maker-hero-copy"><span class="maker-kicker">MITSUBISHI MASTER GUIDE</span>
-<h2>ムーブアイを、提案力に変える。</h2>
-<p>2026年モデルを公式情報ベースで、センサー・省エネ・空清・シリーズ差の順で学びます。</p>
-<div class="maker-hero-actions"><button onclick="openVisualLibraryFilter('mitsubishi')">図解を見る</button></div></div></section>
-<div class="series-card"><div class="maker-section-title"><span>SERIES POSITION</span><h2>シリーズ毎の位置づけ</h2></div>
-<div class="maker-position-ladder">
-<div><b>👑 FZ</b><span>次世代プレミアム。エモコアイ＋ムーブアイmirA.I.＋、省エネ性能を重視</span></div>
-<div><b>⭐ Z</b><span>プレミアム。快適・清潔・省エネを総合重視</span></div>
-<div><b>⚖️ X</b><span>ハイスペック。ムーブアイ＋2か所同時空調＋充実機能</span></div>
-<div><b>📐 R</b><span>設置性と機能のバランス</span></div>
-<div><b>📏 S</b><span>奥行すっきり。ムーブアイ＋ハイブリッド運転を基本に</span></div>
-</div></div>
-<div class="series-card"><div class="maker-section-title"><span>IMPORTANT FEATURES</span><h2>三菱の重要機能</h2></div>
-<div class="diagnosis-grid maker-feature-grid">
-<button class="diagnosis-btn" onclick="openVisualLibraryFilter('mitsubishi')">👁 ムーブアイ</button>
-<button class="diagnosis-btn" onclick="openVisualLibraryFilter('mitsubishi')">🌬 ハイブリッド運転</button>
-<button class="diagnosis-btn" onclick="openVisualLibraryFilter('mitsubishi')">↔ 2か所同時空調</button>
-<button class="diagnosis-btn" onclick="openVisualLibraryFilter('mitsubishi')">💧 ピュアミスト</button>
-<button class="diagnosis-btn" onclick="openVisualLibraryFilter('mitsubishi')">⚙️ 初期設定</button>
-</div></div>
-</div></section>
+  <header class="subheader"><button onclick="show('home')">‹</button><h1>三菱攻略</h1><span></span></header>
+  <section class="maker-hero" style="background:linear-gradient(135deg,#8f0d18,#d9252f);color:#fff">
+    <div class="maker-hero-copy">
+      <span class="maker-kicker">MITSUBISHI MASTER GUIDE</span>
+      <h2>「見つける → 分ける → ムダを抑える」を提案力に。</h2>
+      <p>FZ・Z・X・R・Sを、センサー → 気流 → 清潔 → シリーズ差 → 接客の順で学ぶ攻略ページ。</p>
+      <div class="maker-hero-actions"><button onclick="scrollMakerTo('mitsubishiSeriesMap')">シリーズを見る</button><button onclick="openVisualLibraryFilter('mitsubishi')">豪華図解を見る</button></div>
+    </div>
+    <div class="maker-hero-visual"><div class="maker-series-status"><small>2026主要シリーズ</small><div class="maker-status-list"><span>FZ</span><span>Z</span><span>X</span><span>R</span><span>S</span></div></div><div class="maker-progress-ring"><span>5</span><small>シリーズ</small></div></div>
+  </section>
+  <div class="daikin-wrap">
+    <div class="daikin-note">2026年の三菱公式ラインアップにはFZ・Z・FL・X・R・S・GEがあります。この攻略では販売比較で使いやすいFZ・Z・X・R・Sを中心に整理します。最終案内は型番ごとの公式仕様で確認してください。</div>
+
+    <div class="hitachi-master-card"><div class="hitachi-master-head"><div><span class="hitachi-master-badge">三菱マスターコース</span><h2>ムーブアイだけで終わらせない</h2><p>「誰を見ている？」「どこへ風を送る？」「何を自動で切り替える？」まで、お客様の暮らしへつなげます。</p></div><div class="hitachi-master-score"><span>5STEP</span><small>接客導線</small></div></div>
+      <div class="hitachi-course-steps"><button onclick="scrollMakerTo('mitsubishiSeriesMap')"><b>STEP 1</b><span>シリーズ</span></button><button onclick="scrollMakerTo('mitsubishiFeatureArea')"><b>STEP 2</b><span>重要機能</span></button><button onclick="scrollMakerTo('mitsubishiQuick')"><b>STEP 3</b><span>お客様別</span></button><button onclick="scrollMakerTo('mitsubishiTalk')"><b>STEP 4</b><span>接客トーク</span></button><button onclick="openVisualLibraryFilter('mitsubishi')"><b>STEP 5</b><span>豪華図解</span></button></div></div>
+
+    <div id="mitsubishiSeriesMap" class="series-card" style="max-width:980px;margin:0 auto 18px"><div class="maker-section-title"><span>SERIES POSITION</span><h2>シリーズ毎の位置づけ</h2><p>価格順ではなく「どこまで快適制御を求めるか」で覚えます。</p></div>
+      <div class="maker-position-ladder"><div><b>👑 FZ</b><span>次世代プレミアム。14〜29畳。大空間でセンサー・快適性・省エネを最優先。</span></div><div><b>⭐ Z</b><span>プレミアム。6〜29畳。清潔・快適・省エネを総合的に重視。</span></div><div><b>⚖️ X</b><span>ハイスペック。6〜23畳。充実機能と使いやすさのバランス。</span></div><div><b>📐 R</b><span>コンパクト。6〜23畳。本体高さ255mmで設置性＋空清機能。</span></div><div><b>🏠 S</b><span>スタンダード。6〜18畳。基本機能をしっかり押さえたい部屋向け。</span></div></div>
+    </div>
+
+    <div id="mitsubishiFeatureArea" class="series-card" style="max-width:980px;margin:0 auto 18px"><div class="maker-section-title"><span>IMPORTANT FEATURES</span><h2>三菱の重要機能</h2><p>機能名 → お客様メリット → 接客の一言までセットで覚えます。</p></div>
+      <div class="setting-card-grid">
+        <article class="setting-info-card"><span class="setting-state state-auto">センサー</span><h3>👁 ムーブアイ</h3><p>人や床などの温度を見分け、体感に合わせた制御へつなげます。<b>「設定温度だけでは分からない暑い・寒いを見てくれる」</b>と説明すると伝わりやすい。</p></article>
+        <article class="setting-info-card"><span class="setting-state state-auto">自動切替</span><h3>🌬 ハイブリッド運転</h3><p>体感温度に合わせて冷房と送風などを使い分け、快適性と省エネの両立を狙います。<b>つけっぱなし時のムダが気になる方</b>へ。</p></article>
+        <article class="setting-info-card"><span class="setting-state state-manual">気流</span><h3>↔ 2か所同時空調</h3><p>対応機種では左右のフラップを別々に制御し、離れた場所へ気流を届けます。<b>広いLDKや家族が別の場所にいる時</b>の提案に。</p></article>
+        <article class="setting-info-card"><span class="setting-state state-check">空気ケア</span><h3>💧 ピュアミスト</h3><p>電気を帯びた微細なミストで空気ケアをサポート。搭載シリーズ差を確認し、<b>「空気の清潔性も重視したい」</b>方へ。</p></article>
+        <article class="setting-info-card"><span class="setting-state state-check">設置</span><h3>📐 Rシリーズ</h3><p>2026年Rシリーズは<b>本体高さ255mmのコンパクトモデル</b>。設置スペースが厳しい場所でも、機能を妥協したくない時の候補。</p></article>
+        <article class="setting-info-card"><span class="setting-state state-check">確認</span><h3>⚙️ 初期設定</h3><p>時刻・ムーブアイ・自動/節電系・風向風量・必要な便利機能を確認。<b>搭載＝すべて自動ON</b>とは限らないので設定状態を確認します。</p></article>
+      </div>
+    </div>
+
+    <section id="mitsubishiQuick" class="maker-quick-mode"><div class="maker-section-title"><span>BUYING FLOOR MODE</span><h2>お客様の一言 → 比較候補</h2><p>売場でそのまま使える絞り込み。</p></div><div class="maker-quick-grid">
+      <button><b>🥵 家族で暑がり寒がりが違う</b><small>FZ / Z → センサー・気流を比較</small></button><button><b>🏠 広いLDKをムラなく</b><small>FZ / Z / X → 気流制御を比較</small></button><button><b>💰 電気代も気になる</b><small>FZ / Z → 省エネ性能も比較</small></button><button><b>📐 高さがギリギリ</b><small>R → 255mmの設置性を確認</small></button><button><b>✨ 清潔も重視</b><small>Z / X等 → 搭載清潔機能を確認</small></button><button><b>🛏 個室・基本機能</b><small>S → 価格と必要機能のバランス</small></button>
+    </div></section>
+
+    <div id="mitsubishiTalk" class="series-card hitachi-sales-flow" style="max-width:980px;margin:0 auto 18px"><h2 style="margin-top:0">三菱を提案する4ステップ</h2><div class="hitachi-flow-row"><div><b>1. 人</b><span>誰がどこで使う？</span></div><i>→</i><div><b>2. 温度ムラ</b><span>暑がり・寒がりは？</span></div><i>→</i><div><b>3. 設置</b><span>高さ・幅・部屋の広さ</span></div><i>→</i><div><b>4. シリーズ</b><span>必要機能だけ残す</span></div></div><div class="feature-caution"><b>接客の一言</b><br>「三菱は、エアコンが人やお部屋の状態を見て、必要なところへ必要な運転をする考え方が強みです。ご家族の過ごし方に合わせてシリーズを絞りましょう。」</div></div>
+  </div>
+</section>
+
+<section id="general" class="page hidden">
+  <header class="subheader"><button onclick="show('home')">‹</button><h1>ゼネラル攻略</h1><span></span></header>
+  <section class="maker-hero" style="background:linear-gradient(135deg,#064d3d,#0c7a5a);color:#fff"><div class="maker-hero-copy"><span class="maker-kicker">GENERAL / nocria MASTER GUIDE</span><h2>気流・清潔・お手入れを、シリーズ差で提案する。</h2><p>2026年の X・Z・W・L・D・C を、お客様の困りごとから選べる攻略ページ。</p><div class="maker-hero-actions"><button onclick="scrollMakerTo('generalSeriesMap')">6シリーズを見る</button><button onclick="openVisualLibraryFilter('general')">図解を見る</button></div></div><div class="maker-hero-visual"><div class="maker-series-status"><small>2026ラインアップ</small><div class="maker-status-list"><span>X</span><span>Z</span><span>W</span><span>L</span><span>D</span><span>C</span></div></div><div class="maker-progress-ring"><span>6</span><small>シリーズ</small></div></div></section>
+  <div class="daikin-wrap">
+    <div class="daikin-note">2026年の家電量販店向け公式ラインアップは X・Z・W・L・D・C の6シリーズ。Lシリーズは「お手入れカンタン！省エネモデル」です。シリーズや能力帯で搭載差があるため、最終案内は該当型番の公式仕様で確認してください。</div>
+
+    <div class="hitachi-master-card"><div class="hitachi-master-head"><div><span class="hitachi-master-badge">ゼネラルマスターコース</span><h2>「ノクリアだから」ではなく、選ぶ理由を言えるようにする</h2><p>Xの独自気流、Zのデザイン＋省エネ、Wの自動おそうじ、Lのお手入れ性、Dの高さ250mm、Cのコンパクト設置性を整理。</p></div><div class="hitachi-master-score"><span>6</span><small>シリーズ</small></div></div><div class="hitachi-course-steps"><button onclick="scrollMakerTo('generalSeriesMap')"><b>STEP 1</b><span>シリーズ</span></button><button onclick="scrollMakerTo('generalFeatureArea')"><b>STEP 2</b><span>機能</span></button><button onclick="scrollMakerTo('generalL')"><b>STEP 3</b><span>Lシリーズ</span></button><button onclick="scrollMakerTo('generalQuick')"><b>STEP 4</b><span>買い場診断</span></button><button onclick="openVisualLibraryFilter('general')"><b>STEP 5</b><span>図解</span></button></div></div>
+
+    <div id="generalSeriesMap" class="series-card" style="max-width:980px;margin:0 auto 18px"><div class="maker-section-title"><span>2026 SERIES POSITION</span><h2>ノクリア6シリーズ比較</h2><p>2026年ラインアップを公式の位置づけで整理。</p></div><div class="maker-position-ladder">
+      <div><b>👑 X</b><span>プレミアム：独自のハイブリッド気流を搭載。</span></div><div><b>⭐ Z</b><span>ハイグレード：洗練デザイン＋省エネ性。</span></div><div><b>🧹 W</b><span>フィルター自動おそうじ搭載の省エネモデル。</span></div><div><b>🧼 L</b><span>お手入れカンタン！省エネモデル。外せる送風路＋クリーンタイマー。</span></div><div><b>📏 D</b><span>清潔機能が充実した高さ250mmスリムモデル。</span></div><div><b>📐 C</b><span>設置性を追求したコンパクトモデル。</span></div>
+    </div></div>
+
+    <div id="generalFeatureArea" class="series-card" style="max-width:980px;margin:0 auto 18px"><div class="maker-section-title"><span>IMPORTANT FEATURES</span><h2>ゼネラルの重要機能</h2><p>「快適」「清潔」「省エネ」「お手入れ」の4軸で提案します。</p></div><div class="setting-card-grid">
+      <article class="setting-info-card"><span class="setting-state state-manual">快適</span><h3>🌬 独自の気流</h3><p>Xシリーズは公式に<b>独自のハイブリッド気流</b>を特徴とするプレミアムモデル。広いLDKや気流ムラが気になるお客様へ。</p></article>
+      <article class="setting-info-card"><span class="setting-state state-check">清潔</span><h3>✨ カビ対策・内部清潔</h3><p>熱交換器加熱除菌など、ノクリアはカビ対策を重視。搭載機能はシリーズ差があるので確認して案内。</p></article>
+      <article class="setting-info-card"><span class="setting-state state-auto">省エネ</span><h3>🍃 省エネモデル</h3><p>Z・W・Lなど、シリーズごとに省エネ性を強化。価格だけでなく<b>使用時間の長さ</b>も聞いて比較。</p></article>
+      <article class="setting-info-card"><span class="setting-state state-check">設置</span><h3>📏 D / C</h3><p>Dは高さ250mm、Cは設置性を追求したコンパクトモデル。窓上・カーテンレール上など寸法制約のある場所で候補。</p></article>
+    </div></div>
+
+    <div id="generalL" class="series-card" style="max-width:980px;margin:0 auto 18px;border:2px solid #40a978"><div class="maker-section-title"><span>NEW KEY SERIES</span><h2>🧼 Lシリーズ攻略</h2><p>「掃除しやすさ」と「省エネ」を両立したいお客様へ。</p></div><div class="setting-card-grid">
+      <article class="setting-info-card"><h3>① 外せる送風路</h3><p><b>送風路の3パーツを簡単に取り外し可能。</b>これまで手が届きにくかったところまでお手入れしやすいのが大きな特徴。</p></article>
+      <article class="setting-info-card"><h3>② 全クラス省エネ基準達成</h3><p>6畳〜23畳まで、公式には<b>2027年度省エネ基準達成率100%</b>をクリア。長時間使う家庭でも比較しやすい。</p></article>
+      <article class="setting-info-card"><h3>③ まるごとクリーンタイマー</h3><p>設定時刻にエアコン内部の最適なお手入れを自動実施。<b>自動化＋自分でも掃除しやすい</b>の両方で提案できます。</p></article>
+      <article class="setting-info-card"><h3>接客の一言</h3><p>「自動でキレイにするだけでなく、<b>自分でも外して掃除しやすい</b>のがLシリーズの分かりやすい強みです。」</p></article>
+    </div></div>
+
+    <section id="generalQuick" class="maker-quick-mode"><div class="maker-section-title"><span>BUYING FLOOR MODE</span><h2>お客様の一言 → シリーズ候補</h2></div><div class="maker-quick-grid">
+      <button><b>🌬 広いLDK・気流重視</b><small>X</small></button><button><b>✨ 上質・省エネ重視</b><small>Z</small></button><button><b>🧹 自動おそうじが欲しい</b><small>W</small></button><button><b>🧼 自分でも掃除しやすく</b><small>L</small></button><button><b>📏 高さ250mmが必要</b><small>D</small></button><button><b>📐 とにかく設置性</b><small>C</small></button>
+    </div></section>
+
+    <div class="series-card hitachi-sales-flow" style="max-width:980px;margin:0 auto 18px"><h2 style="margin-top:0">ゼネラルを提案する4ステップ</h2><div class="hitachi-flow-row"><div><b>1. 部屋</b><span>広さ・設置寸法</span></div><i>→</i><div><b>2. 快適</b><span>気流・冷えすぎ</span></div><i>→</i><div><b>3. 清潔</b><span>自動 / 自分で掃除</span></div><i>→</i><div><b>4. 電気代</b><span>使用時間・省エネ</span></div></div><div class="feature-caution"><b>販売で大切なこと</b><br>「ゼネラル＝さらさら冷房」だけで決めず、気流・お手入れ・設置寸法・省エネのどれを優先するかで6シリーズから絞ります。</div></div>
+  </div>
+</section>
 <section id="daikin" class="page hidden">
   <header class="subheader">
     <button onclick="show('home')">‹</button>
@@ -3269,7 +3335,6 @@ const VISUAL_LIBRARY=[
  {category:"toshiba",file:"toshiba-iolife-illustrated.png?v=617",title:"IoLIFE",desc:"Wi-Fi接続・機器登録・スマホ操作の流れを図解。"},
  {category:"toshiba",file:"toshiba-series-illustrated.png?v=617",title:"東芝5シリーズ比較",desc:"V-DR・V-DZ・V-DX・V-X・V-Mの位置づけを図解。"},
  {category:"toshiba",file:"toshiba-settings-illustrated.png?v=617",title:"東芝 初期設定",desc:"手動選択・自動・IoLIFE接続設定を整理。"},
- {category:"sharp",file:"sharp-lux-overview.png?v=631",title:"SHARP 豪華図解・総合ガイド",desc:"清潔・快適・省エネ・お手入れを大きな1枚で確認。"},
  {category:"sharp",file:"sharp-lux-plasma.png?v=631",title:"プラズマクラスター空気清浄・豪華版",desc:"空気清浄のイメージと接客ポイントを大きく見やすく図解。"},
  {category:"sharp",file:"sharp-lux-filter.png?v=631",title:"フィルター自動お掃除・豪華版",desc:"ブラシ清掃からダスト回収までを写真風図解で確認。"},
  {category:"sharp",file:"sharp-lux-cocoro.png?v=631",title:"COCORO AIR スマート連携",desc:"Wi-Fi接続・アプリ登録・外出先操作の流れを図解。"},
@@ -3284,12 +3349,10 @@ const VISUAL_LIBRARY=[
  {category:"mitsubishi",file:"mitsubishi-puremist-illustrated.png?v=640",title:"ピュアミスト",desc:"ナノレベルの微細ミストによる空気ケアを豪華図解。"},
  {category:"mitsubishi",file:"mitsubishi-series-illustrated.png?v=640",title:"三菱シリーズ比較",desc:"FZ・Z・X・R・Sの違いと選び方を大型比較表で整理。"},
  {category:"mitsubishi",file:"mitsubishi-settings-illustrated.png?v=640",title:"三菱 初期設定",desc:"最初に確認したい設定を5ステップで見やすく整理。"},
- {category:"general",file:"general-lux-overview.png?v=651",title:"ゼネラル 豪華図解・総合ガイド",desc:"さらさら冷房・気流・清潔・省エネ・シリーズ比較を一気に確認。"},
  {category:"general",file:"general-sarasara.png?v=651",title:"さらさら冷房",desc:"再熱除湿で冷えすぎを抑えながら、湿度をしっかりコントロール。"},
  {category:"general",file:"general-airflow.png?v=651",title:"ノクリア独自の気流制御",desc:"広いお部屋へムラを抑えて届ける気流の考え方を図解。"},
  {category:"general",file:"general-clean.png?v=651",title:"熱交換器・内部クリーン",desc:"熱交換器や内部の清潔維持をサポートする機能を整理。"},
  {category:"general",file:"general-eco.png?v=651",title:"省エネ・センサー運転",desc:"人やお部屋の状態を見ながらムダを抑える運転を図解。"},
- {category:"general",file:"general-series.png?v=651",title:"ノクリア シリーズ比較",desc:"快適・清潔・省エネ・設置性からシリーズを比較。"},
  {category:"general",file:"general-settings.png?v=651",title:"ゼネラル 初期設定",desc:"時刻・運転モード・風向・タイマー・内部クリーンを整理。"},
  {category:"construction",file:"construction-voltage.png",title:"100V・200V",desc:"コンセント・電圧・分電盤をセットで確認。"},
  {category:"construction",file:"construction-dedicated.png",title:"専用回路",desc:"分電盤からエアコンまで他機器と共用しない回路。"},
@@ -3345,7 +3408,7 @@ const VISUAL_GUIDE={
 };
 
 
-const VISUAL_OPTIMIZED_VERSION="651";
+const VISUAL_OPTIMIZED_VERSION="652";
 function splitAsset(src){const parts=src.split("?");return {path:parts[0],query:parts[1]||""};}
 function visualThumbSrc(src){const a=splitAsset(src);const dot=a.path.lastIndexOf(".");if(dot<0) return src;return a.path.slice(0,dot)+"-thumb.webp?v="+VISUAL_OPTIMIZED_VERSION;}
 function visualViewSrc(src){const a=splitAsset(src);const dot=a.path.lastIndexOf(".");if(dot<0) return src;return a.path.slice(0,dot)+"-view.webp?v="+VISUAL_OPTIMIZED_VERSION;}
@@ -3370,7 +3433,7 @@ function buildVisualCard(v){
  card.innerHTML='<img alt="'+v.title+'" loading="lazy" decoding="async" fetchpriority="low"><div class="visual-card-body"><h3>'+v.title+'</h3><p>'+v.desc+'</p><button type="button">大きく見る</button></div>';
  const img=card.querySelector("img");
  img.src=thumbSrc; img.dataset.full=viewSrc;
- const open=()=>openImageModal(viewSrc,v.title);
+ const open=()=>openImageModal(viewSrc,v.title,thumbSrc);
  card.querySelector("button").onclick=open;
  img.onclick=open;
  card.addEventListener("pointerdown",()=>{const pre=new Image();pre.decoding="async";pre.src=viewSrc;},{once:true,passive:true});
@@ -3453,17 +3516,26 @@ function renderVisualDetail(title){
  const data=VISUAL_DETAIL[title]||[];
  return data.map(sec=>"<section class='modal-detail-section'><h3>"+sec[0]+"</h3><ul>"+sec[1].map(x=>"<li>"+x+"</li>").join("")+"</ul></section>").join("");
 }
-function openImageModal(src,title){
+function openImageModal(src,title,previewSrc){
  const modal=document.getElementById("imageModal");
  const img=document.getElementById("modalImage");
  const guide=VISUAL_GUIDE[title]||{review:"図解の要点を確認し、搭載条件や設置条件は型番・現場ごとに確認します。",talk:"この図を使いながら、お客様の使い方や設置状況に合わせてご説明します。"};
- img.loading="eager"; img.decoding="async"; img.src=""; img.src=src; img.alt=title;
+ img.loading="eager";
+ img.decoding="async";
+ img.alt=title;
+ // 先に一覧用画像をそのまま表示。空画像を挟まないので白フラッシュしない
+ if(previewSrc && img.src!==new URL(previewSrc,location.href).href){img.src=previewSrc;}
  document.getElementById("modalTitle").textContent=title;
  document.getElementById("modalDetail").innerHTML=renderVisualDetail(title);
  document.getElementById("modalReview").textContent=guide.review;
  document.getElementById("modalTalk").textContent="「"+guide.talk+"」";
  modal.classList.remove("hidden");
- document.body.style.overflow="hidden"
+ document.body.style.overflow="hidden";
+ // 高画質版は裏で読み込み、完全に読み終えてから1回だけ差し替える
+ const hi=new Image();
+ hi.decoding="async";
+ hi.onload=()=>{if(!modal.classList.contains("hidden") && document.getElementById("modalTitle").textContent===title){img.src=src;}};
+ hi.src=src;
 }
 function closeImageModal(event,force){
  if(force || event.target.id==="imageModal"){
@@ -3667,6 +3739,8 @@ function renderMakerSeries(panelId,s,key){
   '<div class="maker-onepoint"><b>📝 30秒復習</b><br>'+s.summary+'</div>';
 }
 
+function openMitsubishi(){show("mitsubishi");window.scrollTo({top:0,behavior:"smooth"});}
+function openGeneral(){show("general");window.scrollTo({top:0,behavior:"smooth"});}
 function openToshiba(){
  show("toshiba");
  const first=document.querySelector("#toshiba .series-tab");
