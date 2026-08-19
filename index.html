@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.3.3 図解ライブラリ超高速・段階表示版</title>
+<title>エアコン販買マスター Pro Ver.6.4.0 三菱豪華図解完成版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1294,7 +1294,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <style id="v630-sharp-lux-final">
-/* Ver.6.3.3 図解ライブラリ超高速・段階表示版：iPad/iPhone見切れ対策 */
+/* Ver.6.4.0 三菱豪華図解完成版：iPad/iPhone見切れ対策 */
 #visualGrid .visual-card[data-cat="sharp"]{
   overflow:hidden!important;
   padding:10px!important;
@@ -1371,7 +1371,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.3.3 図解ライブラリ超高速・段階表示版</small>
+      <small>Ver.6.4.0 三菱豪華図解完成版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -3216,12 +3216,12 @@ const VISUAL_LIBRARY=[
  {category:"sharp",file:"sharp-lux-clean-care.png?v=631",title:"内部清潔・防カビケア",desc:"運転後の内部ケアと清潔維持の考え方を図解。"},
  {category:"sharp",file:"sharp-lux-eco.png?v=631",title:"省エネ・節電サポート",desc:"快適性と省エネを両立するイメージを図解。"},
  {category:"sharp",file:"sharp-settings-illustrated.png?v=631",title:"SHARP 初期設定",desc:"設定が必要な機能・自動機能・アプリ接続を整理。"},
- {category:"mitsubishi",file:"mitsubishi-moveeye-illustrated.png?v=620",title:"ムーブアイ",desc:"赤外線センサーで体感温度を見て快適に。"},
- {category:"mitsubishi",file:"mitsubishi-hybrid-illustrated.png?v=620",title:"ハイブリッド運転",desc:"冷房と送風を自動で切り替える。"},
- {category:"mitsubishi",file:"mitsubishi-two-point-illustrated.png?v=620",title:"2か所同時空調",desc:"離れた2人へ2つの気流を届ける。"},
- {category:"mitsubishi",file:"mitsubishi-puremist-illustrated.png?v=620",title:"ピュアミスト",desc:"ナノレベルの水のミストで空気をケア。"},
- {category:"mitsubishi",file:"mitsubishi-series-illustrated.png?v=620",title:"三菱シリーズ比較",desc:"FZ・Z・X・R・Sの位置づけを整理。"},
- {category:"mitsubishi",file:"mitsubishi-settings-illustrated.png?v=620",title:"三菱 初期設定",desc:"自動・節電設定・アプリ接続を分けて案内。"},
+ {category:"mitsubishi",file:"mitsubishi-moveeye-illustrated.png?v=640",title:"ムーブアイ",desc:"人・床・壁・天井まで見分けるセンサーの仕組みと接客ポイントを豪華図解。"},
+ {category:"mitsubishi",file:"mitsubishi-hybrid-illustrated.png?v=640",title:"ハイブリッド運転",desc:"体感温度に合わせて冷房と送風を自動で使い分ける流れを豪華図解。"},
+ {category:"mitsubishi",file:"mitsubishi-two-point-illustrated.png?v=640",title:"2か所同時空調",desc:"左右のフラップで2つのエリアへ気流を届ける仕組みを豪華図解。"},
+ {category:"mitsubishi",file:"mitsubishi-puremist-illustrated.png?v=640",title:"ピュアミスト",desc:"ナノレベルの微細ミストによる空気ケアを豪華図解。"},
+ {category:"mitsubishi",file:"mitsubishi-series-illustrated.png?v=640",title:"三菱シリーズ比較",desc:"FZ・Z・X・R・Sの違いと選び方を大型比較表で整理。"},
+ {category:"mitsubishi",file:"mitsubishi-settings-illustrated.png?v=640",title:"三菱 初期設定",desc:"最初に確認したい設定を5ステップで見やすく整理。"},
  {category:"construction",file:"construction-voltage.png",title:"100V・200V",desc:"コンセント・電圧・分電盤をセットで確認。"},
  {category:"construction",file:"construction-dedicated.png",title:"専用回路",desc:"分電盤からエアコンまで他機器と共用しない回路。"},
  {category:"construction",file:"construction-board.png",title:"分電盤",desc:"主幹・分岐・単相2線/3線・空き回路・専用回路を総合確認。"},
@@ -3276,7 +3276,7 @@ const VISUAL_GUIDE={
 };
 
 
-const VISUAL_OPTIMIZED_VERSION="633";
+const VISUAL_OPTIMIZED_VERSION="640";
 function splitAsset(src){const parts=src.split("?");return {path:parts[0],query:parts[1]||""};}
 function visualThumbSrc(src){const a=splitAsset(src);const dot=a.path.lastIndexOf(".");if(dot<0) return src;return a.path.slice(0,dot)+"-thumb.webp?v="+VISUAL_OPTIMIZED_VERSION;}
 function visualViewSrc(src){const a=splitAsset(src);const dot=a.path.lastIndexOf(".");if(dot<0) return src;return a.path.slice(0,dot)+"-view.webp?v="+VISUAL_OPTIMIZED_VERSION;}
