@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.7.3 図解ボタン動作統一版</title>
+<title>エアコン販買マスター Pro Ver.6.8.0 図解ライブラリ豪華統一版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1294,7 +1294,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <style id="v630-sharp-lux-final">
-/* Ver.6.7.3 図解ボタン動作統一版：iPad/iPhone見切れ対策 */
+/* Ver.6.8.0 図解ライブラリ豪華統一版：iPad/iPhone見切れ対策 */
 #visualGrid .visual-card[data-cat="sharp"]{
   overflow:hidden!important;
   padding:10px!important;
@@ -1434,6 +1434,13 @@ html,body{max-width:100%;overflow-x:hidden}
 #general .maker-status-list span,#mitsubishi .maker-status-list span{min-width:42px;text-align:center}
 @media(max-width:700px){#general .hitachi-flow-row,#mitsubishi .hitachi-flow-row{grid-template-columns:1fr!important}#general .hitachi-flow-row i,#mitsubishi .hitachi-flow-row i{transform:rotate(90deg)}}
 </style>
+
+<style id="v680-lux-overview">
+.visual-card:has(img[src*="-lux-overview"]) {border:2px solid #d4b15d;box-shadow:0 12px 30px rgba(20,55,90,.14)}
+.visual-card:has(img[src*="-lux-overview"]) .visual-card-body h3::before{content:"✨ ";}
+.visual-card:has(img[src*="-lux-overview"]) img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;background:#fff}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -1444,7 +1451,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.7.3 図解ボタン動作統一版</small>
+      <small>Ver.6.8.0 図解ライブラリ豪華統一版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -3287,6 +3294,7 @@ function showDaikinFeature(key){
 
 
 const VISUAL_LIBRARY=[
+ {category:"daikin",file:"daikin-lux-overview.png?v=680",title:"ダイキン 豪華図解ライブラリ",desc:"プレミアム冷房・風ないス・スイングコンプレッサー・ストリーマ・さらら除湿・室温パトロール・シリーズ比較を1枚で確認。"},
  {category:"daikin",file:"daikin-premium-illustrated.png?v=417",title:"プレミアム冷房",desc:"デシクル制御とPIT制御を、初心者向けに図解。"},
  {category:"daikin",file:"daikin-airflow-illustrated.png?v=417",title:"風ないス運転",desc:"直接風と、体に当たりにくい気流を比較。"},
  {category:"daikin",file:"swing-compressor.png",title:"スイングコンプレッサー",desc:"一般的な構造との違いと、一体構造の特徴を図解。"},
@@ -3294,6 +3302,7 @@ const VISUAL_LIBRARY=[
  {category:"daikin",file:"daikin-sarara-illustrated.png?v=417",title:"さらら除湿",desc:"さらら除湿の本質と、R・A・Fの方式の違いを図解。"},
  {category:"daikin",file:"room-patrol.png",title:"室温パトロール",desc:"停止中の見守りから自動運転までの流れを図解。"},
  {category:"daikin",file:"daikin-overview.png",title:"R・A・F・E比較",desc:"使い方・希望・予算から、4シリーズの提案軸を比較。"},
+ {category:"hitachi",file:"hitachi-lux-overview.png?v=680",title:"日立 豪華図解ライブラリ",desc:"凍結洗浄・ファンお掃除ロボ・フィルター自動掃除・カビバスター・ヒートプラス・初期設定・シリーズ比較を1枚で確認。"},
  {category:"hitachi",file:"hitachi-freeze-indoor-illustrated.png?v=414",title:"凍結洗浄（室内機）",desc:"凍結→汚れ捕捉→解凍排水の工程と、できること・限界を図解。"},
  {category:"hitachi",file:"hitachi-freeze-outdoor-illustrated.png?v=672",title:"凍結洗浄（室外機）",desc:"室外熱交換器の汚れ、放熱効率、作動条件を詳しく図解。"},
  {category:"hitachi",file:"hitachi-fan-robot-illustrated.png?v=414",title:"ファンお掃除ロボ",desc:"送風ファンの清掃範囲と、フィルター自動掃除との違いを図解。"},
@@ -3310,6 +3319,7 @@ const VISUAL_LIBRARY=[
  {category:"hitachi",file:"hitachi-sleep-watch-illustrated.png?v=415",title:"みはっておやすみ",desc:"睡眠中の温度・湿度を見張り、寝苦しさや冷えすぎに配慮する運転を図解。"},
  {category:"hitachi",file:"hitachi-swing-illustrated.png?v=415",title:"上下左右スイング",desc:"上下・左右の羽根を動かし、部屋全体へ気流を届ける仕組みを図解。"},
  {category:"hitachi",file:"hitachi-wave-fan-illustrated.png?v=414",title:"WN ウェーブファン",desc:"Xシリーズと同じファン採用、静音性向上、案内時の注意を図解。"},
+ {category:"toshiba",file:"toshiba-lux-overview.png?v=680",title:"東芝 豪華図解ライブラリ",desc:"無風感・レーダー風あて/風よけ・プラズマ空清・UV除菌・楽ダストボックス・IoLIFE・シリーズ比較を1枚で確認。"},
  {category:"toshiba",file:"toshiba-radar-illustrated.png?v=672",title:"レーダー風あて／風よけ",desc:"V-DR専用。人の動きを探知し、風を届ける・避ける仕組みを図解。"},
  {category:"toshiba",file:"toshiba-mufukan-illustrated.png?v=617",title:"無風感空調",desc:"V-DR・V-DZ・V-DX。風あたりをやわらげる仕組みを図解。"},
  {category:"toshiba",file:"toshiba-plasma-illustrated.png?v=672",title:"プラズマ空清",desc:"電気集じん方式と搭載シリーズの違いを図解。"},
@@ -3346,6 +3356,9 @@ const VISUAL_LIBRARY=[
  ];
 
 const VISUAL_GUIDE={
+ "ダイキン 豪華図解ライブラリ":{review:"ダイキンの主要機能とシリーズ差を、接客で使いやすい順番でまとめた総合ビジュアル。",talk:"まず全体像をこの1枚で見てから、気になる機能を個別図解で深掘りできます。"},
+ "日立 豪華図解ライブラリ":{review:"日立の清潔・暖房・自動お掃除・シリーズ差をまとめた総合ビジュアル。",talk:"清潔機能の違いを一度に見せてから、お客様が気になる機能を詳しく説明できます。"},
+ "東芝 豪華図解ライブラリ":{review:"東芝の無風感・空清・清潔・IoLIFE・シリーズ差をまとめた総合ビジュアル。",talk:"風あたり、空清、お手入れのどれを重視するか、この1枚から絞り込めます。"},
  "プレミアム冷房":{review:"温度だけでなく湿度も細かく制御し、設定温度到達後も快適さを保つための冷房制御。",talk:"同じ設定温度でも、湿度まで見ながら運転するので、ベタつきを抑えた快適さを狙えます。"},
  "風ないス運転":{review:"風向を調整し、冷風や暖風が体へ直接当たりにくくする気流機能。",talk:"エアコンの風が苦手な方へ、体に直接当たりにくい運転としてご案内できます。"},
  "スイングコンプレッサー":{review:"圧縮機の主要部品を一体化し、摩擦や冷媒漏れを抑えることを狙った構造。",talk:"エアコンの心臓部に、長く安定して運転するための独自構造を採用しています。"},
