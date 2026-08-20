@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.7.2 東芝・日立精度修正版</title>
+<title>エアコン販買マスター Pro Ver.6.7.3 図解ボタン動作統一版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1294,7 +1294,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <style id="v630-sharp-lux-final">
-/* Ver.6.7.2 東芝・日立精度修正版：iPad/iPhone見切れ対策 */
+/* Ver.6.7.3 図解ボタン動作統一版：iPad/iPhone見切れ対策 */
 #visualGrid .visual-card[data-cat="sharp"]{
   overflow:hidden!important;
   padding:10px!important;
@@ -1444,7 +1444,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.7.2 東芝・日立精度修正版</small>
+      <small>Ver.6.7.3 図解ボタン動作統一版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -4108,8 +4108,7 @@ function openHitachiSeries(){
  }
 }
 function openHitachiFeatures(){
- const area=document.getElementById("hitachiFeatureArea");
- safeScrollToElement(area);
+ openVisualLibraryFilter("hitachi");
 }
 function openDaikinSeries(){
  const area=document.querySelector("#daikin .maker-series-tabs")||document.querySelector("#daikin .series-tabs");
@@ -4120,8 +4119,7 @@ function openDaikinSeries(){
  }
 }
 function openDaikinFeatures(){
- const area=document.getElementById("daikinFeatureArea")||document.getElementById("daikinFeaturePanel")||document.querySelector("#daikin .diagnosis-grid");
- safeScrollToElement(area);
+ openVisualLibraryFilter("daikin");
 }
 function quickDiagnoseHitachi(type,button){
  const data={
