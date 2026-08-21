@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.9.2 図解ライブラリ全表示・豪華統一確認版</title>
+<title>エアコン販買マスター Pro Ver.6.9.3 図解ライブラリ共通デザイン統一版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1294,7 +1294,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <style id="v630-sharp-lux-final">
-/* Ver.6.9.2 図解ライブラリ全表示・豪華統一確認版：iPad/iPhone見切れ対策 */
+/* Ver.6.9.3 図解ライブラリ共通デザイン統一版：iPad/iPhone見切れ対策 */
 #visualGrid .visual-card[data-cat="sharp"]{
   overflow:hidden!important;
   padding:10px!important;
@@ -1433,6 +1433,45 @@ html,body{max-width:100%;overflow-x:hidden}
 #general .maker-status-list,#mitsubishi .maker-status-list{display:flex;flex-wrap:wrap;gap:6px}
 #general .maker-status-list span,#mitsubishi .maker-status-list span{min-width:42px;text-align:center}
 @media(max-width:700px){#general .hitachi-flow-row,#mitsubishi .hitachi-flow-row{grid-template-columns:1fr!important}#general .hitachi-flow-row i,#mitsubishi .hitachi-flow-row i{transform:rotate(90deg)}}
+
+/* ===== Ver6.9.3 Visual Library Unified Design ===== */
+.visual-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.visual-card{position:relative;border:1px solid #cfe0ef;border-radius:24px;background:linear-gradient(180deg,#fff 0%,#f8fbff 100%);overflow:hidden;box-shadow:0 14px 34px rgba(20,61,102,.10)}
+.visual-card::before{content:"";display:block;height:7px;background:linear-gradient(90deg,#0d6ee8,#61a9ff)}
+.visual-card[data-cat="daikin"]::before{background:linear-gradient(90deg,#0b76cf,#73c6ff)}
+.visual-card[data-cat="hitachi"]::before{background:linear-gradient(90deg,#158448,#74c998)}
+.visual-card[data-cat="toshiba"]::before{background:linear-gradient(90deg,#e1262d,#ff7d7d)}
+.visual-card[data-cat="sharp"]::before{background:linear-gradient(90deg,#d71958,#ff78a7)}
+.visual-card[data-cat="mitsubishi"]::before{background:linear-gradient(90deg,#e33b30,#ff9a82)}
+.visual-card[data-cat="general"]::before{background:linear-gradient(90deg,#176b57,#65b99d)}
+.visual-card-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 10px;gap:10px}
+.visual-maker-badge{font-size:12px;font-weight:1000;letter-spacing:.08em;color:#fff;background:#0b315f;border-radius:999px;padding:7px 11px;white-space:nowrap}
+.visual-card[data-cat="daikin"] .visual-maker-badge{background:#0b76cf}
+.visual-card[data-cat="hitachi"] .visual-maker-badge{background:#158448}
+.visual-card[data-cat="toshiba"] .visual-maker-badge{background:#e1262d}
+.visual-card[data-cat="sharp"] .visual-maker-badge{background:#d71958}
+.visual-card[data-cat="mitsubishi"] .visual-maker-badge{background:#e33b30}
+.visual-card[data-cat="general"] .visual-maker-badge{background:#176b57}
+.visual-kicker{font-size:11px;font-weight:900;color:#7a90a6;letter-spacing:.14em}
+.visual-image-wrap{margin:0 14px;border:1px solid #dbe8f3;border-radius:18px;background:radial-gradient(circle at 50% 25%,#ffffff 0%,#f4f9fd 68%,#eaf3fa 100%);padding:10px;display:flex;align-items:center;justify-content:center;min-height:270px;overflow:hidden}
+.visual-card img{width:100%;height:250px;object-fit:contain;object-position:center;display:block;background:transparent;padding:0;box-sizing:border-box;border-radius:12px}
+.visual-card-body{padding:15px 16px 17px}
+.visual-card h3{font-size:20px;line-height:1.35;margin:0 0 8px;color:#0c315d;letter-spacing:.01em}
+.visual-card p{font-size:14px;line-height:1.65;color:#526a82;min-height:46px}
+.visual-card-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}
+.visual-card-tags span{font-size:11px;font-weight:900;color:#315675;background:#edf5fb;border:1px solid #d6e7f4;border-radius:999px;padding:5px 8px}
+.visual-card button{margin-top:13px;padding:13px 10px;border-radius:14px;background:linear-gradient(180deg,#2684f3,#116fe8);box-shadow:0 7px 14px rgba(17,111,232,.18)}
+.visual-card button:active{transform:translateY(1px)}
+@media(max-width:700px){
+ .visual-grid{grid-template-columns:1fr!important;gap:16px!important}
+ .visual-card{border-radius:22px!important}
+ .visual-image-wrap{min-height:300px;margin:0 12px;padding:8px}
+ .visual-card img{height:285px!important;padding:0!important}
+ .visual-card-body{padding:14px 16px 16px!important}
+ .visual-card h3{font-size:21px!important}
+ .visual-card p{font-size:15px!important;display:block!important;-webkit-line-clamp:unset!important;overflow:visible!important}
+ .visual-card button{font-size:16px;padding:14px}
+}
 </style>
 
 </head>
@@ -1445,7 +1484,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.9.2 図解ライブラリ全表示・豪華統一確認版</small>
+      <small>Ver.6.9.3 図解ライブラリ共通デザイン統一版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -3424,9 +3463,12 @@ function buildVisualCard(v){
  const card=document.createElement("div");card.className="visual-card";card.dataset.cat=v.category;
  const thumbSrc=visualThumbSrc(v.file);
  const viewSrc=visualViewSrc(v.file);
- card.innerHTML='<img alt="'+v.title+'" loading="lazy" decoding="async" fetchpriority="low"><div class="visual-card-body"><h3>'+v.title+'</h3><p>'+v.desc+'</p><button type="button">大きく見る</button></div>';
+ const makerNames={daikin:"DAIKIN",hitachi:"HITACHI",toshiba:"TOSHIBA",sharp:"SHARP",mitsubishi:"三菱電機",general:"nocria"};
+ const maker=makerNames[v.category]||String(v.category||"").toUpperCase();
+ card.innerHTML='<div class="visual-card-head"><span class="visual-maker-badge">'+maker+'</span><span class="visual-kicker">VISUAL GUIDE</span></div><div class="visual-image-wrap"><img alt="'+v.title+'" loading="lazy" decoding="async" fetchpriority="low"></div><div class="visual-card-body"><h3>'+v.title+'</h3><p>'+v.desc+'</p><div class="visual-card-tags"><span>仕組み</span><span>接客ポイント</span><span>注意点</span></div><button type="button">大きく見る</button></div>';
  const img=card.querySelector("img");
  img.src=thumbSrc; img.dataset.full=viewSrc;
+ img.onerror=()=>{img.removeAttribute("src");img.alt=v.title+"（画像読み込みエラー）";const w=card.querySelector('.visual-image-wrap');w.innerHTML='<div style="padding:42px 18px;text-align:center;color:#8aa0b5;font-weight:900">図解を読み込めませんでした<br><small style="font-weight:700">'+v.title+'</small></div>';};
  const open=()=>openImageModal(viewSrc,v.title,thumbSrc);
  card.querySelector("button").onclick=open;
  img.onclick=open;
