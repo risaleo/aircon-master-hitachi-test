@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.8.7 日立図解参照名完全修正版</title>
+<title>エアコン販買マスター Pro Ver.6.9.0 SHARP・日立 指摘反映確認版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1294,7 +1294,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <style id="v630-sharp-lux-final">
-/* Ver.6.8.7 日立図解参照名完全修正版：iPad/iPhone見切れ対策 */
+/* Ver.6.9.0 SHARP・日立 指摘反映確認版：iPad/iPhone見切れ対策 */
 #visualGrid .visual-card[data-cat="sharp"]{
   overflow:hidden!important;
   padding:10px!important;
@@ -1445,7 +1445,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.8.7 日立図解参照名完全修正版</small>
+      <small>Ver.6.9.0 SHARP・日立 指摘反映確認版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -2107,10 +2107,10 @@ html,body{max-width:100%;overflow-x:hidden}
     <div id="sharpSeriesMap" class="series-card" style="max-width:980px;margin:0 auto 18px">
       <div class="maker-section-title"><span>SERIES POSITION</span><h2>シリーズ毎の位置づけ</h2><p>主要4シリーズを、選ぶ理由で覚えます。</p></div>
       <div class="maker-position-ladder">
-        <div><b>👑 R</b><span>フラッグシップ：省エネ＋防カビカラッとファン＋快適冷房・除湿</span></div>
-        <div><b>🧹 V</b><span>高さ249mmハイグレード：自動お掃除＋PC25000＋氷結ドライ</span></div>
+        <div><b>👑 R</b><span>フラッグシップ：省エネ＋防カビカラッとファン＋自動お掃除＋快適冷房・除湿</span></div>
+        <div><b>🧹 V</b><span>高さ249mmハイグレード：自動お掃除＋プラズマクラスター25000＋氷結ドライ</span></div>
         <div><b>⚖️ E</b><span>高さ249mmスタンダード：自動お掃除を省いて快適機能を確保</span></div>
-        <div><b>📏 DG</b><span>奥行230mmシンプル：PC7000＋やさしい気流</span></div>
+        <div><b>📏 DG</b><span>奥行230mmシンプル：プラズマクラスター7000＋すこやかシャワー気流</span></div>
       </div>
     </div>
 <div id="sharpFeatureArea" class="series-card" style="max-width:980px;margin:0 auto 18px">
@@ -2121,7 +2121,11 @@ html,body{max-width:100%;overflow-x:hidden}
         <button class="diagnosis-btn" onclick="showSharpFeature('takumi')">💧 匠の冷房</button>
         <button class="diagnosis-btn" onclick="showSharpFeature('hyoketsu')">🧊 氷結ドライ</button>
         <button class="diagnosis-btn" onclick="showSharpFeature('filter')">🧹 フィルター自動お掃除</button>
-        <button class="diagnosis-btn" onclick="showSharpFeature('airflow')">🌬 コアンダ気流</button>
+        <button class="diagnosis-btn" onclick="showSharpFeature('airflow')">🌬 気流制御</button>
+        <button class="diagnosis-btn" onclick="showSharpFeature('dehumidify')">💧 除湿2方式</button>
+        <button class="diagnosis-btn" onclick="showSharpFeature('sleep')">🌙 匠の冷房・睡眠</button>
+        <button class="diagnosis-btn" onclick="showSharpFeature('cleanCare')">🛡 清潔3機能</button>
+        <button class="diagnosis-btn" onclick="showSharpFeature('eco')">🌱 省エネ機能</button>
         <button class="diagnosis-btn" onclick="showSharpFeature('app')">📱 COCORO HOME</button>
         <button class="diagnosis-btn" onclick="showSharpFeature('settings')">⚙️ SHARP 初期設定</button>
       </div>
@@ -2164,9 +2168,8 @@ html,body{max-width:100%;overflow-x:hidden}
         <span class="setting-state state-manual">設定が必要</span><span class="setting-state state-auto">条件で自動</span><span class="setting-state state-connect">接続設定</span><span class="setting-state state-check">お手入れ確認</span>
       </div>
       <div class="setting-card-grid">
-        <article class="setting-info-card"><span class="setting-state state-manual">設定が必要</span><h3>防カビカラッとファン</h3><p><b>Rシリーズのみ。</b>公式に「お客様ご自身で設定が必要」と明記されています。すでに発生したカビを取る機能ではありません。</p></article>
-        <article class="setting-info-card"><span class="setting-state state-auto">条件で自動</span><h3>フィルター自動お掃除</h3><p><b>Vシリーズ。</b>フィルターのホコリをトルネードブラシで自動除去し、ダストボックスに集めます。</p></article>
-        <article class="setting-info-card"><span class="setting-state state-check">6カ月目安</span><h3>ダストボックス確認</h3><p><b>Vシリーズ。</b>公式では6カ月に1回を目安に定期確認し、ホコリがたまっていればお手入れするよう案内されています。</p></article>
+        <article class="setting-info-card"><span class="setting-state state-check">構造機能</span><h3>防カビカラッとファン</h3><p><b>Rシリーズのみ。</b>ファンの超親水ナノコーティングで結露水を薄く広げ、速乾・ホコリ付着抑制につなげる構造。お客様がONにする設定機能としては案内しません。</p></article>
+        <article class="setting-info-card"><span class="setting-state state-auto">自動</span><h3>フィルター自動お掃除</h3><p><b>R・Vシリーズ。</b>フィルターのホコリをトルネードブラシで自動除去し、ダストボックスに集めます。定期的なお手入れ目安は「フィルター自動お掃除」の解説側で確認します。</p></article>
         <article class="setting-info-card"><span class="setting-state state-manual">運転選択</span><h3>氷結ドライ</h3><p><b>R・V・E。</b>除湿運転として選択して使います。熱交換器を氷点下まで下げる方式で、再熱除湿ではなく室温低下があります。</p></article>
         <article class="setting-info-card"><span class="setting-state state-connect">接続設定</span><h3>COCORO HOME</h3><p><b>R・V・E。</b>無線LAN内蔵。スマホ連携を使うには家庭のWi‑Fiとアプリへの接続設定が必要です。DGは無線LAN内蔵モデルとして案内しません。</p></article>
         <article class="setting-info-card"><span class="setting-state state-check">シリーズ差</span><h3>プラズマクラスター濃度</h3><p><b>R・V・E＝25000、DG＝7000。</b>同じ「プラズマクラスター搭載」でも濃度区分が異なります。</p></article>
@@ -3296,9 +3299,9 @@ const VISUAL_LIBRARY=[
  {category:"daikin",file:"room-patrol.png",title:"室温パトロール",desc:"停止中の見守りから自動運転までの流れを図解。"},
  {category:"daikin",file:"daikin-overview.png",title:"R・A・F・E比較",desc:"使い方・希望・予算から、4シリーズの提案軸を比較。"},
  {category:"hitachi",file:"hitachi-freeze-indoor-illustrated.png?v=686",title:"凍結洗浄（室内機）",desc:"凍結→汚れ捕捉→解凍排水の工程と、できること・限界を図解。"},
- {category:"hitachi",file:"hitachi-freeze-outdoor-illustrated.png?v=686",title:"凍結洗浄（室外機）",desc:"室外熱交換器の汚れ、放熱効率、作動条件を詳しく図解。"},
+ {category:"hitachi",file:"hitachi-freeze-outdoor-v690.png?v=690",title:"凍結洗浄（室外機）",desc:"室外熱交換器の汚れ、放熱効率、作動条件を詳しく図解。"},
  {category:"hitachi",file:"hitachi-fan-robot-illustrated.png?v=686",title:"ファンお掃除ロボ",desc:"送風ファンの清掃範囲と、フィルター自動掃除との違いを図解。"},
- {category:"hitachi",file:"hitachi-filter-clean-illustrated.png?v=686",title:"フィルター自動掃除",desc:"吸込み口のフィルターを掃除し、ダストボックスへ集める流れを図解。"},
+ {category:"hitachi",file:"hitachi-filter-v690.png?v=690",title:"フィルター自動掃除",desc:"吸込み口のフィルターを掃除し、ダストボックスへ集める流れを図解。"},
  {category:"hitachi",file:"hitachi-mold-buster-illustrated.png?v=686",title:"カビバスター",desc:"停止中の温湿度監視と、加熱・低湿制御によるカビ抑制を図解。"},
  {category:"hitachi",file:"hitachi-internal-dry-illustrated.png?v=686",title:"内部送風乾燥",desc:"停止後の送風で内部の湿気を乾かし、カビ抑制を助ける流れを図解。"},
  {category:"hitachi",file:"hitachi-stainless-illustrated.png?v=686",title:"ステンレス・クリーン",desc:"フィルター・通風路・フラップなど、採用箇所と限界を図解。"},
@@ -3319,14 +3322,15 @@ const VISUAL_LIBRARY=[
  {category:"toshiba",file:"toshiba-iolife-v686.webp",title:"IoLIFE",desc:"Wi-Fi接続・機器登録・スマホ操作の流れを図解。"},
  {category:"toshiba",file:"toshiba-series-v686.webp",title:"東芝5シリーズ比較",desc:"V-DR・V-DZ・V-DX・V-X・V-Mの位置づけを図解。"},
  {category:"toshiba",file:"toshiba-settings-v686.webp",title:"東芝 初期設定",desc:"手動選択・自動・IoLIFE接続設定を整理。"},
- {category:"sharp",file:"sharp-lux-plasma.png?v=631",title:"プラズマクラスター空気清浄",desc:"空気清浄のイメージと接客ポイントを大きく見やすく図解。"},
- {category:"sharp",file:"sharp-lux-filter.png?v=631",title:"フィルター自動お掃除",desc:"ブラシ清掃からダスト回収までを写真風図解で確認。"},
- {category:"sharp",file:"sharp-lux-cocoro.png?v=631",title:"COCORO AIR スマート連携",desc:"Wi-Fi接続・アプリ登録・外出先操作の流れを図解。"},
- {category:"sharp",file:"sharp-lux-airflow-dry.png?v=631",title:"快適気流・除湿",desc:"冷えすぎを抑えながら快適に使うイメージを図解。"},
- {category:"sharp",file:"sharp-lux-sleep.png?v=631",title:"おやすみ快適・やさしい冷房",desc:"寝室でのやさしい気流と快適性を視覚的に案内。"},
- {category:"sharp",file:"sharp-lux-clean-care.png?v=631",title:"内部清潔・防カビケア",desc:"運転後の内部ケアと清潔維持の考え方を図解。"},
- {category:"sharp",file:"sharp-lux-eco.png?v=631",title:"省エネ・節電サポート",desc:"快適性と省エネを両立するイメージを図解。"},
- {category:"sharp",file:"sharp-settings-illustrated.png?v=631",title:"SHARP 初期設定",desc:"設定が必要な機能・自動機能・アプリ接続を整理。"},
+ {category:"sharp",file:"sharp-plasma-v690.png?v=690",title:"プラズマクラスター送風・濃度",desc:"単独送風運転と、25000／7000のシリーズ差を図解。"},
+ {category:"sharp",file:"sharp-lux-filter.png?v=631",title:"フィルター自動お掃除",desc:"R・Vのブラシ清掃からダスト回収までを図解。"},
+ {category:"sharp",file:"sharp-cocoro-v690.png?v=690",title:"COCORO HOME・ペットモード",desc:"スマホ連携、おやすみAI、ペットモードまで具体的に図解。"},
+ {category:"sharp",file:"sharp-airflow-v690.png?v=690",title:"気流制御",desc:"コアンダロング気流・すこやかシャワー気流を分けて図解。"},
+ {category:"sharp",file:"sharp-dehumidify-v690.png?v=690",title:"除湿2方式",desc:"氷結ドライとコアンダ除湿の仕組み・使い分けを図解。"},
+ {category:"sharp",file:"sharp-takumi-sleep-v690.png?v=690",title:"匠の冷房・睡眠向け機能",desc:"匠の冷房、すこやかシャワー気流、おやすみAIを整理。"},
+ {category:"sharp",file:"sharp-clean-v690.png?v=690",title:"清潔3機能",desc:"防カビカラッとファン、内部清浄、カビパトロールの役割を図解。"},
+ {category:"sharp",file:"sharp-eco-v690.png?v=690",title:"省エネ・節電の具体機能",desc:"エコ自動・おでかけ・つないでもっと節電などを具体化。"},
+ {category:"sharp",file:"sharp-settings-illustrated.png?v=631",title:"SHARP 初期設定",desc:"初期設定と自動機能・アプリ接続を整理。"},
  {category:"mitsubishi",file:"mitsubishi-moveeye-v686.webp",title:"ムーブアイ",desc:"人・床・壁・天井まで見分けるセンサーの仕組みと接客ポイントを図解。"},
  {category:"mitsubishi",file:"mitsubishi-hybrid-v686.webp",title:"ハイブリッド運転",desc:"体感温度に合わせて冷房と送風を自動で使い分ける流れを図解。"},
  {category:"mitsubishi",file:"mitsubishi-two-point-v686.webp",title:"2か所同時空調",desc:"左右のフラップで2つのエリアへ気流を届ける仕組みを図解。"},
@@ -3651,14 +3655,18 @@ function diagnoseToshiba(k){
 }
 
 const SHARP_FEATURES={
- plasma:{title:"✨ プラズマクラスター",body:"主要4シリーズではR・V・Eがプラズマクラスター25000、DGが7000。同じ搭載でも濃度区分が異なります。"},
- dryfan:{title:"🌀 防カビカラッとファン",body:"Rシリーズのみ。ファンの結露水を薄く広げて速乾し、ホコリを付きにくくしてカビ菌増殖の原因に対策します。すでに発生したカビは取れず、使用にはお客様ご自身の設定が必要です。"},
+ plasma:{title:"✨ プラズマクラスター送風・濃度",body:"冷暖房を使わない季節もプラズマクラスター送風を単独運転できます。2026年R・V・Eはプラズマクラスター25000、DGは7000。同じ搭載でも濃度区分が異なります。"},
+ dryfan:{title:"🌀 防カビカラッとファン",body:"Rシリーズのみ。ファンに超親水ナノコーティングを採用し、結露水を薄く広げて速乾。ホコリを付きにくくしてカビ菌増殖の原因に対策します。お客様がONにする設定機能としては案内しません。"},
  takumi:{title:"💧 匠の冷房",body:"R・V・E。ファン回転数や熱交換器温度を制御し、設定温度到達後も温度だけでなく湿度までコントロールして快適な冷房を目指します。"},
  hyoketsu:{title:"🧊 氷結ドライ",body:"R・V・E。熱交換器を氷点下まで下げ、低室温時でも除湿量を確保しやすくします。再熱除湿方式ではなく、室温低下があります。"},
- filter:{title:"🧹 フィルター自動お掃除",body:"Vシリーズ。トルネードブラシでフィルターのホコリを自動除去し、ダストボックスへ集めます。ダストボックスは6カ月に1回を目安に確認します。"},
- airflow:{title:"🌬 コアンダ気流",body:"V・Eなどではコアンダロング気流を採用。DGはコアンダ気流制御・すこやかシャワー気流で、直接風を抑えたい寝室・個室に提案しやすいです。"},
+ filter:{title:"🧹 フィルター自動お掃除",body:"R・Vシリーズ。トルネードブラシでフィルターのホコリを自動除去し、ダストボックスへ集めます。定期的なお手入れは必要です。"},
+ airflow:{title:"🌬 気流制御",body:"R・V・Eはコアンダロング気流で、天井に沿わせながら奥まで風を届けます。DGはコアンダ気流・すこやかシャワー気流で、直接風を抑えたい寝室・個室に提案しやすいです。"},
+ dehumidify:{title:"💧 除湿2方式",body:"氷結ドライは熱交換器を氷点下まで下げて除湿量を確保。コアンダ除湿は冷風を天井へ逃がして体に当たりにくくします。目的の違う2方式として説明します。"},
+ sleep:{title:"🌙 匠の冷房・睡眠",body:"匠の冷房は温度・湿度・気流をコントロール。すこやかシャワー気流は直風を抑える気流、おやすみAIはCOCORO HOMEのクラウドAI機能です。"},
+ cleanCare:{title:"🛡 清潔3機能",body:"防カビカラッとファン、プラズマクラスター内部清浄、カビパトロールは別機能。Rはファンの超親水ナノコーティングまで含めて清潔性を強化します。"},
+ eco:{title:"🌱 省エネ機能",body:"エコ自動運転・おでかけ運転・つないでもっと節電・フィルター自動お掃除など、ムダの原因を具体的に減らす機能で説明します。"},
  app:{title:"📱 COCORO HOME",body:"R・V・Eは無線LAN内蔵。スマホ連携を使うには家庭のWi‑Fiとアプリへの接続設定が必要です。DGは無線LAN内蔵として案内しません。"},
- settings:{title:"⚙️ SHARP 初期設定",body:"Rの防カビカラッとファンは、お客様ご自身で設定が必要。Vのフィルター自動お掃除は自動で働きますが、ダストボックス確認は必要。R・V・EのCOCORO HOMEは接続設定が必要です。"}
+ settings:{title:"⚙️ SHARP 初期設定",body:"フィルター自動お掃除はR・Vで自動。防カビカラッとファンはコーティング構造で、設定機能としては案内しません。COCORO HOMEを使う場合はWi‑Fi・アプリ接続設定が必要です。"}
 };
 function showSharpFeature(k){
  const f=SHARP_FEATURES[k],p=document.getElementById("sharpFeaturePanel");if(!f||!p)return;
@@ -3666,7 +3674,7 @@ function showSharpFeature(k){
  const pr=getMakerProgress(SHARP_PROGRESS_KEY);pr.features=true;saveMakerProgress(SHARP_PROGRESS_KEY,pr);updateSharpProgress();
 }
 function quickDiagnoseSharp(k){
- const map={clean:"<b>R</b>：防カビカラッとファンまで含めて内部清潔を重視。",auto:"<b>V</b>：高さ249mm＋フィルター自動お掃除。",balance:"<b>E</b>：高さ249mmで自動お掃除を省き、PC25000・快適冷房・除湿を確保。",compact:"<b>DG</b>：奥行230mm。寝室・個室で設置性とシンプルさを重視。"};
+ const map={clean:"<b>R</b>：防カビカラッとファンまで含めて内部清潔を重視。",auto:"<b>V</b>：高さ249mm＋フィルター自動お掃除。",balance:"<b>E</b>：高さ249mmで自動お掃除を省き、プラズマクラスター25000・快適冷房・除湿を確保。",compact:"<b>DG</b>：奥行230mm。寝室・個室で設置性とシンプルさを重視。"};
  const e=document.getElementById("sharpQuickResult");e.innerHTML=map[k]||"";e.classList.remove("hidden");
 }
 function diagnoseSharp(k){
@@ -3692,7 +3700,7 @@ const TOSHIBA_QUIZ=[
 ];
 
 const SHARP_SERIES={
- R:{title:"Rシリーズ（2026年Uモデル）",tag:"フラッグシップ",summary:"AY-U22RS/U25RS、AY-U28RL〜U71RL2で構成。省エネ基準達成と「防カビカラッとファン」を大きな特徴とする2026年フラッグシップ。",suitable:["長時間使うリビング","省エネ性能を重視","エアコン内部、とくにファンの清潔性を重視","プラズマクラスターや快適な冷房・除湿も重視"],features:["防カビカラッとファン：ファンの超親水ナノコーティングで結露水を薄く広げ、速く乾かしてホコリを付きにくくする","プラズマクラスター25000","匠の冷房：温度だけでなく湿度までコントロール","氷結ドライ：熱交換器を氷点下まで下げて除湿。再熱除湿方式ではない","無線LAN内蔵・COCORO HOME対応","AY-U22RS/U25RSは高さ249mm、AY-U28RL〜U71RL2は高さ295mm"],talk:"「Rは省エネだけでなく、2026年の新しい『防カビカラッとファン』でファンの清潔性まで強化したフラッグシップです。冷房の湿度制御や氷結ドライも含めて、長時間使うリビングに提案しやすいモデルです。」",caution:"防カビカラッとファンは、すでに発生したカビを取る機能ではありません。また、お客様ご自身で設定が必要です。氷結ドライは再熱除湿方式ではありません。高さ249mmなのはAY-U22RS/U25RSで、その他のRシリーズは高さ295mmです。"},
+ R:{title:"Rシリーズ（2026年Uモデル）",tag:"フラッグシップ",summary:"AY-U22RS/U25RS、AY-U28RL〜U71RL2で構成。省エネ基準達成と「防カビカラッとファン」を大きな特徴とする2026年フラッグシップ。",suitable:["長時間使うリビング","省エネ性能を重視","エアコン内部、とくにファンの清潔性を重視","プラズマクラスターや快適な冷房・除湿も重視"],features:["防カビカラッとファン：ファンの超親水ナノコーティングで結露水を薄く広げ、速く乾かしてホコリを付きにくくする","フィルター自動お掃除＋大容量ダストボックス","プラズマクラスター25000","匠の冷房：温度だけでなく湿度までコントロール","氷結ドライ：熱交換器を氷点下まで下げて除湿。再熱除湿方式ではない","無線LAN内蔵・COCORO HOME対応","AY-U22RS/U25RSは高さ249mm、AY-U28RL〜U71RL2は高さ295mm"],talk:"「Rは省エネだけでなく、2026年の新しい『防カビカラッとファン』でファンの清潔性まで強化したフラッグシップです。冷房の湿度制御や氷結ドライも含めて、長時間使うリビングに提案しやすいモデルです。」",caution:"防カビカラッとファンは、すでに発生したカビを取る機能ではありません。ファンの超親水ナノコーティングによる速乾・ホコリ付着抑制がポイントです。氷結ドライは再熱除湿方式ではありません。高さ249mmなのはAY-U22RS/U25RSで、その他のRシリーズは高さ295mmです。"},
  V:{title:"Vシリーズ（2026年Uモデル）",tag:"高さ249mmハイグレード",summary:"AY-U22V〜U63V2で構成。全機種高さ249mm。フィルター自動お掃除、プラズマクラスター25000、快適冷房・除湿、無線LANを備えたハイグレード。",suitable:["高さを抑えて設置したい","フィルター自動お掃除が欲しい","プラズマクラスター25000を使いたい","冷房時の湿度や梅雨時の除湿も重視"],features:["全機種 高さ249mm","フィルター自動お掃除：トルネードブラシ＋ダストボックス","プラズマクラスター25000","匠の冷房","氷結ドライ（再熱除湿方式ではない）","無線LAN内蔵・COCORO HOME対応"],talk:"「Vは高さ249mmのコンパクト設計で、自動お掃除とプラズマクラスター25000、匠の冷房、氷結ドライまで揃えたい方に向くハイグレードです。」",caution:"フィルター自動お掃除でも完全メンテナンスフリーではありません。公式ではダストボックスを6カ月に1回を目安に確認し、ホコリがたまっていればお手入れするよう案内されています。"},
  E:{title:"Eシリーズ（2026年Uモデル）",tag:"高さ249mmスタンダード",summary:"AY-U22E〜U56E2で構成。高さ249mmのコンパクト設計に、プラズマクラスター25000、匠の冷房、氷結ドライ、無線LANを備えたスタンダード。",suitable:["高さを抑えて設置したい","プラズマクラスター25000を使いたい","フィルター自動お掃除は必須ではない","価格と快適機能のバランスを重視"],features:["全機種 高さ249mm","プラズマクラスター25000","匠の冷房","氷結ドライ（再熱除湿方式ではない）","無線LAN内蔵・COCORO HOME対応","フィルター自動お掃除は非搭載"],talk:"「Eは高さ249mmで、自動お掃除は不要でも、プラズマクラスター25000・匠の冷房・氷結ドライ・スマホ連携は欲しい方に選びやすいモデルです。」",caution:"Vシリーズとの分かりやすい違いの一つがフィルター自動お掃除の有無です。氷結ドライは再熱除湿方式ではなく、運転条件によって室温は低下します。"},
  DG:{title:"DGシリーズ（2026年Uモデル）",tag:"奥行230mmシンプル",summary:"幅770mm×高さ290mm×奥行230mmのコンパクト設計。プラズマクラスター7000、コアンダ気流制御、すこやかシャワー気流、結露水洗浄熱交換器を備えるシンプルモデル。",suitable:["奥行きを抑えたい","寝室・個室","シンプルな機能を重視","直接風や就寝時の冷えすぎが気になる"],features:["幅770mm×高さ290mm×奥行230mm","プラズマクラスター7000","コアンダ気流制御","すこやかシャワー気流","結露水洗浄熱交換器","室外機付近が50℃でも冷房運転可能"],talk:"「DGは奥行230mmのコンパクトさが大きな特徴です。寝室や個室で、プラズマクラスター7000と直接風を抑える気流をシンプルに使いたい方に向きます。」",caution:"R・V・Eのプラズマクラスター25000とは濃度区分が異なります。DGにフィルター自動お掃除、匠の冷房、氷結ドライ、無線LAN内蔵を案内しないようにします。"}
@@ -3703,7 +3711,7 @@ const SHARP_QUIZ=[
  {q:"高さ249mmでフィルター自動お掃除まで欲しい場合、2026年SHARPの候補として最も適切なのは？",choices:["Vシリーズ","Eシリーズ","DGシリーズ","Rシリーズの全能力帯"],answer:0,ex:"Vシリーズは全機種高さ249mmでフィルター自動お掃除を搭載。Eも高さ249mmですが自動お掃除は非搭載です。"},
  {q:"VシリーズとEシリーズの違いとして適切なのは？",choices:["Vはフィルター自動お掃除搭載、Eは非搭載","Eはプラズマクラスター非搭載","Vだけ氷結ドライ搭載","Eだけ無線LAN内蔵"],answer:0,ex:"V・Eはいずれもプラズマクラスター25000、匠の冷房、氷結ドライ、無線LANを備えます。大きな違いの一つがフィルター自動お掃除です。"},
  {q:"DGシリーズの組み合わせとして最も適切なのは？",choices:["プラズマクラスター7000＋奥行230mm＋すこやかシャワー気流","プラズマクラスター25000＋フィルター自動お掃除","氷結ドライ＋匠の冷房","防カビカラッとファン＋無線LAN内蔵"],answer:0,ex:"DGは奥行230mmのシンプルモデルで、プラズマクラスター7000、コアンダ気流制御、すこやかシャワー気流などを搭載します。"},
- {q:"氷結ドライの説明として適切なのは？",choices:["熱交換器を氷点下まで下げて低室温時でも除湿しやすくする。再熱除湿ではない","再熱ヒーターで室温を戻す再熱除湿方式","加湿して湿度を上げる","ファンのホコリを自動で除去する"],answer:0,ex:"氷結ドライはR・V・Eに搭載。熱交換器を氷点下まで下げて除湿量を確保しやすくしますが、再熱除湿方式ではありません。"}
+ {q:"氷結ドライの説明として最も適切なのは？",choices:["熱交換器を氷点下まで下げ、室温が低い時でも除湿しやすくする。再熱除湿ではない","除湿時の冷風を天井面へ吹き上げ、体に当たりにくくする方式","除湿後の空気を再熱ヒーターで暖め、室温低下を抑える再熱除湿方式","弱冷房を続けて室温を下げながら湿度を下げる一般的な弱冷房除湿"],answer:0,ex:"氷結ドライは熱交換器を氷点下まで下げて除湿量を確保する方式。コアンダ除湿や再熱除湿とは仕組みが異なります。"}
 ]
 
 const TOSHIBA_PROGRESS_KEY="aircon_toshiba_progress_v600";
