@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.9.6 日立豪華図解統一確認版</title>
+<title>エアコン販買マスター Pro Ver.6.9.7 玉ちゃん指摘全反映版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1294,7 +1294,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <style id="v630-sharp-lux-final">
-/* Ver.6.9.6 日立豪華図解統一確認版：iPad/iPhone見切れ対策 */
+/* Ver.6.9.7 玉ちゃん指摘全反映版：iPad/iPhone見切れ対策 */
 #visualGrid .visual-card[data-cat="sharp"]{
   overflow:hidden!important;
   padding:10px!important;
@@ -1434,7 +1434,7 @@ html,body{max-width:100%;overflow-x:hidden}
 #general .maker-status-list span,#mitsubishi .maker-status-list span{min-width:42px;text-align:center}
 @media(max-width:700px){#general .hitachi-flow-row,#mitsubishi .hitachi-flow-row{grid-template-columns:1fr!important}#general .hitachi-flow-row i,#mitsubishi .hitachi-flow-row i{transform:rotate(90deg)}}
 
-/* ===== Ver6.9.5 Visual Library Unified Design ===== */
+/* ===== Ver6.9.7 Tamachan Feedback Fully Applied ===== */
 .visual-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .visual-card{position:relative;border:1px solid #cfe0ef;border-radius:24px;background:linear-gradient(180deg,#fff 0%,#f8fbff 100%);overflow:hidden;box-shadow:0 14px 34px rgba(20,61,102,.10)}
 .visual-card::before{content:"";display:block;height:7px;background:linear-gradient(90deg,#0d6ee8,#61a9ff)}
@@ -1484,7 +1484,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.9.6 日立豪華図解統一確認版</small>
+      <small>Ver.6.9.7 玉ちゃん指摘全反映版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -2207,7 +2207,7 @@ html,body{max-width:100%;overflow-x:hidden}
         <span class="setting-state state-manual">設定が必要</span><span class="setting-state state-auto">条件で自動</span><span class="setting-state state-connect">接続設定</span><span class="setting-state state-check">お手入れ確認</span>
       </div>
       <div class="setting-card-grid">
-        <article class="setting-info-card"><span class="setting-state state-check">構造機能</span><h3>防カビカラッとファン</h3><p><b>Rシリーズのみ。</b>ファンの超親水ナノコーティングで結露水を薄く広げ、速乾・ホコリ付着抑制につなげる構造。お客様がONにする設定機能としては案内しません。</p></article>
+        <article class="setting-info-card"><span class="setting-state state-check">構造＋乾燥運転</span><h3>防カビカラッとファン</h3><p><b>Rシリーズのみ。</b>超親水ナノコーティング自体は常時働く構造です。ファン乾燥に関わる運転機能は、使う場合に設定状態を確認します。コーティングそのものを「ONにする機能」とは案内しません。</p></article>
         <article class="setting-info-card"><span class="setting-state state-auto">自動</span><h3>フィルター自動お掃除</h3><p><b>R・Vシリーズ。</b>フィルターのホコリをトルネードブラシで自動除去し、ダストボックスに集めます。定期的なお手入れ目安は「フィルター自動お掃除」の解説側で確認します。</p></article>
         <article class="setting-info-card"><span class="setting-state state-manual">運転選択</span><h3>氷結ドライ</h3><p><b>R・V・E。</b>除湿運転として選択して使います。熱交換器を氷点下まで下げる方式で、再熱除湿ではなく室温低下があります。</p></article>
         <article class="setting-info-card"><span class="setting-state state-connect">接続設定</span><h3>COCORO HOME</h3><p><b>R・V・E。</b>無線LAN内蔵。スマホ連携を使うには家庭のWi‑Fiとアプリへの接続設定が必要です。DGは無線LAN内蔵モデルとして案内しません。</p></article>
@@ -2233,28 +2233,40 @@ html,body{max-width:100%;overflow-x:hidden}
 <section id="mitsubishi" class="page hidden">
   <header class="subheader"><button onclick="show('home')">‹</button><h1>三菱攻略</h1><span></span></header>
   <section class="maker-hero" style="background:linear-gradient(135deg,#8f0d18,#d9252f);color:#fff">
-    <div class="maker-hero-copy"><span class="maker-kicker">MITSUBISHI MASTER GUIDE</span><h2>センサー・気流・清潔を、シリーズ選びへつなげる。</h2><p>FZ・Z・X・R・Sを、シリーズ差 → 重要機能 → 初期設定 → 接客診断 → ミニテストの順で学びます。</p><div class="maker-hero-actions"><button onclick="scrollMakerTo('mitsubishiSeriesMap')">シリーズ攻略</button><button onclick="openVisualLibraryFilter('mitsubishi')">図解を見る</button></div></div>
-    <div class="maker-hero-visual"><div class="maker-series-status"><small>シリーズ攻略</small><div id="mitsubishiSeriesStatus" class="maker-status-list"><span data-series="FZ">FZ</span><span data-series="Z">Z</span><span data-series="X">X</span><span data-series="R">R</span><span data-series="S">S</span></div></div><div class="maker-progress-ring"><span id="mitsubishiPercent">0%</span><small>理解度</small></div></div>
+    <div class="maker-hero-copy"><span class="maker-kicker">MITSUBISHI MASTER GUIDE</span><h2>センサー・気流・清潔を、シリーズ選びへつなげる。</h2><p>FZ・Z・R・GEを、シリーズ差 → 重要機能 → 初期設定 → 接客診断 → ミニテストの順で学びます。</p><div class="maker-hero-actions"><button onclick="scrollMakerTo('mitsubishiSeriesMap')">シリーズ攻略</button><button onclick="openVisualLibraryFilter('mitsubishi')">図解を見る</button></div></div>
+    <div class="maker-hero-visual"><div class="maker-series-status"><small>シリーズ攻略</small><div id="mitsubishiSeriesStatus" class="maker-status-list"><span data-series="FZ">FZ</span><span data-series="Z">Z</span><span data-series="R">R</span><span data-series="GE">GE</span></div></div><div class="maker-progress-ring"><span id="mitsubishiPercent">0%</span><small>理解度</small></div></div>
   </section>
   <div class="daikin-wrap">
-    <div class="daikin-note">2026年度の霧ヶ峰は複数シリーズを展開しています。この攻略では売場で比較しやすいFZ・Z・X・R・Sを中心に整理します。搭載機能や初期設定は型番・能力帯で異なるため、最終案内は該当機種の公式仕様・取扱説明書で確認してください。</div>
+    <div class="daikin-note">2026年度の霧ヶ峰は複数シリーズを展開しています。この攻略では売場で比較しやすいFZ・Z・R・GEを中心に整理します。搭載機能や初期設定は型番・能力帯で異なるため、最終案内は該当機種の公式仕様・取扱説明書で確認してください。</div>
 
     <div class="hitachi-master-card"><div class="hitachi-master-head"><div><span class="hitachi-master-badge">三菱マスターコース</span><h2>ムーブアイだけで終わらせない</h2><p>「誰を見ているか」「どこへ風を送るか」「どこまで自動化するか」を、シリーズ選定までつなげます。</p></div><div class="hitachi-master-score"><span id="mitsubishiProgressValue">0%</span><small>学習進捗</small></div></div><div class="hitachi-course-steps"><button onclick="scrollMakerTo('mitsubishiSeriesMap')"><b>STEP 1</b><span>シリーズ</span></button><button onclick="scrollMakerTo('mitsubishiFeatureArea')"><b>STEP 2</b><span>重要機能</span></button><button onclick="scrollMakerTo('mitsubishiSettings')"><b>STEP 3</b><span>初期設定</span></button><button onclick="scrollMakerTo('mitsubishiQuick')"><b>STEP 4</b><span>接客診断</span></button><button onclick="scrollMakerTo('mitsubishiQuizArea')"><b>STEP 5</b><span>ミニテスト</span></button></div></div>
 
-    <div id="mitsubishiSeriesMap" class="series-card" style="max-width:980px;margin:0 auto 18px"><div class="maker-section-title"><span>SERIES POSITION</span><h2>FZ・Z・X・R・S シリーズ攻略</h2><p>「上から高い順」ではなく、お客様が必要とする快適性・設置性で覚えます。</p></div><div class="maker-position-ladder"><div><b>👑 FZ</b><span>次世代プレミアム。大空間でセンサー・快適性・省エネを最優先。人の状態を細かく見ながら自動制御を活用したい方向け。</span></div><div><b>⭐ Z</b><span>プレミアム。快適・清潔・省エネを総合的に重視。FZほど特殊な最上位機能は不要でも、長時間使うリビングで妥協したくない方向け。</span></div><div><b>⚖️ X</b><span>ハイスペック。機能と価格のバランスを取りやすい。センサー・清潔・気流をしっかり使いたい家庭の比較軸。</span></div><div><b>📐 R</b><span>高さ255mmのコンパクトモデル。設置寸法が厳しい場所でも、快適・清潔機能を残したい時に強い。</span></div><div><b>🏠 S</b><span>スタンダード。寝室・子ども部屋など、基本機能をしっかり押さえながら価格とのバランスを取りたい部屋向け。</span></div></div></div>
+    <div id="mitsubishiSeriesMap" class="series-card" style="max-width:980px;margin:0 auto 18px"><div class="maker-section-title"><span>SERIES POSITION</span><h2>FZ・Z・R・GE シリーズ攻略</h2><p>「上から高い順」ではなく、お客様が必要とする快適性・設置性で覚えます。</p></div><div class="maker-position-ladder"><div><b>👑 FZ</b><span>14〜29畳。ムーブアイmirA.I.+、2温度2気流、プレミアム除湿。省エネ・快適性を最優先する最上位候補。</span></div><div><b>⭐ Z</b><span>6〜29畳。ムーブアイmirA.I.+、2か所同時空調、さらっと除湿冷房（再熱除湿）。寒くなりにくい除湿を重視する時の重要候補。</span></div><div><b>📐 R</b><span>6〜23畳・高さ255mm。ムーブアイ、スマート除湿、ヘルスエアー機能。設置性と快適機能を両立。</span></div><div><b>🏠 GE</b><span>6〜18畳。フロアアイ、選べる3モード除湿、はずせるボディ。基本機能・価格を重視する標準シリーズ。</span></div></div></div>
 
-    <div class="series-tabs maker-series-tabs"><button class="series-tab active" onclick="showMitsubishiSeries('FZ',this)">FZ</button><button class="series-tab" onclick="showMitsubishiSeries('Z',this)">Z</button><button class="series-tab" onclick="showMitsubishiSeries('X',this)">X</button><button class="series-tab" onclick="showMitsubishiSeries('R',this)">R</button><button class="series-tab" onclick="showMitsubishiSeries('S',this)">S</button></div>
+    <div class="series-tabs maker-series-tabs"><button class="series-tab active" onclick="showMitsubishiSeries('FZ',this)">FZ</button><button class="series-tab" onclick="showMitsubishiSeries('Z',this)">Z</button><button class="series-tab" onclick="showMitsubishiSeries('R',this)">R</button><button class="series-tab" onclick="showMitsubishiSeries('GE',this)">GE</button></div>
     <div id="mitsubishiSeriesPanel" class="series-panel"></div>
 
-    <div id="mitsubishiFeatureArea" class="series-card" style="max-width:980px;margin:0 auto 18px"><div class="maker-section-title"><span>IMPORTANT FEATURES</span><h2>三菱の重要機能</h2><p>機能名だけでなく「どんな困りごとに効くか」で覚えます。</p></div><div class="setting-card-grid"><article class="setting-info-card"><span class="setting-state state-auto">センサー</span><h3>👁 ムーブアイ系</h3><p>赤外線センサーで床・人などの温度を見て体感に合わせた制御へ。<b>「設定温度では拾えない暑い・寒いを見にいく」</b>と説明すると伝わりやすい。</p></article><article class="setting-info-card"><span class="setting-state state-auto">自動制御</span><h3>🌬 ハイブリッド運転</h3><p>体感に合わせて冷房・送風などを切り替え、快適性と省エネの両立を狙う考え方。長時間運転するリビングで比較しやすい。</p></article><article class="setting-info-card"><span class="setting-state state-manual">気流</span><h3>↔ 2か所同時空調</h3><p>対応機種では離れた2人などに別々の気流を届ける提案が可能。広いLDKや家族で体感差がある家庭に。</p></article><article class="setting-info-card"><span class="setting-state state-check">清潔</span><h3>💧 ピュアミスト</h3><p>微細なミストを使った空気ケア。搭載シリーズを確認し、空気の清潔性も重視する方へ。</p></article><article class="setting-info-card"><span class="setting-state state-check">設置</span><h3>📐 Rの高さ255mm</h3><p>窓上やカーテンレール上など、高さ制約がある場所で候補。機能だけでなく<b>本体寸法＋必要据付寸法</b>をセットで確認。</p></article><article class="setting-info-card"><span class="setting-state state-check">アプリ</span><h3>📱 スマホ連携</h3><p>対応機種ではアプリ連携が可能。利用する場合は家庭のネット環境・機器登録などの初期設定が必要です。</p></article></div></div>
+    <div id="mitsubishiFeatureArea" class="series-card" style="max-width:980px;margin:0 auto 18px"><div class="maker-section-title"><span>IMPORTANT FEATURES</span><h2>三菱の重要機能</h2><p>玉ちゃん指摘に合わせ、機能名・シリーズ差・使い方を具体化します。</p></div><div class="setting-card-grid">
+<article class="setting-info-card"><span class="setting-state state-auto">センサー</span><h3>👁 三菱のセンサー</h3><p><b>FZ・Z＝ムーブアイmirA.I.+／FL＝ムーブアイ極／X・R・S＝ムーブアイ／GE＝フロアアイ。</b>設定温度だけでなく床・壁・人などを見て制御するのが提案軸です。</p></article>
+<article class="setting-info-card"><span class="setting-state state-auto">自動制御</span><h3>🌬 ハイブリッド運転</h3><p>夏は<b>冷房 ⇄ 爽風（送風）</b>を体感温度に合わせて自動切替。FZ・Zなど「おまかせA.I.自動」に含むシリーズと、設定して使うシリーズを分けて案内します。</p></article>
+<article class="setting-info-card"><span class="setting-state state-manual">気流</span><h3>↔ 2か所同時空調</h3><p><b>1台で2部屋を空調する機能ではありません。</b>1つの広い部屋の中で左右2つのフラップを別方向へ向け、2エリアへ吹き分けます。</p></article>
+<article class="setting-info-card"><span class="setting-state state-check">空気清浄</span><h3>✨ ピュアミスト／ヘルスエアー</h3><p><b>FZ・Z・X＝ピュアミスト、R＝ヘルスエアー機能。</b>Rにピュアミストは搭載しないため、「三菱の空気清浄」として方式を分けます。</p></article>
+<article class="setting-info-card"><span class="setting-state state-check">清潔</span><h3>🧼 3つのボディ</h3><p><b>はずせる＝自分で外して洗う／よごれん＝汚れを付きにくくする／おまかせ＝内部を自動ケア。</b>同じ名前でも対象部位はシリーズごとに確認します。</p></article>
+<article class="setting-info-card"><span class="setting-state state-check">設置</span><h3>📐 Rの高さ255mm</h3><p>本体高さだけで設置可否を断定せず、必要据付寸法・配管方向まで確認。右配管295mm／左配管386mmを目安に現場条件を確認します。</p></article>
+</div></div>
 
-    <div id="mitsubishiSettings" class="series-card setting-card-section" style="max-width:980px;margin:0 auto 18px"><div class="maker-section-title"><span>INITIAL SETTINGS</span><h2>三菱 初期設定・使い方</h2><p>「搭載している」＝「購入直後から最適設定」とは限りません。最初に確認したい項目を整理します。</p></div><div class="setting-card-legend"><span class="setting-state state-check">最初に確認</span><span class="setting-state state-auto">自動運転</span><span class="setting-state state-manual">手動選択</span><span class="setting-state state-connect">接続設定</span></div><div class="setting-card-grid"><article class="setting-info-card"><span class="setting-state state-check">最初に確認</span><h3>① 時刻・タイマー</h3><p>時計やタイマー機能を使う場合は時刻設定を確認。停電・電池交換後などは再確認します。</p></article><article class="setting-info-card"><span class="setting-state state-auto">自動運転</span><h3>② センサー／おまかせ系</h3><p>ムーブアイやAI自動系の搭載・設定状態を確認。お客様が「全部自動で任せたい」のか「自分で風向を決めたい」のかも聞きます。</p></article><article class="setting-info-card"><span class="setting-state state-manual">手動選択</span><h3>③ 風向・風量</h3><p>直風が苦手、2人に分けたい、足元を重視したいなど、生活に合わせて風向を調整。センサー任せとの違いも説明します。</p></article><article class="setting-info-card"><span class="setting-state state-check">清潔</span><h3>④ 清潔機能</h3><p>内部クリーン・フィルター清掃・ピュアミストなどはシリーズごとに搭載差や動作条件があります。お手入れ不要とは案内しません。</p></article><article class="setting-info-card"><span class="setting-state state-connect">接続設定</span><h3>⑤ アプリ・無線LAN</h3><p>スマホ操作を使う場合は対応機種、家庭のWi‑Fi環境、アプリへの機器登録を確認します。</p></article><article class="setting-info-card"><span class="setting-state state-check">最後に確認</span><h3>⑥ 取扱説明書の初期状態</h3><p>機能名称が同じでも、シリーズ・年度で工場出荷時設定が異なる場合があります。<b>「搭載＝ON」では断定しない</b>のが安全です。</p></article></div></div>
+    <div id="mitsubishiSettings" class="series-card setting-card-section" style="max-width:980px;margin:0 auto 18px"><div class="maker-section-title"><span>INITIAL SETTINGS</span><h2>三菱 初期設定・使い方</h2><p>時刻設定を主役にせず、「最初から自動／自分で設定／アプリ接続」を分けます。</p></div><div class="setting-card-legend"><span class="setting-state state-auto">最初から自動</span><span class="setting-state state-manual">自分で設定</span><span class="setting-state state-connect">アプリ接続</span></div><div class="setting-card-grid">
+<article class="setting-info-card"><span class="setting-state state-auto">最初から自動</span><h3>① センサー・おまかせ系</h3><p>対応シリーズではセンサーや自動制御を活用。ハイブリッド運転の扱いはシリーズごとに違うため、設定状態を確認します。</p></article>
+<article class="setting-info-card"><span class="setting-state state-manual">自分で設定</span><h3>② 風向・風量・使いたい機能</h3><p>直風が苦手、左右へ吹き分けたい、タイマーを使いたいなど、生活に合わせて必要な項目だけ設定します。</p></article>
+<article class="setting-info-card"><span class="setting-state state-manual">清潔</span><h3>③ 清潔機能</h3><p>内部クリーン・フィルター掃除・空気清浄は搭載差あり。<b>搭載＝お手入れ不要</b>とは案内しません。</p></article>
+<article class="setting-info-card"><span class="setting-state state-connect">アプリ接続</span><h3>④ MyMU／霧ヶ峰REMOTE等</h3><p>スマホ操作を使う場合のみ、対応型番・家庭のWi‑Fi・アプリ登録を確認します。対応サービスは型番・年度で確認します。</p></article>
+</div></div>
 
-    <section id="mitsubishiQuick" class="maker-quick-mode"><div class="maker-section-title"><span>BUYING FLOOR MODE</span><h2>お客様の一言 → 比較候補</h2><p>売場でそのまま使える絞り込み。</p></div><div class="maker-quick-grid"><button><b>🥵 家族で暑がり寒がりが違う</b><small>FZ / Z → センサー・気流</small></button><button><b>🏠 広いLDKをムラなく</b><small>FZ / Z / X</small></button><button><b>💰 電気代も気になる</b><small>FZ / Z → 省エネ性能も比較</small></button><button><b>📐 高さがギリギリ</b><small>R → 255mm＋据付寸法</small></button><button><b>✨ 清潔も重視</b><small>Z / X等 → 搭載清潔機能を確認</small></button><button><b>🛏 個室・基本機能</b><small>S → 必要機能と価格</small></button></div></section>
+    <section id="mitsubishiQuick" class="maker-quick-mode"><div class="maker-section-title"><span>BUYING FLOOR MODE</span><h2>お客様の一言 → 比較候補</h2><p>売場でそのまま使える絞り込み。</p></div><div class="maker-quick-grid"><button><b>🥵 家族で暑がり寒がりが違う</b><small>FZ / Z → センサー・気流</small></button><button><b>🏠 広いLDKをムラなく</b><small>FZ / Z</small></button><button><b>💰 電気代も気になる</b><small>FZ / Z → 省エネ性能も比較</small></button><button><b>📐 高さがギリギリ</b><small>R → 255mm＋据付寸法</small></button><button><b>✨ 清潔も重視</b><small>FZ / Z / R → 空気清浄・清潔機能を確認</small></button><button><b>🛏 個室・基本機能</b><small>GE → 基本機能と価格</small></button></div></section>
 
     <div id="mitsubishiTalk" class="series-card hitachi-sales-flow" style="max-width:980px;margin:0 auto 18px"><h2 style="margin-top:0">三菱を提案する4ステップ</h2><div class="hitachi-flow-row"><div><b>1. 人</b><span>誰がどこで使う？</span></div><i>→</i><div><b>2. 体感差</b><span>暑がり・寒がりは？</span></div><i>→</i><div><b>3. 設置</b><span>高さ・部屋の広さ</span></div><i>→</i><div><b>4. シリーズ</b><span>必要機能だけ残す</span></div></div><div class="feature-caution"><b>接客の一言</b><br>「三菱は、人やお部屋を見て必要なところへ気流を届ける考え方が強みです。ご家族の過ごし方と設置条件からシリーズを絞りましょう。」</div></div>
 
-    <div class="series-card maker-finish-card"><div class="hitachi-finish-icon">🏅</div><div><h2>三菱攻略 修了チェック</h2><p>5シリーズ・重要機能・初期設定・接客・ミニテストを確認。</p><strong id="mitsubishiFinishText">学習を始めましょう</strong></div></div>
+    <div class="series-card maker-finish-card"><div class="hitachi-finish-icon">🏅</div><div><h2>三菱攻略 修了チェック</h2><p>4シリーズ・重要機能・初期設定・接客・ミニテストを確認。</p><strong id="mitsubishiFinishText">学習を始めましょう</strong></div></div>
     <div id="mitsubishiQuizArea" class="daikin-quiz"><h2>三菱シリーズ提案ミニテスト</h2><div id="mitsubishiQuizQuestion" class="question-card"></div><div id="mitsubishiQuizChoices" class="choice-list"></div><div id="mitsubishiQuizFeedback" class="answer-result hidden"></div><button id="mitsubishiQuizNext" class="next-button hidden" onclick="nextMitsubishiQuiz()">次の問題</button></div>
   </div>
 </section>
@@ -3338,9 +3350,9 @@ const VISUAL_LIBRARY=[
  {category:"daikin",file:"room-patrol.png",title:"室温パトロール",desc:"停止中の見守りから自動運転までの流れを図解。"},
  {category:"daikin",file:"daikin-overview.png",title:"R・A・F・E比較",desc:"使い方・希望・予算から、4シリーズの提案軸を比較。"},
  {category:"hitachi",file:"hitachi-freeze-indoor-illustrated.png?v=686",title:"凍結洗浄（室内機）",desc:"凍結→汚れ捕捉→解凍排水の工程と、できること・限界を図解。"},
- {category:"hitachi",file:"hitachi-freeze-outdoor-lux-v695.png?v=695",title:"凍結洗浄（室外機）",desc:"背面熱交換器の凍結→解凍→洗い流しと、逆回転時の注意を豪華図解。"},
+ {category:"hitachi",file:"hitachi-freeze-outdoor-lux-v695.png?v=697",title:"凍結洗浄（室外機）",desc:"背面熱交換器の凍結→解凍→洗い流し。工場出荷時OFF・設定必要・逆回転時の案内を整理。"},
  {category:"hitachi",file:"hitachi-fan-robot-illustrated.png?v=686",title:"ファンお掃除ロボ",desc:"送風ファンの清掃範囲と、フィルター自動掃除との違いを図解。"},
- {category:"hitachi",file:"hitachi-filter-auto-lux-v696.png?v=696",title:"フィルター自動掃除",desc:"固定フィルター上をお掃除ユニットが移動し、正面側ダストボックスへ集める仕組みを豪華図解。"},
+ {category:"hitachi",file:"hitachi-filter-auto-lux-v696.png?v=697",title:"フィルター自動掃除",desc:"フィルターのホコリを自動掃除する機能を主役にし、ユニット移動式は仕組みの特徴として整理。"},
  {category:"hitachi",file:"hitachi-mold-buster-illustrated.png?v=686",title:"カビバスター",desc:"停止中の温湿度監視と、加熱・低湿制御によるカビ抑制を図解。"},
  {category:"hitachi",file:"hitachi-internal-dry-illustrated.png?v=686",title:"内部送風乾燥",desc:"停止後の送風で内部の湿気を乾かし、カビ抑制を助ける流れを図解。"},
  {category:"hitachi",file:"hitachi-stainless-illustrated.png?v=686",title:"ステンレス・クリーン",desc:"フィルター・通風路・フラップなど、採用箇所と限界を図解。"},
@@ -3351,7 +3363,7 @@ const VISUAL_LIBRARY=[
  {category:"hitachi",file:"hitachi-frost-watch-illustrated.png?v=686",title:"みはって霜取り",desc:"室外機の霜を見張り、必要なタイミングで霜取り運転する仕組みを図解。"},
  {category:"hitachi",file:"hitachi-ryokai-illustrated.png?v=686",title:"健康冷房［涼快］",desc:"湿度を抑えながら、冷えすぎに配慮したさわやかな冷房を図解。"},
  {category:"hitachi",file:"hitachi-sleep-watch-illustrated.png?v=686",title:"みはっておやすみ",desc:"睡眠中の温度・湿度を見張り、寝苦しさや冷えすぎに配慮する運転を図解。"},
- {category:"hitachi",file:"hitachi-lab-control-lux-v696.png?v=696",title:"LAB制御",desc:"設定温度到達後の安定時に低出力へ自動切替し、快適性と節電を両立する仕組みを図解。"},
+ {category:"hitachi",file:"hitachi-lab-control-lux-v696.png?v=697",title:"LAB制御",desc:"設定温度到達後の安定時に低出力へ自動切替し、快適性と節電を両立する仕組みを図解。"},
  {category:"hitachi",file:"hitachi-wave-fan-illustrated.png?v=414",title:"WN ウェーブファン",desc:"Xシリーズと同じファン採用、静音性向上、案内時の注意を図解。"},
  {category:"toshiba",file:"toshiba-radar-v692.webp",title:"レーダー風あて／風よけ",desc:"V-DR専用。人の動きを探知し、風を届ける・避ける仕組みを図解。"},
  {category:"toshiba",file:"toshiba-mufukan-v692.webp",title:"無風感空調",desc:"V-DR・V-DZ・V-DX。風あたりをやわらげる仕組みを図解。"},
@@ -3361,21 +3373,22 @@ const VISUAL_LIBRARY=[
  {category:"toshiba",file:"toshiba-iolife-v692.webp",title:"IoLIFE",desc:"Wi-Fi接続・機器登録・スマホ操作の流れを図解。"},
  {category:"toshiba",file:"toshiba-series-v692.webp",title:"東芝5シリーズ比較",desc:"V-DR・V-DZ・V-DX・V-X・V-Mの位置づけを図解。"},
  {category:"toshiba",file:"toshiba-settings-v692.webp",title:"東芝 初期設定",desc:"手動選択・自動・IoLIFE接続設定を整理。"},
- {category:"sharp",file:"sharp-lux-plasma-v694.png?v=694",title:"プラズマクラスター空気清浄",desc:"空気ケアの仕組みを豪華図解。送風単独運転・25000/7000のシリーズ差はSHARP攻略で確認。"},
- {category:"sharp",file:"sharp-lux-filter-v694.png?v=694",title:"フィルター自動お掃除",desc:"R・Vのブラシ清掃からダスト回収までを図解。"},
- {category:"sharp",file:"sharp-lux-cocoro-v694.png?v=694",title:"COCORO HOME・ペットモード",desc:"スマホ連携、おやすみAI、ペットモードまで具体的に図解。"},
- {category:"sharp",file:"sharp-lux-airflow-v694.png?v=694",title:"気流制御",desc:"コアンダロング気流・すこやかシャワー気流を分けて図解。"},
- {category:"sharp",file:"sharp-lux-dehumid-v694.png?v=694",title:"除湿2方式",desc:"氷結ドライとコアンダ除湿の仕組み・使い分けを図解。"},
- {category:"sharp",file:"sharp-lux-sleep-v694.png?v=694",title:"匠の冷房・睡眠向け機能",desc:"匠の冷房、すこやかシャワー気流、おやすみAIを整理。"},
- {category:"sharp",file:"sharp-lux-clean-v694.png?v=694",title:"清潔3機能",desc:"防カビカラッとファン、内部清浄、カビパトロールの役割を図解。"},
- {category:"sharp",file:"sharp-lux-eco-v694.png?v=694",title:"省エネ・節電の具体機能",desc:"エコ自動・おでかけ・つないでもっと節電などを具体化。"},
- {category:"mitsubishi",file:"mitsubishi-moveeye-v692.webp",title:"ムーブアイ",desc:"人・床・壁・天井まで見分けるセンサーの仕組みと接客ポイントを図解。"},
- {category:"mitsubishi",file:"mitsubishi-hybrid-v692.webp",title:"ハイブリッド運転",desc:"体感温度に合わせて冷房と送風を自動で使い分ける流れを図解。"},
- {category:"mitsubishi",file:"mitsubishi-two-point-v692.webp",title:"2か所同時空調",desc:"左右のフラップで2つのエリアへ気流を届ける仕組みを図解。"},
- {category:"mitsubishi",file:"mitsubishi-puremist-v692.webp",title:"ピュアミスト",desc:"ナノレベルの微細ミストによる空気ケアを図解。"},
- {category:"mitsubishi",file:"mitsubishi-series-v692.webp",title:"三菱シリーズ比較",desc:"FZ・Z・X・R・Sの違いと選び方を大型比較表で整理。"},
- {category:"mitsubishi",file:"mitsubishi-settings-v692.webp",title:"三菱 初期設定",desc:"最初に確認したい設定を5ステップで見やすく整理。"},
- {category:"mitsubishi",file:"mitsubishi-clean-v692.webp",title:"三菱 清潔・お手入れ",desc:"フィルターや内部クリーンなど、日常のお手入れと注意点を整理。"},
+ {category:"sharp",file:"sharp-lux-plasma-v694.png?v=697",title:"プラズマクラスター空気清浄",desc:"送風単独運転も可能。プラズマクラスター25000／7000はシリーズごとに確認。"},
+ {category:"sharp",file:"sharp-lux-filter-v694.png?v=697",title:"フィルター自動お掃除",desc:"ブラシ清掃からダスト回収までを図解。搭載シリーズは型番で確認。"},
+ {category:"sharp",file:"sharp-lux-cocoro-v694.png?v=697",title:"COCORO HOME・ペットモード",desc:"冷房時のみ。ワンちゃん冷房／ネコちゃん冷房の制御差と注意点を明記。"},
+ {category:"sharp",file:"sharp-lux-airflow-v694.png?v=697",title:"気流制御",desc:"コアンダロング気流・すこやかシャワー気流を除湿と分けて図解。"},
+ {category:"sharp",file:"sharp-lux-dehumid-v694.png?v=697",title:"除湿2方式",desc:"R＝氷結ドライ、V・E＝氷結ドライ＋コアンダ除湿、DG＝コアンダ除湿。再熱除湿ではない。"},
+ {category:"sharp",file:"sharp-lux-sleep-v694.png?v=697",title:"匠の冷房・睡眠向け機能",desc:"匠の冷房は温度・湿度・気流、おやすみAIは気象情報と起床時フィードバックを活用。"},
+ {category:"sharp",file:"sharp-lux-clean-v694.png?v=697",title:"清潔3機能",desc:"防カビカラッとファンはR、内部清浄／カビパトロールはR・V・E・DG。DGの効果説明も区別。"},
+ {category:"sharp",file:"sharp-lux-eco-v694.png?v=697",title:"省エネ・節電の具体機能",desc:"エコ自動・おでかけ・つないでもっと節電を『何を見てどう制御するか』で具体化。"},
+ {category:"sharp",file:"sharp-settings-illustrated.png?v=697",title:"SHARP 初期設定",desc:"自動／要設定／アプリ接続を分離。ダストボックス確認はお手入れへ移動。"},
+ {category:"mitsubishi",file:"mitsubishi-moveeye-v692.webp?v=697",title:"三菱のセンサー",desc:"mirA.I.+／ムーブアイ極／ムーブアイ／フロアアイの違いと搭載シリーズを整理。"},
+ {category:"mitsubishi",file:"mitsubishi-hybrid-v692.webp?v=697",title:"ハイブリッド運転",desc:"冷房⇄爽風（送風）を自動切替。シリーズごとの設定方法の違いも明記。"},
+ {category:"mitsubishi",file:"mitsubishi-two-point-v692.webp?v=697",title:"2か所同時空調",desc:"1台で2部屋ではなく、1つの部屋の左右2エリアへ左右フラップで吹き分け。"},
+ {category:"mitsubishi",file:"mitsubishi-puremist-v692.webp?v=697",title:"三菱の空気清浄",desc:"FZ・Z・X＝ピュアミスト、R＝ヘルスエアー機能として分けて案内。"},
+ {category:"mitsubishi",file:"mitsubishi-settings-v692.webp?v=697",title:"三菱 初期設定",desc:"最初から自動／自分で確認／アプリ接続の3分類。時刻設定は主役にしない。"},
+ {category:"mitsubishi",file:"mitsubishi-clean-v692.webp?v=697",title:"三菱 清潔・お手入れ",desc:"はずせるボディ／よごれんボディ／おまかせボディの役割を整理。"},
+ {category:"mitsubishi",file:"mitsubishi-series-v692.webp?v=697",title:"三菱シリーズ比較",desc:"FZ・Z・R・GEを中心に、畳数・除湿方式・設置性を比較。シリーズ比較は図解一覧の最後に配置。"},
  {category:"general",file:"general-sarasara-v692.webp",title:"さらさら冷房",desc:"再熱除湿で冷えすぎを抑えながら、湿度をしっかりコントロール。"},
  {category:"general",file:"general-airflow-v692.webp",title:"ノクリア独自の気流制御",desc:"広いお部屋へムラを抑えて届ける気流の考え方を図解。"},
  {category:"general",file:"general-clean-v692.webp",title:"熱交換器・内部クリーン",desc:"熱交換器や内部の清潔維持をサポートする機能を整理。"},
@@ -3705,9 +3718,9 @@ const SHARP_FEATURES={
  airflow:{title:"🌬 気流制御",body:"R・V・Eはコアンダロング気流で、天井に沿わせながら奥まで風を届けます。DGはコアンダ気流・すこやかシャワー気流で、直接風を抑えたい寝室・個室に提案しやすいです。"},
  dehumidify:{title:"💧 除湿2方式",body:"氷結ドライは熱交換器を氷点下まで下げて除湿量を確保。コアンダ除湿は冷風を天井へ逃がして体に当たりにくくします。目的の違う2方式として説明します。"},
  sleep:{title:"🌙 匠の冷房・睡眠",body:"匠の冷房は温度・湿度・気流をコントロール。すこやかシャワー気流は直風を抑える気流、おやすみAIはCOCORO HOMEのクラウドAI機能です。"},
- cleanCare:{title:"🛡 清潔3機能",body:"防カビカラッとファン、プラズマクラスター内部清浄、カビパトロールは別機能。Rはファンの超親水ナノコーティングまで含めて清潔性を強化します。"},
+ cleanCare:{title:"🛡 清潔3機能",body:"防カビカラッとファン＝Rのみ。プラズマクラスター内部清浄／カビパトロール＝R・V・E・DG。DGも内部清浄は搭載しますが、『カビ菌除菌効果』の説明対象からは分けて案内します。"},
  eco:{title:"🌱 省エネ機能",body:"エコ自動運転・おでかけ運転・つないでもっと節電・フィルター自動お掃除など、ムダの原因を具体的に減らす機能で説明します。"},
- app:{title:"📱 COCORO HOME",body:"R・V・Eは無線LAN内蔵。スマホ連携を使うには家庭のWi‑Fiとアプリへの接続設定が必要です。DGは無線LAN内蔵として案内しません。"},
+ app:{title:"📱 COCORO HOME・ペットモード",body:"R・V・Eは無線LAN内蔵。ペットモードは冷房時のみ。ワンちゃん冷房はエアコンに近い場所を設定温度より約2℃低く、ネコちゃん冷房は冷房と送風を自動切替して冷やしすぎを抑えます。ペット専用部屋での使用は推奨しません。"},
  settings:{title:"⚙️ SHARP 初期設定",body:"フィルター自動お掃除はR・Vで自動。防カビカラッとファンはコーティング構造で、設定機能としては案内しません。COCORO HOMEを使う場合はWi‑Fi・アプリ接続設定が必要です。"}
 };
 function showSharpFeature(k){
@@ -3749,7 +3762,7 @@ const SHARP_SERIES={
 };
 
 const SHARP_QUIZ=[
- {q:"2026年Rシリーズの『防カビカラッとファン』の説明として最も適切なのは？",choices:["ファンの結露水を薄く広げて速く乾かし、ホコリを付きにくくしてカビ菌増殖の原因に対策する","すでに発生したカビを自動で洗い落とす","フィルターのホコリをブラシで除去する","室外機の熱交換器を洗浄する"],answer:0,ex:"防カビカラッとファンはRシリーズの清潔機能。すでに発生したカビを取る機能ではなく、使用にはお客様自身の設定が必要です。"},
+ {q:"2026年Rシリーズの『防カビカラッとファン』の説明として最も適切なのは？",choices:["ファンの結露水を薄く広げて速く乾かし、ホコリを付きにくくしてカビ菌増殖の原因に対策する","すでに発生したカビを自動で洗い落とす","フィルターのホコリをブラシで除去する","室外機の熱交換器を洗浄する"],answer:0,ex:"防カビカラッとファンはRシリーズの清潔機能。超親水ナノコーティング自体は設定不要です。ファン乾燥に関わる運転設定は、使用する場合に設定状態を確認します。"},
  {q:"高さ249mmでフィルター自動お掃除まで欲しい場合、2026年SHARPの候補として最も適切なのは？",choices:["Vシリーズ","Eシリーズ","DGシリーズ","Rシリーズの全能力帯"],answer:0,ex:"Vシリーズは全機種高さ249mmでフィルター自動お掃除を搭載。Eも高さ249mmですが自動お掃除は非搭載です。"},
  {q:"VシリーズとEシリーズの違いとして適切なのは？",choices:["Vはフィルター自動お掃除搭載、Eは非搭載","Eはプラズマクラスター非搭載","Vだけ氷結ドライ搭載","Eだけ無線LAN内蔵"],answer:0,ex:"V・Eはいずれもプラズマクラスター25000、匠の冷房、氷結ドライ、無線LANを備えます。大きな違いの一つがフィルター自動お掃除です。"},
  {q:"DGシリーズの組み合わせとして最も適切なのは？",choices:["プラズマクラスター7000＋奥行230mm＋すこやかシャワー気流","プラズマクラスター25000＋フィルター自動お掃除","氷結ドライ＋匠の冷房","防カビカラッとファン＋無線LAN内蔵"],answer:0,ex:"DGは奥行230mmのシンプルモデルで、プラズマクラスター7000、コアンダ気流制御、すこやかシャワー気流などを搭載します。"},
@@ -3865,11 +3878,10 @@ function nextSharpQuiz(){
 const MITSUBISHI_PROGRESS_KEY="aircon_mitsubishi_master_v670";
 const GENERAL_PROGRESS_KEY="aircon_general_master_v671";
 const MITSUBISHI_SERIES={
- FZ:{title:"FZシリーズ",tag:"次世代プレミアム",summary:"大空間でセンサー・快適性・省エネを最優先する最上位候補。",suitable:["長時間使うリビング","家族で体感差がある","自動制御を積極的に使いたい"],features:["高度なセンサー制御","2つの温度の風など上位気流制御","省エネ・清潔機能を幅広く搭載"],talk:"『人の状態まで細かく見ながら快適性を自動調整したい』ならFZから比較します。",caution:"能力帯・機能の搭載差は型番ごとに確認します。"},
- Z:{title:"Zシリーズ",tag:"プレミアム",summary:"快適・清潔・省エネを総合的に重視する主力上位シリーズ。",suitable:["リビングで長時間使用","清潔も省エネも重視","上位機能は欲しいがFZまでは不要"],features:["ムーブアイ系センサー","快適気流・除湿","清潔・省エネ機能を充実"],talk:"『リビング用で快適・清潔・省エネを全部バランスよく』ならZが比較しやすいです。",caution:"FZとの違いは欲しい機能を1つずつ照合します。"},
- X:{title:"Xシリーズ",tag:"ハイスペック",summary:"機能と価格のバランスを取りやすい高機能シリーズ。",suitable:["センサーや清潔機能を使いたい","価格も意識したい","リビング〜個室で高機能を選びたい"],features:["センサー制御","清潔機能","快適気流"],talk:"『必要な高機能は残しつつ、価格とのバランスも取りたい』ならXです。",caution:"Zとの差は搭載機能を具体的に比較します。"},
- R:{title:"Rシリーズ",tag:"高さ255mm",summary:"設置性を重視しつつ快適機能も残したコンパクトシリーズ。",suitable:["窓上・カーテンレール上","高さ制約が厳しい","コンパクトでも機能を妥協したくない"],features:["高さ255mm","センサー・清潔系機能","設置性と機能の両立"],talk:"『高さが厳しいけれど、シンプル機に落としたくない』ならRを確認します。",caution:"本体高さだけでなく据付必要寸法も確認します。"},
- S:{title:"Sシリーズ",tag:"スタンダード",summary:"寝室や個室で基本機能と価格のバランスを取りやすいシリーズ。",suitable:["寝室・子ども部屋","基本機能重視","価格も抑えたい"],features:["冷暖房の基本機能","扱いやすい操作","必要十分な快適機能"],talk:"『個室で必要な機能をしっかり、価格も抑えたい』ならSから比較します。",caution:"上位シリーズのセンサー・清潔機能が必要かを先に確認します。"}
+ FZ:{title:"FZシリーズ",tag:"次世代プレミアム",summary:"14〜29畳。省エネ・センサー・2温度2気流を最優先する最上位。",suitable:["大きなリビング","体感差がある家庭","自動制御・省エネ重視"],features:["ムーブアイmirA.I.+","2温度2気流","プレミアム除湿","はずせる／よごれん／おまかせボディ"],talk:"『省エネと自動快適を最優先』ならFZから比較します。",caution:"大型室内機。設置寸法と能力ラインアップを確認します。"},
+ Z:{title:"Zシリーズ",tag:"プレミアム",summary:"6〜29畳。快適・清潔・省エネに加え、再熱除湿を使うさらっと除湿冷房が強み。",suitable:["リビングで長時間使用","寒くなりにくい除湿を重視","清潔機能も重視"],features:["ムーブアイmirA.I.+","2か所同時空調","さらっと除湿冷房（再熱除湿）","ピュアミスト・外せるボディ"],talk:"『冷えすぎを抑えながら除湿したい』ならZの再熱除湿を比較します。",caution:"FZとの違いは省エネ・気流・除湿方式で比較します。"},
+ R:{title:"Rシリーズ",tag:"高さ255mm",summary:"6〜23畳。高さ制約に強く、ムーブアイ・スマート除湿・ヘルスエアー機能を搭載。",suitable:["窓上・梁下","高さ制約が厳しい","空気清浄も欲しい"],features:["高さ255mm","ムーブアイ","スマート除湿","ヘルスエアー機能"],talk:"『高さが厳しくても快適機能を残したい』ならRです。",caution:"本体高さだけで断定せず、据付必要寸法・配管方向を確認します。"},
+ GE:{title:"GEシリーズ",tag:"スタンダード",summary:"6〜18畳。基本機能と価格を重視する標準シリーズ。",suitable:["寝室・個室","基本機能重視","価格を抑えたい"],features:["フロアアイ","選べる3モード除湿","はずせるボディ","基本の冷暖房"],talk:"『基本機能をしっかり、価格も抑えたい』ならGEです。",caution:"上位シリーズのセンサー・空気清浄・再熱除湿が必要か確認します。"}
 };
 const GENERAL_SERIES={
  X:{title:"Xシリーズ",tag:"プレミアム",summary:"ハイブリッド気流とさらさら冷房が大きな強み。広いLDKで気流・湿度快適まで重視。",suitable:["広いLDK","温度ムラが気になる","冷えすぎず湿度も下げたい"],features:["ハイブリッド気流","さらさら冷房","熱交換器加熱除菌"],talk:"『広い部屋の気流ムラと湿度快適までこだわる』ならXが第一候補です。",caution:"さらさら冷房は能力帯による対応差を確認します。"},
@@ -3881,11 +3893,11 @@ const GENERAL_SERIES={
 };
 function makerShuffle(arr){const a=arr.map((v,i)=>({v,i}));for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 const MITSUBISHI_QUIZ=[
- {q:"高さ制約が厳しい場所で、機能もできるだけ残したい。まず比較したいシリーズは？",choices:["R","FZ","S","Z"],answer:0,ex:"Rは高さ255mmのコンパクトモデル。実際の設置では必要据付寸法も確認します。"},
- {q:"三菱のセンサー提案として最も適切なのは？",choices:["人や床などの温度を見て、体感に合わせた制御へつなげる","部屋のCO2濃度だけで冷房を止める","屋外の天気だけで風向を決める","すべての機種で同じセンサーを搭載する"],answer:0,ex:"ムーブアイ系は赤外線センサーで人や床などを見て、体感に合わせた制御へつなげる考え方です。"},
- {q:"『家族で暑がり・寒がりが違う』お客様への提案として適切なのは？",choices:["FZ・Zを中心にセンサーと気流制御を比較する","Sだけを価格で選ぶ","Rだけを高さで選ぶ","設置寸法だけで決める"],answer:0,ex:"体感差がある家庭では、上位シリーズのセンサー・気流制御を比較するのが自然です。"},
- {q:"初期設定の案内として適切なのは？",choices:["搭載機能でも設定状態や動作条件を確認する","搭載していれば全機能が必ずONと案内する","清潔機能があれば手入れ不要と案内する","アプリは登録不要と案内する"],answer:0,ex:"シリーズ・年度・型番で初期状態が異なることがあるため、設定状態を確認して案内します。"},
- {q:"Rシリーズの説明で避けたいものは？",choices:["高さ255mmだからどこでも必ず設置できる","設置性が強み","据付寸法も確認する","高さ制約のある場所で候補になる"],answer:0,ex:"本体寸法だけで設置可否は断定できません。上下左右の必要スペースや配管経路も確認します。"}
+ {q:"寒くなりにくい除湿を重視するお客様に、まず比較したいシリーズは？",choices:["Z","FZ","R","GE"],answer:0,ex:"Zは再熱除湿を使う『さらっと除湿冷房』が比較ポイント。FZはプレミアム除湿で、再熱除湿ではありません。"},
+ {q:"三菱のセンサー組み合わせとして正しいものは？",choices:["FZ・Z＝ムーブアイmirA.I.+、GE＝フロアアイ","FZ・Z＝フロアアイ、GE＝ムーブアイ極","R＝ムーブアイmirA.I.+、GE＝ムーブアイ","全シリーズ同じセンサー"],answer:0,ex:"上位FZ・ZはムーブアイmirA.I.+、GEはフロアアイ。シリーズ差を名前まで正確に案内します。"},
+ {q:"2か所同時空調の説明として最も適切なのは？",choices:["1つの部屋の中で左右2つのフラップを別方向へ向け、2エリアへ吹き分ける","1台の室内機で壁を隔てた2部屋を同時に空調する","2台の室外機を1台のリモコンで操作する","左右の部屋へ配管を分岐して送風する"],answer:0,ex:"2部屋を1台で空調する機能ではありません。広いLDKなど同一空間の左右2エリアへ吹き分けます。"},
+ {q:"三菱Rシリーズの空気清浄機能として正しいものは？",choices:["ヘルスエアー機能","ピュアミスト","ストリーマ","プラズマクラスター"],answer:0,ex:"Rはヘルスエアー機能。Rにピュアミストを案内しないようにします。"},
+ {q:"三菱の清潔機能の覚え方として適切なのは？",choices:["はずせる＝自分で、よごれん＝汚れ予防、おまかせ＝自動ケア","はずせる＝空気清浄、よごれん＝除湿、おまかせ＝暖房","3つとも同じ機能名の言い換え","すべてフィルター自動掃除だけを指す"],answer:0,ex:"3つは役割が違います。対象部位や搭載内容は型番ごとに確認します。"}
 ];
 const GENERAL_QUIZ=[
  {q:"『広いLDKで温度ムラが気になる』お客様に、まず比較したいシリーズは？",choices:["X","C","D","L"],answer:0,ex:"Xは温度と速さの違う2種類の気流を使うハイブリッド気流が大きな特徴です。"},
@@ -3898,7 +3910,7 @@ const GENERAL_QUIZ=[
 ];
 function showMitsubishiSeries(key,button){document.querySelectorAll("#mitsubishi .series-tab").forEach(b=>b.classList.remove("active"));if(button)button.classList.add("active");const p=getMakerProgress(MITSUBISHI_PROGRESS_KEY);if(!p.series.includes(key)){p.series.push(key);saveMakerProgress(MITSUBISHI_PROGRESS_KEY,p);}renderMakerSeries("mitsubishiSeriesPanel",MITSUBISHI_SERIES[key],key);updateMitsubishiProgress();}
 function showGeneralSeries(key,button){document.querySelectorAll("#general .series-tab").forEach(b=>b.classList.remove("active"));if(button)button.classList.add("active");const p=getMakerProgress(GENERAL_PROGRESS_KEY);if(!p.series.includes(key)){p.series.push(key);saveMakerProgress(GENERAL_PROGRESS_KEY,p);}renderMakerSeries("generalSeriesPanel",GENERAL_SERIES[key],key);updateGeneralProgress();}
-function updateMitsubishiProgress(){const p=getMakerProgress(MITSUBISHI_PROGRESS_KEY),done=Math.min(p.series.length,5)+(p.quiz?1:0),pct=Math.round(done/6*100);["mitsubishiPercent","mitsubishiProgressValue"].forEach(id=>{const a=document.getElementById(id);if(a)a.textContent=pct+"%";});document.querySelectorAll("#mitsubishiSeriesStatus [data-series]").forEach(el=>el.classList.toggle("done",p.series.includes(el.dataset.series)));const b=document.getElementById("mitsubishiFinishText");if(b)b.textContent=pct>=100?"🎉 三菱攻略マスター：全項目修了":"現在 "+pct+"% 完了";}
+function updateMitsubishiProgress(){const p=getMakerProgress(MITSUBISHI_PROGRESS_KEY),done=Math.min(p.series.length,4)+(p.quiz?1:0),pct=Math.round(done/5*100);["mitsubishiPercent","mitsubishiProgressValue"].forEach(id=>{const a=document.getElementById(id);if(a)a.textContent=pct+"%";});document.querySelectorAll("#mitsubishiSeriesStatus [data-series]").forEach(el=>el.classList.toggle("done",p.series.includes(el.dataset.series)));const b=document.getElementById("mitsubishiFinishText");if(b)b.textContent=pct>=100?"🎉 三菱攻略マスター：全項目修了":"現在 "+pct+"% 完了";}
 function updateGeneralProgress(){const p=getMakerProgress(GENERAL_PROGRESS_KEY),done=Math.min(p.series.length,6)+(p.quiz?1:0),pct=Math.round(done/7*100);["generalPercent","generalProgressValue"].forEach(id=>{const a=document.getElementById(id);if(a)a.textContent=pct+"%";});document.querySelectorAll("#generalSeriesStatus [data-series]").forEach(el=>el.classList.toggle("done",p.series.includes(el.dataset.series)));const b=document.getElementById("generalFinishText");if(b)b.textContent=pct>=100?"🎉 ゼネラル攻略マスター：全項目修了":"現在 "+pct+"% 完了";}
 let mitsubishiQuizIndex=0,mitsubishiQuizAnswered=false,mitsubishiQuizScore=0,mitsubishiQuizCurrent=null;
 function renderMitsubishiQuiz(){const q=MITSUBISHI_QUIZ[mitsubishiQuizIndex],qEl=document.getElementById("mitsubishiQuizQuestion"),cEl=document.getElementById("mitsubishiQuizChoices"),fEl=document.getElementById("mitsubishiQuizFeedback"),nEl=document.getElementById("mitsubishiQuizNext");if(!qEl)return;mitsubishiQuizAnswered=false;const shuffled=makerShuffle(q.choices);mitsubishiQuizCurrent={q,shuffled,correct:shuffled.findIndex(x=>x.i===q.answer)};qEl.innerHTML="<b>Q"+(mitsubishiQuizIndex+1)+"</b> "+q.q;cEl.innerHTML="";shuffled.forEach((x,i)=>{const b=document.createElement("button");b.className="choice";b.textContent=(i+1)+"　"+x.v;b.onclick=()=>answerMitsubishiQuiz(i,b);cEl.appendChild(b);});fEl.classList.add("hidden");nEl.classList.add("hidden");}
