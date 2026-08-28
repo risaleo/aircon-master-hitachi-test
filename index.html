@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.9.7 玉ちゃん指摘全反映版</title>
+<title>エアコン販買マスター Pro Ver.6.9.8 三菱指摘再修正版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1294,7 +1294,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <style id="v630-sharp-lux-final">
-/* Ver.6.9.7 玉ちゃん指摘全反映版：iPad/iPhone見切れ対策 */
+/* Ver.6.9.8 三菱指摘再修正版：iPad/iPhone見切れ対策 */
 #visualGrid .visual-card[data-cat="sharp"]{
   overflow:hidden!important;
   padding:10px!important;
@@ -1434,7 +1434,7 @@ html,body{max-width:100%;overflow-x:hidden}
 #general .maker-status-list span,#mitsubishi .maker-status-list span{min-width:42px;text-align:center}
 @media(max-width:700px){#general .hitachi-flow-row,#mitsubishi .hitachi-flow-row{grid-template-columns:1fr!important}#general .hitachi-flow-row i,#mitsubishi .hitachi-flow-row i{transform:rotate(90deg)}}
 
-/* ===== Ver6.9.7 Tamachan Feedback Fully Applied ===== */
+/* ===== Ver6.9.8 Tamachan Feedback Fully Applied ===== */
 .visual-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .visual-card{position:relative;border:1px solid #cfe0ef;border-radius:24px;background:linear-gradient(180deg,#fff 0%,#f8fbff 100%);overflow:hidden;box-shadow:0 14px 34px rgba(20,61,102,.10)}
 .visual-card::before{content:"";display:block;height:7px;background:linear-gradient(90deg,#0d6ee8,#61a9ff)}
@@ -1484,7 +1484,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.9.7 玉ちゃん指摘全反映版</small>
+      <small>Ver.6.9.8 三菱指摘再修正版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -3386,9 +3386,9 @@ const VISUAL_LIBRARY=[
  {category:"mitsubishi",file:"mitsubishi-hybrid-v692.webp?v=697",title:"ハイブリッド運転",desc:"冷房⇄爽風（送風）を自動切替。シリーズごとの設定方法の違いも明記。"},
  {category:"mitsubishi",file:"mitsubishi-two-point-v692.webp?v=697",title:"2か所同時空調",desc:"1台で2部屋ではなく、1つの部屋の左右2エリアへ左右フラップで吹き分け。"},
  {category:"mitsubishi",file:"mitsubishi-puremist-v692.webp?v=697",title:"三菱の空気清浄",desc:"FZ・Z・X＝ピュアミスト、R＝ヘルスエアー機能として分けて案内。"},
- {category:"mitsubishi",file:"mitsubishi-settings-v692.webp?v=697",title:"三菱 初期設定",desc:"最初から自動／自分で確認／アプリ接続の3分類。時刻設定は主役にしない。"},
- {category:"mitsubishi",file:"mitsubishi-clean-v692.webp?v=697",title:"三菱 清潔・お手入れ",desc:"はずせるボディ／よごれんボディ／おまかせボディの役割を整理。"},
- {category:"mitsubishi",file:"mitsubishi-series-v692.webp?v=697",title:"三菱シリーズ比較",desc:"FZ・Z・R・GEを中心に、畳数・除湿方式・設置性を比較。シリーズ比較は図解一覧の最後に配置。"},
+ {category:"mitsubishi",file:"mitsubishi-settings-v692.webp?v=698",title:"三菱 初期設定",desc:"最初から自動／自分で確認／アプリ接続の3分類。時刻設定は主役にしない。"},
+ {category:"mitsubishi",file:"mitsubishi-clean-v692.webp?v=698",title:"三菱 清潔・お手入れ",desc:"3つのボディを図解本体で比較。FZ・Z・R・GEの搭載差も確認。"},
+ {category:"mitsubishi",file:"mitsubishi-series-v692.webp?v=698",title:"三菱シリーズ比較",desc:"FZ・Z・R・GEの4シリーズを表そのもので比較。FZのプロペラファンも明記。"},
  {category:"general",file:"general-sarasara-v692.webp",title:"さらさら冷房",desc:"再熱除湿で冷えすぎを抑えながら、湿度をしっかりコントロール。"},
  {category:"general",file:"general-airflow-v692.webp",title:"ノクリア独自の気流制御",desc:"広いお部屋へムラを抑えて届ける気流の考え方を図解。"},
  {category:"general",file:"general-clean-v692.webp",title:"熱交換器・内部クリーン",desc:"熱交換器や内部の清潔維持をサポートする機能を整理。"},
@@ -3878,7 +3878,7 @@ function nextSharpQuiz(){
 const MITSUBISHI_PROGRESS_KEY="aircon_mitsubishi_master_v670";
 const GENERAL_PROGRESS_KEY="aircon_general_master_v671";
 const MITSUBISHI_SERIES={
- FZ:{title:"FZシリーズ",tag:"次世代プレミアム",summary:"14〜29畳。省エネ・センサー・2温度2気流を最優先する最上位。",suitable:["大きなリビング","体感差がある家庭","自動制御・省エネ重視"],features:["ムーブアイmirA.I.+","2温度2気流","プレミアム除湿","はずせる／よごれん／おまかせボディ"],talk:"『省エネと自動快適を最優先』ならFZから比較します。",caution:"大型室内機。設置寸法と能力ラインアップを確認します。"},
+ FZ:{title:"FZシリーズ",tag:"次世代プレミアム",summary:"14〜29畳。省エネ・センサー・2温度2気流を最優先する最上位。",suitable:["大きなリビング","体感差がある家庭","自動制御・省エネ重視"],features:["ムーブアイmirA.I.+","2つのプロペラファン『パーソナルツインフロー』","2温度2気流","プレミアム除湿","はずせる／よごれん／おまかせボディ"],talk:"『省エネと自動快適を最優先』ならFZから比較します。",caution:"大型室内機。設置寸法と能力ラインアップを確認します。"},
  Z:{title:"Zシリーズ",tag:"プレミアム",summary:"6〜29畳。快適・清潔・省エネに加え、再熱除湿を使うさらっと除湿冷房が強み。",suitable:["リビングで長時間使用","寒くなりにくい除湿を重視","清潔機能も重視"],features:["ムーブアイmirA.I.+","2か所同時空調","さらっと除湿冷房（再熱除湿）","ピュアミスト・外せるボディ"],talk:"『冷えすぎを抑えながら除湿したい』ならZの再熱除湿を比較します。",caution:"FZとの違いは省エネ・気流・除湿方式で比較します。"},
  R:{title:"Rシリーズ",tag:"高さ255mm",summary:"6〜23畳。高さ制約に強く、ムーブアイ・スマート除湿・ヘルスエアー機能を搭載。",suitable:["窓上・梁下","高さ制約が厳しい","空気清浄も欲しい"],features:["高さ255mm","ムーブアイ","スマート除湿","ヘルスエアー機能"],talk:"『高さが厳しくても快適機能を残したい』ならRです。",caution:"本体高さだけで断定せず、据付必要寸法・配管方向を確認します。"},
  GE:{title:"GEシリーズ",tag:"スタンダード",summary:"6〜18畳。基本機能と価格を重視する標準シリーズ。",suitable:["寝室・個室","基本機能重視","価格を抑えたい"],features:["フロアアイ","選べる3モード除湿","はずせるボディ","基本の冷暖房"],talk:"『基本機能をしっかり、価格も抑えたい』ならGEです。",caution:"上位シリーズのセンサー・空気清浄・再熱除湿が必要か確認します。"}
