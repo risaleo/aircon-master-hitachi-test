@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.9.8 三菱指摘再修正版</title>
+<title>エアコン販買マスター Pro Ver.6.9.9 SHARP図解本体修正版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1294,7 +1294,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <style id="v630-sharp-lux-final">
-/* Ver.6.9.8 三菱指摘再修正版：iPad/iPhone見切れ対策 */
+/* Ver.6.9.9 SHARP図解本体修正版：iPad/iPhone見切れ対策 */
 #visualGrid .visual-card[data-cat="sharp"]{
   overflow:hidden!important;
   padding:10px!important;
@@ -1434,7 +1434,7 @@ html,body{max-width:100%;overflow-x:hidden}
 #general .maker-status-list span,#mitsubishi .maker-status-list span{min-width:42px;text-align:center}
 @media(max-width:700px){#general .hitachi-flow-row,#mitsubishi .hitachi-flow-row{grid-template-columns:1fr!important}#general .hitachi-flow-row i,#mitsubishi .hitachi-flow-row i{transform:rotate(90deg)}}
 
-/* ===== Ver6.9.8 Tamachan Feedback Fully Applied ===== */
+/* ===== Ver6.9.9 Tamachan Feedback Fully Applied ===== */
 .visual-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .visual-card{position:relative;border:1px solid #cfe0ef;border-radius:24px;background:linear-gradient(180deg,#fff 0%,#f8fbff 100%);overflow:hidden;box-shadow:0 14px 34px rgba(20,61,102,.10)}
 .visual-card::before{content:"";display:block;height:7px;background:linear-gradient(90deg,#0d6ee8,#61a9ff)}
@@ -1484,7 +1484,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.9.8 三菱指摘再修正版</small>
+      <small>Ver.6.9.9 SHARP図解本体修正版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -3375,13 +3375,13 @@ const VISUAL_LIBRARY=[
  {category:"toshiba",file:"toshiba-settings-v692.webp",title:"東芝 初期設定",desc:"手動選択・自動・IoLIFE接続設定を整理。"},
  {category:"sharp",file:"sharp-lux-plasma-v694.png?v=697",title:"プラズマクラスター空気清浄",desc:"送風単独運転も可能。プラズマクラスター25000／7000はシリーズごとに確認。"},
  {category:"sharp",file:"sharp-lux-filter-v694.png?v=697",title:"フィルター自動お掃除",desc:"ブラシ清掃からダスト回収までを図解。搭載シリーズは型番で確認。"},
- {category:"sharp",file:"sharp-lux-cocoro-v694.png?v=697",title:"COCORO HOME・ペットモード",desc:"冷房時のみ。ワンちゃん冷房／ネコちゃん冷房の制御差と注意点を明記。"},
- {category:"sharp",file:"sharp-lux-airflow-v694.png?v=697",title:"気流制御",desc:"コアンダロング気流・すこやかシャワー気流を除湿と分けて図解。"},
- {category:"sharp",file:"sharp-lux-dehumid-v694.png?v=697",title:"除湿2方式",desc:"R＝氷結ドライ、V・E＝氷結ドライ＋コアンダ除湿、DG＝コアンダ除湿。再熱除湿ではない。"},
+ {category:"sharp",file:"sharp-lux-cocoro-v694.png?v=699",title:"COCORO HOME・ペットモード",desc:"ペットモードを図解本体で説明。冷房時のみ・ワンちゃん／ネコちゃんの制御差も整理。"},
+ {category:"sharp",file:"sharp-lux-airflow-v694.png?v=699",title:"気流制御",desc:"コアンダロング気流／すこやかシャワー気流を、用途と風の届き方で図解。"},
+ {category:"sharp",file:"sharp-lux-dehumid-v694.png?v=699",title:"除湿2方式",desc:"氷結ドライ／コアンダ除湿を図解本体で比較し、搭載シリーズと再熱除湿ではない点を明記。"},
  {category:"sharp",file:"sharp-lux-sleep-v694.png?v=697",title:"匠の冷房・睡眠向け機能",desc:"匠の冷房は温度・湿度・気流、おやすみAIは気象情報と起床時フィードバックを活用。"},
- {category:"sharp",file:"sharp-lux-clean-v694.png?v=697",title:"清潔3機能",desc:"防カビカラッとファンはR、内部清浄／カビパトロールはR・V・E・DG。DGの効果説明も区別。"},
- {category:"sharp",file:"sharp-lux-eco-v694.png?v=697",title:"省エネ・節電の具体機能",desc:"エコ自動・おでかけ・つないでもっと節電を『何を見てどう制御するか』で具体化。"},
- {category:"sharp",file:"sharp-settings-illustrated.png?v=697",title:"SHARP 初期設定",desc:"自動／要設定／アプリ接続を分離。ダストボックス確認はお手入れへ移動。"},
+ {category:"sharp",file:"sharp-lux-clean-v694.png?v=699",title:"清潔3機能",desc:"防カビカラッとファン／内部洗浄／カビパトロールを図解本体で分離し、搭載グレードも一覧化。"},
+ {category:"sharp",file:"sharp-lux-eco-v694.png?v=699",title:"省エネ・節電の具体機能",desc:"エコ自動・おでかけ・つないでもっと節電を、図解本体の中で役割別に説明。"},
+ {category:"sharp",file:"sharp-settings-illustrated.png?v=699",title:"SHARP 初期設定",desc:"自動で働くもの／自分で確認・調整するもの／アプリ接続を図解本体で3分類。"},
  {category:"mitsubishi",file:"mitsubishi-moveeye-v692.webp?v=697",title:"三菱のセンサー",desc:"mirA.I.+／ムーブアイ極／ムーブアイ／フロアアイの違いと搭載シリーズを整理。"},
  {category:"mitsubishi",file:"mitsubishi-hybrid-v692.webp?v=697",title:"ハイブリッド運転",desc:"冷房⇄爽風（送風）を自動切替。シリーズごとの設定方法の違いも明記。"},
  {category:"mitsubishi",file:"mitsubishi-two-point-v692.webp?v=697",title:"2か所同時空調",desc:"1台で2部屋ではなく、1つの部屋の左右2エリアへ左右フラップで吹き分け。"},
