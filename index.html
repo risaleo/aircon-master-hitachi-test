@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.9.9 SHARP図解本体修正版</title>
+<title>エアコン販買マスター Pro Ver.6.10.0 日立資料反映版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1294,7 +1294,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <style id="v630-sharp-lux-final">
-/* Ver.6.9.9 SHARP図解本体修正版：iPad/iPhone見切れ対策 */
+/* Ver.6.10.0 日立資料反映版：iPad/iPhone見切れ対策 */
 #visualGrid .visual-card[data-cat="sharp"]{
   overflow:hidden!important;
   padding:10px!important;
@@ -1434,7 +1434,7 @@ html,body{max-width:100%;overflow-x:hidden}
 #general .maker-status-list span,#mitsubishi .maker-status-list span{min-width:42px;text-align:center}
 @media(max-width:700px){#general .hitachi-flow-row,#mitsubishi .hitachi-flow-row{grid-template-columns:1fr!important}#general .hitachi-flow-row i,#mitsubishi .hitachi-flow-row i{transform:rotate(90deg)}}
 
-/* ===== Ver6.9.9 Tamachan Feedback Fully Applied ===== */
+/* ===== Ver6.10.0 Tamachan Feedback Fully Applied ===== */
 .visual-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .visual-card{position:relative;border:1px solid #cfe0ef;border-radius:24px;background:linear-gradient(180deg,#fff 0%,#f8fbff 100%);overflow:hidden;box-shadow:0 14px 34px rgba(20,61,102,.10)}
 .visual-card::before{content:"";display:block;height:7px;background:linear-gradient(90deg,#0d6ee8,#61a9ff)}
@@ -1484,7 +1484,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.9.9 SHARP図解本体修正版</small>
+      <small>Ver.6.10.0 日立資料反映版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -3350,9 +3350,9 @@ const VISUAL_LIBRARY=[
  {category:"daikin",file:"room-patrol.png",title:"室温パトロール",desc:"停止中の見守りから自動運転までの流れを図解。"},
  {category:"daikin",file:"daikin-overview.png",title:"R・A・F・E比較",desc:"使い方・希望・予算から、4シリーズの提案軸を比較。"},
  {category:"hitachi",file:"hitachi-freeze-indoor-illustrated.png?v=686",title:"凍結洗浄（室内機）",desc:"凍結→汚れ捕捉→解凍排水の工程と、できること・限界を図解。"},
- {category:"hitachi",file:"hitachi-freeze-outdoor-lux-v695.png?v=697",title:"凍結洗浄（室外機）",desc:"背面熱交換器の凍結→解凍→洗い流し。工場出荷時OFF・設定必要・逆回転時の案内を整理。"},
+ {category:"hitachi",file:"hitachi-freeze-outdoor-lux-v695.png?v=6100",title:"凍結洗浄（室外機）",desc:"背面熱交換器の凍結→解凍→洗い流し。工場出荷時OFF・設定必要・逆回転時の案内を整理。"},
  {category:"hitachi",file:"hitachi-fan-robot-illustrated.png?v=686",title:"ファンお掃除ロボ",desc:"送風ファンの清掃範囲と、フィルター自動掃除との違いを図解。"},
- {category:"hitachi",file:"hitachi-filter-auto-lux-v696.png?v=697",title:"フィルター自動掃除",desc:"フィルターのホコリを自動掃除する機能を主役にし、ユニット移動式は仕組みの特徴として整理。"},
+ {category:"hitachi",file:"hitachi-filter-auto-lux-v696.png?v=6100",title:"フィルター自動掃除",desc:"固定フィルター上をお掃除ユニットが左右移動し、ホコリを前面ダストボックスへ集める仕組みを図解。"},
  {category:"hitachi",file:"hitachi-mold-buster-illustrated.png?v=686",title:"カビバスター",desc:"停止中の温湿度監視と、加熱・低湿制御によるカビ抑制を図解。"},
  {category:"hitachi",file:"hitachi-internal-dry-illustrated.png?v=686",title:"内部送風乾燥",desc:"停止後の送風で内部の湿気を乾かし、カビ抑制を助ける流れを図解。"},
  {category:"hitachi",file:"hitachi-stainless-illustrated.png?v=686",title:"ステンレス・クリーン",desc:"フィルター・通風路・フラップなど、採用箇所と限界を図解。"},
@@ -3363,7 +3363,7 @@ const VISUAL_LIBRARY=[
  {category:"hitachi",file:"hitachi-frost-watch-illustrated.png?v=686",title:"みはって霜取り",desc:"室外機の霜を見張り、必要なタイミングで霜取り運転する仕組みを図解。"},
  {category:"hitachi",file:"hitachi-ryokai-illustrated.png?v=686",title:"健康冷房［涼快］",desc:"湿度を抑えながら、冷えすぎに配慮したさわやかな冷房を図解。"},
  {category:"hitachi",file:"hitachi-sleep-watch-illustrated.png?v=686",title:"みはっておやすみ",desc:"睡眠中の温度・湿度を見張り、寝苦しさや冷えすぎに配慮する運転を図解。"},
- {category:"hitachi",file:"hitachi-lab-control-lux-v696.png?v=697",title:"LAB制御",desc:"設定温度到達後の安定時に低出力へ自動切替し、快適性と節電を両立する仕組みを図解。"},
+ {category:"hitachi",file:"hitachi-lab-control-lux-v696.png?v=6100",title:"LAB制御",desc:"設定温度到達後の安定時に低出力へ自動切替し、快適性と節電を両立する仕組みを図解。"},
  {category:"hitachi",file:"hitachi-wave-fan-illustrated.png?v=414",title:"WN ウェーブファン",desc:"Xシリーズと同じファン採用、静音性向上、案内時の注意を図解。"},
  {category:"toshiba",file:"toshiba-radar-v692.webp",title:"レーダー風あて／風よけ",desc:"V-DR専用。人の動きを探知し、風を届ける・避ける仕組みを図解。"},
  {category:"toshiba",file:"toshiba-mufukan-v692.webp",title:"無風感空調",desc:"V-DR・V-DZ・V-DX。風あたりをやわらげる仕組みを図解。"},
