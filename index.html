@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<title>エアコン販買マスター Pro Ver.6.10.0 日立資料反映版</title>
+<title>エアコン販買マスター Pro Ver.6.10.1 玉ちゃん指摘・ゼネラル修正版</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3890">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3890">
 <style>
@@ -1294,7 +1294,7 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <style id="v630-sharp-lux-final">
-/* Ver.6.10.0 日立資料反映版：iPad/iPhone見切れ対策 */
+/* Ver.6.10.1 玉ちゃん指摘・ゼネラル修正版：iPad/iPhone見切れ対策 */
 #visualGrid .visual-card[data-cat="sharp"]{
   overflow:hidden!important;
   padding:10px!important;
@@ -1434,7 +1434,7 @@ html,body{max-width:100%;overflow-x:hidden}
 #general .maker-status-list span,#mitsubishi .maker-status-list span{min-width:42px;text-align:center}
 @media(max-width:700px){#general .hitachi-flow-row,#mitsubishi .hitachi-flow-row{grid-template-columns:1fr!important}#general .hitachi-flow-row i,#mitsubishi .hitachi-flow-row i{transform:rotate(90deg)}}
 
-/* ===== Ver6.10.0 Tamachan Feedback Fully Applied ===== */
+/* ===== Ver6.10.1 Tamachan Feedback Fully Applied ===== */
 .visual-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .visual-card{position:relative;border:1px solid #cfe0ef;border-radius:24px;background:linear-gradient(180deg,#fff 0%,#f8fbff 100%);overflow:hidden;box-shadow:0 14px 34px rgba(20,61,102,.10)}
 .visual-card::before{content:"";display:block;height:7px;background:linear-gradient(90deg,#0d6ee8,#61a9ff)}
@@ -1484,7 +1484,7 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="brand">
       <span class="brand-snow">❄</span>
       <span>エアコン販買マスター</span>
-      <small>Ver.6.10.0 日立資料反映版</small>
+      <small>Ver.6.10.1 玉ちゃん指摘・ゼネラル修正版</small>
     </div>
     <button class="icon-button status-button" onclick="openMission()" aria-label="今日の目標">◎</button>
   </header>
@@ -3389,8 +3389,8 @@ const VISUAL_LIBRARY=[
  {category:"mitsubishi",file:"mitsubishi-settings-v692.webp?v=698",title:"三菱 初期設定",desc:"最初から自動／自分で確認／アプリ接続の3分類。時刻設定は主役にしない。"},
  {category:"mitsubishi",file:"mitsubishi-clean-v692.webp?v=698",title:"三菱 清潔・お手入れ",desc:"3つのボディを図解本体で比較。FZ・Z・R・GEの搭載差も確認。"},
  {category:"mitsubishi",file:"mitsubishi-series-v692.webp?v=698",title:"三菱シリーズ比較",desc:"FZ・Z・R・GEの4シリーズを表そのもので比較。FZのプロペラファンも明記。"},
- {category:"general",file:"general-sarasara-v692.webp",title:"さらさら冷房",desc:"再熱除湿で冷えすぎを抑えながら、湿度をしっかりコントロール。"},
- {category:"general",file:"general-airflow-v692.webp",title:"ノクリア独自の気流制御",desc:"広いお部屋へムラを抑えて届ける気流の考え方を図解。"},
+ {category:"general",file:"general-sarasara-v692.webp?v=6101",title:"さらさら冷房",desc:"設定温度到達前に冷房→再熱除湿へ自動切替。X・Zの対象能力帯まで図解。"},
+ {category:"general",file:"general-airflow-v692.webp?v=6101",title:"ノクリアの気流制御",desc:"Xのハイブリッド気流、X・Zの左右独立ルーバー、X・Z・W・Lのロング気流を比較。"},
  {category:"general",file:"general-clean-v692.webp",title:"熱交換器・内部クリーン",desc:"熱交換器や内部の清潔維持をサポートする機能を整理。"},
  {category:"general",file:"general-eco-v692.webp",title:"省エネ・センサー運転",desc:"人やお部屋の状態を見ながらムダを抑える運転を図解。"},
  {category:"general",file:"general-settings-v692.webp",title:"ゼネラル 初期設定",desc:"時刻・運転モード・風向・タイマー・内部クリーンを整理。"},
